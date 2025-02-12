@@ -20,3 +20,9 @@
 
 ![4](img/Admin.png)
 ![5](img/Admin1.png)
+
+![6](img/graphlog.png)
+![7](img/)
+![8](img/Date2.png)
+![9](img/Graph.png)
+![10](img/Date.png)
