@@ -9,14 +9,15 @@ class CreateSystemLogsTable extends Migration
     public function up()
     {
         Schema::create('system_logs', function (Blueprint $table) {
-            $table->id(); // ID หลักของ Log
-            $table->unsignedBigInteger('user_id')->nullable()->index(); // User ที่กระทำ
+            $table->id(); // Primary Key
+            $table->unsignedBigInteger('user_id')->nullable()->index();
             $table->string('event'); // เหตุการณ์ที่เกิดขึ้น เช่น "User Login"
-            $table->text('description')->nullable(); // คำอธิบายเพิ่มเติม
-            $table->ipAddress('ip_address')->nullable(); // เก็บ IP ของผู้ใช้งาน
-            $table->timestamps(); // created_at และ updated_at อัตโนมัติ
+            $table->enum('type', ['INFO', 'ERROR', 'WARNING'])->default('INFO'); // <-- เพิ่มคอลัมน์นี้
+            $table->text('description')->nullable();
+            $table->ipAddress('ip_address')->nullable();
+            $table->timestamps();
 
-            // เชื่อมกับตาราง users
+            // Foreign Key เชื่อมกับตาราง users
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
