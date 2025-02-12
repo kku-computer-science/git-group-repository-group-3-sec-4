@@ -272,6 +272,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                     </li>
                     @endcan
+                    @can('expertises-list')
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('log.index')}}">
+                            <i class="menu-icon mdi mdi-buffer"></i>
+                            <span class="menu-title">System Log</span>
+
+                        </a>
+                    </li>
+                    @endcan
                 </ul>
             </nav>
 
