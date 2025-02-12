@@ -272,22 +272,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                     </li>
                     @endcan
-                    @can('expertises-list')
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#systemLogMenu" aria-expanded="false" aria-controls="systemLogMenu">
-                            <i class="menu-icon mdi mdi-file-document"></i>
-                            <span class="menu-title">System Log</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="systemLogMenu">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{ route('log.index') }}">All Logs</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{ route('log.login') }}">Log Login</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{ route('log.error') }}">Log Error</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    @endcan
                 </ul>
             </nav>
 
