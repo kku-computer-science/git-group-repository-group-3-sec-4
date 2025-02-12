@@ -9,7 +9,7 @@
 
 # วิธีการเข้าใช้งานสำหรับ Admin
 ## ไปยังหน้า Login
-![1](img/Home.png)
+![1](img/home2.png)
 ## ใส่ Username และ Password ด้วย Admin account
 ![2](img/Accountlogin.png)
 ## หลังจาก Login สำเร็จจะมายังหน้า Dashboard
@@ -18,7 +18,7 @@
 ## คลิกไปยังส่วนต่างๆของ System log
 
 
-![4](img/home2.png)
+![4](img/Admin.png)
 ![5](img/Admin1.png)
 ## แสดงเมนู All log
 ![6](img/graphlog.png)
