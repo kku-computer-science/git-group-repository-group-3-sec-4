@@ -73,6 +73,8 @@ Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/system-log', [SystemLogController::class, 'index'])->name('log.index');
+    Route::get('/admin/system-log/login', [SystemLogController::class, 'logLogin'])->name('log.login');
+    Route::get('/admin/system-log/error', [SystemLogController::class, 'logError'])->name('log.error');
 });
 
 

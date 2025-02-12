@@ -14,6 +14,7 @@ class SystemLog extends Model
     protected $fillable = [
         'user_id',
         'event',
+        'type',
         'description',
         'ip_address',
     ];
