@@ -7,8 +7,16 @@ Group 3 sec 4
 653380209-6	นายพีรพัฒน์ สายยุทธ์
 653380217-7	นางสาวสุธารยา คำขันธ์
 
+# วิธีการเข้าใช้งานสำหรับ Admin
+## ไปยังหน้า Login
 ![1](img/Home.png)
+## ใส่ Username และ Password ด้วย Admin account
 ![2](img/Accountlogin.png)
+## หลังจาก Login สำเร็จจะมายังหน้า Dashboard
 ![3](img/Research.png)
+
+## คลิกไปยังส่วนของ System log
+
+
 ![4](img/Admin.png)
 ![5](img/Admin1.png)
