@@ -66,6 +66,11 @@ use App\Http\Controllers\TcicallController;
 // });
 
 
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/logs', [SystemLogController::class, 'index'])->name('logs.index');
+});
+
 Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
     Auth::routes();
 });
