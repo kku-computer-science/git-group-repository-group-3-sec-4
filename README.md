@@ -15,15 +15,15 @@
 ## หลังจาก Login สำเร็จจะมายังหน้า Dashboard
 ![3](img/Research.png)
 
-## คลิกไปยังส่วนของ System log
+## คลิกไปยังส่วนต่างๆของ System log
 
 
 ![4](img/Admin.png)
 ![5](img/Admin1.png)
-
+## แสดงเมนู All log
 ![6](img/graphlog.png)
-
-![7](img/)
+![7](img/date1.png)
 ![8](img/Date2.png)
+## แสดงเมนู log login
 ![9](img/Graph.png)
 ![10](img/Date.png)
