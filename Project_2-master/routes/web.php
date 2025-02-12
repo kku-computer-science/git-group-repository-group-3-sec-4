@@ -10,6 +10,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileuserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SystemLogController;
 
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Auth;
@@ -68,6 +69,12 @@ use App\Http\Controllers\TcicallController;
 
 Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
     Auth::routes();
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/system-log', [SystemLogController::class, 'index'])->name('log.index');
+    Route::get('/admin/system-log/login', [SystemLogController::class, 'logLogin'])->name('log.login');
+    Route::get('/admin/system-log/error', [SystemLogController::class, 'logError'])->name('log.error');
 });
 
 
