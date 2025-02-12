@@ -18,7 +18,7 @@
 ## คลิกไปยังส่วนต่างๆของ System log
 
 
-![4](img/Admin.png)
+![4](img/home2.png)
 ![5](img/Admin1.png)
 ## แสดงเมนู All log
 ![6](img/graphlog.png)
