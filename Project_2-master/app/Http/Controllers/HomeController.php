@@ -202,7 +202,7 @@ class HomeController extends Controller
 
 
         //return $paper_scopus;
-
+            
 
         $paper_tci = Paper::whereHas('source', function ($query) {
             return $query->where('source_data_id', '=', 3);
