@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SystemLogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +16,4 @@ use App\Http\Controllers\SystemLogController;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
-
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/logs', [SystemLogController::class, 'index']); // ดึง Log
-    Route::post('/logs/store', [SystemLogController::class, 'store']); // บันทึก Log
 });
