@@ -57,6 +57,7 @@ return array(
     'App\\Http\\Controllers\\TcicallController' => $baseDir . '/app/Http/Controllers/TcicallController.php',
     'App\\Http\\Controllers\\TeacherController' => $baseDir . '/app/Http/Controllers/TeacherController.php',
     'App\\Http\\Controllers\\TestController' => $baseDir . '/app/Http/Controllers/TestController.php',
+    'App\\Http\\Controllers\\TestTranslateController' => $baseDir . '/app/Http/Controllers/TestTranslateController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
