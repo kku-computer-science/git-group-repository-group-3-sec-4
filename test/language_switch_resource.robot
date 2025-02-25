@@ -1,5 +1,6 @@
 *** Settings ***
-Library           SeleniumLibrary
+Library    SeleniumLibrary
+Library    WebDriverManager
 
 *** Variables ***
 ${SERVER}         localhost:8000
@@ -15,20 +16,21 @@ ${CHROME_BROWSER_PATH}   C:\\Users\\tt_pe\\Documents\\chrome-win64\\chrome-win64
 ${CHROME_DRIVER_PATH}    C:\\Users\\tt_pe\\Documents\\chrome-win64\\chrome-win64\\chromedriver.exe
 
 ${LANG_BTN}         xpath=//button[@id='lang-switch']
-${TEXT_TO_CHECK}    xpath=//a[@class='nav-link']
+${TEXT_TO_CHECK}    xpath=//*[@id='btn-home']
 ${EN_TEXT}          HOME
 ${TH_TEXT}          หน้าแรก
 ${CN_TEXT}          首頁
 
 *** Keywords ***
+
+
 Open Browser To Welcome Page
-    ${chrome_options}    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
-    ${chrome_options.binary_location}    Set Variable    ${CHROME_BROWSER_PATH}
-    ${service}    Evaluate    sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")
-    # [selenium >= 4.10] chrome_options change to options
-    Create Webdriver    Chrome    options=${chrome_options}    service=${service}
-    Go To    ${WELCOME URL}
-    Welcome Page Should Be Open
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
+    ${chrome_options.binary_location}=    Set Variable    ${CHROME_BROWSER_PATH}
+    ${service}=    Evaluate    sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")
+    Open Browser    ${WELCOME URL}    chrome    options=${chrome_options}    service=${service}
+    Maximize Browser Window
+
 
 #for test01
 Welcome Page Should Be Open

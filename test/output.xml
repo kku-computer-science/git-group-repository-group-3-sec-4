@@ -1,114 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.11.9 on win32)" generated="2025-02-26T02:51:57.155627" rpa="false" schemaversion="5">
-<suite id="s1" name="Test Language Switch" source="C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\test\test_language_switch.robot">
-<test id="s1-t1" name="Test01 - Switch Language Without Login" line="9">
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-02-26T05:01:19.858397" rpa="false" schemaversion="5">
+<suite id="s1" name="Test03 Language Dynamic Content" source="C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\test\test03_language_dynamic_content.robot">
+<test id="s1-t1" name="Test03 - Dynamic Content Language Switch" line="9">
+<kw name="Open Browser To Welcome Page" owner="language_switch_resource" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-02-26T05:01:21.290059" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000019D7E7B2510&gt;</msg>
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-02-26T05:01:21.289484" elapsed="0.000645"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-26T05:01:21.290748" level="INFO">${chrome_options.binary_location} = C:\Users\tt_pe\Documents\chrome-win64\chrome-win64\chrome.exe</msg>
+<var>${chrome_options.binary_location}</var>
+<arg>${CHROME_BROWSER_PATH}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-26T05:01:21.290399" elapsed="0.000402"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-02-26T05:01:21.292627" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x0000019D7E7B2270&gt;</msg>
+<var>${service}</var>
+<arg>sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-02-26T05:01:21.290996" elapsed="0.001806"/>
+</kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-02-26T02:51:57.435146" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
+<msg time="2025-02-26T05:01:21.294252" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000'.</msg>
+<msg time="2025-02-26T05:01:21.295241" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-02-26T05:01:21.295462" level="FAIL">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</msg>
+<arg>${WELCOME URL}</arg>
+<arg>chrome</arg>
+<arg>options=${chrome_options}</arg>
+<arg>service=${service}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-02-26T02:51:57.435146" elapsed="5.777372"/>
+<status status="FAIL" start="2025-02-26T05:01:21.293143" elapsed="0.515920">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</status>
 </kw>
-<kw name="Verify Default Language Is English" owner="language_switch_resource">
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-02-26T02:52:03.257041" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-02-26T02:52:03.257041" level="FAIL">Element with locator 'xpath=//*[@id='btn-home']' not found.</msg>
-<var>${text}</var>
-<arg>xpath=//*[@id='btn-home']</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-02-26T02:52:03.213519" elapsed="0.045522">Element with locator 'xpath=//*[@id='btn-home']' not found.</status>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2025-02-26T05:01:21.809355" elapsed="0.000059"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${text}</arg>
-<arg>HOME</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="NOT RUN" start="2025-02-26T02:52:03.259041" elapsed="0.000000"/>
-</kw>
-<status status="FAIL" start="2025-02-26T02:52:03.212518" elapsed="0.046523">Element with locator 'xpath=//*[@id='btn-home']' not found.</status>
-</kw>
-<kw name="Switch Language To Thai 01" owner="language_switch_resource">
-<status status="NOT RUN" start="2025-02-26T02:52:03.260041" elapsed="0.000000"/>
-</kw>
-<kw name="Verify Language Is Thai 01" owner="language_switch_resource">
-<status status="NOT RUN" start="2025-02-26T02:52:03.260041" elapsed="0.000000"/>
-</kw>
-<kw name="Refresh Page And Verify Default Language Is English" owner="language_switch_resource">
-<status status="NOT RUN" start="2025-02-26T02:52:03.260041" elapsed="0.000000"/>
-</kw>
-<kw name="Close Browser And Reopen" owner="language_switch_resource">
-<status status="NOT RUN" start="2025-02-26T02:52:03.261041" elapsed="0.000000"/>
-</kw>
-<kw name="Verify Default Language Is English" owner="language_switch_resource">
-<status status="NOT RUN" start="2025-02-26T02:52:03.261041" elapsed="0.000000"/>
+<status status="FAIL" start="2025-02-26T05:01:21.288307" elapsed="0.521314">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</status>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-02-26T02:52:03.261041" elapsed="3.342858"/>
+<status status="PASS" start="2025-02-26T05:01:21.825717" elapsed="0.000229"/>
 </kw>
-<doc>ทดสอบการเปลี่ยนภาษาทั้งเว็บเมื่อยังไม่ได้ล็อกอิน</doc>
-<status status="FAIL" start="2025-02-26T02:51:57.433180" elapsed="9.170719">Element with locator 'xpath=//*[@id='btn-home']' not found.</status>
+<doc>ทดสอบการเปลี่ยนภาษาของข้อมูลใหม่ที่เพิ่มเข้ามาบนเว็บ</doc>
+<status status="FAIL" start="2025-02-26T05:01:21.283387" elapsed="0.553454">Setup failed:
+NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</status>
 </test>
-<test id="s1-t2" name="Test02 Reset Language After Close Browser" line="21">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-02-26T02:52:06.605931" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-02-26T02:52:06.604896" elapsed="5.750911"/>
-</kw>
-<kw name="Check Default Language Is English" owner="language_switch_resource">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-02-26T02:52:22.574393" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-02-26T02:52:22.574393" level="FAIL">Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.</msg>
-<arg>xpath=//*[@id='btn-home']</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-02-26T02:52:12.370822" elapsed="10.218570">Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.</status>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<var>${text}</var>
-<arg>xpath=//*[@id='btn-home']</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-26T02:52:22.589392" elapsed="0.000000"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${text}</arg>
-<arg>HOME</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="NOT RUN" start="2025-02-26T02:52:22.590393" elapsed="0.000000"/>
-</kw>
-<status status="FAIL" start="2025-02-26T02:52:12.370822" elapsed="10.219571">Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.</status>
-</kw>
-<kw name="Switch To Thai">
-<status status="NOT RUN" start="2025-02-26T02:52:22.590393" elapsed="0.000000"/>
-</kw>
-<kw name="Check Language Is Thai">
-<status status="NOT RUN" start="2025-02-26T02:52:22.591397" elapsed="0.000000"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2025-02-26T02:52:22.591397" elapsed="0.000000"/>
-</kw>
-<kw name="Open Browser To Welcome Page" owner="language_switch_resource">
-<status status="NOT RUN" start="2025-02-26T02:52:22.591397" elapsed="0.000000"/>
-</kw>
-<kw name="Check Default Language Is English" owner="language_switch_resource">
-<status status="NOT RUN" start="2025-02-26T02:52:22.591397" elapsed="0.000000"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-02-26T02:52:22.592395" elapsed="2.687604"/>
-</kw>
-<status status="FAIL" start="2025-02-26T02:52:06.604896" elapsed="18.675103">Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.</status>
-</test>
-<status status="FAIL" start="2025-02-26T02:51:57.157627" elapsed="28.123371"/>
+<status status="FAIL" start="2025-02-26T05:01:19.860372" elapsed="1.998896"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="2" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="2" skip="0" id="s1" name="Test Language Switch">Test Language Switch</stat>
+<stat name="Test03 Language Dynamic Content" id="s1" pass="0" fail="1" skip="0">Test03 Language Dynamic Content</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-02-26T05:01:21.278014" level="ERROR">Error in file 'C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\test\language_switch_resource.robot' on line 3: Importing library 'WebDriverManager' failed: ModuleNotFoundError: No module named 'WebDriverManager'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\.venv\Scripts\robot.exe
+  C:\Users\tt_pe\AppData\Local\Programs\Python\Python313\python313.zip
+  C:\Users\tt_pe\AppData\Local\Programs\Python\Python313\DLLs
+  C:\Users\tt_pe\AppData\Local\Programs\Python\Python313\Lib
+  C:\Users\tt_pe\AppData\Local\Programs\Python\Python313
+  c:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\.venv
+  c:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\.venv\Lib\site-packages</msg>
 </errors>
 </robot>

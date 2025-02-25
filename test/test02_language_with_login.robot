@@ -2,7 +2,7 @@
 
 *** Settings ***
 Resource          language_switch_resource.robot
-Test Setup        Open Browser To Login Page
+Test Setup        Open Browser To Welcome Page
 Test Teardown     Close Browser
 
 *** Test Cases ***

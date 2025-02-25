@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 7.1.1 (Python 3.11.9 on win32)" name="Generator">
+<meta content="Robot Framework 7.2.2 (Python 3.13.1 on win32)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all">
 :root {
@@ -1512,7 +1512,7 @@ window.testdata = function () {
     var STATUSES = ['FAIL', 'PASS', 'SKIP', 'NOT RUN'];
     var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'ITERATION', 'IF',
                          'ELSE IF', 'ELSE', 'RETURN', 'VAR', 'TRY', 'EXCEPT', 'FINALLY',
-                         'WHILE', 'CONTINUE', 'BREAK', 'ERROR'];
+                         'WHILE', 'GROUP', 'CONTINUE', 'BREAK', 'ERROR'];
     function addElement(elem) {
         if (!elem.id)
             elem.id = uniqueId();
@@ -2071,25 +2071,25 @@ storage = function () {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[0,0,28123],[],[[4,0,5,[],[0,275,9171,6],[[0,7,8,0,9,0,0,0,[1,277,5777],[[277,2,10]]],[0,11,12,0,0,0,0,0,[0,6055,47],[[0,13,8,0,14,15,16,0,[0,6056,46],[[6099,2,17],[6099,5,6]]],[0,18,19,0,20,21,0,0,[3,6101,0],[]]]],[0,22,12,0,0,0,0,0,[3,6102,0],[]],[0,23,12,0,0,0,0,0,[3,6102,0],[]],[0,24,12,0,0,0,0,0,[3,6102,0],[]],[0,25,12,0,0,0,0,0,[3,6103,0],[]],[0,11,12,0,0,0,0,0,[3,6103,0],[]],[2,26,8,0,27,0,0,0,[1,6103,3343],[]]]],[28,0,0,[],[0,9447,18675,29],[[0,7,8,0,9,0,0,0,[1,9447,5751],[[9448,2,10]]],[0,30,12,0,0,0,0,0,[0,15213,10220],[[0,31,8,0,32,33,0,0,[0,15213,10219],[[25416,2,34],[25416,5,29]]],[0,13,8,0,14,15,16,0,[3,25431,0],[]],[0,18,19,0,20,21,0,0,[3,25432,0],[]]]],[0,35,0,0,0,0,0,0,[3,25432,0],[]],[0,36,0,0,0,0,0,0,[3,25433,0],[]],[0,26,8,0,27,0,0,0,[3,25433,0],[]],[0,37,12,0,0,0,0,0,[3,25433,0],[]],[0,30,12,0,0,0,0,0,[3,25433,0],[]],[2,26,8,0,27,0,0,0,[1,25434,2688],[]]]]],[],[2,0,2,0]];
+window.output["suite"] = [1,2,3,0,[],[0,0,1999],[],[[4,0,5,[],[0,1423,553,6],[[1,7,8,0,0,0,0,0,[0,1428,521],[[0,9,10,0,11,12,13,0,[1,1429,1],[[1430,2,14]]],[0,15,10,0,16,17,18,0,[1,1430,0],[[1431,2,19]]],[0,9,10,0,11,20,21,0,[1,1431,2],[[1433,2,22]]],[0,23,24,0,25,26,0,0,[0,1433,516],[[1434,2,27],[1435,2,28],[1435,5,29]]],[0,30,24,0,31,0,0,0,[3,1949,0],[]]]],[2,32,24,0,33,0,0,0,[1,1966,0],[]]]]],[],[1,0,1,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*Test Language Switch","*C:\\Users\\tt_pe\\Documents\\GitHub\\Proj_SE\\git-group-repository-group-3-sec-4\\test\\test_language_switch.robot","*test_language_switch.robot","*Test01 - Switch Language Without Login","*<p>ทดสอบการเปลี่ยนภาษาทั้งเว็บเมื่อยังไม่ได้ล็อกอิน\x3c/p>","*Element with locator 'xpath=//*[@id='btn-home']' not found.","*Open Browser","*SeleniumLibrary","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*Opening browser 'firefox' to base url 'None'.","*Verify Default Language Is English","*language_switch_resource","*Get Text","*<p>Returns the text value of the element identified by <code>locator\x3c/code>.\x3c/p>","*xpath=//*[@id='btn-home']","*${text}","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-5.png\"><img src=\"selenium-screenshot-5.png\" width=\"800px\">\x3c/a>","*Should Be Equal","*BuiltIn","*<p>Fails if the given objects are unequal.\x3c/p>","*${text}    HOME","*Switch Language To Thai 01","*Verify Language Is Thai 01","*Refresh Page And Verify Default Language Is English","*Close Browser And Reopen","*Close Browser","*<p>Closes the current browser.\x3c/p>","*Test02 Reset Language After Close Browser","*Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.","*Check Default Language Is English","*Wait Until Element Is Visible","*<p>Waits until the element <code>locator\x3c/code> is visible.\x3c/p>","*xpath=//*[@id='btn-home']    timeout=10s","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-6.png\"><img src=\"selenium-screenshot-6.png\" width=\"800px\">\x3c/a>","*Switch To Thai","*Check Language Is Thai","*Open Browser To Welcome Page"]);
+window.output["strings"] = window.output["strings"].concat(["*","*Test03 Language Dynamic Content","*C:\\Users\\tt_pe\\Documents\\GitHub\\Proj_SE\\git-group-repository-group-3-sec-4\\test\\test03_language_dynamic_content.robot","*test03_language_dynamic_content.robot","*Test03 - Dynamic Content Language Switch","*<p>ทดสอบการเปลี่ยนภาษาของข้อมูลใหม่ที่เพิ่มเข้ามาบนเว็บ\x3c/p>","eNq1jr2uwjAMRneewmK+Inv4mYANlor5Kk1dYimNK9tp7+PfUiYeAOkbLNnn+GvQ6gh9oIyd39y5qTGdhSaUy1/E0YiLhxuqhid6eJTQZgRj4NYCFejWU+hZICbhAfdwXeaOYx2wWHjxsMQSKaAIyw+MGYMiTKRkHg4BkmB/3CazUb1z8zzvFDMWqsOuw8l9yNyM7fupM+G6tNHEbFSebtWre29/M8cV2J6+JD64cNr8AzQNeJA=","*Open Browser To Welcome Page","*language_switch_resource","*Evaluate","*BuiltIn","*<p>Evaluates the given expression in Python and returns the result.\x3c/p>","*sys.modules['selenium.webdriver'].ChromeOptions()    sys","*${chrome_options}","*${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000019D7E7B2510&gt;","*Set Variable","*<p>Returns the given values which can then be assigned to a variables.\x3c/p>","*${CHROME_BROWSER_PATH}","*${chrome_options.binary_location}","*${chrome_options.binary_location} = C:\\Users\\tt_pe\\Documents\\chrome-win64\\chrome-win64\\chrome.exe","*sys.modules[\"selenium.webdriver.chrome.service\"].Service(executable_path=r\"${CHROME_DRIVER_PATH}\")","*${service}","*${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x0000019D7E7B2270&gt;","*Open Browser","*SeleniumLibrary","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*${WELCOME URL}    chrome    options=${chrome_options}    service=${service}","*Opening browser 'chrome' to base url '<a href=\"http://127.0.0.1:8000\">http://127.0.0.1:8000\x3c/a>'.","*Cannot capture screenshot because no browser is open.","eNq1jjEOwjAMRXdOYTGjZg+lE7DBgphRmrpNpDSubLfl+JR24gBIf7Bkv+d/p8fow5njhHx5exw0UrZwQxHXoYVndnVCUAKq1cUMzXoKLTH4wNTjEa7L3JAfe8zqvjws0RAFkJn4AENCJwhTlKgWSgeBsT3tg+og1ph5ngvBhDmOfdHgZH5kZsZ6e2qUaVzaSCDSmDuz6sVs21civwL76k/i0rhq9wFEonO2","*Maximize Browser Window","*<p>Maximizes current browser window.\x3c/p>","*Close Browser","*<p>Closes the current browser.\x3c/p>","eNq1UsFKw0AQvfcr5hY9JCDxlFsx1QppDbQiwkLZbKfparKzzE6q9evdlnrSU6mnGd7w3sx7zISZGKyDje0QkrtCPQfkoERWHlVJZujRSVAPVqZDo2qmt9Violoracs0+JTRU7BCvD8BeRrQpLdKMIjqtGsH3eIqfFgx2xVjoIENZkwNSQLkoLMOIS/gsffEYl0bkYY17yF5waZku0OeaRdFOIGNjmeuC5jReuhwTnJPg1tPDiYKmBP0Rxyc7nH9B3+0ZG2w0eYdrnoKAowm2gOjuw46HeS6GEHUcTiqX5fTp3k9Xk4P0AVzyXbodmph2PrIP+aQ4Sf+XjL2vtSiVUXxvMOGlnUfVL2XLblTyW9y5X+67Mv682XKqgrnsyvbnE2ORHPhfP9B8mBRxTGmPv5PfKfwDZwjL2g="]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:28","fail":2,"label":"All Tests","pass":0,"skip":0}],[],[{"elapsed":"00:00:28","fail":2,"id":"s1","label":"Test Language Switch","name":"Test Language Switch","pass":0,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:00:01","fail":1,"label":"All Tests","pass":0,"skip":0}],[],[{"elapsed":"00:00:02","fail":1,"id":"s1","label":"Test03 Language Dynamic Content","name":"Test03 Language Dynamic Content","pass":0,"skip":0}]];
 </script>
 <script type="text/javascript">
-window.output["errors"] = [];
+window.output["errors"] = [[1418,4,34]];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1740513117158;
+window.output["baseMillis"] = 1740520879860;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 28136;
+window.output["generated"] = 2189;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
@@ -2204,7 +2204,7 @@ function addExecutionLog(main) {
 
 <script type="text/x-jquery-tmpl" id="tagStatisticsRowTemplate">
   <tr class="row-${$item.index}">
-    <td class="stats-col-name" title="{{html doc}}">
+    <td class="stats-col-name" title="${doc}">
       <div class="stat-name">
         <span>{{html label}}</span>
         {{if info}}(${info}){{/if}}

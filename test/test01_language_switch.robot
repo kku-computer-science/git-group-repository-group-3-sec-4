@@ -3,12 +3,15 @@
 Resource          language_switch_resource.robot
 #Test Setup        Open Browser To Welcome Page 
 Test Teardown     Close Browser
+Library    SeleniumLibrary
+Library    WebDriverManager
+
 
 
 *** Test Cases ***
 Test01 - Switch Language Without Login
     [Documentation]    ทดสอบการเปลี่ยนภาษาทั้งเว็บเมื่อยังไม่ได้ล็อกอิน
-    Open Browser    ${WELCOME URL}    chrome    executable_path=${CHROME_DRIVER_PATH}
+    Open Browser To Welcome Page   
     Verify Default Language Is English
     Switch Language To Thai 01
     Verify Language Is Thai 01
@@ -19,14 +22,13 @@ Test01 - Switch Language Without Login
     Verify Default Language Is English
 
 Test02 Reset Language After Close Browser
-    Open Browser    ${URL}    chrome    executable_path=${CHROME_DRIVER_PATH}
+    Open Browser To Welcome Page  
     Check Default Language Is English
     Switch To Thai
     Check Language Is Thai
-    Close Browser
-    Open Browser To Welcome Page
+    Close Browser And Reopen
     Check Default Language Is English
-    [Teardown]    Close Browser
+    
 
     #*** Settings ***
 #Resource          language_switch_resource.robot
