@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-02-13T04:04:25.735710" rpa="false" schemaversion="5">
+<suite id="s1" name="Gherkin Login" source="c:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\Project_2-master\Project_2-master\test\gherkin_login.robot">
+<test id="s1-t1" name="Valid Login" line="10">
+<kw name="Given browser is opened to login page">
+<kw name="Open Browser To Login Page" owner="resource">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-02-13T04:04:26.183510" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000022C8C596120&gt;</msg>
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-02-13T04:04:26.183022" elapsed="0.013550"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-13T04:04:26.197257" level="INFO">${chrome_options.binary_location} = C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\ChromeForTesting\chrome.exe</msg>
+<var>${chrome_options.binary_location}</var>
+<arg>${CHROME_BROWSER_PATH}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-13T04:04:26.196867" elapsed="0.000573"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-02-13T04:04:26.198792" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x0000022C8C595E80&gt;</msg>
+<var>${service}</var>
+<arg>sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-02-13T04:04:26.197639" elapsed="0.001460"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-02-13T04:04:26.200232" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-02-13T04:04:26.200674" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-02-13T04:04:26.201020" level="FAIL">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</msg>
+<arg>Chrome</arg>
+<arg>options=${chrome_options}</arg>
+<arg>service=${service}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="FAIL" start="2025-02-13T04:04:26.199556" elapsed="0.153120">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</status>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2025-02-13T04:04:26.352985" elapsed="0.000227"/>
+</kw>
+<kw name="Login Page Should Be Open" owner="resource">
+<status status="NOT RUN" start="2025-02-13T04:04:26.353435" elapsed="0.000092"/>
+</kw>
+<status status="FAIL" start="2025-02-13T04:04:26.182222" elapsed="0.171472">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</status>
+</kw>
+<status status="FAIL" start="2025-02-13T04:04:26.181288" elapsed="0.172573">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</status>
+</kw>
+<kw name="When user &quot;admin@gmail.com&quot; logs in with password &quot;12345678&quot;" source_name="User &quot;${username}&quot; logs in with password &quot;${password}&quot;">
+<status status="NOT RUN" start="2025-02-13T04:04:26.354476" elapsed="0.000147"/>
+</kw>
+<kw name="Then welcome page should be open" owner="resource">
+<status status="NOT RUN" start="2025-02-13T04:04:26.355090" elapsed="0.000103"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-13T04:04:26.355787" elapsed="0.000257"/>
+</kw>
+<status status="FAIL" start="2025-02-13T04:04:26.180468" elapsed="0.175994">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</status>
+</test>
+<doc>A test suite with a single Gherkin style test.
+
+This test is functionally identical to the example in
+valid_login.robot file.</doc>
+<status status="FAIL" start="2025-02-13T04:04:25.757810" elapsed="0.599997"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Gherkin Login">Gherkin Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

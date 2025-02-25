@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.11.9 on win32)" generated="2025-02-13T05:57:48.881232" rpa="true" schemaversion="5">
+<suite id="s1" name="Gherkin Login" source="C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\test\gherkin_login.robot">
+<test id="s1-t1" name="Valid Login" line="19">
+<kw name="Open Browser To Login Page">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-02-13T05:57:49.290899" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-02-13T05:57:49.891027" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\Users\tt_pe\Desktop\work soft-en\tt\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-02-13T05:57:49.290899" elapsed="1.787170"/>
+</kw>
+<status status="PASS" start="2025-02-13T05:57:49.289367" elapsed="1.788702"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-13T05:57:51.079067" elapsed="2.623463"/>
+</kw>
+<status status="PASS" start="2025-02-13T05:57:49.287857" elapsed="4.414673"/>
+</test>
+<doc>A test suite with a single Gherkin style test.
+
+This test is functionally identical to the example in
+valid_login.robot file.</doc>
+<status status="PASS" start="2025-02-13T05:57:48.882235" elapsed="4.821296"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Gherkin Login">Gherkin Login</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-02-13T05:57:49.891027" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\Users\tt_pe\Desktop\work soft-en\tt\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>
