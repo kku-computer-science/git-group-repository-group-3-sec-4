@@ -2,35 +2,57 @@
 Library           SeleniumLibrary
 
 *** Variables ***
+${SERVER}         localhost:8000
+${DELAY}          1
+${VALID USER}     admin@gmail.com
+${VALID PASSWORD}    12345678
+${LOGIN URL}      http://127.0.0.1:8000/login
+${WELCOME URL}    http://127.0.0.1:8000  
+${ERROR URL}      http://${SERVER}/error.html
+#${CHROME_BROWSER_PATH}    ${EXECDIR}${/}ChromeForTesting${/}chrome.exe
+${CHROME_BROWSER_PATH}   C:\\Users\\tt_pe\\Documents\\chrome-win64\\chrome-win64\\chrome.exe
+#${CHROME_DRIVER_PATH}    ${EXECDIR}${/}ChromeForTesting${/}chromedriver.exe
+${CHROME_DRIVER_PATH}    C:\\Users\\tt_pe\\Documents\\chrome-win64\\chrome-win64\\chromedriver.exe
+
 ${LANG_BTN}         xpath=//button[@id='lang-switch']
-${TEXT_TO_CHECK}    xpath=//h1[@id='main-title']
-${EN_TEXT}          Welcome
-${TH_TEXT}          สวัสดี
+${TEXT_TO_CHECK}    xpath=//a[@class='nav-link']
+${EN_TEXT}          HOME
+${TH_TEXT}          หน้าแรก
+${CN_TEXT}          首頁
 
 *** Keywords ***
-Open Browser To Home Page
+Open Browser To Welcome Page
     ${chrome_options}    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
     ${chrome_options.binary_location}    Set Variable    ${CHROME_BROWSER_PATH}
     ${service}    Evaluate    sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")
+    # [selenium >= 4.10] chrome_options change to options
     Create Webdriver    Chrome    options=${chrome_options}    service=${service}
     Go To    ${WELCOME URL}
-    Home Page Should Be Open
+    Welcome Page Should Be Open
 
 #for test01
-Home Page Should Be Open
-    Title Should Be    Home Page
+Welcome Page Should Be Open
+    Title Should Be    HOME
 
 Verify Default Language Is English
-    ${text}    Get Text    xpath=//h1[@id='main-title']
-    Should Be Equal    ${text}    Welcome
+    ${text}    Get Text    xpath=//*[@id='btn-home']
+    Should Be Equal    ${text}    HOME
 
-Switch Language To Thai
+Switch Language To Thai 01
     Click Element    xpath=//button[@id='lang-switch']
     Sleep    ${DELAY}    # รอให้ภาษาเปลี่ยน
 
-Verify Language Is Thai
-    ${text}    Get Text    xpath=//h1[@id='main-title']
-    Should Be Equal    ${text}    สวัสดี
+Verify Language Is Thai 01
+    ${text}    Get Text    xpath=//*[@id='btn-home']
+    Should Be Equal    ${text}    หน้าแรก
+
+#Switch Language To CN
+#    Click Element    xpath=//button[@id='lang-switch']
+ #   Sleep    ${DELAY}    # รอให้ภาษาเปลี่ยน
+
+#Verify Language Is CN
+ #   ${text}    Get Text    xpath=//h1[@id='main-title']
+  #  Should Be Equal    ${text}    首頁
 
 Refresh Page And Verify Default Language Is English
     Reload Page
@@ -39,28 +61,35 @@ Refresh Page And Verify Default Language Is English
 
 Close Browser And Reopen
     Close Browser
-    Open Browser To Home Page
+    Open Browser To Welcome Page
 
 #for test02
-Verify Default Language Is English
-    [Documentation]    ตรวจสอบว่าภาษาเริ่มต้นเป็นภาษาอังกฤษ
-    ${text}    Get Text    xpath=//h1[@id='main-title']
-    Should Be Equal    ${text}    Welcome
+
+#Verify Default Language Is English
+ #   [Documentation]    ตรวจสอบว่าภาษาเริ่มต้นเป็นภาษาอังกฤษ
+  #  ${text}    Get Text    xpath=//h1[@id='main-title']
+   # Should Be Equal    ${text}    Welcome
+Check Default Language Is English
+    Wait Until Element Is Visible    xpath=//*[@id='btn-home']    timeout=10s
+    ${text}      Get Text    xpath=//*[@id='btn-home']
+    Should Be Equal    ${text}      HOME
+
 
 Verify User Status Is In English
     [Documentation]    ตรวจสอบว่า Status ของผู้ใช้เป็นภาษาอังกฤษ
     ${status}    Get Text    xpath=//span[@id='user-status']
     Should Be Equal    ${status}    Active
 
-Switch Language To Thai
+Switch Language To Thai 02
     [Documentation]    เปลี่ยนภาษาเป็นภาษาไทย
     Click Element    xpath=//button[@id='lang-switch']
     Sleep    ${DELAY}    # รอให้ภาษาเปลี่ยน
 
-Verify Language Is Thai
+Verify Language Is Thai 02
     [Documentation]    ตรวจสอบว่าภาษาเป็นภาษาไทย
-    ${text}    Get Text    xpath=//h1[@id='main-title']
-    Should Be Equal    ${text}    สวัสดี
+    Wait Until Element Is Visible    xpath=//*[@id='btn-home']    timeout=10s
+    ${text}    Get Text    xpath=//*[@id='btn-home']
+    Should Be Equal    ${text}    หน้าแรก
 
 Verify User Status Is In Thai
     [Documentation]    ตรวจสอบว่า Status ของผู้ใช้เป็นภาษาไทย
@@ -92,7 +121,7 @@ Verify New Content Is Thai
     ${new_content}    Get Text    xpath=//div[@id='new-content']
     Should Be Equal    ${new_content}    นักวิจัย: จอห์น โด
 
-Switch Language To English
+Switch Language To English 03
     Click Element    xpath=//button[@id='lang-switch']
     Sleep    ${DELAY}    # รอให้ภาษาเปลี่ยน
 
@@ -143,17 +172,17 @@ Switch Language To Chinese
     Page Should Contain    中文
     Sleep    ${DELAY}
 
-Switch Language To English
+Switch Language To English func
     [Documentation]    เปลี่ยนภาษาเป็นภาษาอังกฤษ
     Click Element    xpath=//a[@data-lang='en']
     Page Should Contain    English
     Sleep    ${DELAY}
 
-Switch Language To Thai
-    [Documentation]    เปลี่ยนภาษาเป็นภาษาไทย
-    Click Element    xpath=//a[@data-lang='th']
-    Page Should Contain    ภาษาไทย
-    Sleep    ${DELAY}
+#Switch Language To Thai
+ #   [Documentation]    เปลี่ยนภาษาเป็นภาษาไทย
+  #  Click Element    xpath=//a[@data-lang='th']
+   # Page Should Contain    ภาษาไทย
+    #Sleep    ${DELAY}
 
 Verify Page Language
     [Arguments]    ${language}

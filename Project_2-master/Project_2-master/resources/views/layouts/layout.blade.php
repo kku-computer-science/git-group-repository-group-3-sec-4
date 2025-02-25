@@ -64,9 +64,9 @@
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
-                    <li class="nav-item {{ request()->is('/') ? 'active' : ''}} ">
-                        <a class="nav-link" href="/">{{ trans('message.Home') }}</a>
-                    </li>
+                <li class="nav-item {{ request()->is('/') ? 'active' : ''}} ">
+                    <a class="nav-link" href="/" id="btn-home">{{ trans('message.Home') }}</a>
+                </li>
                     <li
                         class="nav-item dropdown {{ Request::routeIs('researchers') ? 'active' : '' }} {{ request()->is('detail*') ? 'active' : ''}} ">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -75,7 +75,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($dn as $department)
-                            <li><a class="dropdown-item" href="{{ route('researchers',['id'=>$department->id])}}">
+                            <li><a class="dropdown-item" href="{{ route('researchers', ['id' => $department->id])}}">
                                     {{$department->program_name_en}}</a>
                             </li>
                             @endforeach

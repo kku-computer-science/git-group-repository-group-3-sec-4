@@ -1,40 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.11.9 on win32)" generated="2025-02-13T05:57:48.881232" rpa="true" schemaversion="5">
-<suite id="s1" name="Gherkin Login" source="C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\test\gherkin_login.robot">
-<test id="s1-t1" name="Valid Login" line="19">
-<kw name="Open Browser To Login Page">
-<kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-02-13T05:57:49.290899" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<msg time="2025-02-13T05:57:49.891027" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\Users\tt_pe\Desktop\work soft-en\tt\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
-<arg>Chrome</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-02-13T05:57:49.290899" elapsed="1.787170"/>
+<robot generator="Robot 7.1.1 (Python 3.11.9 on win32)" generated="2025-02-26T02:51:57.155627" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Language Switch" source="C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\test\test_language_switch.robot">
+<test id="s1-t1" name="Test01 - Switch Language Without Login" line="9">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-26T02:51:57.435146" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-26T02:51:57.435146" elapsed="5.777372"/>
 </kw>
-<status status="PASS" start="2025-02-13T05:57:49.289367" elapsed="1.788702"/>
+<kw name="Verify Default Language Is English" owner="language_switch_resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-26T02:52:03.257041" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-26T02:52:03.257041" level="FAIL">Element with locator 'xpath=//*[@id='btn-home']' not found.</msg>
+<var>${text}</var>
+<arg>xpath=//*[@id='btn-home']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-02-26T02:52:03.213519" elapsed="0.045522">Element with locator 'xpath=//*[@id='btn-home']' not found.</status>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>HOME</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2025-02-26T02:52:03.259041" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-02-26T02:52:03.212518" elapsed="0.046523">Element with locator 'xpath=//*[@id='btn-home']' not found.</status>
+</kw>
+<kw name="Switch Language To Thai 01" owner="language_switch_resource">
+<status status="NOT RUN" start="2025-02-26T02:52:03.260041" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Language Is Thai 01" owner="language_switch_resource">
+<status status="NOT RUN" start="2025-02-26T02:52:03.260041" elapsed="0.000000"/>
+</kw>
+<kw name="Refresh Page And Verify Default Language Is English" owner="language_switch_resource">
+<status status="NOT RUN" start="2025-02-26T02:52:03.260041" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser And Reopen" owner="language_switch_resource">
+<status status="NOT RUN" start="2025-02-26T02:52:03.261041" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Default Language Is English" owner="language_switch_resource">
+<status status="NOT RUN" start="2025-02-26T02:52:03.261041" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-02-13T05:57:51.079067" elapsed="2.623463"/>
+<status status="PASS" start="2025-02-26T02:52:03.261041" elapsed="3.342858"/>
 </kw>
-<status status="PASS" start="2025-02-13T05:57:49.287857" elapsed="4.414673"/>
+<doc>ทดสอบการเปลี่ยนภาษาทั้งเว็บเมื่อยังไม่ได้ล็อกอิน</doc>
+<status status="FAIL" start="2025-02-26T02:51:57.433180" elapsed="9.170719">Element with locator 'xpath=//*[@id='btn-home']' not found.</status>
 </test>
-<doc>A test suite with a single Gherkin style test.
-
-This test is functionally identical to the example in
-valid_login.robot file.</doc>
-<status status="PASS" start="2025-02-13T05:57:48.882235" elapsed="4.821296"/>
+<test id="s1-t2" name="Test02 Reset Language After Close Browser" line="21">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-26T02:52:06.605931" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-26T02:52:06.604896" elapsed="5.750911"/>
+</kw>
+<kw name="Check Default Language Is English" owner="language_switch_resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-02-26T02:52:22.574393" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-26T02:52:22.574393" level="FAIL">Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.</msg>
+<arg>xpath=//*[@id='btn-home']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-02-26T02:52:12.370822" elapsed="10.218570">Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>xpath=//*[@id='btn-home']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T02:52:22.589392" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>HOME</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2025-02-26T02:52:22.590393" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-02-26T02:52:12.370822" elapsed="10.219571">Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Switch To Thai">
+<status status="NOT RUN" start="2025-02-26T02:52:22.590393" elapsed="0.000000"/>
+</kw>
+<kw name="Check Language Is Thai">
+<status status="NOT RUN" start="2025-02-26T02:52:22.591397" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-26T02:52:22.591397" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser To Welcome Page" owner="language_switch_resource">
+<status status="NOT RUN" start="2025-02-26T02:52:22.591397" elapsed="0.000000"/>
+</kw>
+<kw name="Check Default Language Is English" owner="language_switch_resource">
+<status status="NOT RUN" start="2025-02-26T02:52:22.591397" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-26T02:52:22.592395" elapsed="2.687604"/>
+</kw>
+<status status="FAIL" start="2025-02-26T02:52:06.604896" elapsed="18.675103">Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.</status>
+</test>
+<status status="FAIL" start="2025-02-26T02:51:57.157627" elapsed="28.123371"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tasks</stat>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Gherkin Login">Gherkin Login</stat>
+<stat pass="0" fail="2" skip="0" id="s1" name="Test Language Switch">Test Language Switch</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-02-13T05:57:49.891027" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\Users\tt_pe\Desktop\work soft-en\tt\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
 </errors>
 </robot>

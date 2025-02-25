@@ -1,8 +1,8 @@
 #test03
 
 *** Settings ***
-Resource          resource.robot
-Test Setup        Open Browser To Home Page
+Resource          language_switch_resource.robot
+Test Setup        Open Browser To Welcome Page
 Test Teardown     Close Browser
 
 *** Test Cases ***
@@ -11,5 +11,5 @@ Test03 - Dynamic Content Language Switch
     Verify Default Language For New Content Is English
     Switch Language To Thai
     Verify New Content Is Thai
-    Switch Language To English
-    Verify New Content Is English
+    Switch Language To English 03
+    Verify New Content Is Englis

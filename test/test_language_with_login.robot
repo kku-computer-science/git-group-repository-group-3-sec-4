@@ -1,7 +1,7 @@
 #test02
 
 *** Settings ***
-Resource          resource.robot
+Resource          language_switch_resource.robot
 Test Setup        Open Browser To Login Page
 Test Teardown     Close Browser
 
