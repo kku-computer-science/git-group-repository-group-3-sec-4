@@ -235,15 +235,15 @@
             <table id="example2" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                        <th>{{ trans('books.no') }}</th>
+                        <th>{{ trans('books.year') }}</th>
+                        <th>{{ trans('books.paper_name') }}</th>
+                        <th>{{ trans('books.author') }}</th>
+                        <th>{{ trans('books.document_type') }}</th>
+                        <th>{{ trans('books.page') }}</th>
+                        <th>{{ trans('books.journal_transactions') }}</th>
+                        <th>{{ trans('books.citations') }}</th>
+                        <th>{{ trans('books.doi') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -286,15 +286,15 @@
             <table id="example3" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                        <th>{{ trans('books.no') }}</th>
+                        <th>{{ trans('books.year') }}</th>
+                        <th>{{ trans('books.paper_name') }}</th>
+                        <th>{{ trans('books.author') }}</th>
+                        <th>{{ trans('books.document_type') }}</th>
+                        <th>{{ trans('books.page') }}</th>
+                        <th>{{ trans('books.journal_transactions') }}</th>
+                        <th>{{ trans('books.citations') }}</th>
+                        <th>{{ trans('books.doi') }}</th>
                     </tr>
                 </thead>
 
@@ -338,15 +338,15 @@
             <table id="example4" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                        <th>{{ trans('books.no') }}</th>
+                        <th>{{ trans('books.year') }}</th>
+                        <th>{{ trans('books.paper_name') }}</th>
+                        <th>{{ trans('books.author') }}</th>
+                        <th>{{ trans('books.document_type') }}</th>
+                        <th>{{ trans('books.page') }}</th>
+                        <th>{{ trans('books.journal_transactions') }}</th>
+                        <th>{{ trans('books.citations') }}</th>
+                        <th>{{ trans('books.doi') }}</th>
                     </tr>
                 </thead>
 
@@ -386,12 +386,12 @@
             <table id="example5" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Year</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">สถานที่พิมพ์</th>
-                        <th scope="col">Page</th>
+                        <th>{{ trans('books.Number') }}</th>
+                        <th>{{ trans('books.year') }}</th>
+                        <th>{{ trans('books.Name') }}</th>
+                        <th>{{ trans('books.author') }}</th>
+                        <th>{{ trans('books.Place of printing') }}</th>
+                        <th>{{ trans('books.page') }}</th>
 
                     </tr>
                 </thead>
@@ -428,12 +428,12 @@
             <table id="example6" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">ประเภท</th>
-                        <th scope="col">หมายเลขทะเบียน</th>
-                        <th scope="col">วันที่จดทะเบียน</th>
+                        <th>{{ trans('books.Number') }}</th>
+                        <th>{{ trans('books.Name') }}</th>
+                        <th>{{ trans('books.author') }}</th>
+                        <th>{{ trans('books.Type') }}</th>
+                        <th>{{ trans('books.Registration number') }}</th>
+                        <th>{{ trans('books.Registration date') }}</th>
 
                     </tr>
                 </thead>

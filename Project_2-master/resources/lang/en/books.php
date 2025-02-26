@@ -12,6 +12,12 @@ return [
     'Search' => 'Search',
     'Show' => 'Show',
     'Entries' => 'Entries',
+    'Number'=> 'Number',
+    'Name'=> 'Name',
+    'Place of printing'=> 'Place of printing',
+    'Type'=> 'Type',
+    'Registration number'=> 'Registration number',
+    'Registration date'=> 'Registration date',
 
     //หน้าreport//
     'report_title' => 'Statistics of articles in the last 5 years',
@@ -19,7 +25,7 @@ return [
 
     //หน้าresearchprofile//
     'education' => 'Education',
-    'publications2' => 'Publications',
+    'publications' => 'Publications',
     'email' => 'Email',
     'book' => 'Book',
     'patent' => 'Other Academic Works',
@@ -42,7 +48,6 @@ return [
     "laboratory_supervisor" => "Laboratory Supervisor",
     "details" => "View Details",
 
-    "laboratory_supervisor" => "Laboratory Supervisor",
     "student" => "Student",
 
 ];

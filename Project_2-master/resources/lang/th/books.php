@@ -12,6 +12,12 @@ return [
     'Search' => 'ค้นหา',
     'Show' => 'แสดง',
     'Entries' => 'รายการ',
+    'Number'=> 'เลขที่',
+    'Name'=> 'ชื่อ',
+    'Place of printing'=> 'สถานที่พิมพ์',
+    'Type'=> 'ประเภท',
+    'Registration number'=> 'หมายเลขทะเบียน',
+    'Registration date'=> 'วันที่จดทะเบียน',
 
     //หน้าreport//
     'report_title' => 'สถิติจำนวนบทความทั้งหมด 5 ปี',
@@ -19,7 +25,7 @@ return [
 
        //หน้าresearchprofile//
        'education' => 'การศึกษา',
-       'publications2' => 'ผลงานตีพิมพ์',
+       'publications' => 'ผลงานตีพิมพ์',
        'email' => 'อีเมล',
        'book' => 'หนังสือ',
        'patent' => 'ผลงานวิชาการด้านอื่นๆ',

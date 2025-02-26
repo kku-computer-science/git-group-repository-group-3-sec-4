@@ -3,6 +3,7 @@
 return [
     "Researchers" => "Researchers",
     "Research interests" => "Research interests",
+    "Expertise"=> "Expertise",
 
     "Project_Service" => "Research/Academic Service Projects",
     "No" => "No",
