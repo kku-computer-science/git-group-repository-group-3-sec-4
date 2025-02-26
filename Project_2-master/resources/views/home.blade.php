@@ -41,18 +41,33 @@
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                 aria-label="Slide 3"></button> -->
-            </div>
+
+                </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('img/Banner1.png')}}" class="d-block w-100" alt="...">
+                    @if(app()->getLocale() == 'en')
+                    <img src="{{asset('img/banner1_en.png')}}" class="d-block w-100" alt="...">
+                    @elseif (app()->getLocale() == 'th')
+                    <img src="{{asset('img/banner1_th.png')}}" class="d-block w-100" alt="...">
+                    @elseif (app()->getLocale() == 'zh')
+                    <img src="{{asset('img/banner1_cn.png')}}" class="d-block w-100" alt="...">
+                    @endif
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('img/Banner2.png')}}" class="d-block w-100" alt="...">
+                    @if(app()->getLocale() == 'en')
+                    <img src="{{asset('img/banner2en.png')}}" class="d-block w-100" alt="...">
+                    @elseif (app()->getLocale() == 'th')
+                    <img src="{{asset('img/banner2th.png')}}" class="d-block w-100" alt="...">
+                    @elseif (app()->getLocale() == 'zh')
+                    <img src="{{asset('img/banner2cn.png')}}" class="d-block w-100" alt="...">
+                    @endif
                 </div>
+
                 <!-- <div class="carousel-item">
                 <img src="..." class="d-block w-100" alt="...">
             </div> -->
             </div>
+
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">{{ trans('message.Previous') }}</span>
