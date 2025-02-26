@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2025 at 11:32 PM
+-- Generation Time: Feb 26, 2025 at 10:58 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -2423,18 +2423,18 @@ INSERT INTO `funds` (`id`, `fund_name`, `fund_details`, `fund_type`, `fund_level
 (13, 'โครงการการพัฒนาระบบฐานข้อมูลภูมิสารสนเทศยางนาใน จังหวัดขอนแก่น', NULL, 'ทุนภายใน', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 1, '2022-05-08 06:36:04', '2022-05-08 06:36:04', '內部資本', 'Internal Capital', '孔敬大學', 'Khon Kaen University'),
 (14, 'โครงการ', NULL, 'ทุนภายนอก', NULL, NULL, 'สำนักงานคณะกรรมการนโยบายวิทยาศาสตร์ เทคโนโลยีและนวัตกรรมแห่งชาติ', 1, '2022-05-15 05:02:53', '2022-05-15 05:02:53', '外部資本', 'External capital', '國家科學技術政策委員會', 'National Science and Technology Policy Committee'),
 (15, 'การจัดอบรมหลักสูตรประกาศนียบัตร (Non-Degree) โครงการพัฒนาทักษะกำลังคนของประเทศ (Reskill/Upskill/Newskill) เพื่อการมีงานทำและเตรียมความพร้อมรองรับการทำงานในอนาคตหลังวิกฤตการระบาดของไวรัสโคโรนา 2019 (COVID-19)', NULL, 'ทุนภายนอก', NULL, NULL, 'สำนักงานปลัดกระทรวงอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม', 1, '2022-05-15 05:37:19', '2022-05-15 05:37:19', '外部資本', 'External capital', '高等教育、科學、研究與創新部常務秘書辦公室', 'Office of the Permanent Secretary, Ministry of Higher Education, Science, Research and Innovation'),
-(16, 'ทุน สกว. ฝ่ายอุตสาหกรรม', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:10:05', '2022-05-15 06:10:05', NULL, NULL, NULL, NULL),
+(16, 'ทุน สกว. ฝ่ายอุตสาหกรรม', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:10:05', '2022-05-15 06:10:05', '外部資本', 'External capital', NULL, NULL),
 (17, 'ทุนอุดหนุนการวิจัย มข. ประเภทบูรณาการวิจัยและนวัตกรรม', NULL, 'ทุนภายนอก', NULL, NULL, 'สำนักงานคณะกรรมการวิจัยแห่งชาติ', 1, '2022-05-15 06:16:38', '2022-05-15 06:16:38', '外部資本', 'External capital', '泰國國家研究委員會', 'National Research Council of Thailand'),
-(18, 'ทุนวิจัย CEMB  (โครงการย่อยที่ 1)', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:21:33', '2022-05-15 06:21:33', NULL, NULL, NULL, NULL),
-(19, 'ERASMUS+ : Curriculum Development in Data Science and Artificial Intelligence/DS&AI', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:25:30', '2022-05-15 06:25:30', NULL, NULL, NULL, NULL),
-(20, '“เครือข่ายวิจัยเทคโนโลยีทันสมัยของเครือข่ายอันชาญฉลาดที่แพร่หลาย” (Pervasive inteLligent and Network Emerging Technology (PLANET))', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:29:50', '2022-05-15 06:29:50', NULL, NULL, NULL, NULL),
-(21, 'โครงการจัดการพลังงานที่มีประสิทธิภาพ ในเครือข่ายเซ็นเซอร์ไร้สายแบบเติมได้', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:31:07', '2022-05-15 06:31:07', NULL, NULL, NULL, NULL),
+(18, 'ทุนวิจัย CEMB  (โครงการย่อยที่ 1)', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:21:33', '2022-05-15 06:21:33', '外部資本', 'External capital', NULL, NULL),
+(19, 'ERASMUS+ : Curriculum Development in Data Science and Artificial Intelligence/DS&AI', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:25:30', '2022-05-15 06:25:30', '外部資本', 'External capital', NULL, NULL),
+(20, '“เครือข่ายวิจัยเทคโนโลยีทันสมัยของเครือข่ายอันชาญฉลาดที่แพร่หลาย” (Pervasive inteLligent and Network Emerging Technology (PLANET))', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:29:50', '2022-05-15 06:29:50', '外部資本', 'External capital', NULL, NULL),
+(21, 'โครงการจัดการพลังงานที่มีประสิทธิภาพ ในเครือข่ายเซ็นเซอร์ไร้สายแบบเติมได้', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:31:07', '2022-05-15 06:31:07', '外部資本', 'External capital', NULL, NULL),
 (22, 'ERASMUS+ : Innovation on Remote Sensing Education and Learning', NULL, 'ทุนภายนอก', NULL, NULL, 'OU, BOKU, JU, ITC, AIT, YNNU, FNU', 1, '2022-05-15 06:33:43', '2022-05-15 06:33:43', '外部資本', 'External capital', 'OU, BOKU, JU, ITC, AIT, YNNU, FNU', 'OU, BOKU, JU, ITC, AIT, YNNU, FNU'),
 (23, 'การพัฒนาระบบเซนเซอร์อัตโนมัติสำหรับสภาวะแวดล้อมภายในโรงเรือนและปรับปรุงการชั่งน้ำหนักอัตโนมัติสำหรับฟาร์มไก่อัจฉริยะ', NULL, 'ทุนภายนอก', NULL, NULL, 'กระทรวงวิทยาศาสตร์และเทคโนโลยี', 1, '2022-05-15 06:36:46', '2022-05-15 06:36:46', '外部資本', 'External capital', '科技部', 'Ministry of Science and Technology'),
 (24, 'การพัฒนาระบบเซนเซอร์อัตโนมัติสำหรับสภาวะแวดล้อมภายในโรงเรือนและปรับปรุงการชั่งน้ำหนักอัตโนมัติสำหรับฟาร์มไก่อัจฉริยะ', NULL, 'ทุนภายนอก', NULL, NULL, 'กระทรวงวิทยาศาสตร์และเทคโนโลยี', 1, '2022-05-15 06:37:30', '2022-05-15 06:37:30', '外部資本', 'External capital', '科技部', 'Ministry of Science and Technology'),
 (25, 'โครงการระบบภูมิสารสนเทศโรคพยาธิใบไม้ตับและมะเร็งท่อน้ำดีภาคตะวันออกเฉียงเหนือ ประเทศไทย', NULL, 'ทุนภายนอก', NULL, NULL, 'ศูนย์ภูมิสารสนเทศเพื่อการพัฒนาภาคตะวันออกเฉียงเหนือ', 1, '2022-05-15 06:38:53', '2022-05-15 06:38:53', '外部資本', 'External capital', '東北發展地理資訊中心', 'Geo-Informatics Center for Northeastern Development'),
 (26, 'ทุน สกว.', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:41:04', '2022-05-15 06:41:04', '外部資本', 'External capital', '-', '-'),
-(27, 'ทุน ทปอ.', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:42:47', '2022-05-15 06:42:47', NULL, NULL, NULL, NULL),
+(27, 'ทุน ทปอ.', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:42:47', '2022-05-15 06:42:47', '外部資本', 'External capital', NULL, NULL),
 (28, 'ทุนเมธีวิจัย สกว.', NULL, 'ทุนภายนอก', NULL, NULL, '-', 1, '2022-05-15 06:44:29', '2022-05-15 06:44:29', NULL, NULL, NULL, NULL),
 (29, 'ทุนสนับสนุนการวิจัยปีงบประมาณ 2564', NULL, 'ทุนภายใน', NULL, NULL, 'คณะวิทยาศาสตร์ มข.', 22, '2022-05-16 07:21:18', '2022-05-16 07:21:18', NULL, NULL, NULL, NULL),
 (30, 'ทุนส่งเสริมนักวิจัยระดับสูง', NULL, 'ทุนภายใน', 'สูง', NULL, 'วิทยาลัยการคอมพิวเตอร์', 6, '2022-05-18 05:02:56', '2022-05-18 05:02:56', NULL, NULL, NULL, NULL),
