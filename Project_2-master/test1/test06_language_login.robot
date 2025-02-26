@@ -1,8 +1,8 @@
 #for test06
 *** Settings ***
 #Resource          language_switch_resource.robot
-Test Setup        Open Browser 
-Test Teardown     Close Browser
+#Test Setup        Open Browser 
+#Test Teardown     Close Browser
 Library    SeleniumLibrary
 
 *** Variables ***
@@ -15,6 +15,7 @@ ${VALID PASSWORD}    12345678
 *** Test Cases ***
 Test06 - Language Persistence To Login Page
     [Documentation]    ทดสอบการเปลี่ยนภาษาก่อนล็อกอินและคงภาษาล่าสุดเมื่อเข้าสู่หน้า Login
+    Open Browser    ${WELCOME URL}    ${BROWSER}
     Wait Until Element Is Visible        timeout=10s
     Switch Language To Chinese
     Go To Login Page
@@ -24,6 +25,7 @@ Test06 - Language Persistence To Login Page
     Switch Language To English
     Go To Login Page
     Verify Login Page In English
+    Close Browser
 
 *** Keywords ***
 Go Back To Welcome Page

@@ -1,7 +1,7 @@
 *** Settings ***
 #Resource          language_switch_resource.robot
-Test Setup        Open Browser 
-Test Teardown     Close Browser
+#Test Setup        Open Browser 
+#Test Teardown     Close Browser
 Library    SeleniumLibrary
 
 *** Variables ***
@@ -14,6 +14,7 @@ ${VALID PASSWORD}    12345678
 *** Test Cases ***
 Test04 - Edit Data And Change Language
     [Documentation]    ทดสอบการแก้ไขข้อมูลและเปลี่ยนภาษา ข้อมูลที่ถูกแก้ไขต้องเปลี่ยนภาษาด้วย
+    Open Browser    ${WELCOME URL}    ${BROWSER} 
     Wait Until Element Is Visible        timeout=10s
     Input Username    ${VALID USER}
     Input Password    ${VALID PASSWORD}
@@ -29,6 +30,7 @@ Test04 - Edit Data And Change Language
     Verify User Name Is In Thai
     Switch Language To English
     Verify User Name Is In English
+    Close Browser
 
 #for test04
 Go To Edit Profile Page

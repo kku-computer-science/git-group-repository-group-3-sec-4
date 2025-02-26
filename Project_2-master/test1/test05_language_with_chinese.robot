@@ -13,6 +13,7 @@ ${BROWSER}        Chrome
 *** Test Cases ***
 Test05 - Switch To Chinese And Verify Language And Images
     [Documentation]    ทดสอบการเปลี่ยนภาษาเป็นภาษาจีนในทุกที่ รวมถึงรูปภาพ ยกเว้นชื่องานวิจัย
+    Open Browser    ${WELCOME URL}    ${BROWSER}
     Wait Until Element Is Visible        timeout=10s
     Switch Language To Chinese
     Verify All Text In Chinese Except Research Title
@@ -21,6 +22,7 @@ Test05 - Switch To Chinese And Verify Language And Images
     Switch Language To English
     Verify All Text In English
     Verify All Images In English
+    Close Browser
 
 *** Keywords ***
 Verify All Text In Chinese Except Research Title

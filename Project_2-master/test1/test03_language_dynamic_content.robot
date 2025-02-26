@@ -2,19 +2,21 @@
 
 *** Settings ***
 #Resource          language_switch_resource.robot
-Test Setup        Open Browser 
-Test Teardown     Close Browser
+#Test Setup        Open Browser 
+#Test Teardown     Close Browser
 Library    SeleniumLibrary
 
 *** Test Cases ***
 Test03 - Dynamic Content Language Switch
     [Documentation]    ทดสอบการเปลี่ยนภาษาของข้อมูลใหม่ที่เพิ่มเข้ามาบนเว็บ
+    Open Browser    ${WELCOME URL}    ${BROWSER} 
     Wait Until Element Is Visible        timeout=10s
     Verify Default Language For New Content Is English
     Switch Language To Thai
     Verify New Content Is Thai
     Switch Language To English 
     Verify New Content Is Englis
+    Close Browser
 
 Verify Default Language For New Content Is English
     [Documentation]    ตรวจสอบว่าข้อมูลใหม่เป็นภาษาอังกฤษ

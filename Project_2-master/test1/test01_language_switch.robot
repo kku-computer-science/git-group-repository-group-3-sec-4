@@ -1,7 +1,7 @@
 *** Settings ***
 #Resource          language_switch_resource.robot
-Test Setup         Open Browser  
-Test Teardown      Close Browser
+#Test Setup         Open Browser  
+#Test Teardown      Close Browser
 Library            SeleniumLibrary
 
 *** Variables ***
@@ -11,6 +11,7 @@ ${BROWSER}        Chrome
 *** Test Cases ***
 Test01 - Switch Language Without Login
     [Documentation]    ทดสอบการเปลี่ยนภาษาทั้งเว็บเมื่อยังไม่ได้ล็อกอิน   
+    Open Browser    ${WELCOME URL}    ${BROWSER} 
     Wait Until Element Is Visible        timeout=10s
     Verify Default Language Is English
     Switch Language To Thai 
@@ -19,8 +20,10 @@ Test01 - Switch Language Without Login
     Close Browser
     Open Browser    ${WELCOME URL}    ${BROWSER}  
     Verify Default Language Is English
+    Close Browser
 
 Test02 Reset Language After Close Browser 
+    Open Browser    ${WELCOME URL}    ${BROWSER} 
     Wait Until Element Is Visible        timeout=10s
     Switch Language To Thai
     Check Language Is Thai

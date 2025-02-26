@@ -5,8 +5,8 @@
 
 *** Settings ***
 #Resource          language_switch_resource.robot
-Test Setup        Open Browser 
-Test Teardown     Close Browser
+#Test Setup        Open Browser 
+#Test Teardown     Close Browser
 Library            SeleniumLibrary
 
 *** Variables ***
@@ -41,6 +41,7 @@ Test02 - Persist Language After Login
     Login Again
     Verify Language Is English
     Verify User Status Is In English
+    Close Browser
 
 #for test02
 
