@@ -1,12 +1,21 @@
 #for test06
 *** Settings ***
-Resource          language_switch_resource.robot
-Test Setup        Open Browser To Welcome Page
+#Resource          language_switch_resource.robot
+Test Setup        Open Browser 
 Test Teardown     Close Browser
+Library    SeleniumLibrary
+
+*** Variables ***
+${WELCOME URL}    http://localhost:8000   # เปลี่ยนเป็น URL ของหน้า Home
+${LOGIN URL}     http://localhost:8000/login 
+${BROWSER}        Chrome
+${VALID USER}     admin@gmail.com
+${VALID PASSWORD}    12345678
 
 *** Test Cases ***
 Test06 - Language Persistence To Login Page
     [Documentation]    ทดสอบการเปลี่ยนภาษาก่อนล็อกอินและคงภาษาล่าสุดเมื่อเข้าสู่หน้า Login
+    Wait Until Element Is Visible        timeout=10s
     Switch Language To Chinese
     Go To Login Page
     Verify Login Page In Chinese

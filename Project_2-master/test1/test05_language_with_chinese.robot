@@ -1,12 +1,19 @@
 #for test05
 *** Settings ***
-Resource          language_switch_resource.robot
-Test Setup        Open Browser To Welcome Page
+#Resource          language_switch_resource.robot
+Test Setup        Open Browser 
 Test Teardown     Close Browser
+Library    SeleniumLibrary
+
+*** Variables ***
+${WELCOME URL}    http://localhost:8000   # เปลี่ยนเป็น URL ของหน้า Home
+${BROWSER}        Chrome
+
 
 *** Test Cases ***
 Test05 - Switch To Chinese And Verify Language And Images
     [Documentation]    ทดสอบการเปลี่ยนภาษาเป็นภาษาจีนในทุกที่ รวมถึงรูปภาพ ยกเว้นชื่องานวิจัย
+    Wait Until Element Is Visible        timeout=10s
     Switch Language To Chinese
     Verify All Text In Chinese Except Research Title
     Verify All Images In Chinese

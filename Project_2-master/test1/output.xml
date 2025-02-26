@@ -1,198 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-02-27T01:24:23.080413" rpa="false" schemaversion="5">
-<suite id="s1" name="Test01 Language Switch" source="C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\Project_2-master\test1\test01_language_switch.robot">
-<test id="s1-t1" name="Test01 - Switch Language Without Login" line="14">
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-02-27T02:42:27.685161" rpa="false" schemaversion="5">
+<suite id="s1" name="Test06 Language Login" source="C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\Project_2-master\test1\test06_language_login.robot">
+<test id="s1-t1" name="Test06 - Language Persistence To Login Page" line="16">
 <kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
-<msg time="2025-02-27T01:24:23.361052" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
+<msg time="2025-02-27T02:42:27.991828" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-02-27T01:24:23.360883" elapsed="5.972349"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-02-27T01:24:29.337829" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000'.</msg>
-<msg time="2025-02-27T01:24:33.193123" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-02-27T01:24:33.193331" level="FAIL">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 131
-Current browser version is 133.0.6943.141 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
-Stacktrace:
-	GetHandleVerifier [0x00007FF7624780D5+2992373]
-	(No symbol) [0x00007FF76210BFD0]
-	(No symbol) [0x00007FF761FA590A]
-	(No symbol) [0x00007FF761FE7662]
-	(No symbol) [0x00007FF761FE66CB]
-	(No symbol) [0x00007FF761FE09E3]
-	(No symbol) [0x00007FF761FDBC39]
-	(No symbol) [0x00007FF76202A6AC]
-	(No symbol) [0x00007FF762029C90]
-	(No symbol) [0x00007FF76201F113]
-	(No symbol) [0x00007FF761FEA918]
-	(No symbol) [0x00007FF761FEBA81]
-	GetHandleVerifier [0x00007FF7624D6A2D+3379789]
-	GetHandleVerifier [0x00007FF7624EC32D+3468109]
-	GetHandleVerifier [0x00007FF7624E0043+3418211]
-	GetHandleVerifier [0x00007FF76226C78B+847787]
-	(No symbol) [0x00007FF76211757F]
-	(No symbol) [0x00007FF762112FC4]
-	(No symbol) [0x00007FF76211315D]
-	(No symbol) [0x00007FF762102979]
-	BaseThreadInitThunk [0x00007FFB309BE8D7+23]
-	RtlUserThreadStart [0x00007FFB319DBF2C+44]
-</msg>
-<arg>${WELCOME URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="FAIL" start="2025-02-27T01:24:29.337415" elapsed="3.860309">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 131
-Current browser version is 133.0.6943.141 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
-Stacktrace:
-	GetHandleVerifier [0x00007FF7624780D5+2992373]
-	(No symbol) [0x00007FF76210BFD0]
-	(No symbol) [0x00007FF761FA590A]
-	(No symbol) [0x00007FF761FE7662]
-	(No symbol) [0x00007FF761FE66CB]
-	(No symbol) [0x00007FF761FE09E3]
-	(No symbol) [0x00007FF761FDBC39]
-	(No symbol) [0x00007FF76202A6AC]
-	(No symbol) [0x00007FF762029C90]
-	(No symbol) [0x00007FF76201F113]
-	(No symbol) [0x00007FF761FEA918]
-	(No symbol) [0x00007FF761FEBA81]
-	GetHandleVerifier [0x00007FF7624D6A2D+3379789]
-	GetHandleVerifier [0x00007FF7624EC32D+3468109]
-	GetHandleVerifier [0x00007FF7624E0043+3418211]
-	GetHandleVerifier [0x00007FF76226C78B+847787]
-	(No symbol) [0x00007FF76211757F]
-	(No symbol) [0x00007FF762112FC4]
-	(No symbol) [0x00007FF76211315D]
-	(No symbol) [0x00007FF762102979]
-	BaseThreadInitThunk [0x00007FFB309BE8D7+23]
-	RtlUserThreadStart [0x00007FFB319DBF2C+44]
-</status>
+<status status="PASS" start="2025-02-27T02:42:27.991608" elapsed="5.881565"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-02-27T02:42:33.882280" level="FAIL">Keyword 'SeleniumLibrary.Wait Until Element Is Visible' missing value for argument 'locator'.</msg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-02-27T01:24:33.198032" elapsed="0.000058"/>
+<status status="FAIL" start="2025-02-27T02:42:33.882033" elapsed="0.000325">Keyword 'SeleniumLibrary.Wait Until Element Is Visible' missing value for argument 'locator'.</status>
 </kw>
-<kw name="Verify Default Language Is English">
-<status status="NOT RUN" start="2025-02-27T01:24:33.198387" elapsed="0.000034"/>
+<kw name="Switch Language To Chinese">
+<status status="NOT RUN" start="2025-02-27T02:42:33.911168" elapsed="0.000071"/>
 </kw>
-<kw name="Switch Language To Thai 01">
-<status status="NOT RUN" start="2025-02-27T01:24:33.198688" elapsed="0.000033"/>
+<kw name="Go To Login Page">
+<doc>ไปยังหน้า Login โดยไม่ล็อกอิน</doc>
+<status status="NOT RUN" start="2025-02-27T02:42:33.927435" elapsed="0.000101"/>
 </kw>
-<kw name="Verify Language Is Thai 01">
-<status status="NOT RUN" start="2025-02-27T01:24:33.198960" elapsed="0.000029"/>
+<kw name="Verify Login Page In Chinese">
+<doc>ตรวจสอบว่าหน้า Login เป็นภาษาจีน</doc>
+<status status="NOT RUN" start="2025-02-27T02:42:33.948413" elapsed="0.000090"/>
 </kw>
-<kw name="Refresh Page And Verify Default Language Is English">
-<status status="NOT RUN" start="2025-02-27T01:24:33.199231" elapsed="0.000029"/>
+<kw name="Go Back To Welcome Page">
+<doc>กลับไปยังหน้าแรก (Welcome Page)</doc>
+<status status="NOT RUN" start="2025-02-27T02:42:33.949359" elapsed="0.000064"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2025-02-27T01:24:33.199475" elapsed="0.000038"/>
+<kw name="Switch Language To English">
+<status status="NOT RUN" start="2025-02-27T02:42:33.962949" elapsed="0.000083"/>
 </kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2025-02-27T01:24:33.199747" elapsed="0.000028"/>
+<kw name="Go To Login Page">
+<doc>ไปยังหน้า Login โดยไม่ล็อกอิน</doc>
+<status status="NOT RUN" start="2025-02-27T02:42:33.974867" elapsed="0.000083"/>
 </kw>
-<kw name="Verify Default Language Is English">
-<status status="NOT RUN" start="2025-02-27T01:24:33.200255" elapsed="0.000045"/>
+<kw name="Verify Login Page In English">
+<doc>ตรวจสอบว่าหน้า Login เป็นภาษาอังกฤษ</doc>
+<status status="NOT RUN" start="2025-02-27T02:42:33.995230" elapsed="0.000075"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-02-27T01:24:33.200702" elapsed="2.738160"/>
+<status status="PASS" start="2025-02-27T02:42:34.016895" elapsed="3.392448"/>
 </kw>
-<doc>ทดสอบการเปลี่ยนภาษาทั้งเว็บเมื่อยังไม่ได้ล็อกอิน</doc>
-<status status="FAIL" start="2025-02-27T01:24:23.359280" elapsed="12.579776">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 131
-Current browser version is 133.0.6943.141 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
-Stacktrace:
-	GetHandleVerifier [0x00007FF7624780D5+2992373]
-	(No symbol) [0x00007FF76210BFD0]
-	(No symbol) [0x00007FF761FA590A]
-	(No symbol) [0x00007FF761FE7662]
-	(No symbol) [0x00007FF761FE66CB]
-	(No symbol) [0x00007FF761FE09E3]
-	(No symbol) [0x00007FF761FDBC39]
-	(No symbol) [0x00007FF76202A6AC]
-	(No symbol) [0x00007FF762029C90]
-	(No symbol) [0x00007FF76201F113]
-	(No symbol) [0x00007FF761FEA918]
-	(No symbol) [0x00007FF761FEBA81]
-	GetHandleVerifier [0x00007FF7624D6A2D+3379789]
-	GetHandleVerifier [0x00007FF7624EC32D+3468109]
-	GetHandleVerifier [0x00007FF7624E0043+3418211]
-	GetHandleVerifier [0x00007FF76226C78B+847787]
-	(No symbol) [0x00007FF76211757F]
-	(No symbol) [0x00007FF762112FC4]
-	(No symbol) [0x00007FF76211315D]
-	(No symbol) [0x00007FF762102979]
-	BaseThreadInitThunk [0x00007FFB309BE8D7+23]
-	RtlUserThreadStart [0x00007FFB319DBF2C+44]
-</status>
+<doc>ทดสอบการเปลี่ยนภาษาก่อนล็อกอินและคงภาษาล่าสุดเมื่อเข้าสู่หน้า Login</doc>
+<status status="FAIL" start="2025-02-27T02:42:27.989801" elapsed="9.419788">Keyword 'SeleniumLibrary.Wait Until Element Is Visible' missing value for argument 'locator'.</status>
 </test>
-<test id="s1-t2" name="Test02 Reset Language After Close Browser" line="26">
-<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
-<msg time="2025-02-27T01:24:35.940335" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-02-27T01:24:35.940209" elapsed="5.948964"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-02-27T01:24:41.889809" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-02-27T01:24:41.889612" elapsed="6.008525"/>
-</kw>
-<kw name="Check Default Language Is English">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-02-27T01:25:02.150001" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-02-27T01:25:02.150136" level="FAIL">Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.</msg>
-<arg>xpath=//*[@id='btn-home']</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-02-27T01:24:47.898753" elapsed="14.272904">Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.</status>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<var>${text}</var>
-<arg>xpath=//*[@id='btn-home']</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-27T01:25:02.171822" elapsed="0.000032"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${text}</arg>
-<arg>HOME</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="NOT RUN" start="2025-02-27T01:25:02.172056" elapsed="0.000030"/>
-</kw>
-<status status="FAIL" start="2025-02-27T01:24:47.898455" elapsed="14.273777">Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.</status>
-</kw>
-<kw name="Switch To Thai">
-<status status="NOT RUN" start="2025-02-27T01:25:02.172722" elapsed="0.000035"/>
-</kw>
-<kw name="Check Language Is Thai">
-<status status="NOT RUN" start="2025-02-27T01:25:02.173047" elapsed="0.000031"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2025-02-27T01:25:02.173348" elapsed="0.000028"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2025-02-27T01:25:02.173623" elapsed="0.000029"/>
-</kw>
-<kw name="Check Default Language Is English">
-<status status="NOT RUN" start="2025-02-27T01:25:02.173909" elapsed="0.000032"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-02-27T01:25:02.174247" elapsed="2.969506"/>
-</kw>
-<status status="FAIL" start="2025-02-27T01:24:35.939866" elapsed="29.204212">Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.</status>
-</test>
-<status status="FAIL" start="2025-02-27T01:24:23.082062" elapsed="42.062793"/>
+<status status="FAIL" start="2025-02-27T02:42:27.686715" elapsed="9.723956"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="2" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Test01 Language Switch" id="s1" pass="0" fail="2" skip="0">Test01 Language Switch</stat>
+<stat name="Test06 Language Login" id="s1" pass="0" fail="1" skip="0">Test06 Language Login</stat>
 </suite>
 </statistics>
 <errors>
