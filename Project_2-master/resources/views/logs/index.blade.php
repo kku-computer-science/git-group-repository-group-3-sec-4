@@ -7,33 +7,33 @@
             <!-- Graph -->
             <div class="card mb-4">
                 <div class="card-body">
-                    @if (!empty($logsByDate)) <!-- ตรวจสอบว่ามีข้อมูล logsByDate หรือไม่ -->
+                    @if (!empty($logsByDate)) 
                         <canvas id="logChart" data-logs="{{ json_encode($logsByDate) }}"></canvas>
                     @else
-                        <p class="text-center">No log data available</p>
+                        <p class="text-center">{{ trans('dashboard.no_log_data') }}</p>
                     @endif
                 </div>
             </div>
 
             <!-- Search Box -->
             <div class="d-flex mb-3">
-                <input type="text" class="form-control me-2" id="search" placeholder="Search">
-                <input type="text" class="form-control me-2" id="userId" placeholder="User ID">
+                <input type="text" class="form-control me-2" id="search" placeholder="{{ trans('dashboard.search') }}">
+                <input type="text" class="form-control me-2" id="userId" placeholder="{{ trans('dashboard.user_id') }}">
                 <input type="date" class="form-control me-2" id="date">
-                <button class="btn btn-primary">Search</button>
+                <button class="btn btn-primary">{{ trans('dashboard.search') }}</button>
             </div>
 
             <!-- Log Table -->
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead class="table-dark">
-                        <tr>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>User</th>
-                            <th>Event</th>
-                            <th>Type</th>
-                            <th>Description</th>
+                    <tr>
+                            <th>{{ trans('dashboard.date') }}</th>
+                            <th>{{ trans('dashboard.time') }}</th>
+                            <th>{{ trans('dashboard.user') }}</th>
+                            <th>{{ trans('dashboard.event') }}</th>
+                            <th>{{ trans('dashboard.type') }}</th>
+                            <th>{{ trans('dashboard.description') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,10 +57,12 @@
         </main>
     </div>
 </div>
+
 @endsection
 
 @section('javascript')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     let logElement = document.getElementById('logChart');
@@ -77,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 data: {
                     labels: dates,
                     datasets: [{
-                        label: 'Log Events',
+                        label: "{{ trans('dashboard.log_events') }}",
                         data: counts,
                         borderColor: 'blue',
                         fill: false
