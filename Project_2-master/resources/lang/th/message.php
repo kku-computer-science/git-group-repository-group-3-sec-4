@@ -14,5 +14,5 @@ return [
 'Reference' => 'อ้างอิง',
 'Before' => 'ก่อน',
 'ref' => 'อ้างอิง',
-
+'Reference (APA)' => 'เอกสารอ้างอิง (APA)',
 ];
