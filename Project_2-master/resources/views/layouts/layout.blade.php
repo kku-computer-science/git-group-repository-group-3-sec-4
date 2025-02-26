@@ -90,7 +90,7 @@
                                         @if(App::getLocale() == 'th')
                                             {{$department->program_name_th}}
                                         @elseif(App::getLocale() == 'zh')
-                                            {{$department->program_name_cn}}
+                                            {{$department->programs_name_cn}}
                                         @else
                                             {{$department->program_name_en}}
                                         @endif

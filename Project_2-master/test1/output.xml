@@ -1,180 +1,419 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2025-02-13T06:06:43.084933" rpa="false" schemaversion="5">
-<suite id="s1" name="Uat Test1" source="D:\GitHub\git-group-repository-group-3-sec-4\Project_2-master\test1\uat_test1.robot">
-<test id="s1-t1" name="Admin Can Access System Log" line="12">
+<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2025-02-27T01:14:24.210678" rpa="false" schemaversion="5">
+<suite id="s1" name="Testhometh" source="D:\GitHub\git-group-repository-group-3-sec-4\Project_2-master\test1\Testhometh.robot">
+<test id="s1-t1" name="Test Default Language Thai" line="11">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-02-13T06:06:43.332540" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8000/login'.</msg>
-<msg time="2025-02-13T06:06:49.756768" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-02-13T06:06:49.756768" level="FAIL">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
-  (Session info: chrome=133.0.6943.99)
+<msg time="2025-02-27T01:14:25.003866" level="INFO">Opening browser 'Firefox' to base url 'http://127.0.0.1:8000/'.</msg>
+<msg time="2025-02-27T01:14:35.542735" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-26.png"&gt;&lt;img src="selenium-screenshot-26.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-27T01:14:35.542735" level="FAIL">WebDriverException: Message: Reached error page: about:neterror?e=connectionFailure&amp;u=http%3A//127.0.0.1%3A8000/&amp;c=UTF-8&amp;d=Firefox%20can%E2%80%99t%20establish%20a%20connection%20to%20the%20server%20at%20127.0.0.1%3A8000.
 Stacktrace:
-	GetHandleVerifier [0x00007FF623996F15+28773]
-	(No symbol) [0x00007FF623902600]
-	(No symbol) [0x00007FF623798FAA]
-	(No symbol) [0x00007FF623795946]
-	(No symbol) [0x00007FF623786709]
-	(No symbol) [0x00007FF623788478]
-	(No symbol) [0x00007FF623786A16]
-	(No symbol) [0x00007FF623786496]
-	(No symbol) [0x00007FF62378615A]
-	(No symbol) [0x00007FF623783CEE]
-	(No symbol) [0x00007FF6237845CC]
-	(No symbol) [0x00007FF62379CDFA]
-	(No symbol) [0x00007FF6238405AE]
-	(No symbol) [0x00007FF62381724A]
-	(No symbol) [0x00007FF62383F6F3]
-	(No symbol) [0x00007FF623817023]
-	(No symbol) [0x00007FF6237DFF5E]
-	(No symbol) [0x00007FF6237E11E3]
-	GetHandleVerifier [0x00007FF623CE425D+3490733]
-	GetHandleVerifier [0x00007FF623CFBA43+3586963]
-	GetHandleVerifier [0x00007FF623CF147D+3544525]
-	GetHandleVerifier [0x00007FF623A5C9DA+838442]
-	(No symbol) [0x00007FF62390D04F]
-	(No symbol) [0x00007FF623909614]
-	(No symbol) [0x00007FF6239097B6]
-	(No symbol) [0x00007FF6238F8CE9]
-	BaseThreadInitThunk [0x00007FF90FCBE8D7+23]
-	RtlUserThreadStart [0x00007FF91107FBCC+44]
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+UnknownError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:869:5
+checkReadyState@chrome://remote/content/marionette/navigate.sys.mjs:58:24
+onNavigation@chrome://remote/content/marionette/navigate.sys.mjs:345:39
+emit@resource://gre/modules/EventEmitter.sys.mjs:148:20
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteEventsParent.sys.mjs:33:25
 </msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="FAIL" start="2025-02-13T06:06:43.332540" elapsed="6.431978">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
-  (Session info: chrome=133.0.6943.99)
+<status status="FAIL" start="2025-02-27T01:14:25.003866" elapsed="10.541820">WebDriverException: Message: Reached error page: about:neterror?e=connectionFailure&amp;u=http%3A//127.0.0.1%3A8000/&amp;c=UTF-8&amp;d=Firefox%20can%E2%80%99t%20establish%20a%20connection%20to%20the%20server%20at%20127.0.0.1%3A8000.
 Stacktrace:
-	GetHandleVerifier [0x00007FF623996F15+28773]
-	(No symbol) [0x00007FF623902600]
-	(No symbol) [0x00007FF623798FAA]
-	(No symbol) [0x00007FF623795946]
-	(No symbol) [0x00007FF623786709]
-	(No symbol) [0x00007FF623788478]
-	(No symbol) [0x00007FF623786A16]
-	(No symbol) [0x00007FF623786496]
-	(No symbol) [0x00007FF62378615A]
-	(No symbol) [0x00007FF623783CEE]
-	(No symbol) [0x00007FF6237845CC]
-	(No symbol) [0x00007FF62379CDFA]
-	(No symbol) [0x00007FF6238405AE]
-	(No symbol) [0x00007FF62381724A]
-	(No symbol) [0x00007FF62383F6F3]
-	(No symbol) [0x00007FF623817023]
-	(No symbol) [0x00007FF6237DFF5E]
-	(No symbol) [0x00007FF6237E11E3]
-	GetHandleVerifier [0x00007FF623CE425D+3490733]
-	GetHandleVerifier [0x00007FF623CFBA43+3586963]
-	GetHandleVerifier [0x00007FF623CF147D+3544525]
-	GetHandleVerifier [0x00007FF623A5C9DA+838442]
-	(No symbol) [0x00007FF62390D04F]
-	(No symbol) [0x00007FF623909614]
-	(No symbol) [0x00007FF6239097B6]
-	(No symbol) [0x00007FF6238F8CE9]
-	BaseThreadInitThunk [0x00007FF90FCBE8D7+23]
-	RtlUserThreadStart [0x00007FF91107FBCC+44]
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+UnknownError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:869:5
+checkReadyState@chrome://remote/content/marionette/navigate.sys.mjs:58:24
+onNavigation@chrome://remote/content/marionette/navigate.sys.mjs:345:39
+emit@resource://gre/modules/EventEmitter.sys.mjs:148:20
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteEventsParent.sys.mjs:33:25
 </status>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=username</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-02-13T06:06:49.764518" elapsed="0.000000"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>id=username</arg>
-<arg>${ADMIN_USER}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-13T06:06:49.764518" elapsed="0.000000"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>id=password</arg>
-<arg>${ADMIN_PASS}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-13T06:06:49.764518" elapsed="0.000000"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>id=login-btn</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-02-13T06:06:49.764518" elapsed="0.000000"/>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:35.545686" elapsed="0.000000"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Dashboard</arg>
-<arg>timeout=10s</arg>
+<arg>ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์</arg>
+<arg>10</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-02-13T06:06:49.764518" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-27T01:14:35.545686" elapsed="0.000000"/>
 </kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<arg>${LOG_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" start="2025-02-13T06:06:49.764518" elapsed="0.000000"/>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>หน้าแรก</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:35.546641" elapsed="0.000000"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>System Log</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-02-13T06:06:49.764518" elapsed="0.000000"/>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>ผู้วิจัย</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:35.546641" elapsed="0.000000"/>
 </kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="NOT RUN" start="2025-02-13T06:06:49.764518" elapsed="0.000000"/>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>โครงการวิจัย</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:35.547641" elapsed="0.000000"/>
 </kw>
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<arg>xpath=//table[@id='log-table']</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2025-02-13T06:06:49.764518" elapsed="0.000000"/>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>กลุ่มวิจัย</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:35.547641" elapsed="0.000000"/>
 </kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="NOT RUN" start="2025-02-13T06:06:49.764518" elapsed="0.000000"/>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>รายงาน</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:35.547641" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2025-02-13T06:06:49.764518" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-27T01:14:35.547641" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" start="2025-02-13T06:06:43.332540" elapsed="6.431978">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
-  (Session info: chrome=133.0.6943.99)
+<status status="FAIL" start="2025-02-27T01:14:25.001857" elapsed="10.546875">WebDriverException: Message: Reached error page: about:neterror?e=connectionFailure&amp;u=http%3A//127.0.0.1%3A8000/&amp;c=UTF-8&amp;d=Firefox%20can%E2%80%99t%20establish%20a%20connection%20to%20the%20server%20at%20127.0.0.1%3A8000.
 Stacktrace:
-	GetHandleVerifier [0x00007FF623996F15+28773]
-	(No symbol) [0x00007FF623902600]
-	(No symbol) [0x00007FF623798FAA]
-	(No symbol) [0x00007FF623795946]
-	(No symbol) [0x00007FF623786709]
-	(No symbol) [0x00007FF623788478]
-	(No symbol) [0x00007FF623786A16]
-	(No symbol) [0x00007FF623786496]
-	(No symbol) [0x00007FF62378615A]
-	(No symbol) [0x00007FF623783CEE]
-	(No symbol) [0x00007FF6237845CC]
-	(No symbol) [0x00007FF62379CDFA]
-	(No symbol) [0x00007FF6238405AE]
-	(No symbol) [0x00007FF62381724A]
-	(No symbol) [0x00007FF62383F6F3]
-	(No symbol) [0x00007FF623817023]
-	(No symbol) [0x00007FF6237DFF5E]
-	(No symbol) [0x00007FF6237E11E3]
-	GetHandleVerifier [0x00007FF623CE425D+3490733]
-	GetHandleVerifier [0x00007FF623CFBA43+3586963]
-	GetHandleVerifier [0x00007FF623CF147D+3544525]
-	GetHandleVerifier [0x00007FF623A5C9DA+838442]
-	(No symbol) [0x00007FF62390D04F]
-	(No symbol) [0x00007FF623909614]
-	(No symbol) [0x00007FF6239097B6]
-	(No symbol) [0x00007FF6238F8CE9]
-	BaseThreadInitThunk [0x00007FF90FCBE8D7+23]
-	RtlUserThreadStart [0x00007FF91107FBCC+44]
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+UnknownError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:869:5
+checkReadyState@chrome://remote/content/marionette/navigate.sys.mjs:58:24
+onNavigation@chrome://remote/content/marionette/navigate.sys.mjs:345:39
+emit@resource://gre/modules/EventEmitter.sys.mjs:148:20
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteEventsParent.sys.mjs:33:25
 </status>
 </test>
-<status status="FAIL" start="2025-02-13T06:06:43.099253" elapsed="6.665265"/>
+<test id="s1-t2" name="Test Change Language to English" line="22">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-27T01:14:35.549643" level="INFO">Opening browser 'Firefox' to base url 'http://127.0.0.1:8000/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-27T01:14:35.549643" elapsed="6.816079"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<msg time="2025-02-27T01:14:42.433708" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: WebDriver session does not exist, or is not active
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+InvalidSessionIDError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:460:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:538:13
+assert.session@chrome://remote/content/shared/webdriver/Assert.sys.mjs:37:4
+despatch@chrome://remote/content/marionette/server.sys.mjs:315:19
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</msg>
+<msg time="2025-02-27T01:14:42.434699" level="FAIL">NoSuchWindowException: Message: Browsing context has been discarded
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+NoSuchWindowError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:706:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:538:13
+assert.open@chrome://remote/content/shared/webdriver/Assert.sys.mjs:147:4
+GeckoDriver.prototype.maximizeWindow@chrome://remote/content/marionette/driver.sys.mjs:2960:15
+despatch@chrome://remote/content/marionette/server.sys.mjs:318:40
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</msg>
+<doc>Maximizes current browser window.</doc>
+<status status="FAIL" start="2025-02-27T01:14:42.365722" elapsed="0.069980">NoSuchWindowException: Message: Browsing context has been discarded
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+NoSuchWindowError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:706:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:538:13
+assert.open@chrome://remote/content/shared/webdriver/Assert.sys.mjs:147:4
+GeckoDriver.prototype.maximizeWindow@chrome://remote/content/marionette/driver.sys.mjs:2960:15
+despatch@chrome://remote/content/marionette/server.sys.mjs:318:40
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'English')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:42.435702" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Research Management System</arg>
+<arg>10</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:42.436698" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Home</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:42.436698" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Researchers</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:42.436698" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Research Projects</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:42.436698" elapsed="0.001002"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Research Groups</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:42.437700" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Reports</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:42.437700" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:42.438703" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-02-27T01:14:35.549643" elapsed="6.889060">NoSuchWindowException: Message: Browsing context has been discarded
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+NoSuchWindowError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:706:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:538:13
+assert.open@chrome://remote/content/shared/webdriver/Assert.sys.mjs:147:4
+GeckoDriver.prototype.maximizeWindow@chrome://remote/content/marionette/driver.sys.mjs:2960:15
+despatch@chrome://remote/content/marionette/server.sys.mjs:318:40
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</status>
+</test>
+<test id="s1-t3" name="Test Change Language to Chinese" line="34">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-27T01:14:42.440699" level="INFO">Opening browser 'Firefox' to base url 'http://127.0.0.1:8000/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-27T01:14:42.440699" elapsed="6.844091"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<msg time="2025-02-27T01:14:49.376834" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: WebDriver session does not exist, or is not active
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+InvalidSessionIDError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:460:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:538:13
+assert.session@chrome://remote/content/shared/webdriver/Assert.sys.mjs:37:4
+despatch@chrome://remote/content/marionette/server.sys.mjs:315:19
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</msg>
+<msg time="2025-02-27T01:14:49.377834" level="FAIL">NoSuchWindowException: Message: Browsing context has been discarded
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+NoSuchWindowError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:706:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:538:13
+assert.open@chrome://remote/content/shared/webdriver/Assert.sys.mjs:147:4
+GeckoDriver.prototype.maximizeWindow@chrome://remote/content/marionette/driver.sys.mjs:2960:15
+despatch@chrome://remote/content/marionette/server.sys.mjs:318:40
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</msg>
+<doc>Maximizes current browser window.</doc>
+<status status="FAIL" start="2025-02-27T01:14:49.285833" elapsed="0.093001">NoSuchWindowException: Message: Browsing context has been discarded
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+NoSuchWindowError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:706:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:538:13
+assert.open@chrome://remote/content/shared/webdriver/Assert.sys.mjs:147:4
+GeckoDriver.prototype.maximizeWindow@chrome://remote/content/marionette/driver.sys.mjs:2960:15
+despatch@chrome://remote/content/marionette/server.sys.mjs:318:40
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), '中文')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:49.379832" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>研究管理系统</arg>
+<arg>10</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:49.379832" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>首页</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:49.379832" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>研究人员</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:49.379832" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>研究项目</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:49.379832" elapsed="0.001382"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>研究团队</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:49.381214" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>报告</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:49.381214" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:49.381833" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-02-27T01:14:42.439699" elapsed="6.942134">NoSuchWindowException: Message: Browsing context has been discarded
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+NoSuchWindowError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:706:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:538:13
+assert.open@chrome://remote/content/shared/webdriver/Assert.sys.mjs:147:4
+GeckoDriver.prototype.maximizeWindow@chrome://remote/content/marionette/driver.sys.mjs:2960:15
+despatch@chrome://remote/content/marionette/server.sys.mjs:318:40
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</status>
+</test>
+<test id="s1-t4" name="Test Switch Back to Thai" line="46">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-27T01:14:49.383833" level="INFO">Opening browser 'Firefox' to base url 'http://127.0.0.1:8000/'.</msg>
+<msg time="2025-02-27T01:14:59.936785" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-27.png"&gt;&lt;img src="selenium-screenshot-27.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-27T01:14:59.936785" level="FAIL">WebDriverException: Message: Reached error page: about:neterror?e=connectionFailure&amp;u=http%3A//127.0.0.1%3A8000/&amp;c=UTF-8&amp;d=Firefox%20can%E2%80%99t%20establish%20a%20connection%20to%20the%20server%20at%20127.0.0.1%3A8000.
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+UnknownError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:869:5
+checkReadyState@chrome://remote/content/marionette/navigate.sys.mjs:58:24
+onNavigation@chrome://remote/content/marionette/navigate.sys.mjs:345:39
+emit@resource://gre/modules/EventEmitter.sys.mjs:148:20
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteEventsParent.sys.mjs:33:25
+</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="FAIL" start="2025-02-27T01:14:49.383833" elapsed="10.554959">WebDriverException: Message: Reached error page: about:neterror?e=connectionFailure&amp;u=http%3A//127.0.0.1%3A8000/&amp;c=UTF-8&amp;d=Firefox%20can%E2%80%99t%20establish%20a%20connection%20to%20the%20server%20at%20127.0.0.1%3A8000.
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+UnknownError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:869:5
+checkReadyState@chrome://remote/content/marionette/navigate.sys.mjs:58:24
+onNavigation@chrome://remote/content/marionette/navigate.sys.mjs:345:39
+emit@resource://gre/modules/EventEmitter.sys.mjs:148:20
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteEventsParent.sys.mjs:33:25
+</status>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:59.939875" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'ภาษาไทย')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:59.940881" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์</arg>
+<arg>10</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:59.940881" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>หน้าแรก</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:59.941876" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>ผู้วิจัย</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:59.941876" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>โครงการวิจัย</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:59.942875" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>กลุ่มวิจัย</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:59.942875" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>รายงาน</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:59.943878" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-27T01:14:59.943878" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-02-27T01:14:49.382834" elapsed="10.562057">WebDriverException: Message: Reached error page: about:neterror?e=connectionFailure&amp;u=http%3A//127.0.0.1%3A8000/&amp;c=UTF-8&amp;d=Firefox%20can%E2%80%99t%20establish%20a%20connection%20to%20the%20server%20at%20127.0.0.1%3A8000.
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+UnknownError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:869:5
+checkReadyState@chrome://remote/content/marionette/navigate.sys.mjs:58:24
+onNavigation@chrome://remote/content/marionette/navigate.sys.mjs:345:39
+emit@resource://gre/modules/EventEmitter.sys.mjs:148:20
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteEventsParent.sys.mjs:33:25
+</status>
+</test>
+<status status="FAIL" start="2025-02-27T01:14:24.212680" elapsed="35.734205"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Uat Test1">Uat Test1</stat>
+<stat pass="0" fail="4" skip="0" id="s1" name="Testhometh">Testhometh</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-02-27T01:14:42.433708" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: WebDriver session does not exist, or is not active
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+InvalidSessionIDError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:460:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:538:13
+assert.session@chrome://remote/content/shared/webdriver/Assert.sys.mjs:37:4
+despatch@chrome://remote/content/marionette/server.sys.mjs:315:19
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</msg>
+<msg time="2025-02-27T01:14:49.376834" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: WebDriver session does not exist, or is not active
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+InvalidSessionIDError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:460:5
+assert.that/&lt;@chrome://remote/content/shared/webdriver/Assert.sys.mjs:538:13
+assert.session@chrome://remote/content/shared/webdriver/Assert.sys.mjs:37:4
+despatch@chrome://remote/content/marionette/server.sys.mjs:315:19
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/&lt;@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/&lt;@chrome://remote/content/marionette/transport.sys.mjs:494:20
+</msg>
 </errors>
 </robot>
