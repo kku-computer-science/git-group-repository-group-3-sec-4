@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 7.1.1 (Python 3.12.2 on win32)" name="Generator">
+<meta content="Robot Framework 7.2.2 (Python 3.13.1 on win32)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all">
 :root {
@@ -1512,7 +1512,7 @@ window.testdata = function () {
     var STATUSES = ['FAIL', 'PASS', 'SKIP', 'NOT RUN'];
     var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'ITERATION', 'IF',
                          'ELSE IF', 'ELSE', 'RETURN', 'VAR', 'TRY', 'EXCEPT', 'FINALLY',
-                         'WHILE', 'CONTINUE', 'BREAK', 'ERROR'];
+                         'WHILE', 'GROUP', 'CONTINUE', 'BREAK', 'ERROR'];
     function addElement(elem) {
         if (!elem.id)
             elem.id = uniqueId();
@@ -2071,25 +2071,25 @@ storage = function () {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[0,0,6665],[],[[4,0,0,[],[0,234,6432,5],[[0,6,7,0,8,9,0,0,[0,234,6432],[[234,2,10],[6658,2,11],[6658,5,5]]],[0,12,7,0,13,14,0,0,[3,6666,0],[]],[0,15,7,0,16,17,0,0,[3,6666,0],[]],[0,15,7,0,16,18,0,0,[3,6666,0],[]],[0,19,7,0,20,21,0,0,[3,6666,0],[]],[0,22,7,0,23,24,0,0,[3,6666,0],[]],[0,25,7,0,26,27,0,0,[3,6666,0],[]],[0,22,7,0,23,28,0,0,[3,6666,0],[]],[0,29,7,0,30,0,0,0,[3,6666,0],[]],[0,31,7,0,32,33,0,0,[3,6666,0],[]],[0,29,7,0,30,0,0,0,[3,6666,0],[]],[0,34,7,0,35,0,0,0,[3,6666,0],[]]]]],[],[1,0,1,0]];
+window.output["suite"] = [1,2,3,0,[],[0,0,42063],[],[[4,0,5,[],[0,277,12580,6],[[1,7,8,0,9,0,0,0,[1,279,5972],[[279,2,10]]],[0,7,8,0,9,11,0,0,[0,6255,3860],[[6256,2,12],[10111,2,13],[10111,5,6]]],[0,14,8,0,15,16,0,0,[3,10116,0],[]],[0,17,0,0,0,0,0,0,[3,10116,0],[]],[0,18,0,0,0,0,0,0,[3,10117,0],[]],[0,19,0,0,0,0,0,0,[3,10117,0],[]],[0,20,0,0,0,0,0,0,[3,10117,0],[]],[0,21,8,0,22,0,0,0,[3,10117,0],[]],[0,7,8,0,9,0,0,0,[3,10118,0],[]],[0,17,0,0,0,0,0,0,[3,10118,0],[]],[2,21,8,0,22,0,0,0,[1,10119,2738],[]]]],[23,0,0,[],[0,12858,29204,24],[[1,7,8,0,9,0,0,0,[1,12858,5949],[[12858,2,10]]],[0,7,8,0,9,0,0,0,[1,18808,6009],[[18808,2,10]]],[0,25,0,0,0,0,0,0,[0,24816,14274],[[0,14,8,0,15,26,0,0,[0,24817,14273],[[39068,2,27],[39068,5,24]]],[0,28,8,0,29,30,31,0,[3,39090,0],[]],[0,32,33,0,34,35,0,0,[3,39090,0],[]]]],[0,36,0,0,0,0,0,0,[3,39091,0],[]],[0,37,0,0,0,0,0,0,[3,39091,0],[]],[0,21,8,0,22,0,0,0,[3,39091,0],[]],[0,7,8,0,9,0,0,0,[3,39092,0],[]],[0,25,0,0,0,0,0,0,[3,39092,0],[]],[2,21,8,0,22,0,0,0,[1,39092,2970],[]]]]],[],[2,0,2,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*Uat Test1","*D:\\GitHub\\git-group-repository-group-3-sec-4\\Project_2-master\\test1\\uat_test1.robot","*uat_test1.robot","*Admin Can Access System Log","eNqN1LtOwzAUBuCZPoVHqkiVHR/fIjEkjg0dKFJbYEAIhdalUdsEOQHK22NgQQxOs3j5/J/4cnzvnktfvztvjiv32tdtk6Fr13XVi8vQW7Nr2o8GOe9bn6HG9Vlm5vMnfTObGb2c3sye5sbeLkw5Quh8EaaF+ahuNm2GVlvfHtwFoXSCJ1wBnSg1Hi36arXrfbVy2ejs0vVXVbPeuzvn603tPHrARxw+YS1PqVLcEpakUgj6ODo7n7Wo+zw8t/vxP4dTjnFMCCVtnscFU8CjQnKBVVxIEHIgIydDVUANCcLia5FUGxMXwLSO74cubbSKBMzyaBVJRArxDGq5pQMZOI0KUVrL4qs1hJjvjIH7pg2krEwoKCzoKd4WOdCEMskVP8kTECGfAbCUDfucaVXmiQxbDWm8AUoMNi4UJzAgRBG9eNJKbb4boKg6t9x6V62nTd0vt+GV+CMVtrowshTJz7nN+/1t5/yvD93v+7+WkDAUWicQfu4LCPc9Mw==","*Open Browser","*SeleniumLibrary","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*${URL}    ${BROWSER}","*Opening browser 'Chrome' to base url '<a href=\"http://localhost:8000/login\">http://localhost:8000/login\x3c/a>'.","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-2.png\"><img src=\"selenium-screenshot-2.png\" width=\"800px\">\x3c/a>","*Wait Until Element Is Visible","*<p>Waits until the element <code>locator\x3c/code> is visible.\x3c/p>","*id=username    timeout=10s","*Input Text","*<p>Types the given <code>text\x3c/code> into the text field identified by <code>locator\x3c/code>.\x3c/p>","*id=username    ${ADMIN_USER}","*id=password    ${ADMIN_PASS}","*Click Button","*<p>Clicks the button identified by <code>locator\x3c/code>.\x3c/p>","*id=login-btn","*Wait Until Page Contains","*<p>Waits until <code>text\x3c/code> appears on the current page.\x3c/p>","*Dashboard    timeout=10s","*Go To","*<p>Navigates the current browser window to the provided <code>url\x3c/code>.\x3c/p>","*${LOG_URL}","*System Log    timeout=10s","*Capture Page Screenshot","*<p>Takes a screenshot of the current page and embeds it into a log file.\x3c/p>","*Page Should Contain Element","*<p>Verifies that element <code>locator\x3c/code> is found on the current page.\x3c/p>","*xpath=//table[@id='log-table']","*Close Browser","*<p>Closes the current browser.\x3c/p>"]);
+window.output["strings"] = window.output["strings"].concat(["*","*Test01 Language Switch","*C:\\Users\\tt_pe\\Documents\\GitHub\\Proj_SE\\git-group-repository-group-3-sec-4\\Project_2-master\\test1\\test01_language_switch.robot","*test01_language_switch.robot","*Test01 - Switch Language Without Login","*<p>ทดสอบการเปลี่ยนภาษาทั้งเว็บเมื่อยังไม่ได้ล็อกอิน\x3c/p>","eNqN0ztv2zAQAOA5/hUcUwgw+JD50CZRUtqhQdG4XaIMtMxYRGRRIOnG/vel47RoFtachLtP5B3Ie9DeGzvd2yCdVkFvm2Ov5xBDBfgac2qnC+AvCEw2gP7CCrAejAe/tHvL2GcgB2f3unYmxoCdxhPwh3m2Lvj31F+MCFrIg3N6CmDj7KuPP/zJxT0RIUu4pCInS5Qj8GrCADZmUu4EZhW/ZdF9c3bn1B60ZtS+u7N2N+ruckpXzvNoenVuoevfQkt91IuHoPqX4FSvi8XNnQ6f1bQd9U/tzLOJ5z/CI4yLtS2jOGcc1qsMC4EJI0+Lm9t7C/xpv7Hjp48SwaqtYUKgtlwJWCZFwyjFaUGprNICioYkRV1JIlK9QFzSUqaFkAImBWoRStfRlALxtKhKjp7+f0s1LXGdEcIE4+IK30hy9jnlCF7lIcxJ9IhjdEU9mErGq4znjHGWfDSIrVibFriVeVoQtKrTTxMLdm6zUl6vhzi22y+TCevhML38IysCRdXwmmX4fG/fw/gjzuPFx5lx4YNFoq5aLLM8Fvcb+wk5fg==","*Open Browser","*SeleniumLibrary","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*Opening browser 'firefox' to base url 'None'.","*${WELCOME URL}    ${BROWSER}","*Opening browser 'Chrome' to base url '<a href=\"http://127.0.0.1:8000\">http://127.0.0.1:8000\x3c/a>'.","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-3.png\"><img src=\"selenium-screenshot-3.png\" width=\"800px\">\x3c/a>","*Wait Until Element Is Visible","*<p>Waits until the element <code>locator\x3c/code> is visible.\x3c/p>","*timeout=10s","*Verify Default Language Is English","*Switch Language To Thai 01","*Verify Language Is Thai 01","*Refresh Page And Verify Default Language Is English","*Close Browser","*<p>Closes the current browser.\x3c/p>","*Test02 Reset Language After Close Browser","*Element 'xpath=//*[@id='btn-home']' not visible after 10 seconds.","*Check Default Language Is English","*xpath=//*[@id='btn-home']    timeout=10s","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-4.png\"><img src=\"selenium-screenshot-4.png\" width=\"800px\">\x3c/a>","*Get Text","*<p>Returns the text value of the element identified by <code>locator\x3c/code>.\x3c/p>","*xpath=//*[@id='btn-home']","*${text}","*Should Be Equal","*BuiltIn","*<p>Fails if the given objects are unequal.\x3c/p>","*${text}    HOME","*Switch To Thai","*Check Language Is Thai"]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:06","fail":1,"label":"All Tests","pass":0,"skip":0}],[],[{"elapsed":"00:00:07","fail":1,"id":"s1","label":"Uat Test1","name":"Uat Test1","pass":0,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:00:42","fail":2,"label":"All Tests","pass":0,"skip":0}],[],[{"elapsed":"00:00:42","fail":2,"id":"s1","label":"Test01 Language Switch","name":"Test01 Language Switch","pass":0,"skip":0}]];
 </script>
 <script type="text/javascript">
 window.output["errors"] = [];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1739401603099;
+window.output["baseMillis"] = 1740594263082;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 6687;
+window.output["generated"] = 42079;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
@@ -2204,7 +2204,7 @@ function addExecutionLog(main) {
 
 <script type="text/x-jquery-tmpl" id="tagStatisticsRowTemplate">
   <tr class="row-${$item.index}">
-    <td class="stats-col-name" title="{{html doc}}">
+    <td class="stats-col-name" title="${doc}">
       <div class="stat-name">
         <span>{{html label}}</span>
         {{if info}}(${info}){{/if}}
