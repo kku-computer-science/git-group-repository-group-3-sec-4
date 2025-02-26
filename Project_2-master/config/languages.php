@@ -12,7 +12,7 @@ return [
     ],
     'zh' => [
         'display' => '中文',
-        'flag-icon' => 'zh'
+        'flag-icon' => 'cn'
     ],
     
 ];
