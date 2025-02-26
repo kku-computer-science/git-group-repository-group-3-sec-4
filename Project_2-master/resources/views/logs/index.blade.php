@@ -10,17 +10,17 @@
                         @if (!empty($logsByDate)) <!-- ตรวจสอบว่ามีข้อมูล logsByDate หรือไม่ -->
                             <canvas id="logChart" data-logs="{{ json_encode($logsByDate) }}"></canvas>
                         @else
-                            <p class="text-center">No log data available</p>
+                            <p class="text-center">{{ trans('dashboard.no_log_data') }}</p>
                         @endif
                     </div>
                 </div>
 
                 <!-- Search Box -->
                 <div class="d-flex mb-3">
-                    <input type="text" class="form-control me-2" id="search" placeholder="Search">
-                    <input type="text" class="form-control me-2" id="userId" placeholder="User ID">
+                <input type="text" class="form-control me-2" id="search" placeholder="{{ trans('system_log.search') }}">
+                <input type="text" class="form-control me-2" id="userId" placeholder="{{ trans('system_log.user_id') }}">
                     <input type="date" class="form-control me-2" id="date">
-                    <button class="btn btn-primary">Search</button>
+                    <button class="btn btn-primary">{{ trans('system_log.search') }}</button>
                 </div>
 
                 <!-- Log Table -->
@@ -28,12 +28,12 @@
                     <table class="table table-bordered">
                         <thead class="table-dark">
                             <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>User</th>
-                                <th>Event</th>
-                                <th>Type</th>
-                                <th>Description</th>
+                                <th>{{ trans('system_log.date') }}</th>
+                                <th>{{ trans('system_log.time') }}</th>
+                                <th>{{ trans('system_log.user') }}</th>
+                                <th>{{ trans('system_log.event') }}</th>
+                                <th>{{ trans('system_log.type') }}</th>
+                                <th>{{ trans('system_log.description') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,7 +48,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="6" class="text-center">No logs found</td>
+                                <td colspan="6" class="text-center">N{{ trans('system_log.No logs found') }}</td>
                             </tr>
                             @endforelse
                         </tbody>
@@ -77,7 +77,7 @@
                     data: {
                         labels: dates,
                         datasets: [{
-                            label: 'Log Events',
+                            label: "{{ trans('system_log.log_events') }}",
                             data: counts,
                             borderColor: 'blue',
                             fill: false
