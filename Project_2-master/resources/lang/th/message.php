@@ -10,6 +10,7 @@ return [
 'publications' => 'ผลงานตีพิมพ์ (5 ปี ย้อนหลัง)',
 'education'=>'การศึกษา',
 'publications2' => 'ผลงานตีพิมพ์',
+'Login' => 'เข้าสู่ระบบ',
 'Reference' => 'อ้างอิง',
 'Before' => 'ก่อน',
 'ref' => 'อ้างอิง',

@@ -13,6 +13,6 @@ return [
 'Reference' => 'Reference',
 'Before' => 'Before',
 'ref' => 'Reference',
-
+'Login'=> 'LOGIN',
 ];
 

@@ -379,7 +379,7 @@
 		<div class="form-toggle"></div>
 		<div class="form-panel one">
 			<div class="form-header">
-				<h1>Account Login</h1>
+				<h1>{{ __('login.Account Login') }}</h1>
 			</div>
 			<div class="form-content">
 				<form method="POST" class="validate-form" autocomplete="off" action="{{ route('login') }}">
@@ -392,7 +392,7 @@
 					@endif
 					<!-- <div class="form-group validate-input" data-validate="Valid email is required: ex@abc.xyz"> -->
 					<div class="form-group validate-input">
-						<label for="email">Username</label>
+						<label for="email">{{ __('login.Username') }}</label>
 						<input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus>
 						@error('username')
 						<span class="invalid-feedback" role="alert">
@@ -401,23 +401,23 @@
 						@enderror
 					</div>
 					<div class="form-group validate-input" data-validate="Password is required">
-						<label for="password">Password</label>
+						<label for="password">{{ __('login.Password') }}</label>
 						<input id="password" class="input" type="password" name="password" required="required" />
 					</div>
 					<div class="form-group">
 						<label class="form-remember">
-							<input id="ckb1" name="remember" type="checkbox" />Remember Me
+							<input id="ckb1" name="remember" type="checkbox" />{{ __('login.Remember Me') }}
 						</label>
 					</div>
 					<div class="form-group">
-						<button type="submit">Log In</button>
+						<button type="submit">{{ __('login.Log In') }}</button>
 					</div>
 					<div class="form-remember pb-3">
-							<p style="color: red; text-align: right;"> *** หากลืมรหัสผ่าน ให้ติดต่อผู้ดูแลระบบ</p>
+							<p style="color: red; text-align: right;"> {{ __('login.*** If you forget your password, please contact your administrator.') }}</p>
 					</div>
 					<ul>
-						<li>สำหรับ Username ใช้ KKU-Mail ในการเข้าสู่ระบบ</li>
-						<li>สำหรับนักศึกษาที่เข้าระบบเป็นครั้งแรกให้เข้าสู่ระด้วยรหัสนักศึกษา</li>
+						<li>{{ __('login.For Username, use KKU-Mail to log in.') }}</li>
+						<li>{{ __('login.For students who are logging in for the first time, please log in with your student ID number.') }}</li>
 					</ul>
 				</form>
 			</div>

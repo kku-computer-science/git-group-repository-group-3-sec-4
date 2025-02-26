@@ -13,4 +13,5 @@ return [
 'Reference' => '參考',
 'Before' => '前',
 'ref' => '参考',
+'Login' => '登录',
 ];
