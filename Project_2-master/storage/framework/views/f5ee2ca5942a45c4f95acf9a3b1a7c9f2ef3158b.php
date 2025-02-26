@@ -70,6 +70,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item d-none d-lg-block">
+                        <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+                            <span class="input-group-addon input-group-prepend border-right">
+                                <span class="icon-calendar input-group-text calendar-icon"></span>
+                            </span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <form class="search-form" action="#">
+                            <i class="icon-search"></i>
+                            <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+                        </form>
+                    </li>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="flag-icon flag-icon-<?php echo e(Config::get('languages')[App::getLocale()]['flag-icon']); ?>"></span>
@@ -88,27 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
                     </li>
-                    <li class="nav-item d-none d-lg-block">
-                        <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
-                            <span class="input-group-addon input-group-prepend border-right">
-                                <span class="icon-calendar input-group-text calendar-icon"></span>
-                            </span>
-                            <input type="text" class="form-control">
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <form class="search-form" action="#">
-                            <i class="icon-search"></i>
-                            <input type="search" class="form-control" placeholder="Search Here" title="Search here">
-                        </form>
-                    </li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="icon-bell"></i>
-                            <span class="count"></span>
-                        </a>
-                    </li> -->
+
                     <!-- <li class="nav-item dropdown d-none d-lg-block user-dropdown">
                         <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <img class="img-xs rounded-circle" src="<?php echo e(Auth::user()->picture); ?>"
