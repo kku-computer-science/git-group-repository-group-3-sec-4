@@ -16,7 +16,7 @@
 <div class="container">
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>{{ __('researchProjects.whoops') }}</strong> {{ __('researchProjects.input_problem') }}<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -27,70 +27,70 @@
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card" style="padding: 16px;">
             <div class="card-body">
-                <h4 class="card-title">เพิ่มข้อมูลโครงการวิจัย</h4>
-                <p class="card-description">กรอกข้อมูลรายละเอียดโครงการวิจัย</p>
+                <h4 class="card-title">{{ __('researchProjects.add_project') }}</h4>
+                <p class="card-description">{{ __('researchProjects.enter_details') }}</p>
                 <form action="{{ route('researchProjects.store') }}" method="POST">
                     @csrf
                     <div class="form-group row mt-5">
-                        <label for="exampleInputfund_name" class="col-sm-2 ">ชื่อโครงการวิจัย</label>
+                        <label for="exampleInputfund_name" class="col-sm-2 ">{{ __('researchProjects.project_name') }}</label>
                         <div class="col-sm-8">
-                            <input type="text" name="project_name" class="form-control" placeholder="ชื่อโครงการวิจัย" value="{{ old('project_name') }}">
+                            <input type="text" name="project_name" class="form-control" placeholder="{{ __('researchProjects.project_name') }}" value="{{ old('project_name') }}">
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label for="exampleInputfund_name" class="col-sm-2 ">วันที่เริ่มต้น</label>
+                        <label for="exampleInputfund_name" class="col-sm-2 ">{{ __('researchProjects.start_date') }}</label>
                         <div class="col-sm-4">
                             <input type="date" name="project_start" id="Project_start" class="form-control" value="{{ old('project_start') }}">
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label for="exampleInputfund_name" class="col-sm-2 ">วันที่สิ้นสุด</label>
+                        <label for="exampleInputfund_name" class="col-sm-2 ">{{ __('researchProjects.end_date') }}</label>
                         <div class="col-sm-4">
                             <input type="date" name="project_end" id="Project_end" class="form-control" value="{{ old('project_end') }}">
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label for="exampleInputfund_details" class="col-sm-2 ">เลือกทุน</label>
+                        <label for="exampleInputfund_details" class="col-sm-2 ">{{ __('researchProjects.choose_scholarship') }}</label>
                         <div class="col-sm-4">
                             <select id='fund' style='width: 200px;' class="custom-select my-select" name="fund">
-                                <option value='' disabled selected>เลือกทุนวิจัย</option>@foreach($funds as $fund)<option value="{{ $fund->id }}">{{ $fund->fund_name }}</option>@endforeach
+                                <option value='' disabled selected>{{ __('researchProjects.choose_scholarship') }}</option>@foreach($funds as $fund)<option value="{{ $fund->id }}">{{ $fund->fund_name }}</option>@endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputproject_year" class="col-sm-2 ">ปีที่ยื่น (ค.ศ.)</label>
+                        <label for="exampleInputproject_year" class="col-sm-2 ">{{ __('researchProjects.year_submission') }}</label>
                         <div class="col-sm-4">
-                            <input type="year" name="project_year" class="form-control" placeholder="year">
+                            <input type="year" name="project_year" class="form-control" placeholder="{{ __('researchProjects.year') }}">
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label for="exampleInputfund_name" class="col-sm-2 ">งบประมาณ</label>
+                        <label for="exampleInputfund_name" class="col-sm-2 ">{{ __('researchProjects.budget') }}</label>
                         <div class="col-sm-4">
-                            <input type="int" name="budget" class="form-control" placeholder="หน่วยบาท" value="{{ old('budget') }}">
+                            <input type="int" name="budget" class="form-control" placeholder="{{ __('researchProjects.Baht') }}" value="{{ old('budget') }}">
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label for="exampleInputresponsible_department" class="col-sm-2 ">หน่วยงานที่รับผิดชอบ</label>
+                        <label for="exampleInputresponsible_department" class="col-sm-2 ">{{ __('researchProjects.responsible_agency') }}</label>
                         <div class="col-sm-9">
                             <select id='dep' style='width: 200px;' class="custom-select my-select" name="responsible_department">
-                                <option value='' disabled selected>เลือกสาขาวิชา</option>@foreach($deps as $dep)<option value="{{ $dep->department_name_th }}">{{ $dep->department_name_th }}</option>@endforeach
+                                <option value='' disabled selected>{{ __('researchProjects.Choose_study') }}</option>@foreach($deps as $dep)<option value="{{ $dep->department_name_th }}">{{ $dep->department_name_th }}</option>@endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label for="exampleInputfund_details" class="col-sm-2 ">รายละเอียดโครงการ</label>
+                        <label for="exampleInputfund_details" class="col-sm-2 ">{{ __('researchProjects.project_details') }}</label>
                         <div class="col-sm-9">
-                            <textarea type="text" name="note" class="form-control form-control-lg" style="height:150px" placeholder="Note" value="{{ old('note') }}"></textarea>
+                            <textarea type="text" name="note" class="form-control form-control-lg" style="height:150px" placeholder="{{ __('researchProject.note') }}" value="{{ old('note') }}"></textarea>
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label for="exampleInputstatus" class="col-sm-2 ">สถานะ</label>
+                        <label for="exampleInputstatus" class="col-sm-2 ">{{ __('researchProjects.status') }}</label>
                         <div class="col-sm-3">
                             <select id='status' class="custom-select my-select" name="status">
-                                <option value="" disabled selected>โปรดระบุสถานะดำเนินงาน</option>
-                                <option value="1">ยื่นขอ</option>
-                                <option value="2">ดำเนินการ</option>
-                                <option value="3">ปิดโครงการ</option>
+                                <option value="" disabled selected>{{ __('researchProjects.operating_status') }}</option>
+                                <option value="1">{{ __('researchProjects.apply_for') }}</option>
+                                <option value="2">{{ __('researchProjects.carry_out') }}</option>
+                                <option value="3">{{ __('researchProjects.close_project') }}</option>
                             </select>
                         </div>
                     </div>
@@ -106,16 +106,16 @@
                     </div> -->
 
                     <div class="form-group row mt-2">
-                        <label for="exampleInputfund_details" class="col-sm-2 ">ผู้รับผิดชอบโครงการ</label>
+                        <label for="exampleInputfund_details" class="col-sm-2 ">{{ __('researchProjects.person') }}</label>
                         <div class="col-sm-9">
                             <select id='head0' style='width: 200px;' name="head">
-                                <option value=''>Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                                <option value=''>{{ __('researchProjects.Select User') }}</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-group row mt-2">
-                        <label for="exampleInputfund_details" class="col-sm-2 ">ผู้รับผิดชอบโครงการ (ร่วม) ภายใน</label>
+                        <label for="exampleInputfund_details" class="col-sm-2 ">{{ __('researchProjects.internal_project') }}</label>
                         <div class="col-sm-9">
                             <table class="table" id="dynamicAddRemove">
                                 <tr>
@@ -124,7 +124,7 @@
                                 <tr>
                                     <!-- <td><input type="text" name="moreFields[0][Budget]" placeholder="Enter title" class="form-control" /></td> -->
                                     <td><select id='selUser0' style='width: 200px;' name="moreFields[0][userid]">
-                                            <option value=''>Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                                            <option value=''>{{ __('researchProjects.Select User') }}</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
                                             @endforeach
                                         </select></td>
 
@@ -152,21 +152,21 @@
                         </div>
                     </div> -->
                     <div class="form-group row mt-2">
-                        <label for="exampleInputpaper_doi" class="col-sm-2 ">ผู้รับผิดชอบโครงการ (ร่วม) ภายนอก</label>
+                        <label for="exampleInputpaper_doi" class="col-sm-2 ">{{ __('researchProjects.external') }}</label>
                         <div class="col-sm-9">
                             <div class="table-responsive">
                                 <table class="table table-hover small-text" id="tb">
                                     <tr class="tr-header">
-                                        <th>ตำแหน่งหรือคำนำหน้า</th>
-                                        <th>ชื่อ</th>
-                                        <th>นามสกุล</th>
+                                        <th>{{ __('researchProjects.position_prefix') }}</th>
+                                        <th>{{ __('researchProjects.fname') }}</th>
+                                        <th>{{ __('researchProjects.lname') }}</th>
                                         <!-- <th>Email Id</th> -->
                                             <!-- <button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="mdi mdi-plus"></i></button> -->
                                         <th><a href="javascript:void(0);" style="font-size:18px;" id="addMore2" title="Add More Person"><i class="mdi mdi-plus"></i></span></a></th>
                                     <tr>
-                                        <td><input type="text" name="title_name[]" class="form-control" placeholder="ตำแหน่งหรือคำนำหน้า"></td>
-                                        <td><input type="text" name="fname[]" class="form-control" placeholder="ชื่อ" ></td>
-                                        <td><input type="text" name="lname[]" class="form-control" placeholder="นามสกุล" ></td>
+                                        <td><input type="text" name="title_name[]" class="form-control" placeholder="{{ __('researchProjects.position_prefix') }}"></td>
+                                        <td><input type="text" name="fname[]" class="form-control" placeholder="{{ __('researchProjects.fname') }}" ></td>
+                                        <td><input type="text" name="lname[]" class="form-control" placeholder="{{ __('researchProjects.lname') }}" ></td>
                                         <!-- <td><input type="text" name="emailid[]" class="form-control"></td> -->
                                         <td><a href='javascript:void(0);' class='remove'><span><i class="mdi mdi-minus"></span></a></td>
                                     </tr>
@@ -176,8 +176,8 @@
                         </div>
                     </div>
                     <div class="pt-4">
-                        <button type="submit" class="btn btn-primary me-2">Submit</button>
-                        <a class="btn btn-light" href="{{ route('researchProjects.index')}}">Cancel</a>
+                        <button type="submit" class="btn btn-primary me-2">{{ __('researchProjects.submit') }}</button>
+                        <a class="btn btn-light" href="{{ route('researchProjects.index')}}">{{ __('researchProjects.cancel') }}</a>
                     </div>
                 </form>
             </div>

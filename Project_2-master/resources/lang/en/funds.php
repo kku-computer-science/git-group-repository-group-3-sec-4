@@ -57,4 +57,12 @@ return [
     'problem_input' => 'There were some problems with your input.',
     'edit_fund' => 'Edit Fund',
     'fill_edit' => 'Fill in the research funding details',
+
+    "fund_detail" => "Fund Detail",
+    "fund_info" => "Fund Information",
+    "fund_year" => "Year",
+    "fund_details" => "Fund Details",
+    "agency" => "Agency",
+    "added_by" => "Added by",
+    "back" => "Back",
 ];

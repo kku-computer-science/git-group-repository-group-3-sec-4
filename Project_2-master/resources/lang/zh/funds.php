@@ -57,4 +57,12 @@ return [
     'problem_input' => '您的输入存在问题',
     'edit_fund' => '编辑研究基金',
     'fill_edit' => '填写研究资金的详细信息',
+    
+    "fund_detail" => "基金详情",
+    "fund_info" => "基金信息",
+    "fund_year" => "年份",
+    "fund_details" => "基金详情",
+    "agency" => "机构",
+    "added_by" => "添加者",
+    "back" => "返回",
 ];
