@@ -60,10 +60,14 @@
 
                     <h6 class="card-text1">{{ trans('books.email') }}: {{$res->email}}</h6>
 
-                        <h6 class="card-title">{{ trans('message.education') }}</h6>
-                        @foreach( $res->education as $edu)
-                        <h6 class="card-text2 col-sm-10"> {{$edu->year}} {{$edu->qua_name}} {{$edu->uname}}</h6>
-                        @endforeach
+                    <h6 class="card-title">{{ trans('message.education') }}</h6>
+                    @foreach($res->education as $edu)
+                        <h6 class="card-text2 col-sm-10">
+                            {{$edu->year}}
+                            {{ $edu->{'qua_name_' . (app()->getLocale() == 'zh' ? 'cn' : (app()->getLocale() == 'en' ? 'en' : ''))} ?? $edu->qua_name }} 
+                            {{ $edu->{'uname_' . (app()->getLocale() == 'zh' ? 'cn' : (app()->getLocale() == 'en' ? 'en' : ''))} ?? $edu->uname }}
+                        </h6>
+                    @endforeach
                         <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             {{ trans('message.expertise') }}
@@ -476,48 +480,46 @@
 
 <script>
     $(document).ready(function() {
+        function initializeDataTable(tableId) {
+            if (!$.fn.DataTable.isDataTable(tableId)) { // ตรวจสอบว่า DataTable ถูกใช้งานไปแล้วหรือยัง
+                $(tableId).DataTable({
+                    responsive: true,
+                    language: {
+                        search: "{{ __('reseracher.Search') }}",
+                        lengthMenu: "{{ __('reseracher.Show') }} _MENU_ {{ __('reseracher.entries') }}",
+                        info: "{{ __('reseracher.Showing') }} _START_ {{ __('reseracher.to') }} _END_ {{ __('reseracher.of') }} _TOTAL_ {{ __('reseracher.entries') }}",
+                        paginate: {
+                            previous: "{{ __('reseracher.Previous') }}",
+                            next: "{{ __('reseracher.Next') }}"
+                        }
+                    }
+                });
+            }
+        }
 
-        var table1 = $('#example1').DataTable({
-            responsive: true,
+        // กำหนดตารางที่ต้องใช้ DataTable
+        var tables = ['#example1', '#example2', '#example3', '#example4', '#example5', '#example6'];
+        
+        // เรียกใช้ฟังก์ชันสำหรับทุกตารางที่กำหนด
+        tables.forEach(function(tableId) {
+            initializeDataTable(tableId);
         });
 
-        var table2 = $('#example2').DataTable({
-            responsive: true,
-        });
-        var table3 = $('#example3').DataTable({
-            responsive: true,
-        });
-        var table4 = $('#example4').DataTable({
-            responsive: true,
-        });
-        var table5 = $('#example5').DataTable({
-            responsive: true,
-        });
-        var table6 = $('#example6').DataTable({
-            responsive: true,
-        });
-
-
+        // ปรับขนาดตารางเมื่อเปลี่ยนแท็บ
         $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function(event) {
             var tabID = $(event.target).attr('data-bs-target');
-            if (tabID === '#scopus') {
-                table2.columns.adjust().draw()
-            }
-            if (tabID === '#wos') {
-                table3.columns.adjust().draw()
-            }
-            if (tabID === '#tci') {
-                table4.columns.adjust().draw()
-            }
-            if (tabID === '#book') {
-                table5.columns.adjust().draw()
-            }
-            if (tabID === '#patent') {
-                table6.columns.adjust().draw()
-            }
+            var tableMap = {
+                '#scopus': '#example2',
+                '#wos': '#example3',
+                '#tci': '#example4',
+                '#book': '#example5',
+                '#patent': '#example6'
+            };
 
+            if (tableMap[tabID] && $.fn.DataTable.isDataTable(tableMap[tabID])) {
+                $(tableMap[tabID]).DataTable().columns.adjust().draw();
+            }
         });
-
     });
 </script>
 
