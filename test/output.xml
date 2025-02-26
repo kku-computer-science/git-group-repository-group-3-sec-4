@@ -1,73 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-02-26T05:01:19.858397" rpa="false" schemaversion="5">
-<suite id="s1" name="Test03 Language Dynamic Content" source="C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\test\test03_language_dynamic_content.robot">
-<test id="s1-t1" name="Test03 - Dynamic Content Language Switch" line="9">
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-02-26T23:20:59.631068" rpa="false" schemaversion="5">
+<suite id="s1" name="Test01 Language Switch" source="C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\test\test01_language_switch.robot">
+<test id="s1-t1" name="Test01 - Switch Language Without Login" line="9">
 <kw name="Open Browser To Welcome Page" owner="language_switch_resource" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-26T05:01:21.290059" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000019D7E7B2510&gt;</msg>
+<msg time="2025-02-26T23:20:59.941957" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002948174E510&gt;</msg>
 <var>${chrome_options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-26T05:01:21.289484" elapsed="0.000645"/>
+<status status="PASS" start="2025-02-26T23:20:59.941698" elapsed="0.000295"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-26T05:01:21.290748" level="INFO">${chrome_options.binary_location} = C:\Users\tt_pe\Documents\chrome-win64\chrome-win64\chrome.exe</msg>
+<msg time="2025-02-26T23:20:59.942297" level="INFO">${chrome_options.binary_location} = C:\Users\tt_pe\Documents\chrome-win64\chrome-win64\chrome.exe</msg>
 <var>${chrome_options.binary_location}</var>
 <arg>${CHROME_BROWSER_PATH}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-26T05:01:21.290399" elapsed="0.000402"/>
+<status status="PASS" start="2025-02-26T23:20:59.942127" elapsed="0.000198"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-26T05:01:21.292627" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x0000019D7E7B2270&gt;</msg>
+<msg time="2025-02-26T23:20:59.943005" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x000002948174E270&gt;</msg>
 <var>${service}</var>
 <arg>sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-26T05:01:21.290996" elapsed="0.001806"/>
+<status status="PASS" start="2025-02-26T23:20:59.942439" elapsed="0.000596"/>
 </kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-02-26T05:01:21.294252" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000'.</msg>
-<msg time="2025-02-26T05:01:21.295241" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg time="2025-02-26T05:01:21.295462" level="FAIL">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-02-26T23:20:59.943338" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-02-26T23:23:53.621317" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-02-26T23:23:53.621538" level="FAIL">WebDriverException: Message: Can not connect to the Service C:\Users\tt_pe\Documents\chrome-win64\chrome-win64\chrome.exe
 </msg>
-<arg>${WELCOME URL}</arg>
-<arg>chrome</arg>
+<arg>Chrome</arg>
 <arg>options=${chrome_options}</arg>
 <arg>service=${service}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="FAIL" start="2025-02-26T05:01:21.293143" elapsed="0.515920">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="FAIL" start="2025-02-26T23:20:59.943137" elapsed="173.681622">WebDriverException: Message: Can not connect to the Service C:\Users\tt_pe\Documents\chrome-win64\chrome-win64\chrome.exe
 </status>
 </kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="NOT RUN" start="2025-02-26T05:01:21.809355" elapsed="0.000059"/>
+<kw name="Go To" owner="SeleniumLibrary">
+<arg>${WELCOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2025-02-26T23:23:53.624981" elapsed="0.000038"/>
 </kw>
-<status status="FAIL" start="2025-02-26T05:01:21.288307" elapsed="0.521314">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+<kw name="Welcome Page Should Be Open" owner="language_switch_resource">
+<status status="NOT RUN" start="2025-02-26T23:23:53.625188" elapsed="0.000034"/>
+</kw>
+<status status="FAIL" start="2025-02-26T23:20:59.941138" elapsed="173.684192">WebDriverException: Message: Can not connect to the Service C:\Users\tt_pe\Documents\chrome-win64\chrome-win64\chrome.exe
 </status>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-02-26T05:01:21.825717" elapsed="0.000229"/>
+<status status="PASS" start="2025-02-26T23:23:53.625791" elapsed="0.000144"/>
 </kw>
-<doc>ทดสอบการเปลี่ยนภาษาของข้อมูลใหม่ที่เพิ่มเข้ามาบนเว็บ</doc>
-<status status="FAIL" start="2025-02-26T05:01:21.283387" elapsed="0.553454">Setup failed:
-NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+<doc>ทดสอบการเปลี่ยนภาษาทั้งเว็บเมื่อยังไม่ได้ล็อกอิน</doc>
+<status status="FAIL" start="2025-02-26T23:20:59.939735" elapsed="173.686313">Setup failed:
+WebDriverException: Message: Can not connect to the Service C:\Users\tt_pe\Documents\chrome-win64\chrome-win64\chrome.exe
 </status>
 </test>
-<status status="FAIL" start="2025-02-26T05:01:19.860372" elapsed="1.998896"/>
+<test id="s1-t2" name="Test02 Reset Language After Close Browser" line="20">
+<kw name="Open Browser To Welcome Page" owner="language_switch_resource" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-02-26T23:23:53.627908" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000294816F79D0&gt;</msg>
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-02-26T23:23:53.627669" elapsed="0.000268"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-26T23:23:57.907408" level="INFO">${chrome_options.binary_location} = C:\Users\tt_pe\Documents\chrome-win64\chrome-win64\chrome.exe</msg>
+<var>${chrome_options.binary_location}</var>
+<arg>${CHROME_BROWSER_PATH}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-26T23:23:53.628052" elapsed="4.279416"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-02-26T23:23:57.908418" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x00000294811A9450&gt;</msg>
+<var>${service}</var>
+<arg>sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-02-26T23:23:57.907658" elapsed="0.000847"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-02-26T23:23:57.909254" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-02-26T23:26:51.630155" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-02-26T23:26:51.630368" level="FAIL">WebDriverException: Message: Can not connect to the Service C:\Users\tt_pe\Documents\chrome-win64\chrome-win64\chrome.exe
+</msg>
+<arg>Chrome</arg>
+<arg>options=${chrome_options}</arg>
+<arg>service=${service}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="FAIL" start="2025-02-26T23:23:57.908755" elapsed="173.722904">WebDriverException: Message: Can not connect to the Service C:\Users\tt_pe\Documents\chrome-win64\chrome-win64\chrome.exe
+</status>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<arg>${WELCOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2025-02-26T23:26:51.631851" elapsed="0.000033"/>
+</kw>
+<kw name="Welcome Page Should Be Open" owner="language_switch_resource">
+<status status="NOT RUN" start="2025-02-26T23:26:51.632010" elapsed="0.000030"/>
+</kw>
+<status status="FAIL" start="2025-02-26T23:23:53.627444" elapsed="178.004696">WebDriverException: Message: Can not connect to the Service C:\Users\tt_pe\Documents\chrome-win64\chrome-win64\chrome.exe
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-26T23:26:51.632515" elapsed="0.000115"/>
+</kw>
+<status status="FAIL" start="2025-02-26T23:23:53.627005" elapsed="178.005852">Setup failed:
+WebDriverException: Message: Can not connect to the Service C:\Users\tt_pe\Documents\chrome-win64\chrome-win64\chrome.exe
+</status>
+</test>
+<status status="FAIL" start="2025-02-26T23:20:59.632682" elapsed="352.001601"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Test03 Language Dynamic Content" id="s1" pass="0" fail="1" skip="0">Test03 Language Dynamic Content</stat>
+<stat name="Test01 Language Switch" id="s1" pass="0" fail="2" skip="0">Test01 Language Switch</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-02-26T05:01:21.278014" level="ERROR">Error in file 'C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\test\language_switch_resource.robot' on line 3: Importing library 'WebDriverManager' failed: ModuleNotFoundError: No module named 'WebDriverManager'
+<msg time="2025-02-26T23:20:59.937405" level="ERROR">Error in file 'C:\Users\tt_pe\Documents\GitHub\Proj_SE\git-group-repository-group-3-sec-4\test\language_switch_resource.robot' on line 3: Importing library 'WebDriverManager' failed: ModuleNotFoundError: No module named 'WebDriverManager'
 Traceback (most recent call last):
   None
 PYTHONPATH:

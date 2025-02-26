@@ -22,14 +22,16 @@ ${TH_TEXT}          หน้าแรก
 ${CN_TEXT}          首頁
 
 *** Keywords ***
-
-
 Open Browser To Welcome Page
     ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
     ${chrome_options.binary_location}=    Set Variable    ${CHROME_BROWSER_PATH}
     ${service}=    Evaluate    sys.modules["selenium.webdriver.chrome.service"].Service(executable_path=r"${CHROME_DRIVER_PATH}")
-    Open Browser    ${WELCOME URL}    chrome    options=${chrome_options}    service=${service}
-    Maximize Browser Window
+    # [selenium >= 4.10] chrome_options change to options
+    Create Webdriver    Chrome    options=${chrome_options}    service=${service}
+    Go To    ${WELCOME URL}
+    Welcome Page Should Be Open
+
+
 
 
 #for test01
@@ -60,11 +62,6 @@ Refresh Page And Verify Default Language Is English
     Reload Page
     Sleep    ${DELAY}
     Verify Default Language Is English
-
-Close Browser And Reopen
-    Close Browser
-    Open Browser To Welcome Page
-
 #for test02
 
 #Verify Default Language Is English
