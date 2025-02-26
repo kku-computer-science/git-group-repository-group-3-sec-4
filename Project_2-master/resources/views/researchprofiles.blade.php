@@ -57,7 +57,9 @@
                         <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->
                         <!-- <h6 class="card-text1">College of Computing</h6>
                     <h6 class="card-text1">Khon Kaen University</h6> -->
-                        <h6 class="card-text1">E-mail: {{$res->email}}</h6>
+
+                    <h6 class="card-text1">{{ trans('books.email') }}: {{$res->email}}</h6>
+
                         <h6 class="card-title">{{ trans('message.education') }}</h6>
                         @foreach( $res->education as $edu)
                         <h6 class="card-text2 col-sm-10"> {{$edu->year}} {{$edu->qua_name}} {{$edu->uname}}</h6>
@@ -76,7 +78,7 @@
             </div>
 
             <div class="col-md-4">
-                <h6 class="title-pub">{{ trans('message.publications2') }}</h6>
+                <h6 class="title-pub">{{ trans('books.publications2') }}</h6>
                 <div class="col-xs-12 text-center bt">
                     <div class="clearfix"></div>
                     <div class="row text-center">
@@ -142,38 +144,47 @@
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="tci-tab" data-bs-toggle="tab" data-bs-target="#tci" type="button" role="tab" aria-controls="tci" aria-selected="false">TCI</button>
         </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">หนังสือ</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">ผลงานวิชาการด้านอื่นๆ</button>
-        </li>
+
+       <li class="nav-item" role="presentation">
+    <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">
+        {{ trans('books.book') }}
+    </button>
+</li>
+       <li class="nav-item" role="presentation">
+    <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">
+        {{ trans('books.patent') }}
+    </button>
+</li>
+
     </ul>
     <br>
     <div class="tab-content" id="myTabContent">
 
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="tab-content" style="padding-bottom: 20px;">
-                <a class="btn btn-success" href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">Export To Excel</a>
+                <a class="btn btn-success" href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">{{ trans('books.export_excel') }}</a>
             </div>
             <table id="example1" class="table table-striped" style="width:100%">
                 <thead>
                     <!-- <tr>
                         <th><a href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">#Export</a></td>
                     </tr> -->
-                    <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th>Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th>Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
-                        <th>Source</th>
-                    </tr>
-                </thead>
+                    
+
+            
+    <tr>
+        <th>{{ trans('books.no') }}</th>
+        <th>{{ trans('books.year') }}</th>
+        <th>{{ trans('books.paper_name') }}</th>
+        <th>{{ trans('books.author') }}</th>
+        <th>{{ trans('books.document_type') }}</th>
+        <th>{{ trans('books.page') }}</th>
+        <th>{{ trans('books.journal_transactions') }}</th>
+        <th>{{ trans('books.citations') }}</th>
+        <th>{{ trans('books.doi') }}</th>
+        <th>{{ trans('books.source') }}</th>
+    </tr>
+</thead>
 
                 <tbody>
                     @foreach ($papers as $n => $paper)
@@ -606,6 +617,7 @@
         const response = await fetch('https://api.elsevier.com/content/search/author?query=authlast(' + res.lname_en +
             ')%20and%20authfirst(' + res.fname_en +
             ')%20&apiKey=6ab3c2a01c29f0e36b00c8fa1d013f83&httpAccept=application%2Fjson');
+            
         //var a = got["search-results"];
         const got = await response.json();
         aid = got["search-results"]["entry"][0]['dc:identifier'];
