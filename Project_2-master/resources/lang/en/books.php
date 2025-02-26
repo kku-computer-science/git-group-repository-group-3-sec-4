@@ -12,6 +12,12 @@ return [
     'Search' => 'Search',
     'Show' => 'Show',
     'Entries' => 'Entries',
+    'Number'=> 'Number',
+    'Name'=> 'Name',
+    'Place of printing'=> 'Place of printing',
+    'Type'=> 'Type',
+    'Registration number'=> 'Registration number',
+    'Registration date'=> 'Registration date',
 
     //หน้าreport//
     'report_title' => 'Statistics of articles in the last 5 years',

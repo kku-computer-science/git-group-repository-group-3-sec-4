@@ -12,6 +12,12 @@ return [
     'Search' => '搜尋',
     'Show' => '展示',
     'Entries' => '清單',
+    'Number'=> '數位',
+    'Name'=> '姓名',
+    'Place of printing'=> '印刷地點',
+    'Type' => '類型',
+    'Registration number'=> '註冊編號',
+    'Registration date'=> '註冊日期',
 
     //หน้าreport//
     'report_title' => '过去5年的文章统计',
