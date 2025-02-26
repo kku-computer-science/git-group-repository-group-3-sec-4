@@ -1,8 +1,8 @@
 <?php
 
 return [
-    "Researchers"=> "Researchers",
-    "Research interests"=> "Research interests",
+    "Researchers" => "Researchers",
+    "Research interests" => "Research interests",
 
     "Project_Service" => "Research/Academic Service Projects",
     "No" => "No",

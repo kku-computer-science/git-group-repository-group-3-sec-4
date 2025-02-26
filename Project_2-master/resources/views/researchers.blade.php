@@ -4,10 +4,11 @@
     <p class="title">{{ __('reseracher.Researchers') }}</p>
     @foreach($request as $res)
     <span>
-        <ion-icon name="caret-forward-outline" size="small"></ion-icon> @if (App::getLocale() == 'th')
+        <ion-icon name="caret-forward-outline" size="small"></ion-icon> 
+        @if (App::getLocale() == 'th')
             {{ $res->program_name_th }}
-        @elseif (App::getLocale() == 'cn')
-            {{ $res->program_name_cn ?? $res->program_name_en }} 
+        @elseif (App::getLocale() == 'zh') 
+            {{ $res->programs_name_cn ?? $res->program_name_en }} 
         @else
             {{ $res->program_name_en }}
         @endif

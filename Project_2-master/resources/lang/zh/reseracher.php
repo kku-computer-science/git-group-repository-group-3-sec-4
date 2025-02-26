@@ -1,6 +1,9 @@
 <?php
 
 return [
+    "Researchers" => "研究人员",
+    "Research interests" => "研究兴趣",
+
     "Project_Service" => "学术服务/研究项目",
     "No" => "编号",
     "Year" => "年份",
