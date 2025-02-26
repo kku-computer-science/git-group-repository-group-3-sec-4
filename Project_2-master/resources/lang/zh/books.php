@@ -25,7 +25,7 @@ return [
 
        //หน้าresearchprofile//
        'education' => '學習',
-       'publications2' => '出版作品',
+       'publications' => '出版作品',
        'email' => '電子郵件',
        'book' => '书籍',
        'patent' => '其他学术作品',

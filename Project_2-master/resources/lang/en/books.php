@@ -25,7 +25,7 @@ return [
 
     //หน้าresearchprofile//
     'education' => 'Education',
-    'publications2' => 'Publications',
+    'publications' => 'Publications',
     'email' => 'Email',
     'book' => 'Book',
     'patent' => 'Other Academic Works',
@@ -48,7 +48,6 @@ return [
     "laboratory_supervisor" => "Laboratory Supervisor",
     "details" => "View Details",
 
-    "laboratory_supervisor" => "Laboratory Supervisor",
     "student" => "Student",
 
 ];

@@ -25,7 +25,7 @@ return [
 
        //หน้าresearchprofile//
        'education' => 'การศึกษา',
-       'publications2' => 'ผลงานตีพิมพ์',
+       'publications' => 'ผลงานตีพิมพ์',
        'email' => 'อีเมล',
        'book' => 'หนังสือ',
        'patent' => 'ผลงานวิชาการด้านอื่นๆ',
