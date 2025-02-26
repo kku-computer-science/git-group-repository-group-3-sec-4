@@ -99,9 +99,9 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">Users</h4>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('users.create')}}"><i class="ti-plus btn-icon-prepend icon-sm"></i>New User</a>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('importfiles')}}"><i class="ti-download btn-icon-prepend icon-sm"></i>Import New User</a>
+            <h4 class="card-title">{{ __('users.users') }}</h4>
+            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('users.create')}}"><i class="ti-plus btn-icon-prepend icon-sm"></i>{{ __('users.new_user') }}</a>
+            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('importfiles')}}"><i class="ti-download btn-icon-prepend icon-sm"></i>{{ __('users.import_new_use') }}</a>
             <!-- <div class="search-box">
                 <div class="input-group">
                     <input type="text" id="search" class="form-control" placeholder="Search by Name">
@@ -114,11 +114,11 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Department</th>
-                            <th>Email</th>
-                            <th>Roles</th>
-                            <th width="280px">Action</th>
+                            <th>{{ __('users.name') }}</th>
+                            <th>{{ __('users.department') }}</th>
+                            <th>{{ __('users.email') }}</th>
+                            <th>{{ __('users.roles') }}</th>
+                            <th width="280px">{{ __('users.action') }}</th>
                         </tr>
                     </thead>
 
@@ -176,9 +176,20 @@
 <script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
 <script>
     $(document).ready(function() {
-        var table = $('#example1').DataTable({
-            fixedHeader: true
-        });
+        if (!$.fn.DataTable.isDataTable('#example1')) { // ตรวจสอบว่า DataTable ถูกใช้งานไปแล้วหรือยัง
+            var table1 = $('#example1').DataTable({
+                responsive: true,
+                language: {
+                    search: "{{ __('reseracher.Search') }}",
+                    lengthMenu: "{{ __('reseracher.Show') }} _MENU_ {{ __('reseracher.entries') }}",
+                    info: "{{ __('reseracher.Showing') }} _START_ {{ __('reseracher.to') }} _END_ {{ __('reseracher.of') }} _TOTAL_ {{ __('reseracher.entries') }}",
+                    paginate: {
+                        previous: "{{ __('reseracher.Previous') }}",
+                        next: "{{ __('reseracher.Next') }}",
+                    }
+                }
+            });
+        }
     });
 </script>
 <script type="text/javascript">

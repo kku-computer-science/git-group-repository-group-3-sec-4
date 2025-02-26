@@ -3,6 +3,7 @@
 return [
     "Researchers" => "研究人员",
     "Research interests" => "研究兴趣",
+    "Expertise"=> "專業知識",
 
     "Project_Service" => "学术服务/研究项目",
     "No" => "编号",

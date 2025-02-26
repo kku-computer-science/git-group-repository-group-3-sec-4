@@ -3,6 +3,7 @@
 return [
     "Researchers"=> "ผู้วิจัย",
     "Research interests"=> "งานวิจัยที่สนใจ",
+    "Expertise"=> "ความเชี่ยวชาญ",
 
     "Project_Service" => "โครงการบริการวิชาการ/ โครงการวิจัย",
     "No" => "ลำดับ",

@@ -12,23 +12,23 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">Published research</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('papers.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> ADD </a>
+            <h4 class="card-title">{{ __('papers.published_research') }}</h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('papers.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> {{ __('papers.add') }} </a>
             @if(Auth::user()->hasRole('teacher'))
             <!-- <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('callscopus',Auth::user()->id) }}"><i class="mdi mdi-refresh btn-icon-prepend"></i> Call Paper</a> -->
-            <a class="btn btn-primary btn-icon-text btn-sm mb-3" href="{{ route('callscopus',Crypt::encrypt(Auth::user()->id)) }}"><i class="mdi mdi-refresh btn-icon-prepend icon-sm"></i> Call Paper</a>
+            <a class="btn btn-primary btn-icon-text btn-sm mb-3" href="{{ route('callscopus',Crypt::encrypt(Auth::user()->id)) }}"><i class="mdi mdi-refresh btn-icon-prepend icon-sm"></i> {{ __('papers.call_paper') }}</a>
             @endif
             <!-- <div class="table-responsive"> -->
                 <table id="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>ชื่อเรื่อง</th>
-                            <th>ประเภท</th>
-                            <th>ปีที่ตีพิมพ์</th>
+                            <th>{{ __('papers.no') }}</th>
+                            <th>{{ __('papers.title') }}</th>
+                            <th>{{ __('papers.type') }}</th>
+                            <th>{{ __('papers.publication_year') }}</th>
                             <!-- <th>ผู้เขียน</th>   -->
                             <!-- <th>Source Title</th> -->
-                            <th width="280px">Action</th>
+                            <th width="280px">{{ __('papers.type') }}</th>
                         </tr>
                         <thead>
                         <tbody>
@@ -90,9 +90,20 @@
 <script src = "https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer ></script>
 <script>
     $(document).ready(function() {
-        var table1 = $('#example1').DataTable({
-            responsive: true,
-        });
+        if (!$.fn.DataTable.isDataTable('#example1')) { // ตรวจสอบว่า DataTable ถูกใช้งานไปแล้วหรือยัง
+            var table1 = $('#example1').DataTable({
+                responsive: true,
+                language: {
+                    search: "{{ __('reseracher.Search') }}",
+                    lengthMenu: "{{ __('reseracher.Show') }} _MENU_ {{ __('reseracher.entries') }}",
+                    info: "{{ __('reseracher.Showing') }} _START_ {{ __('reseracher.to') }} _END_ {{ __('reseracher.of') }} _TOTAL_ {{ __('reseracher.entries') }}",
+                    paginate: {
+                        previous: "{{ __('reseracher.Previous') }}",
+                        next: "{{ __('reseracher.Next') }}",
+                    }
+                }
+            });
+        }
     });
 </script>
 <script type="text/javascript">
