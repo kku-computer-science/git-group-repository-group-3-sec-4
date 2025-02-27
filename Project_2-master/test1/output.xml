@@ -1,251 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2025-02-27T03:46:27.827094" rpa="false" schemaversion="5">
-<suite id="s1" name="Test6" source="D:\GitHub\git-group-repository-group-3-sec-4\Project_2-master\test1\test6.robot">
-<test id="s1-t1" name="English To Thai" line="72">
-<kw name="Open Browser To Home Page">
+<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2025-02-27T08:16:58.914919" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Funds" source="D:\GitHub\git-group-repository-group-3-sec-4\Project_2-master\test1\test_funds.robot">
+<test id="s1-t1" name="Test Admin Login And Logout" line="40">
+<kw name="Open Browser To Login Page">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-02-27T03:46:28.104649" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/'.</msg>
-<arg>${URL}</arg>
+<msg time="2025-02-27T08:16:59.178009" level="INFO">Opening browser 'chrome' to base url 'https://csweb0367.cpkkuhost.com/login'.</msg>
+<arg>${LOGIN_URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-02-27T03:46:28.104649" elapsed="2.581364"/>
+<status status="PASS" start="2025-02-27T08:16:59.178009" elapsed="3.964365"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-02-27T03:46:30.687016" elapsed="0.076228"/>
+<status status="PASS" start="2025-02-27T08:17:03.142374" elapsed="0.038377"/>
 </kw>
-<status status="PASS" start="2025-02-27T03:46:28.103567" elapsed="2.659677"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-27T03:46:35.764538" level="INFO">Slept 5 seconds.</msg>
-<arg>${WAIT_TIME}</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-27T03:46:30.763244" elapsed="5.001805"/>
-</kw>
-<kw name="Select Language">
-<kw name="Wait And Click">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
+<arg>${LOGIN_PAGE_HEADER}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-27T03:46:35.767113" elapsed="0.035962"/>
+<status status="PASS" start="2025-02-27T08:17:03.181755" elapsed="0.020860"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-27T03:46:35.804068" level="INFO">Clicking element 'xpath=//a[@id="navbarDropdownMenuLink"]'.</msg>
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-27T03:46:35.804068" elapsed="0.065449"/>
+<status status="PASS" start="2025-02-27T08:16:59.176648" elapsed="4.025967"/>
 </kw>
-<arg>${LANG_DROPDOWN}</arg>
-<status status="PASS" start="2025-02-27T03:46:35.766066" elapsed="0.103451"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-27T03:46:36.869957" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-27T03:46:35.869517" elapsed="1.000440"/>
-</kw>
-<kw name="Wait And Click">
+<kw name="Login As Admin">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
+<msg time="2025-02-27T08:17:13.571904" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-62.png"&gt;&lt;img src="selenium-screenshot-62.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-27T08:17:13.571904" level="FAIL">Element 'xpath=//button[contains(text(), 'เข้าสู่ระบบ')] | //a[contains(@class, 'btn-solid-sm') and contains(text(), 'เข้าสู่ระบบ')]' not visible after 10 seconds.</msg>
+<arg>${LOGIN_BUTTON}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-27T03:46:36.870972" elapsed="0.034005"/>
+<status status="FAIL" start="2025-02-27T08:17:03.206093" elapsed="10.365811">Element 'xpath=//button[contains(text(), 'เข้าสู่ระบบ')] | //a[contains(@class, 'btn-solid-sm') and contains(text(), 'เข้าสู่ระบบ')]' not visible after 10 seconds.</status>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-27T03:46:36.904977" level="INFO">Clicking element 'xpath=//a[contains(text(), 'ไทย')]'.</msg>
-<arg>${locator}</arg>
+<arg>${LOGIN_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-27T03:46:36.904977" elapsed="1.137025"/>
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
 </kw>
-<arg>${language_locator}</arg>
-<status status="PASS" start="2025-02-27T03:46:36.869957" elapsed="1.172045"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-27T03:46:41.042496" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-27T03:46:38.042002" elapsed="3.000494"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${expected_text_list}[0]</arg>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DASHBOARD_HEADER}</arg>
 <arg>timeout=10s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-02-27T03:46:41.042496" elapsed="0.023455"/>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
 </kw>
-<arg>${LANG_TO_THAI}</arg>
-<arg>${EXPECTED_THAI_TEXTS}</arg>
-<status status="PASS" start="2025-02-27T03:46:35.765049" elapsed="5.300902"/>
+<arg>admin@gmail.com</arg>
+<arg>12345678</arg>
+<status status="FAIL" start="2025-02-27T08:17:03.206093" elapsed="10.365811">Element 'xpath=//button[contains(text(), 'เข้าสู่ระบบ')] | //a[contains(@class, 'btn-solid-sm') and contains(text(), 'เข้าสู่ระบบ')]' not visible after 10 seconds.</status>
 </kw>
-<kw name="Verify Banner For Language">
-<kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2025-02-27T03:46:41.086331" level="INFO">${banner_src} = http://127.0.0.1:8000/img/banner1_th.png</msg>
-<var>${banner_src}</var>
-<arg>xpath=//div[@id='carouselExampleIndicators']//img</arg>
-<arg>src</arg>
-<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2025-02-27T03:46:41.065951" elapsed="0.020380"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-02-27T03:46:41.086331" level="INFO">Banner src is: http://127.0.0.1:8000/img/banner1_th.png</msg>
-<arg>Banner src is: ${banner_src}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-02-27T03:46:41.086331" elapsed="0.000000"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${banner_src}</arg>
-<arg>/img/banner1_${lang_code}.png</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-02-27T03:46:41.087326" elapsed="0.000000"/>
-</kw>
-<arg>th</arg>
-<status status="PASS" start="2025-02-27T03:46:41.065951" elapsed="0.021375"/>
-</kw>
-<kw name="Verify Reference Text">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${expected_reference}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-02-27T03:46:41.087326" elapsed="0.047579"/>
-</kw>
-<arg>อ้างอิง (APA)</arg>
-<status status="PASS" start="2025-02-27T03:46:41.087326" elapsed="0.047579"/>
+<kw name="Logout">
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-02-27T03:46:41.134905" elapsed="2.378256"/>
+<status status="PASS" start="2025-02-27T08:17:13.571904" elapsed="2.255743"/>
 </kw>
-<doc>Switch from English to Thai and verify UI.</doc>
-<status status="PASS" start="2025-02-27T03:46:28.103567" elapsed="15.410590"/>
+<status status="FAIL" start="2025-02-27T08:16:59.176648" elapsed="16.650999">Element 'xpath=//button[contains(text(), 'เข้าสู่ระบบ')] | //a[contains(@class, 'btn-solid-sm') and contains(text(), 'เข้าสู่ระบบ')]' not visible after 10 seconds.</status>
 </test>
-<test id="s1-t2" name="English To Chinese" line="80">
-<kw name="Open Browser To Home Page">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-02-27T03:46:43.516160" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-02-27T03:46:43.516160" elapsed="2.632434"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-02-27T03:46:46.149597" elapsed="0.051999"/>
-</kw>
-<status status="PASS" start="2025-02-27T03:46:43.516160" elapsed="2.685436"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-27T03:46:51.203167" level="INFO">Slept 5 seconds.</msg>
-<arg>${WAIT_TIME}</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-27T03:46:46.202598" elapsed="5.000569"/>
-</kw>
-<kw name="Select Language">
-<kw name="Wait And Click">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-27T03:46:51.204173" elapsed="0.020008"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-27T03:46:51.225182" level="INFO">Clicking element 'xpath=//a[@id="navbarDropdownMenuLink"]'.</msg>
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-27T03:46:51.224181" elapsed="0.075925"/>
-</kw>
-<arg>${LANG_DROPDOWN}</arg>
-<status status="PASS" start="2025-02-27T03:46:51.204173" elapsed="0.096933"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-27T03:46:52.301811" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-27T03:46:51.301106" elapsed="1.000705"/>
-</kw>
-<kw name="Wait And Click">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-27T03:46:52.302348" elapsed="0.037190"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-27T03:46:52.339538" level="INFO">Clicking element 'xpath=//a[contains(text(), '中文')]'.</msg>
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-27T03:46:52.339538" elapsed="0.726586"/>
-</kw>
-<arg>${language_locator}</arg>
-<status status="PASS" start="2025-02-27T03:46:52.302348" elapsed="0.763776"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-27T03:46:56.067456" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-27T03:46:53.067161" elapsed="3.000295"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${expected_text_list}[0]</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-02-27T03:46:56.067456" elapsed="0.027096"/>
-</kw>
-<arg>${LANG_TO_CHINESE}</arg>
-<arg>${EXPECTED_CHINESE_TEXTS}</arg>
-<status status="PASS" start="2025-02-27T03:46:51.203167" elapsed="4.892404"/>
-</kw>
-<kw name="Verify Banner For Language">
-<kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2025-02-27T03:46:56.114137" level="INFO">${banner_src} = http://127.0.0.1:8000/img/banner1_cn.png</msg>
-<var>${banner_src}</var>
-<arg>xpath=//div[@id='carouselExampleIndicators']//img</arg>
-<arg>src</arg>
-<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2025-02-27T03:46:56.095571" elapsed="0.018566"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-02-27T03:46:56.114137" level="INFO">Banner src is: http://127.0.0.1:8000/img/banner1_cn.png</msg>
-<arg>Banner src is: ${banner_src}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-02-27T03:46:56.114137" elapsed="0.000000"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${banner_src}</arg>
-<arg>/img/banner1_${lang_code}.png</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-02-27T03:46:56.114137" elapsed="0.000000"/>
-</kw>
-<arg>cn</arg>
-<status status="PASS" start="2025-02-27T03:46:56.095571" elapsed="0.018566"/>
-</kw>
-<kw name="Verify Reference Text">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${expected_reference}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-02-27T03:46:56.115133" elapsed="0.023813"/>
-</kw>
-<arg>參考文獻（APA）</arg>
-<status status="PASS" start="2025-02-27T03:46:56.115133" elapsed="0.023813"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-02-27T03:46:56.138946" elapsed="3.902301"/>
-</kw>
-<doc>Switch from English to Chinese and verify UI.</doc>
-<status status="PASS" start="2025-02-27T03:46:43.515172" elapsed="16.526075"/>
-</test>
-<doc>Test suite for verifying translation and banner image.</doc>
-<status status="PASS" start="2025-02-27T03:46:27.829078" elapsed="32.214346"/>
+<status status="FAIL" start="2025-02-27T08:16:58.921853" elapsed="16.909391"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Test6">Test6</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test Funds">Test Funds</stat>
 </suite>
 </statistics>
 <errors>
