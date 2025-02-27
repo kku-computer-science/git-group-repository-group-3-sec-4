@@ -57,11 +57,21 @@
     <!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand logo-image" href="#"><img src="{{asset('img/logo2.png')}}" alt="alternative"></a>
+            <a class="navbar-brand logo-image" href="#">
+                @if(app()->getLocale() == 'en')
+                <img src="{{asset('img/logo2en.png')}}" alt="alternative">
+                @elseif (app()->getLocale() == 'th')
+                <img src="{{asset('img/logo2th.png')}}" alt="alternative">
+                @elseif (app()->getLocale() == 'zh')
+                <img src="{{asset('img/logo2cn.png')}}" alt="alternative">
+                @endif
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
                     <li class="nav-item {{ request()->is('/') ? 'active' : ''}} ">
