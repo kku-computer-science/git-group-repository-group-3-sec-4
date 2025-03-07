@@ -52,6 +52,16 @@ return [
        "laboratory_supervisor" => "หัวหน้าห้องปฏิบัติการ",
          "student" => "นักศึกษา",
 
+         //หน้าbook เพิ่มหนังสือ //
+         "Add a book" => "เพิ่มหนังสือ",
+         "Fill in the book details" => "กรอกข้อมูลหนังสือ",
+         "Book title" => "ชื่อหนังสือ",
+         "Place of publication" => "สถานที่พิมพ์",
+         "Year (A.D.)" => "ปี (ค.ศ.)",
+         "Number of pages (Page)" => "จำนวนหน้า",
+         "Submit" => "ส่ง",
+         "Cancel" => "ยกเลิก",
+
 
  
 ];

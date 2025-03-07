@@ -51,4 +51,14 @@ return [
         "laboratory_supervisor" => "实验室主管",
          "student" => "学生",
 
+    ////หน้าbook เพิ่มหนังสือ //
+    "Add a book" => "添加书籍",
+    "Fill in the book details" => "填写书籍信息",
+    "Book title" => "书名",
+    "Place of publication" => "出版地点",
+    "Year (A.D.)" => "年份 (公元)",
+    "Number of pages (Page)" => "页数",
+    "Submit" => "提交",
+    "Cancel" => "取消"
+
 ];

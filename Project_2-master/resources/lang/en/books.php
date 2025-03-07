@@ -50,4 +50,17 @@ return [
 
     "student" => "Student",
 
+    //หน้าbook เพิ่มหนังสือ //
+    "Add a book" => "Add a book",
+    "Fill in the book details" => "Fill in the book details",
+    "Book title" => "Book title",
+    "Place of publication" => "Place of publication",
+    "Place of publication1" => "Place of publication",
+    "Year (A.D.)" => "Year (A.D.)",
+    "Number of pages (Page)" => "Number of pages (Page)",
+    "Number of pages (Page)1" => "Number of pages (Page)",
+    "Submit" => "Submit",
+    "Cancel" => "Cancel",
+
+
 ];
