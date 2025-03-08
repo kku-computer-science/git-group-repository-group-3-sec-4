@@ -39,4 +39,6 @@ return [
     'academic_rank' => 'Academic Rank',
     'education' => 'Education History',
     'back' => 'Back',
+
+   
 ];

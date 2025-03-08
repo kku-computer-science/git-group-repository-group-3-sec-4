@@ -80,14 +80,14 @@
                     <div class="form-group row mt-2">
                         <label for="exampleInputfund_details" class="col-sm-2 ">{{ __('researchProjects.project_details') }}</label>
                         <div class="col-sm-9">
-                            <textarea type="text" name="note" class="form-control form-control-lg" style="height:150px" placeholder="{{ __('researchProject.note') }}" value="{{ old('note') }}"></textarea>
+                        <textarea type="text" name="note" class="form-control form-control-lg" style="height:150px" placeholder="{{ trans('researchProjects.researchProject.note') }}" value="{{ old('note') }}"></textarea>
                         </div>
                     </div>
                     <div class="form-group row mt-2">
                         <label for="exampleInputstatus" class="col-sm-2 ">{{ __('researchProjects.status') }}</label>
                         <div class="col-sm-3">
                             <select id='status' class="custom-select my-select" name="status">
-                                <option value="" disabled selected>{{ __('researchProjects.operating_status') }}</option>
+                                <option value="" disabled selected>{{ trans('researchProjects.researchProjects.operating_status') }}</option>
                                 <option value="1">{{ __('researchProjects.apply_for') }}</option>
                                 <option value="2">{{ __('researchProjects.carry_out') }}</option>
                                 <option value="3">{{ __('researchProjects.close_project') }}</option>

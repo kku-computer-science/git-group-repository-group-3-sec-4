@@ -10,6 +10,7 @@ return [
     'action' => 'Action',
     "whoops" => "Whoops!",
     "input_problem" => "There were some problems with your input.",
+    //เพิ่มโครงการวิจัย//
     "add_project" => "Add Research Project",
     "enter_details" => "Enter research project details",    
     "start_date" => "Start Date",
@@ -36,6 +37,7 @@ return [
     "lname" => "Last Name",
     "submit" => "Submit",
     "cancel" => "Cancel",
+    //เพิ่มโครงการวิจัย//
     "edit_project" => "Edit Research Project",
     "back" => "Back",
     "create_new" => "Create New Research Project",
@@ -50,5 +52,18 @@ return [
     "research_projects_detail" => "Research Projects Detail",
     "project_info" => "Project Information",
     "members" => "Project Members",
+    "researchProjects.operating_status" => "researchProjects.operating_status",
+    "researchProject.note" => "researchProject.note",
+
+    //ส่วนหน้าเพิ่มผู้รับผิดชอบโครงการภายใน (ร่วม)//
+    "Positionortitle" => "Position or title",
+    "FirstName" => "First Name",
+    "LastName" => "Last Name",
+    "Year" => "Year",
+
+    'select_user_option' => 'Select User',
+
+
+
 
 ];

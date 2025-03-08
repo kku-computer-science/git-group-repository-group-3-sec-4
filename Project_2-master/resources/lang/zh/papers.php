@@ -39,4 +39,13 @@ return [
     "url" => "网址",
     "back" => "返回",
 
+    //แปลปุ่ม//
+    'view_tooltip'   => '查看',
+    'edit_tooltip'   => '编辑',
+
+    //แปลtext/javascript//
+    'are_you_sure'   => '你确定吗？',
+    'if_delete_gone' => '如果你删除了它，它将永远消失。',
+    'delete_success' => '删除成功',
+
 ];

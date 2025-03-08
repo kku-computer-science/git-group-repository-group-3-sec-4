@@ -51,26 +51,25 @@
                                 <!-- <td>{{ Str::limit($paper->paper_sourcetitle,50) }}</td> -->
 
                                 <td>
-                                    <form action="{{ route('papers.destroy',$paper->id) }}" method="POST">
+    <form action="{{ route('papers.destroy',$paper->id) }}" method="POST">
 
-                                        <li class="list-inline-item">
-                                            <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('papers.show',$paper->id) }}"><i class="mdi mdi-eye"></i></a>
-                                        </li>
-                                        @if(Auth::user()->can('update',$paper))
-                                        <li class="list-inline-item">
-                                            <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('papers.edit',Crypt::encrypt($paper->id)) }}"><i class="mdi mdi-pencil"></i></a>
-                                        </li>
-                                        @endif
-                                        <!-- @csrf
-                                        @method('DELETE')
-                                        <li class="list-inline-item">
-                                         <button class="btn btn-outline-danger btn-sm show_confirm" type="submit"
-                                                data-toggle="tooltip" data-placement="top" title="Delete"><i
-                                                 class="mdi mdi-delete"></i></button>
-                                        </li> -->
-                                        <!-- <button type="submit" class="btn btn-danger">Delete</button> -->
-                                    </form>
-                                </td>
+        <li class="list-inline-item">
+            <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ __('papers.view_tooltip') }}" href="{{ route('papers.show',$paper->id) }}"><i class="mdi mdi-eye"></i></a>
+        </li>
+        @if(Auth::user()->can('update',$paper))
+        <li class="list-inline-item">
+            <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ __('papers.edit_tooltip') }}" href="{{ route('papers.edit',Crypt::encrypt($paper->id)) }}"><i class="mdi mdi-pencil"></i></a>
+        </li>
+        @endif
+        <!-- @csrf
+        @method('DELETE')
+        <li class="list-inline-item">
+         <button class="btn btn-outline-danger btn-sm show_confirm" type="submit"
+                data-toggle="tooltip" data-placement="top" title="{{ __('papers.delete_tooltip') }}"><i class="mdi mdi-delete"></i></button>
+        </li> -->
+        <!-- <button type="submit" class="btn btn-danger">Delete</button> -->
+    </form>
+</td>
                             </tr>
                             @endforeach
                     <tbody>
@@ -112,15 +111,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: "{{ trans('papers.are_you_sure') }}",
+                text: "{{ trans('papers.if_delete_gone') }}",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ trans('papers.delete_success') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

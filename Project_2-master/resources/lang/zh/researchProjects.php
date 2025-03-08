@@ -50,4 +50,15 @@ return [
     "research_projects_detail" => "研究项目详情",
     "project_info" => "项目详细信息",
     "members" => "项目成员",
+    "researchProjects.operating_status" => "研究項目.營運狀態",
+    "researchProject.note" => "研究項目.note",
+
+     //ส่วนหน้าเพิ่มผู้รับผิดชอบโครงการภายใน (ร่วม)//
+     "Positionortitle" => "职位或头衔",
+     "FirstName" => "名字",
+     "LastName" => "姓氏",
+     "Year" => "年份",
+
+     'select_user_option' => '選擇用戶',
+
 ];

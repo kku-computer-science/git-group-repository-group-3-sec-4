@@ -147,85 +147,158 @@
 @stop
 @section('javascript')
 <script>
+    // ประกาศตัวแปรรับค่าจาก trans() สำหรับ "Select User"
+    var textSelectUser = "{{ trans('researchProjects.select_user_option') }}";
+
     $(document).ready(function() {
+        // กำหนด select2 ให้กับ #head0
+        $("#head0").select2();
 
-        $("#head0").select2()
-        //$("#fund").select2()
-
-        //$("#dep").select2()
         var researchProject = <?php echo $researchProject['user']; ?>;
         var i = 0;
 
+        // วนลูปดู user ที่ role == 2 (ภายใน)
         for (i = 0; i < researchProject.length; i++) {
             var obj = researchProject[i];
-
             if (obj.pivot.role === 2) {
-                $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                    '][userid]"  style="width: 200px;">@foreach($users as $user)<option value="{{ $user->id }}" >{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
+                $("#dynamicAddRemove").append(
+                    '<tr>' +
+                        '<td>' +
+                            '<select id="selUser' + i + '" name="moreFields[' + i + '][userid]" style="width: 200px;">' +
+                                // ใช้ตัวแปร textSelectUser แทน "Select User"
+                                '<option value="">' + textSelectUser + '</option>' +
+                                '@foreach($users as $user)' +
+                                    '<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>' +
+                                '@endforeach' +
+                            '</select>' +
+                        '</td>' +
+                        '<td>' +
+                            '<button type="button" class="btn btn-danger btn-sm remove-tr">' +
+                                '<i class="mdi mdi-minus"></i>' +
+                            '</button>' +
+                        '</td>' +
+                    '</tr>'
                 );
+                // เซ็ตค่า select ให้ตรงกับ obj.id
                 document.getElementById("selUser" + i).value = obj.id;
-                $("#selUser" + i).select2()
-
+                // ทำให้ select2 แสดงผล
+                $("#selUser" + i).select2();
             }
-            //document.getElementById("#dynamicAddRemove").value = "10";
         }
 
-
+        // เมื่อคลิกปุ่ม Add เพื่อเพิ่มแถว
         $("#add-btn2").click(function() {
-
             ++i;
-            $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
+            $("#dynamicAddRemove").append(
+                '<tr>' +
+                    '<td>' +
+                        '<select id="selUser' + i + '" name="moreFields[' + i + '][userid]" style="width: 200px;">' +
+                            // ใช้ตัวแปร textSelectUser
+                            '<option value="">' + textSelectUser + '</option>' +
+                            '@foreach($users as $user)' +
+                                '<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>' +
+                            '@endforeach' +
+                        '</select>' +
+                    '</td>' +
+                    '<td>' +
+                        '<button type="button" class="btn btn-danger btn-sm remove-tr">' +
+                            '<i class="mdi mdi-minus"></i>' +
+                        '</button>' +
+                    '</td>' +
+                '</tr>'
             );
-            $("#selUser" + i).select2()
+            $("#selUser" + i).select2();
         });
 
-
+        // เมื่อคลิกปุ่ม remove ลบแถว
         $(document).on('click', '.remove-tr', function() {
             $(this).parents('tr').remove();
         });
-
     });
 </script>
+
 <script>
+    // กำหนดตัวแปรใน JavaScript ด้วยค่าที่มาจาก trans() ปรับแก้ตรงนี้
+    var textPositionTitle = "{{ trans('researchProjects.Positionortitle') }}";
+    var textFname         = "{{ trans('researchProjects.fname') }}";
+    var textLname         = "{{ trans('researchProjects.lname') }}";
+
     $(document).ready(function() {
         var outsider = <?php echo $researchProject->outsider; ?>;
-
         var postURL = "<?php echo url('addmore'); ?>";
         var i = 0;
-        //console.log(patent)
 
-        for (i = 0; i < outsider.length; i++) {value="'+ obj.title_name +'"
-            //console.log(patent);
+        // ส่วนแสดงรายการ outsider ที่มีอยู่แล้วในฐานข้อมูล
+        for (i = 0; i < outsider.length; i++) {
             var obj = outsider[i];
-            $("#dynamic_field").append('<tr id="row' + i +
-                '" class="dynamic-added"><td><p>ตำแหน่งหรือคำนำหน้า :</p><input type="text" name="title_name[]" value="'+ obj.title_name +'" placeholder="ตำแหน่งหรือคำนำหน้า" style="width: 200px;" class="form-control name_list" /><br><p>ชื่อ :</p><input type="text" name="fname[]" value="'+ obj.fname +'" placeholder="ชื่อ" style="width: 300px;" class="form-control name_list" /><br><p>นามสกุล :</p><input type="text" name="lname[]" value="'+ obj.lname +'" placeholder="นามสกุล" style="width: 300px;" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
-                i + '" class="btn btn-danger btn-sm btn_remove"><i class="mdi mdi-minus"></i></button></td></tr>');
-            //document.getElementById("selUser" + i).value = obj.id;
-            //console.log(obj.author_fname)
-            // let doc=document.getElementById("row" + i)
-            // doc.setAttribute('fname','aaa');
-            // doc.setAttribute('lname','bbb');
-            //document.getElementById("row" + i).value = obj.author_lname;
-            //document.getAttribute("lname").value = obj.author_lname;
-            //$("#selUser" + i).select2()
-
-
-            //document.getElementById("#dynamicAddRemove").value = "10";
+            $("#dynamic_field").append(
+                '<tr id="row' + i + '" class="dynamic-added">' +
+                    '<td>' +
+                        '<p>' + textPositionTitle + ' :</p>' +
+                        '<input type="text" name="title_name[]" ' +
+                            'value="' + obj.title_name + '" ' +
+                            'placeholder="' + textPositionTitle + '" ' +
+                            'style="width: 200px;" class="form-control name_list" />' +
+                        '<br>' +
+                        '<p>' + textFname + ' :</p>' +
+                        '<input type="text" name="fname[]" ' +
+                            'value="' + obj.fname + '" ' +
+                            'placeholder="' + textFname + '" ' +
+                            'style="width: 300px;" class="form-control name_list" />' +
+                        '<br>' +
+                        '<p>' + textLname + ' :</p>' +
+                        '<input type="text" name="lname[]" ' +
+                            'value="' + obj.lname + '" ' +
+                            'placeholder="' + textLname + '" ' +
+                            'style="width: 300px;" class="form-control name_list" />' +
+                    '</td>' +
+                    '<td>' +
+                        '<button type="button" name="remove" id="' + i + '" ' +
+                                'class="btn btn-danger btn-sm btn_remove">' +
+                            '<i class="mdi mdi-minus"></i>' +
+                        '</button>' +
+                    '</td>' +
+                '</tr>'
+            );
         }
 
+        // กรณีกดปุ่ม Add เพื่อเพิ่มฟอร์มใหม่
         $('#add').click(function() {
             i++;
-            $('#dynamic_field').append('<tr id="row' + i +
-                '" class="dynamic-added"><td><p>ตำแหน่งหรือคำนำหน้า :</p><input type="text" name="title_name[]" placeholder="ตำแหน่งหรือคำนำหน้า" style="width: 200px;" class="form-control name_list" /><br><p>ชื่อ :</p><input type="text" name="fname[]" placeholder="ชื่อ" style="width: 300px;" class="form-control name_list" /><br><p>นามสกุล :</p><input type="text" name="lname[]" placeholder="นามสกุล" style="width: 300px;" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
-                i + '" class="btn btn-danger btn-sm btn_remove"><i class="mdi mdi-minus"></i></button></td></tr>');
+            $("#dynamic_field").append(
+                '<tr id="row' + i + '" class="dynamic-added">' +
+                    '<td>' +
+                        '<p>' + textPositionTitle + ' :</p>' +
+                        '<input type="text" name="title_name[]" ' +
+                            'placeholder="' + textPositionTitle + '" ' +
+                            'style="width: 200px;" class="form-control name_list" />' +
+                        '<br>' +
+                        '<p>' + textFname + ' :</p>' +
+                        '<input type="text" name="fname[]" ' +
+                            'placeholder="' + textFname + '" ' +
+                            'style="width: 300px;" class="form-control name_list" />' +
+                        '<br>' +
+                        '<p>' + textLname + ' :</p>' +
+                        '<input type="text" name="lname[]" ' +
+                            'placeholder="' + textLname + '" ' +
+                            'style="width: 300px;" class="form-control name_list" />' +
+                    '</td>' +
+                    '<td>' +
+                        '<button type="button" name="remove" id="' + i + '" ' +
+                                'class="btn btn-danger btn-sm btn_remove">' +
+                            '<i class="mdi mdi-minus"></i>' +
+                        '</button>' +
+                    '</td>' +
+                '</tr>'
+            );
         });
 
+        // ลบแถวเมื่อกดปุ่ม remove
         $(document).on('click', '.btn_remove', function() {
             var button_id = $(this).attr("id");
-            $('#row' + button_id + '').remove();
+            $('#row' + button_id).remove();
         });
-
     });
 </script>
+
 @stop

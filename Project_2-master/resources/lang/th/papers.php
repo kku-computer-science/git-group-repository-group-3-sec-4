@@ -39,4 +39,13 @@ return [
     "url" => "URL",
     "back" => "ย้อนกลับ",
 
+    //ปุ่ม//
+    'view_tooltip'   => 'ดูรายละเอียด',
+    'edit_tooltip'   => 'แก้ไข',
+
+    //แปลtext/javascript//
+    'are_you_sure'   => 'คุณแน่ใจหรือไม่?',
+    'if_delete_gone' => 'หากคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
+    'delete_success' => 'ลบสำเร็จ',
+
 ];
