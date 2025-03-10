@@ -16,4 +16,6 @@ return [
 'ref' => 'อ้างอิง',
 'Reference (APA)' => 'อ้างอิง (APA)',
 
+
+
 ];

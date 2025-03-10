@@ -40,5 +40,41 @@ return [
     'education' => 'Education History',
     'back' => 'Back',
 
+    //roles//
+    
+    'users'           => 'Users',
+    'new_user'        => 'New User',
+    
+
+    // ส่วนที่ต้องเพิ่มเพื่อแปล role แต่ละตัว
+    'role_admin'       => 'Admin',
+    'role_headproject' => 'Head Project',
+    'role_staff'       => 'Staff',
+    'role_student'     => 'Student',
+    'role_teacher'     => 'Teacher',
+
+    //ปุ่ม//
+    'view_tooltip'   => 'View',
+    'edit_tooltip'   => 'Edit',
+    'delete_tooltip' => 'Delete',
+
+    //// สำหรับ SweetAlert//
+    'are_you_sure'   => 'Are you sure?',
+    'if_delete_gone' => 'If you delete this, it will be gone forever.',
+    'delete_success' => 'Delete Successfully',
+
+    //สำหรับ roles//
+    'role_admin'       => 'Admin',
+    'role_headproject' => 'Head Project',
+    'role_staff'       => 'Staff',
+    'role_student'     => 'Student',
+    'role_teacher'     => 'Teacher',
+
+    'nothing_selected' => 'Nothing selected',
+
+    'select_cat_error'    => 'Please select a department',
+    'select_subcat_error' => 'Please select a program',
+
+
    
 ];

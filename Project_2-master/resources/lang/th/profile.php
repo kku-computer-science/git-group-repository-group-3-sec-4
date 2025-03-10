@@ -42,7 +42,58 @@ return [
     'Name' => 'ชื่อ',
     'Email' => 'อีเมล',
     'Enter current password' => 'ป้อนรหัสผ่านปัจจุบัน',
-    'Enter new password' => 'ป้อนรหัสผ่านใหม่',
-    'ReEnter new password' => 'ป้อนรหัสผ่านใหม่อีกครั้ง',
+    'Enter new password1' => 'ป้อนรหัสผ่านใหม่',
+    'ReEnter new password1' => 'ป้อนรหัสผ่านใหม่อีกครั้ง',
     'Expert_name' => 'ชื่อผู้เชี่ยวชาญ',
+
+    //เพื่ม//
+    'edit_modal_title' => 'แก้ไขความเชี่ยวชาญ',
+
+    'edit_tooltip'    => 'แก้ไข',
+    'delete_tooltip'  => 'ลบ',
+
+    'are_you_sure_update_info' => 'คุณแน่ใจหรือไม่ว่าต้องการอัปเดตข้อมูล?',
+    'are_you_sure_to_proceed'  => 'คุณแน่ใจหรือไม่ที่จะดำเนินการ?',
+    'update_my_info'           => 'อัปเดตข้อมูลของฉัน!',
+    'i_am_not_sure'            => 'ฉันไม่แน่ใจ!',
+    'update_info'              => 'อัปเดตข้อมูล',
+    'account_updated'          => 'บัญชีของคุณถูกอัปเดตแล้ว!',
+    'cancel'                   => 'ยกเลิก',
+    'account_not_updated'      => 'บัญชีไม่ได้รับการอัปเดต',
+
+    'update_info'     => 'อัปเดตข้อมูล',
+    'account_updated' => 'บัญชีของคุณถูกอัปเดตแล้ว!',
+
+    'update_info'      => 'อัปเดตข้อมูล',
+    'account_updated'  => 'บัญชีของคุณถูกอัปเดตแล้ว!',
+    'update_password'  => 'เปลี่ยนรหัสผ่าน',
+    'password_updated' => 'รหัสผ่านของคุณถูกเปลี่ยนแล้ว!',
+
+    'are_you_sure'    => 'คุณแน่ใจหรือไม่?',
+    'if_delete_gone'  => 'หากคุณลบสิ่งนี้ คุณจะไม่สามารถกู้คืนได้!',
+    'delete_success'  => 'ลบสำเร็จ',
+    'error_deleting'  => 'เกิดข้อผิดพลาดในการลบ!',
+    'try_again'       => 'โปรดลองใหม่อีกครั้ง',
+
+    'update_info1'      => 'อัปเดตข้อมูล',
+    'account_updated1'  => 'บัญชีของคุณถูกอัปเดตแล้ว!',
+
+    'current_password_incorrect' => 'รหัสผ่านปัจจุบันไม่ถูกต้อง',
+
+    'current_password_incorrect' => 'รหัสผ่านปัจจุบันไม่ถูกต้อง',
+    'enter_current_password'     => 'กรุณากรอกรหัสผ่านปัจจุบัน',
+    'oldpassword_min'            => 'รหัสผ่านปัจจุบันต้องมีอย่างน้อย 8 ตัวอักษร',
+    'oldpassword_max'            => 'รหัสผ่านปัจจุบันต้องไม่เกิน 30 ตัวอักษร',
+
+    'enter_new_password'         => 'กรุณากรอกรหัสผ่านใหม่',
+    'newpassword_min'            => 'รหัสผ่านใหม่ต้องมีอย่างน้อย 8 ตัวอักษร',
+    'newpassword_max'            => 'รหัสผ่านใหม่ต้องไม่เกิน 30 ตัวอักษร',
+    'reenter_new_password'       => 'กรุณากรอกรหัสผ่านใหม่อีกครั้ง',
+    'newpassword_confirm_not_match' => 'รหัสผ่านใหม่กับการยืนยันไม่ตรงกัน',
+
+    'password_update_failed'     => 'เกิดข้อผิดพลาด ไม่สามารถอัปเดตรหัสผ่านในฐานข้อมูลได้',
+    'password_changed_successfully' => 'เปลี่ยนรหัสผ่านเรียบร้อยแล้ว',
+
+    'ok_button'         => 'ตกลง',
+
 ];

@@ -16,4 +16,10 @@ return [
     'action' => 'Action',
     'edit' => 'Edit',
     'delete' => 'Delete',
+
+    'edit_tooltip'    => 'Edit',
+    'delete_tooltip'  => 'Delete',
+    'are_you_sure'    => 'Are you sure?',
+    'cant_recover'    => 'You will not be able to recover this imaginary file!',
+    'delete_success'  => 'Delete Successfully',
 ];

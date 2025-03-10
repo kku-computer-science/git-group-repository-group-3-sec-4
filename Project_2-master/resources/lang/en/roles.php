@@ -14,4 +14,21 @@ return [
     'back' => 'Back',
     'role_details' => 'Role Details',
     'permissions' => 'Permissions',
+
+    // แปลชื่อ role
+    'admin'        => 'Admin',
+    'headproject'  => 'Head Project',
+    'staff'        => 'Staff',
+    'student'      => 'Student',
+    'teacher'      => 'Teacher',
+
+    // Tooltip ปุ่ม
+    'view_tooltip'   => 'View',
+    'edit_tooltip'   => 'Edit',
+    'delete_tooltip' => 'Delete',
+
+       // SweetAlert
+       'are_you_sure'   => 'Are you sure?',
+       'if_delete_gone' => 'If you delete this, it will be gone forever.',
+       'delete_success' => 'Delete Successfully',
 ];

@@ -39,4 +39,39 @@ return [
     'academic_rank' => 'ตำแหน่งทางวิชาการ',
     'education' => 'ประวัติการศึกษา',
     'back' => 'ย้อนกลับ',
+
+    //roles//
+    // ตัวอย่าง key อื่น ๆ
+    'users'           => 'ผู้ใช้',
+    'new_user'        => 'เพิ่มผู้ใช้',
+
+
+    // ส่วนที่เพิ่ม
+    'role_admin'       => 'ผู้ดูแลระบบ',
+    'role_headproject' => 'หัวหน้าโครงการ',
+    'role_staff'       => 'เจ้าหน้าที่',
+    'role_student'     => 'นักศึกษา',
+    'role_teacher'     => 'อาจารย์',
+
+    //ปุ่ม//
+    'view_tooltip'   => 'ดูรายละเอียด',
+    'edit_tooltip'   => 'แก้ไข',
+    'delete_tooltip' => 'ลบ',
+
+    // SweetAlert
+    'are_you_sure'   => 'คุณแน่ใจหรือไม่?',
+    'if_delete_gone' => 'หากคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
+    'delete_success' => 'ลบสำเร็จ',
+
+    //สำหรับ roles//
+    'role_admin'       => 'ผู้ดูแลระบบ',
+    'role_headproject' => 'หัวหน้าโครงการ',
+    'role_staff'       => 'เจ้าหน้าที่',
+    'role_student'     => 'นักศึกษา',
+    'role_teacher'     => 'อาจารย์',
+
+    'nothing_selected' => 'ยังไม่ได้เลือก',
+
+    'select_cat_error'    => 'กรุณาเลือกภาควิชา',
+    'select_subcat_error' => 'กรุณาเลือกสาขา',
 ];

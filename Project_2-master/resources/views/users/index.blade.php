@@ -8,7 +8,6 @@
     .table-responsive {
         margin: 30px 0;
     }
-
     .table-wrapper {
         min-width: 1000px;
         background: #fff;
@@ -16,25 +15,20 @@
         border-radius: 3px;
         box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     }
-
-
     .search-box {
         position: relative;
         float: right;
     }
-
     .search-box .input-group {
         min-width: 300px;
         position: absolute;
         right: 0;
     }
-
     .search-box .input-group-addon,
     .search-box input {
         border-color: #ddd;
         border-radius: 0;
     }
-
     .search-box input {
         height: 34px;
         padding-right: 35px;
@@ -43,16 +37,13 @@
         border: none;
         border-radius: 15px !important;
     }
-
     .search-box input:focus {
         background: #0e393e;
         color: #ffffff;
     }
-
     .search-box input::placeholder {
         font-style: italic;
     }
-
     .search-box .input-group-addon {
         min-width: 35px;
         border: none;
@@ -62,7 +53,6 @@
         z-index: 9;
         padding: 6px 0;
     }
-
     .search-box i {
         color: #a0a5b1;
         font-size: 19px;
@@ -100,8 +90,12 @@
     <div class="card" style="padding: 16px;">
         <div class="card-body">
             <h4 class="card-title">{{ __('users.users') }}</h4>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('users.create')}}"><i class="ti-plus btn-icon-prepend icon-sm"></i>{{ __('users.new_user') }}</a>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('importfiles')}}"><i class="ti-download btn-icon-prepend icon-sm"></i>{{ __('users.import_new_use') }}</a>
+            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('users.create') }}">
+                <i class="ti-plus btn-icon-prepend icon-sm"></i>{{ __('users.new_user') }}
+            </a>
+            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('importfiles') }}">
+                <i class="ti-download btn-icon-prepend icon-sm"></i>{{ __('users.import_new_use') }}
+            </a>
             <!-- <div class="search-box">
                 <div class="input-group">
                     <input type="text" id="search" class="form-control" placeholder="Search by Name">
@@ -126,37 +120,51 @@
                         @foreach ($data as $key => $user)
                         <tr>
                             <td>{{ $key++ }}</td>
-                            <td>{{ $user->fname_en }} {{ $user->lname_en }} </td>
+                            <td>{{ $user->fname_en }} {{ $user->lname_en }}</td>
                             <td>{{ Str::limit($user->program->program_name_en,20) }}</td>
                             <td>{{ $user->email }}</td>
                             <td>
                                 @if(!empty($user->getRoleNames()))
-                                @foreach($user->getRoleNames() as $val)
-                                <label class="badge badge-dark">{{ $val }}</label>
-                                @endforeach
+                                    @foreach($user->getRoleNames() as $val)
+                                        <label class="badge badge-dark">{{ trans('users.role_'.$val) }}</label>
+                                    @endforeach
                                 @endif
                             </td>
                             <td>
-                                <form action="{{ route('users.destroy',$user->id) }}" method="POST">
-                                <li class="list-inline-item">
-                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('users.show',$user->id) }}"><i class="mdi mdi-eye"></i></a>
-                                </li>
+                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                    <li class="list-inline-item">
+                                        <a class="btn btn-outline-primary btn-sm"
+                                           type="button"
+                                           data-toggle="tooltip"
+                                           data-placement="top"
+                                           title="{{ trans('users.view_tooltip') }}"
+                                           href="{{ route('users.show',$user->id) }}">
+                                            <i class="mdi mdi-eye"></i>
+                                        </a>
+                                    </li>
                                     @can('user-edit')
                                     <li class="list-inline-item">
-                                    <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('users.edit',$user->id) }}"><i class="mdi mdi-pencil"></i></a>
+                                        <a class="btn btn-outline-success btn-sm"
+                                           type="button"
+                                           data-toggle="tooltip"
+                                           data-placement="top"
+                                           title="{{ trans('users.edit_tooltip') }}"
+                                           href="{{ route('users.edit',$user->id) }}">
+                                            <i class="mdi mdi-pencil"></i>
+                                        </a>
                                     </li>
                                     @endcan
                                     @can('user-delete')
-                                    <!-- {!! Form::open(['method' => 'DELETE','route' => ['users.destroy',
-                                $user->id],'style'=>'display:inline']) !!}
-                                {!! Form::button('<i class="mdi mdi-delete"></i>', ['type' => 'submit','class' => 'btn btn-outline-danger btn-sm','type'=>'button','data-toggle'=>'tooltip'
-                                ,'data-placement'=>'top', 'title'=>'Delete']) !!}
-                                {!! Form::close() !!} -->
                                     @csrf
                                     @method('DELETE')
-
                                     <li class="list-inline-item">
-                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                        <button class="btn btn-outline-danger btn-sm show_confirm"
+                                                type="submit"
+                                                data-toggle="tooltip"
+                                                data-placement="top"
+                                                title="{{ trans('users.delete_tooltip') }}">
+                                            <i class="mdi mdi-delete"></i>
+                                        </button>
                                     </li>
                                     @endcan
                                 </form>
@@ -165,7 +173,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                
+
             </div>
         </div>
     </div>
@@ -176,7 +184,7 @@
 <script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
 <script>
     $(document).ready(function() {
-        if (!$.fn.DataTable.isDataTable('#example1')) { // ตรวจสอบว่า DataTable ถูกใช้งานไปแล้วหรือยัง
+        if (!$.fn.DataTable.isDataTable('#example1')) {
             var table1 = $('#example1').DataTable({
                 responsive: true,
                 language: {
@@ -198,15 +206,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: "{{ trans('users.are_you_sure') }}",
+                text: "{{ trans('users.if_delete_gone') }}",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ trans('users.delete_success') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

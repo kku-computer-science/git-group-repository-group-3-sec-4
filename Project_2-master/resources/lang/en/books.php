@@ -124,6 +124,8 @@ return [
     'if_delete_gone'  => 'If you delete this, it will be gone forever.',
     'delete_success'  => 'Delete Successfully',
 
+    "publications2" => "Published works",
+
 
 
 ];

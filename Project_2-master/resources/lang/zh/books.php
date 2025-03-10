@@ -122,4 +122,6 @@ return [
      'are_you_sure'    => '你确定吗？',
      'if_delete_gone'  => '如果你删除了它，它将永远消失。',
      'delete_success'  => '删除成功',
+
+     "publications2" => "已發表作品",
 ];
