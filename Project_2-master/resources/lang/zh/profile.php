@@ -92,8 +92,33 @@ return [
     'password_update_failed'     => '出现错误，无法在数据库中更新密码',
     'password_changed_successfully' => '您的密码已成功更改',
 
-    'ok_button'         => '确定',
-    
+    //เริ่มแก้ตรงนี้//
+    'cancel' => '取消',
+    'update_info' => '更新信息',
+    'account_updated' => '您的账户已更新！',
+    'are_you_sure_update_info' => '您确定要更新信息吗？',
+    'are_you_sure_to_proceed' => '如果继续，信息将会被更新',
+    'update_my_info' => '更新我的信息',
+    'i_am_not_sure' => '我不确定',
+    'account_not_updated' => '您的账户未更新',
+    'confirm_delete' => '确认删除数据',
+    'delete_warning' => '您确定要删除这些数据吗？',
+    'delete_success' => '数据删除成功',
+    'delete_error' => '删除数据时发生错误',
+    'update_password' => '更新密码',
+    'password_updated' => '您的密码已更新！',
+    'update_profile_picture' => '更新头像',
+
+    'edit_expertise' => '编辑专长',
+    'update' => '更新',
+
+    'confirm_delete' => '您确定要删除吗？',
+    'delete_warning' => '此操作无法撤销！',
+    'delete_success' => '数据已成功删除！',
+    'delete_error' => '删除时发生错误！',
+    'cancel' => '取消',
+    'ok' => '确定',
+
 
 
 

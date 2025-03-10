@@ -14,7 +14,7 @@ return [
     'lname_th' => 'Last name (Thai language)',
     'email' => 'Email',
     'academic_ranks' => 'Academic Ranks',
-    'academic_position'=> 'Academic Position',
+    'academic_position' => 'Academic Position',
     'check_degree' => 'For teachers who do not have a doctorate degree, please specify.',
     'mr' => 'Mr.',
     'mrs' => 'Mrs.',
@@ -39,12 +39,12 @@ return [
     'year_of_graduation' => 'Year of graduation',
     'master_degree' => 'Master degree',
     'doctoral_degree' => 'Doctoral degree',
-    'Name'=> 'Name',
-    'Email'=> 'Email',
-    'Enter current password'=> 'Enter current password',
+    'Name' => 'Name',
+    'Email' => 'Email',
+    'Enter current password' => 'Enter current password',
     'Enter new password1' => 'Enter new password',
     'ReEnter new password1' => 'ReEnter new password',
-    'Expert_name'=> 'Expert_name',
+    'Expert_name' => 'Expert_name',
 
     //เพิ่มเติม//
     'edit_modal_title' => 'Edit Expertise',
@@ -96,7 +96,34 @@ return [
     'password_update_failed'     => 'Something went wrong, Failed to update password in db',
     'password_changed_successfully' => 'Your password has been changed successfully',
 
-    'ok_button'         => 'OK',
+    //เริ่มแก้ตรงนี้//
+    'cancel' => 'Cancel',
+    'update_info' => 'Update Information',
+    'account_updated' => 'Your account has been updated!',
+    'are_you_sure_update_info' => 'Are you sure you want to update the information?',
+    'are_you_sure_to_proceed' => 'If you proceed, the information will be updated',
+    'update_my_info' => 'Update My Information',
+    'i_am_not_sure' => 'I am not sure',
+    'account_not_updated' => 'Your account was not updated',
+    'confirm_delete' => 'Confirm Data Deletion',
+    'delete_warning' => 'Are you sure you want to delete this data?',
+    'delete_success' => 'Data deleted successfully',
+    'delete_error' => 'An error occurred while deleting data',
+    'update_password' => 'Update Password',
+    'password_updated' => 'Your password has been updated!',
+    'update_profile_picture' => 'Update Profile Picture',
+
+    'edit_expertise' => 'Edit Expertise',
+    'update' => 'Update',
+
+    'confirm_delete' => 'Are you sure you want to delete?',
+    'delete_warning' => 'This deletion cannot be undone!',
+    'delete_success' => 'Data deleted successfully!',
+    'delete_error' => 'An error occurred while deleting!',
+    'cancel' => 'Cancel',
+    'ok' => 'OK',
+
+
 
 
 
