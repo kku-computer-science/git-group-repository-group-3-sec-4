@@ -63,4 +63,14 @@ return [
 
       'select_user_option' => 'เลือกผู้ใช้',
 
+      //ปุ่ม//
+      'view_tooltip'   => 'ดูรายละเอียด',
+      'edit_tooltip'   => 'แก้ไข',
+      'delete_tooltip' => 'ลบ',
+
+      //แก้ข้อความลบ//
+      'are_you_sure'    => 'คุณแน่ใจหรือไม่?',
+    'if_delete_gone'  => 'หากคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
+    'delete_success'  => 'ลบสำเร็จ',
+
 ];

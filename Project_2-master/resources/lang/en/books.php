@@ -114,7 +114,15 @@ return [
     'remove_first_row_error'      => "Sorry!! Can't remove first row!",
     'enter_your_name'             => 'Enter your Name',
 
-    
+    //
+    'view_tooltip'   => 'View',
+    'edit_tooltip'   => 'Edit',
+    'delete_tooltip' => 'Delete',
+
+    //
+    'are_you_sure'    => 'Are you sure?',
+    'if_delete_gone'  => 'If you delete this, it will be gone forever.',
+    'delete_success'  => 'Delete Successfully',
 
 
 

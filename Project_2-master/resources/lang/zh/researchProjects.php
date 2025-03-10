@@ -61,4 +61,14 @@ return [
 
      'select_user_option' => '選擇用戶',
 
+     //ปุ่ม//
+     'view_tooltip'   => '查看',
+     'edit_tooltip'   => '编辑',
+     'delete_tooltip' => '删除',
+
+     //แก้ข้อความลบ//
+     'are_you_sure'    => '你确定吗？',
+     'if_delete_gone'  => '如果你删除了它，它将永远消失。',
+     'delete_success'  => '删除成功',
+
 ];

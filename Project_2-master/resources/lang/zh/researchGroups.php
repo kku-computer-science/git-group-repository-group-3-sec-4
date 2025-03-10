@@ -25,4 +25,12 @@ return [
     "edit_group" => "编辑研究小组",
     "group_details" => "研究小组详细信息",
     "group_information" => "研究小组信息",
+
+    'view_tooltip'   => '查看',
+    'edit_tooltip'   => '编辑',
+    'delete_tooltip' => '删除',
+
+    'are_you_sure'   => '你确定吗？',
+    'if_delete_gone' => '如果你删除了它，它将永远消失。',
+    'delete_success' => '删除成功',
 ];

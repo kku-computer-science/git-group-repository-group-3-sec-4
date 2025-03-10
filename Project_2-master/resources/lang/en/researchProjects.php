@@ -63,7 +63,14 @@ return [
 
     'select_user_option' => 'Select User',
 
-
-
+    //ปุ่ม//
+    'view_tooltip'   => 'View',
+    'edit_tooltip'   => 'Edit',
+    'delete_tooltip' => 'Delete',
+    
+    //ข้อความลบ//
+    'are_you_sure'    => 'Are you sure?',
+    'if_delete_gone'  => 'If you delete this, it will be gone forever.',
+    'delete_success'  => 'Delete Successfully',
 
 ];

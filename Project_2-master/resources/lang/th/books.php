@@ -115,6 +115,14 @@ return [
          'remove_first_row_error'      => "ขออภัย!! ไม่สามารถลบแถวแรกได้",
          'enter_your_name'             => 'กรอกชื่อของคุณ',
 
+        //
+        'view_tooltip'   => 'ดูรายละเอียด',
+        'edit_tooltip'   => 'แก้ไข',
+        'delete_tooltip' => 'ลบ',
 
+        //
+        'are_you_sure'    => 'คุณแน่ใจหรือไม่?',
+    'if_delete_gone'  => 'หากคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
+    'delete_success'  => 'ลบสำเร็จ',
  
 ];

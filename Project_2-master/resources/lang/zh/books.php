@@ -112,4 +112,14 @@ return [
      'cancel'                      => '取消',
      'remove_first_row_error'      => "抱歉!! 不能删除第一行",
      'enter_your_name'             => '请输入您的姓名',
+
+     //
+     'view_tooltip'   => '查看',
+     'edit_tooltip'   => '编辑',
+     'delete_tooltip' => '删除',
+
+     //
+     'are_you_sure'    => '你确定吗？',
+     'if_delete_gone'  => '如果你删除了它，它将永远消失。',
+     'delete_success'  => '删除成功',
 ];

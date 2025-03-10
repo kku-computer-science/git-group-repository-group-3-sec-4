@@ -26,4 +26,12 @@ return [
     "group_details" => "Research Group Details",
     "group_information" => "Research Group Information",
 
+    'view_tooltip'   => 'View',
+    'edit_tooltip'   => 'Edit',
+    'delete_tooltip' => 'Delete',
+
+    'are_you_sure'   => 'Are you sure?',
+    'if_delete_gone' => 'If you delete this, it will be gone forever.',
+    'delete_success' => 'Delete Successfully',
+
 ];

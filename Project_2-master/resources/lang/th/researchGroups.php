@@ -25,4 +25,12 @@ return [
     "edit_group" => "แก้ไขกลุ่มวิจัย",
     "group_details" => "รายละเอียดกลุ่มวิจัย",
     "group_information" => "ข้อมูลรายละเอียดกลุ่มวิจัย",
+
+    'view_tooltip'   => 'ดูรายละเอียด',
+    'edit_tooltip'   => 'แก้ไข',
+    'delete_tooltip' => 'ลบ',
+
+    'are_you_sure'   => 'คุณแน่ใจหรือไม่?',
+    'if_delete_gone' => 'หากคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
+    'delete_success' => 'ลบสำเร็จ',
 ];
