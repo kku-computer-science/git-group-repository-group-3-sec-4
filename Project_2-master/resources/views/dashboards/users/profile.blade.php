@@ -527,34 +527,37 @@
         //         }
         //     });
         // });
-$('#AdminInfoForm').on('submit', function(e) {
-    e.preventDefault();
-    $.ajax({
-        url: $(this).attr('action'),
-        method: $(this).attr('method'),
-        data: new FormData(this),
-        processData: false,
-        dataType: 'json',
-        contentType: false,
-        beforeSend: function() {
-            $(document).find('span.error-text').text('');
-        },
-        success: function(data) {
-            if (data.status == 0) {
-                $.each(data.error, function(prefix, val) {
-                    $('span.' + prefix + '_error').text(val[0]);
-                });
-            } else {
-                $('.admin_name').each(function() {
-                    $(this).html($('#AdminInfoForm').find($('input[name="name"]')).val());
-                });
-                console.log(data.msg);
-                Swal.fire({
-                    title: "{{ trans('profile.update_info1') }}",
-                    text: "{{ trans('profile.account_updated1') }}",
-                    icon: "success",
-                    confirmButtonText: "{{ trans('profile.ok_button') }}"
-                });
+        $('#EdInfoForm').on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: $(this).attr('action'),
+                method: $(this).attr('method'),
+                data: new FormData(this),
+                processData: false,
+                dataType: 'json',
+                contentType: false,
+                beforeSend: function() {
+                    $(document).find('span.error-text').text('');
+                },
+                success: function(data) {
+                    if (data.status == 0) {
+                        $.each(data.error, function(prefix, val) {
+                            $('span.' + prefix + '_error').text(val[0]);
+                        });
+                    } else {
+                        $('.admin_name').each(function() {
+                            $(this).html($('#EdInfoForm').find($('input[name="name"]')).val());
+                        });
+                        console.log(data.msg);
+                        swal("{{ trans('profile.update_info') }}", "{{ trans('profile.account_updated') }}", "success");swal({
+    title: "{{ trans('profile.update_info1') }}",
+    text: "{{ trans('profile.account_updated1') }}",
+    type: "success",
+    confirmButtonColor: "#82ce34",
+    confirmButtonText: "{{ trans('profile.ok_button') }}", // แก้ปุ่ม OK ตรงนี้
+    showCancelButton: false,
+    closeOnConfirm: true
+});
                     }
                 }
             });

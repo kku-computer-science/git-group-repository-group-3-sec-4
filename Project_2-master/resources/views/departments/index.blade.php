@@ -1,11 +1,3 @@
-<!-- @php
-   if(Auth::user()->hasRole('admin')) {
-      $layoutDirectory = 'dashboards.admins.layouts.admin-dash-layout';
-   } else {
-      $layoutDirectory = 'dashboards.users.layouts.user-dash-layout';
-   }
-@endphp -->
-
 @extends('dashboards.users.layouts.user-dash-layout')
 @section('content')
 <div class="container">
@@ -18,9 +10,9 @@
         <div class="card">
             <div class="card-header">{{ __('department.department') }}
                 @can('departments-create')
-
-                <a class="btn btn-primary" href="{{ route('departments.create') }}">{{ __('department.new_department') }}</a>
-
+                <a class="btn btn-primary" href="{{ route('departments.create') }}">
+                    {{ __('department.new_department') }}
+                </a>
                 @endcan
             </div>
             <div class="card-body">
@@ -38,34 +30,44 @@
                             <td>{{ $department->id }}</td>
                             <td>{{ $department->department_name_th }}</td>
                             <td>
-                                <form action="{{ route('departments.destroy',$department->id) }}" method="POST">
-                                    
-
-                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('departments.show',$department->id) }}"><i class="mdi mdi-eye"></i></a>
-
+                                <form action="{{ route('departments.destroy', $department->id) }}" method="POST">
+                                    <li class="list-inline-item">
+                                        <a class="btn btn-outline-primary btn-sm"
+                                           type="button"
+                                           data-toggle="tooltip"
+                                           data-placement="top"
+                                           title="{{ trans('department.view_tooltip') }}"
+                                           href="{{ route('departments.show', $department->id) }}">
+                                           <i class="mdi mdi-eye"></i>
+                                        </a>
+                                    </li>
                                     @can('departments-edit')
-
-                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('departments.edit',$department->id) }}"><i class="mdi mdi-pencil"></i></a>
-
+                                    <li class="list-inline-item">
+                                        <a class="btn btn-outline-primary btn-sm"
+                                           type="button"
+                                           data-toggle="tooltip"
+                                           data-placement="top"
+                                           title="{{ trans('department.edit_tooltip') }}"
+                                           href="{{ route('departments.edit', $department->id) }}">
+                                           <i class="mdi mdi-pencil"></i>
+                                        </a>
+                                    </li>
                                     @endcan
-
-
                                     @can('departments-delete')
-                                    <!-- {!! Form::open(['method' => 'DELETE','route' => ['departments.destroy', $department->id],'style'=>'display:inline']) !!}
-                                    {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit','class' => 'btn btn-danger btn-sm rounded-0','type'=>'button','data-toggle'=>'tooltip' ,'data-placement'=>'top', 'title'=>'Delete']) !!}
-                                    {!! Form::close() !!} -->
                                     @csrf
                                     @method('DELETE')
-
                                     <li class="list-inline-item">
-                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                        <button class="btn btn-outline-danger btn-sm show_confirm"
+                                                type="submit"
+                                                data-toggle="tooltip"
+                                                data-placement="top"
+                                                title="{{ trans('department.delete_tooltip') }}">
+                                            <i class="mdi mdi-delete"></i>
+                                        </button>
                                     </li>
-
-
                                     @endcan
                                 </form>
                             </td>
-
                         </tr>
                         @endforeach
                     </tbody>
@@ -81,16 +83,18 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: "{{ trans('department.are_you_sure') }}",
+                text: "{{ trans('department.if_delete_gone') }}",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal({
+                        title: "{{ trans('department.delete_successfully') }}",
                         icon: "success",
+                        confirmButtonText: "{{ trans('department.ok_button') }}"
                     }).then(function() {
                         location.reload();
                         form.submit();
