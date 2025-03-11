@@ -5,68 +5,113 @@ Library          String
 Test Teardown    Close Browser
 
 *** Variables ***
-${BROWSER}       Chrome
-${URL}           http://127.0.0.1:8000/researchers/1
-${WAIT_TIME}     5s
+${BROWSER}           Chrome
+${HOME_URL}          http://127.0.0.1:8000/
+${WAIT_TIME}         3s
 
-# ✅ Locators สำหรับ Dropdown และตัวเลือกภาษา
-${LANG_DROPDOWN}        xpath=//a[@id="navbarDropdownMenuLink"]
-${LANG_TO_THAI}         xpath=//a[contains(text(), 'ไทย')]
-${LANG_TO_ENGLISH}      xpath=//a[contains(text(), 'English')] 
-${LANG_TO_CHINESE}      xpath=//a[contains(text(), '中文')]
+# Locators for menu and dropdown
+${RESEARCHER_MENU}    xpath=//a[@id='navbarDropdown']
+${DROPDOWN_MENU}      xpath=//ul[contains(@class, 'dropdown-menu') and contains(@class, 'show')]
+${COMPUTER_SCIENCE}   xpath=//ul[contains(@class, 'dropdown-menu') and contains(@class, 'show')]//a[contains(@href, '/researchers/1')]
 
- 
+# Locators for language switching
+${LANG_DROPDOWN_TOGGLE}    xpath=//a[@id="navbarDropdownMenuLink"]
+${LANG_TO_THAI}       xpath=//div[contains(@class, 'dropdown-menu')]//a[contains(text(), 'ไทย')]
+${LANG_TO_ENGLISH}    xpath=//div[contains(@class, 'dropdown-menu')]//a[contains(text(), 'English')]
+${LANG_TO_CHINESE}    xpath=//div[contains(@class, 'dropdown-menu')]//a[contains(text(), '中文')]
 
-# ✅ คำที่ใช้ตรวจสอบว่าเปลี่ยนภาษาแล้ว
-${EXPECTED_THAI_TEXT}    ผู้วิจัย
-${EXPECTED_ENGLISH_TEXT}    Researchers 
-${EXPECTED_CHINESE_TEXT}    研究人员
+# Expected text content
+@{EXPECTED_TH}    ผู้วิจัย    ค้นหา    งานวิจัยที่สนใจ    สาขาวิชาวิทยาการคอมพิวเตอร์
+@{EXPECTED_EN}    Researchers    Search    Research interests    Computer Science
+@{EXPECTED_CN}    研究人员    搜索    計算機科學系    研究兴趣
 
+# Researcher information verification
+@{EXPECTED_RESEARCHER_TH}    รศ.ดร.    ปัญญาพล หอระตะ
+@{EXPECTED_RESEARCHER_EN}    Punyaphol Horata
+@{EXPECTED_RESEARCHER_CN}    Punyaphol Horata
 
+@{EXPECTED_EXPERTISE_TH}    การเรียนรู้ของเครื่องและระบบอัจฉริยะ    ภาษาการเขียนโปรแกรมเชิงวัตถุ    คำนวณซอฟต์    วิศวกรรมซอฟต์แวร์
+@{EXPECTED_EXPERTISE_EN}    Machine Learning and Intelligent Systems    Object-Oriented Programming Languages    Soft computing    Software Engineering
+@{EXPECTED_EXPERTISE_CN}    机器学习与智能系统    面向对象编程语言    软计算    软件工程
 
-* Keywords *
-Open Browser To Researchers Page
-    Open Browser    ${URL}    ${BROWSER}
+*** Keywords ***
+Open Browser To Home Page
+    Open Browser    ${HOME_URL}    ${BROWSER}
     Maximize Browser Window
-    Wait Until Page Contains Element    ${LANG_DROPDOWN}    timeout=10s
 
-Wait And Click
-    [Arguments]    ${locator}
-    Wait Until Element Is Visible    ${locator}    timeout=10s
-    Click Element    ${locator}
+Navigate To Researcher Page
+    Click Element    ${RESEARCHER_MENU}
+    Wait Until Element Is Visible    ${DROPDOWN_MENU}    ${WAIT_TIME}
+    Click Element    ${COMPUTER_SCIENCE}
+    Wait Until Page Contains    Researchers    10s
 
-Select Language
-    [Arguments]    ${language_locator}    ${expected_text}
-    Wait And Click    ${LANG_DROPDOWN}  
-    Sleep    1s  
-    Wait And Click    ${language_locator}  
-    Sleep    3s  
-    Wait Until Page Contains    ${expected_text}    timeout=10s  
+Switch Language And Verify
+    [Arguments]    ${lang_button}    @{expected_texts}
+    Click Element    ${LANG_DROPDOWN_TOGGLE}
+    Sleep    1s
+    Run Keyword And Ignore Error    Click Element    ${lang_button}
+    Sleep    3s
+    Verify Page Contains Multiple Texts    @{expected_texts}
 
-Verify Researchers Page Text
-    [Arguments]    ${expected_text}
+Verify Page Contains Multiple Texts
+    [Arguments]    @{expected_texts}
     ${html_source}=    Get Source
-    Should Contain    ${html_source}    ${expected_text}
+    Log    HTML Source: ${html_source}
+    FOR    ${text}    IN    @{expected_texts}
+        Should Contain    ${html_source}    ${text}
+    END
 
-* Test Cases *
-Switch From English To Thai
-    [Documentation]    Start in English and switch to Thai, verify the translation.
-    Open Browser To Researchers Page
-    Sleep    ${WAIT_TIME}
-    Select Language    ${LANG_TO_THAI}    ${EXPECTED_THAI_TEXT}
-    Verify Researchers Page Text    ${EXPECTED_THAI_TEXT}
-  
+*** Test Cases ***
+Navigate To Researcher Page And Switch To Thai
+    Open Browser To Home Page
+    Navigate To Researcher Page
+    Switch Language And Verify    ${LANG_TO_THAI}    @{EXPECTED_TH}
+    Close Browser
 
-Switch From English To Chinese
-    [Documentation]    Start in English and switch to Chinese, verify the translation.
-    Open Browser To Researchers Page
-    Sleep    ${WAIT_TIME}
-    Select Language    ${LANG_TO_CHINESE}    ${EXPECTED_CHINESE_TEXT}
-    Verify Researchers Page Text    ${EXPECTED_CHINESE_TEXT}
+Navigate To Researcher Page And Switch To English
+    Open Browser To Home Page
+    Navigate To Researcher Page
+    Switch Language And Verify    ${LANG_TO_ENGLISH}    @{EXPECTED_EN}
+    Close Browser
 
-Switch Back To English
-    [Documentation]    Start in another language and switch back to English, verify the translation.
-    Open Browser To Researchers Page
-    Sleep    ${WAIT_TIME}
-    Page Should Contain    ${EXPECTED_ENGLISH_TEXT}
+Navigate To Researcher Page And Switch To Chinese
+    Open Browser To Home Page
+    Navigate To Researcher Page
+    Switch Language And Verify    ${LANG_TO_CHINESE}    @{EXPECTED_CN}
+    Close Browser
+
+Test Researcher Name In Thai
+    Open Browser To Home Page
+    Navigate To Researcher Page
+    Switch Language And Verify    ${LANG_TO_THAI}    @{EXPECTED_RESEARCHER_TH}
+    Close Browser
+
+Test Researcher Name In English
+    Open Browser To Home Page
+    Navigate To Researcher Page
+    Switch Language And Verify    ${LANG_TO_ENGLISH}    @{EXPECTED_RESEARCHER_EN}
+    Close Browser
+
+Test Researcher Name In Chinese
+    Open Browser To Home Page
+    Navigate To Researcher Page
+    Switch Language And Verify    ${LANG_TO_CHINESE}    @{EXPECTED_RESEARCHER_CN}
+    Close Browser
+
+Test Researcher Expertise In Thai
+    Open Browser To Home Page
+    Navigate To Researcher Page
+    Switch Language And Verify    ${LANG_TO_THAI}    @{EXPECTED_EXPERTISE_TH}
+    Close Browser
+
+Test Researcher Expertise In English
+    Open Browser To Home Page
+    Navigate To Researcher Page
+    Switch Language And Verify    ${LANG_TO_ENGLISH}    @{EXPECTED_EXPERTISE_EN}
+    Close Browser
+
+Test Researcher Expertise In Chinese
+    Open Browser To Home Page
+    Navigate To Researcher Page
+    Switch Language And Verify    ${LANG_TO_CHINESE}    @{EXPECTED_EXPERTISE_CN}
     Close Browser

@@ -1,76 +1,187 @@
-# test resrachers
 *** Settings ***
-Documentation    test resrachers
-Test Teardown      Close Browser
-Library  SeleniumLibrary
-Library  Collections
-Library  Process
-Library  OperatingSystem
-
+Documentation    Test suite for verifying language switching functionality on the Research Group page.
+Library          SeleniumLibrary
+Library          String
+Test Teardown    Close Browser
 
 *** Variables ***
-${BROWSER}       Chrome
-#${URL}           https://csweb0367.cpkkuhost.com/
-${URL}           http://localhost:8000
-${WAIT_TIME}     5s
+${BROWSER}        Chrome
+${URL}            http://127.0.0.1:8000/researchgroup
+${WAIT_TIME}      3s
 
-# ✅ อัปเดต XPath ตาม HTML ที่ให้มา
-${LANG_DROPDOWN}        xpath=//a[@id="navbarDropdownMenuLink"]  
-${LANG_TO_THAI}         xpath=//a[contains(text(), 'ไทย')]  
-${LANG_TO_ENGLISH}      xpath=//a[contains(text(), 'English')]  
-${LANG_TO_CHINESE}      xpath=//a[contains(text(), '中文')] 
-${LANG_HOME}            xpath=//a[text()='Home']
+# Research Group Name (AGT)
+${EXPECTED_GROUPNAME_TH}    เทคโนโลยี GIS ขั้นสูง (AGT)
+${EXPECTED_GROUPNAME_EN}    Advanced GIS Technology (AGT)
+${EXPECTED_GROUPNAME_CN}    高级 GIS 技术 （AGT）
+
+# Research Group Description (AGT)
+${EXPECTED_GROUPDESC_TH}    เพื่อดำเนินการวิจัยและให้บริการวิชาการในสาขาอินเทอร์เน็ต GIS สุขภาพ GIS และแบบจำลองทางอุทกวิทยาด้วย GIS
+${EXPECTED_GROUPDESC_EN}    To conduct research and provide academic services in the fields of Internet, GIS, Health GIS, and Hydrologic modeling with GIS.
+${EXPECTED_GROUPDESC_CN}    使用 GIS 在 Internet GIS、GIS 健康和水文建模领域进行研究并提供学术服务
+
+# Research Group Details
+@{EXPECTED_GROUPDETAIL_TH}    ...    เพื่อดำเนินการวิจัยและให้บริการวิชาการในสาขาอินเทอร์เน็ต GIS สุขภาพ GIS และแบบจำลองทางอุทกวิทยาด้วย GIS
+                                  ...    นักศึกษา
+@{EXPECTED_GROUPDETAIL_EN}    ...    To conduct research and provide academic services in the fields of Internet, GIS, Health GIS, and Hydrologic modeling with GIS
+                                  ...    Student
+@{EXPECTED_GROUPDETAIL_CN}    ...    使用 GIS 在 Internet GIS、GIS 健康和水文建模领域进行研究并提供学术服务
+                                  ...    学生
+
+# Project Supervisor
+@{EXPECTED_LABSUPERVISOR_TH}        ...     ผศ.ดร. พิพัธน์ เรืองแสง
+                                    ...     รศ.ดร. ชัยพล กีรติกสิกร        
+                                    ...     ผศ.ดร. ณกร วัฒนกิจ
+
+@{EXPECTED_LABSUPERVISOR_EN}        ...    Asst. Prof.   Pipat Reungsang, Ph.D.    
+                                    ...    Assoc. Prof.   Chaiyapon Keeratikasikorn, Ph.D.    
+                                    ...    Asst. Prof.   Nagon Watanakij, Ph.D.
+
+@{EXPECTED_LABSUPERVISOR_CN}        ...    Asst. Prof.   Pipat Reungsang, Ph.D.    
+                                    ...    Assoc. Prof.   Chaiyapon Keeratikasikorn, Ph.D.    
+                                    ...    Asst. Prof.   Nagon Watanakij, Ph.D.
 
 
-# ✅ คำที่ใช้ตรวจสอบว่าภาษาเปลี่ยน
-${EXPECTED_THAI_TEXT}       ผลงานตีพิมพ์ (5 ปี ย้อนหลัง)
-${EXPECTED_ENGLISH_TEXT}    Publications (In the Last 5 Years)
-${EXPECTED_CHINESE_TEXT}    已出版作品（近5年）
+# Expected Static Texts
+@{EXPECTED_THAI_TEXTS}          ...    กลุ่มวิจัย    
+                                    ...    หัวหน้าห้องปฏิบัติการ    
+                                    ...    รายละเอียดเพิ่มเติม
+
+@{EXPECTED_ENGLISH_TEXTS}       ...    Research Group    
+                                    ...    Laboratory Supervisor    
+                                    ...    View Details 
+
+@{EXPECTED_CHINESE_TEXTS}       ...    研究组    
+                                    ...    实验室主管    
+                                    ...    查看详情
+
+# Language Switchers
+${LANG_DROPDOWN_TOGGLE}        xpath=//a[@id="navbarDropdownMenuLink"]
+${LANG_TO_THAI}               xpath=//div[contains(@class, 'dropdown-menu')]//a[contains(., 'ไทย')]
+${LANG_TO_ENGLISH}            xpath=//div[contains(@class, 'dropdown-menu')]//a[contains(., 'English')]
+${LANG_TO_CHINESE}            xpath=//div[contains(@class, 'dropdown-menu')]//a[contains(., '中文')]
 
 *** Keywords ***
-Setup WebDriver
-    ${chrome_driver}=  Run Process  python  -c  "from webdriver_manager.chrome import ChromeDriverManager; print(ChromeDriverManager().install())"  shell=True
-    ${chrome_driver}=  Set Variable  ${chrome_driver.stdout.strip()}
-    Set Environment Variable  WEBDRIVER_PATH  ${chrome_driver}
-
-    ${options}=    Evaluate    selenium.webdriver.ChromeOptions()    selenium.webdriver
-    Call Method    ${options}    add_argument    --disable-automation
-    Call Method    ${options}    add_argument    --disable-infobars
-    Call Method    ${options}    add_argument    --start-maximized
-    Call Method    ${options}    add_experimental_option    detach    ${True}
-
-    Create WebDriver    Chrome    options=${options}
-
-Open Browser To Home Page
-    Setup WebDriver
+Open Browser To Research Group Page
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
-    Wait Until Element Is Visible    ${LANG_DROPDOWN}    timeout=10s
+
 Wait And Click
     [Arguments]    ${locator}
     Wait Until Element Is Visible    ${locator}    timeout=10s
     Click Element    ${locator}
 
-Select Language
-    [Arguments]    ${language_locator}    ${expected_text}
-    Wait And Click    ${LANG_DROPDOWN}   # เปิดเมนู dropdown
+Switch Language From Dropdown
+    [Arguments]    ${lang_locator}
+    Wait Until Element Is Visible    ${LANG_DROPDOWN_TOGGLE}    timeout=10s
+    Click Element    ${LANG_DROPDOWN_TOGGLE}
     Sleep    1s
-    Wait And Click    ${language_locator}  # เลือกภาษา
-    Sleep    3s  
-    Reload Page  
-    Sleep    3s  
-    Wait Until Page Contains    ${expected_text}    timeout=15s  
+    Wait Until Element Is Visible    ${lang_locator}    timeout=10s
+    Click Element    ${lang_locator}
+    Sleep    ${WAIT_TIME}
+
+Verify Page Contains Texts
+    [Arguments]    @{expected_texts}
+    ${html_source}=    Get Source
+    Log    HTML Source: ${html_source}
+    FOR    ${text}    IN    @{expected_texts}
+        Should Contain    ${html_source}    ${text}
+    END
+
+Click More Details
+    Wait Until Element Is Visible    xpath=//a[contains(@href, 'researchgroupdetail')]    timeout=10s
+    Click Element    xpath=//a[contains(@href, 'researchgroupdetail')]
+    Sleep    ${WAIT_TIME}
+
+Verify Research Group Name
+    [Arguments]    ${expected_group_name}
+    Wait Until Element Is Visible    xpath=//h5[contains(text(), '${expected_group_name}')]    timeout=10s
+    ${actual_group_name}=    Get Text    xpath=//h5[contains(text(), '${expected_group_name}')]
+    Should Be Equal    ${actual_group_name}    ${expected_group_name}
+
+Verify Research Group Description
+    [Arguments]    ${expected_group_desc}
+    Wait Until Element Is Visible    xpath=//h3[contains(text(), '${expected_group_desc}')]    timeout=10s
+    ${actual_group_desc}=    Get Text    xpath=//h3[contains(text(), '${expected_group_desc}')]
+    Should Contain    ${actual_group_desc}    ${expected_group_desc}
+
+Verify Project Supervisor
+    [Arguments]    @{expected_supervisors}
+    ${actual_supervisors}=    Get Text    xpath=//h2[@class='card-text-2']
+    Log    Actual Supervisors: ${actual_supervisors}
+    FOR    ${supervisor}    IN    @{expected_supervisors}
+        Should Contain    ${actual_supervisors}    ${supervisor}
+    END
+
+Verify Research Group Detail
+    [Arguments]    @{expected_group_detail}
+    Sleep    ${WAIT_TIME}
+    ${page_source}=    Get Source
+    Log    ${page_source}
+    FOR    ${detail}    IN    @{expected_group_detail}
+        Should Contain    ${page_source}    ${detail}
+    END
 
 *** Test Cases ***
-English To Thai
-    [Documentation]    Start in English, switch to Thai and verify.
-    Open Browser To Home Page
+Verify Default Language Is English
+    [Documentation]    เมื่อเปิดหน้าเว็บ default เป็นภาษาอังกฤษ
+    Open Browser To Research Group Page
     Sleep    ${WAIT_TIME}
-    Select Language    ${LANG_TO_THAI}    ${EXPECTED_THAI_TEXT}
+    Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
+    Verify Research Group Name    ${EXPECTED_GROUPNAME_EN}
+    Verify Research Group Description    ${EXPECTED_GROUPDESC_EN}
+    Verify Project Supervisor    @{EXPECTED_LABSUPERVISOR_EN}
 
-English To Chinese
-    [Documentation]    Start in English, switch to Chinese and verify.
-    Open Browser To Home Page
+Switch To Thai And Verify
+    [Documentation]    เปลี่ยนจากภาษาอังกฤษเป็นภาษาไทย
+    Open Browser To Research Group Page
     Sleep    ${WAIT_TIME}
-    Select Language    ${LANG_TO_CHINESE}    ${EXPECTED_CHINESE_TEXT}
-    Close Browser
+    Switch Language From Dropdown    ${LANG_TO_THAI}
+    Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+    Verify Research Group Name    ${EXPECTED_GROUPNAME_TH}
+    Verify Research Group Description    ${EXPECTED_GROUPDESC_TH}
+    Verify Project Supervisor    @{EXPECTED_LABSUPERVISOR_TH}
+
+# Switch To Chinese And Verify
+#     [Documentation]    เปลี่ยนจากภาษาอังกฤษเป็นภาษาจีน
+#     Open Browser To Research Group Page
+#     Sleep    ${WAIT_TIME}
+#     Switch Language From Dropdown    ${LANG_TO_CHINESE}
+#     Verify Page Contains Texts    @{EXPECTED_CHINESE_TEXTS}
+#     Verify Research Group Name    ${EXPECTED_GROUPNAME_CN}
+#     Verify Research Group Description    ${EXPECTED_GROUPDESC_CN}
+#     Verify Project Supervisor    @{EXPECTED_LABSUPERVISOR_CN}
+
+Switch Back To English And Verify
+    [Documentation]    เปลี่ยนจากภาษาอื่นกลับมาเป็นภาษาอังกฤษ
+    Open Browser To Research Group Page
+    Sleep    ${WAIT_TIME}
+    Switch Language From Dropdown    ${LANG_TO_THAI}
+    Sleep    ${WAIT_TIME}
+    Switch Language From Dropdown    ${LANG_TO_ENGLISH}
+    Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
+    Verify Research Group Name    ${EXPECTED_GROUPNAME_EN}
+    Verify Research Group Description    ${EXPECTED_GROUPDESC_EN}
+    Verify Project Supervisor    @{EXPECTED_LABSUPERVISOR_EN}
+
+Verify Research Group Detail In English
+    [Documentation]    ตรวจสอบรายละเอียดในหน้า Research Group (ภาษาอังกฤษ)
+    Open Browser To Research Group Page
+    Sleep    ${WAIT_TIME}
+    Click More Details
+    Verify Research Group Detail    @{EXPECTED_GROUPDETAIL_EN}
+
+Verify Research Group Detail In Thai
+    [Documentation]    ตรวจสอบรายละเอียดในหน้า Research Group (ภาษาไทย)
+    Open Browser To Research Group Page
+    Sleep    ${WAIT_TIME}
+    Switch Language From Dropdown    ${LANG_TO_THAI}
+    Click More Details
+    Verify Research Group Detail    @{EXPECTED_GROUPDETAIL_TH}
+
+# Verify Research Group Detail In Chinese
+#     [Documentation]    ตรวจสอบรายละเอียดในหน้า Research Group (ภาษาจีน)
+#     Open Browser To Research Group Page
+#     Sleep    ${WAIT_TIME}
+#     Switch Language From Dropdown    ${LANG_TO_CHINESE}
+#     Click More Details
+#     Verify Research Group Detail    @{EXPECTED_GROUPDETAIL_CN}

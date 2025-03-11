@@ -56,28 +56,28 @@ Verify Some Page Text
     Should Contain    ${html_source}    ${expected_text}
 
 *** Test Cases ***
-# Switch From English To Thai
-#     [Documentation]    Start in English and switch to Thai, verify the translation.
-#     Open Browser To HOME Page
-#     Sleep    ${WAIT_TIME}
-#     Select Language    ${LANG_TO_THAI}    ${EXPECTED_THAI_TEXT}
-#     Verify Some Page Text    ${EXPECTED_THAI_TEXT}
-#     Wait And Click    ${LOGIN_TO_THAI}  
-#     Sleep    ${WAIT_TIME}
-#     Wait Until Page Contains    เข้าสู่ระบบ    timeout=10s
-#     #Verify Some Page Text    ${EXPECTED_THAI_IN_LOGIN} 
+Switch From English To Thai
+    [Documentation]    Start in English and switch to Thai, verify the translation.
+    Open Browser To HOME Page
+    Sleep    ${WAIT_TIME}
+    Select Language    ${LANG_TO_THAI}    ${EXPECTED_THAI_TEXT}
+    Verify Some Page Text    ${EXPECTED_THAI_TEXT}
+    Wait And Click    ${LOGIN_TO_THAI}  
+    Sleep    ${WAIT_TIME}
+    Wait Until Page Contains    เข้าสู่ระบบ    timeout=10s
+    #Verify Some Page Text    ${EXPECTED_THAI_IN_LOGIN} 
   
 
-# Switch From English To Chinese
-#     [Documentation]    Start in English and switch to Chinese, verify the translation.
-#     Open Browser To HOME Page
-#     Sleep    ${WAIT_TIME}
-#     Select Language    ${LANG_TO_CHINESE}    ${EXPECTED_CHINESE_TEXT}
-#     Verify Some Page Text    ${EXPECTED_CHINESE_TEXT}
-#     Wait And Click    ${LOGIN_TO_CHINESE}
-#     Sleep    ${WAIT_TIME}
-#     Wait Until Page Contains    登录    timeout=10s 
-#     #Verify Some Page Text    ${EXPECTED_CHINESE_IN_LOGIN}
+Switch From English To Chinese
+    [Documentation]    Start in English and switch to Chinese, verify the translation.
+    Open Browser To HOME Page
+    Sleep    ${WAIT_TIME}
+    Select Language    ${LANG_TO_CHINESE}    ${EXPECTED_CHINESE_TEXT}
+    Verify Some Page Text    ${EXPECTED_CHINESE_TEXT}
+    Wait And Click    ${LOGIN_TO_CHINESE}
+    Sleep    ${WAIT_TIME}
+    Wait Until Page Contains    登录    timeout=10s 
+    #Verify Some Page Text    ${EXPECTED_CHINESE_IN_LOGIN}
 
 Switch Back To English
     [Documentation]    Start in another language and switch back to English, verify the translation.
