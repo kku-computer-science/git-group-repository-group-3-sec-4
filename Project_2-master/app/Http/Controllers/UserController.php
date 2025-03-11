@@ -84,6 +84,18 @@ class UserController extends Controller
             'roles' => 'required',
             // 'position' => 'required',
             'sub_cat' => 'required',
+        ], [
+            'fname_en.required' => __('users.fname_en_required'),
+            'lname_en.required' => __('users.lname_en_required'),
+            'fname_th.required' => __('users.fname_th_required'),
+            'lname_th.required' => __('users.lname_th_required'),
+            'email.required'    => __('users.email_required'),
+            'email.email'       => __('users.email_email'),
+            'email.unique'      => __('users.email_unique'),
+            'password.required' => __('users.password_required'),
+            'password.confirmed'=> __('users.password_confirmed'),
+            'roles.required'    => __('users.roles_required'),
+            'sub_cat.required'  => __('users.sub_cat_required'),
         ]);
     
         //$input = $request->all();
@@ -111,7 +123,7 @@ class UserController extends Controller
         $user = $user->program()->associate($program)->save();
 
         return redirect()->route('users.index')
-            ->with('success', 'User created successfully.');
+            ->with('success', __('users.user_created_successfully'));
     }
 
     /**
@@ -166,6 +178,16 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'confirmed',
             'roles' => 'required'
+        ], [
+            'fname_en.required' => __('users.fname_en_required'),
+            'fname_th.required' => __('users.fname_th_required'),
+            'lname_en.required' => __('users.lname_en_required'),
+            'lname_th.required' => __('users.lname_th_required'),
+            'email.required'    => __('users.email_required'),
+            'email.email'       => __('users.email_email'),
+            'email.unique'      => __('users.email_unique'),
+            'password.confirmed'=> __('users.password_confirmed'),
+            'roles.required'    => __('users.roles_required'),
         ]);
     
         $input = $request->all();
@@ -189,7 +211,7 @@ class UserController extends Controller
         $user = $user->program()->associate($program)->save();
 
         return redirect()->route('users.index')
-            ->with('success', 'User updated successfully.');
+            ->with('success', __('users.user_updated_successfully'));
     }
 
     /**
@@ -203,7 +225,7 @@ class UserController extends Controller
         
         User::find($id)->delete();
         return redirect()->route('users.index')
-            ->with('success', 'User deleted successfully.');
+            ->with('success', __('users.user_deleted_successfully'));
     }
 
     function profile(){
@@ -223,7 +245,7 @@ class UserController extends Controller
         //$upload = $file->move('user/images', $filename);
      
         if( !$upload ){
-            return response()->json(['status'=>0,'msg'=>'Something went wrong, upload new picture failed.']);
+            return response()->json(['status'=>0,'msg'=> __('users.upload_picture_failed') ]);
         }else{
             //Get Old picture
             $oldPicture = User::find(Auth::user()->id)->getAttributes()['picture'];
@@ -238,9 +260,9 @@ class UserController extends Controller
             $update = User::find(Auth::user()->id)->update(['picture'=>$new_name]);
 
             if( !$upload ){
-                return response()->json(['status'=>0,'msg'=>'Something went wrong, updating picture in db failed.']);
+                return response()->json(['status'=>0,'msg'=> __('users.update_picture_failed') ]);
             }else{
-                return response()->json(['status'=>1,'msg'=>'Your profile picture has been updated successfully']);
+                return response()->json(['status'=>1,'msg'=> __('users.profile_picture_updated_successfully') ]);
             }
         }
     }

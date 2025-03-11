@@ -30,4 +30,17 @@ return [
         'are_you_sure'    => '你确定吗？',
         'cant_recover'    => '删除后将无法恢复！',
         'delete_success'  => '删除成功',
+
+        'ok_button'      => '确定',
+        'cancel_button'  => '取消',
+
+         'edit_modal_title' => '编辑专长',
+         
+         // Validation
+    'expert_name_required' => '必须提供专长名称。',
+
+    // Success messages
+    'expertise_created_successfully' => '专长已成功创建。',
+    'expertise_updated_successfully' => '专长数据已成功更新。',
+    'expertise_deleted_successfully' => '专长已成功删除。',
 ];

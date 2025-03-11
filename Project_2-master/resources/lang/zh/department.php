@@ -24,5 +24,17 @@ return [
     'are_you_sure'       => '你确定吗？',
     'if_delete_gone'     => '如果你删除它，将永远无法恢复。',
     'delete_successfully'=> '删除成功',
-    'ok_button'          => '确定',
+    
+    // Validation
+    'department_name_th_required'       => '必须提供泰语系名称。',
+
+    // Success Messages
+    'department_created_successfully'   => '系已成功创建。',
+    'department_updated_successfully'   => '系已成功更新。',
+    'department_deleted_successfully'   => '系已成功删除。',
+
+    'cancel_button'        => '取消',
+    'ok_button'            => '确定',
+
+
 ];

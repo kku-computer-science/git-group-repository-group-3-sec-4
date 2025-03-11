@@ -30,4 +30,17 @@ return [
      'are_you_sure'    => 'คุณแน่ใจหรือไม่?',
      'cant_recover'    => 'คุณจะไม่สามารถกู้คืนข้อมูลนี้ได้อีก!',
      'delete_success'  => 'ลบสำเร็จ',
+
+     'ok_button'      => 'ตกลง',
+    'cancel_button'  => 'ยกเลิก',
+
+    'edit_modal_title' => 'แก้ไขความเชี่ยวชาญ',
+
+    // Validation
+    'expert_name_required' => 'กรุณาระบุชื่อความเชี่ยวชาญ',
+
+    // Success messages
+    'expertise_created_successfully' => 'สร้างความเชี่ยวชาญสำเร็จ',
+    'expertise_updated_successfully' => 'อัปเดตความเชี่ยวชาญสำเร็จ',
+    'expertise_deleted_successfully' => 'ลบความเชี่ยวชาญสำเร็จ',
 ];

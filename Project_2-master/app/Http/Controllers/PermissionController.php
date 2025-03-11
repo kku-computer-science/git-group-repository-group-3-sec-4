@@ -51,14 +51,19 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
+        // แก้ไขส่วน Validate ให้เรียกใช้ไฟล์แปล permissions.php
         $this->validate($request, [
             'name' => 'required|unique:permissions,name',
+        ], [
+            'name.required' => __('permissions.name_required'),
+            'name.unique'   => __('permissions.name_unique'),
         ]);
     
         Permission::create(['name' => $request->input('name')]);
     
+        // แก้ไขข้อความ success ให้เรียกใช้ไฟล์แปล
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission created successfully.');
+            ->with('success', __('permissions.permission_created_successfully'));
     }
 
     /**
@@ -96,16 +101,20 @@ class PermissionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // แก้ไขส่วน Validate ให้เรียกใช้ไฟล์แปล permissions.php
         $this->validate($request, [
             'name' => 'required'
+        ], [
+            'name.required' => __('permissions.name_required'),
         ]);
     
         $permission = Permission::find($id);
         $permission->name = $request->input('name');
         $permission->save();
         
+        // แก้ไขข้อความ success ให้เรียกใช้ไฟล์แปล
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission updated successfully.');
+            ->with('success', __('permissions.permission_updated_successfully'));
     }
 
     /**
@@ -118,7 +127,8 @@ class PermissionController extends Controller
     {
         Permission::find($id)->delete();
         
+        // แก้ไขข้อความ success ให้เรียกใช้ไฟล์แปล
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission deleted successfully');
+            ->with('success', __('permissions.permission_deleted_successfully'));
     }
 }

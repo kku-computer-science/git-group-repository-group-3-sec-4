@@ -206,22 +206,25 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: "{{ trans('users.are_you_sure') }}",
-                text: "{{ trans('users.if_delete_gone') }}",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("{{ trans('users.delete_success') }}", {
-                        icon: "success",
-                    }).then(function() {
-                        location.reload();
-                        form.submit();
-                    });
-                }
-            });
+            title: "{{ trans('users.are_you_sure') }}",
+            text: "{{ trans('users.if_delete_gone') }}",
+            icon: "warning",
+            buttons: {
+                cancel: "{{ trans('users.cancel_button') }}",   // ปุ่มยกเลิก
+                confirm: "{{ trans('users.ok_button') }}"       // ปุ่มตกลง
+            },
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("{{ trans('users.delete_success') }}", {
+                    icon: "success",
+                }).then(function() {
+                    location.reload();
+                    form.submit();
+                });
+            }
+        });
     });
 </script>
 @endsection

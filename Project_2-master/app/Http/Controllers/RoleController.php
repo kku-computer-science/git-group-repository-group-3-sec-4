@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace App\Http\Controllers;
 
@@ -54,16 +54,21 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        // เพิ่ม custom messages เพื่อใช้การแปล
         $this->validate($request, [
-            'name' => 'required|unique:roles,name',
+            'name'       => 'required|unique:roles,name',
             'permission' => 'required',
+        ], [
+            'name.required'       => __('roles.name_required'),
+            'name.unique'         => __('roles.name_unique'),
+            'permission.required' => __('roles.permission_required'),
         ]);
     
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->input('permission'));
     
         return redirect()->route('roles.index')
-            ->with('success', 'Role created successfully.');
+            ->with('success', __('roles.role_created_successfully'));
     }
 
     /**
@@ -109,9 +114,13 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // เพิ่ม custom messages เพื่อใช้การแปล
         $this->validate($request, [
-            'name' => 'required',
+            'name'       => 'required',
             'permission' => 'required',
+        ], [
+            'name.required'       => __('roles.name_required'),
+            'permission.required' => __('roles.permission_required'),
         ]);
     
         $role = Role::find($id);
@@ -121,7 +130,7 @@ class RoleController extends Controller
         $role->syncPermissions($request->input('permission'));
     
         return redirect()->route('roles.index')
-            ->with('success', 'Role updated successfully.');
+            ->with('success', __('roles.role_updated_successfully'));
     }
 
     /**
@@ -135,6 +144,6 @@ class RoleController extends Controller
         Role::find($id)->delete();
         
         return redirect()->route('roles.index')
-            ->with('success', 'Role deleted successfully');
+            ->with('success', __('roles.role_deleted_successfully'));
     }
 }

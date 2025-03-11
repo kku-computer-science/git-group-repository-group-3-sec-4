@@ -31,65 +31,65 @@
     <div class="card" style="padding: 16px;">
         <div class="card-body">
             <h4 class="card-title" ">{{ __('manageProgram.course') }}</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend"></i> {{ __('manageProgram.add') }} </a>
-            <table id="example1" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>{{ __('manageProgram.id') }}</th>
-                        <th>{{ __('manageProgram.name_thai') }}</th>
-                        <!-- <th>Name (Eng)</th> -->
-                        <th>{{ __('manageProgram.degree') }}</th>
-                        <th>{{ __('manageProgram.action') }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($programs as $i => $program)
-                    <tr id="program_id_{{ $program->id }}">
-                        <td>{{ $i+1 }}</td>
-                        <td>{{ $program->program_name_th }}</td>
-                        <!-- <td>{{ $program->program_name_en }}</td> -->
-                        <td>{{ $program->degree->degree_name_en}}</td>
-                        <td>
-                            <form action="{{ route('programs.destroy',$program->id) }}" method="POST">
-                                <!-- <a class="btn btn-info" id="show-program" data-toggle="modal" data-id="{{ $program->id }}">Show</a> -->
+            <a class=" btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend"></i> {{ __('manageProgram.add') }} </a>
+                <table id="example1" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>{{ __('manageProgram.id') }}</th>
+                            <th>{{ __('manageProgram.name_thai') }}</th>
+                            <!-- <th>Name (Eng)</th> -->
+                            <th>{{ __('manageProgram.degree') }}</th>
+                            <th>{{ __('manageProgram.action') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($programs as $i => $program)
+                        <tr id="program_id_{{ $program->id }}">
+                            <td>{{ $i+1 }}</td>
+                            <td>{{ $program->program_name_th }}</td>
+                            <!-- <td>{{ $program->program_name_en }}</td> -->
+                            <td>{{ $program->degree->degree_name_en}}</td>
+                            <td>
+                                <form action="{{ route('programs.destroy',$program->id) }}" method="POST">
+                                    <!-- <a class="btn btn-info" id="show-program" data-toggle="modal" data-id="{{ $program->id }}">Show</a> -->
 
-                                <!-- <a class="btn btn-outline-primary btn-sm" id="show-program" type="button" data-toggle="modal" data-placement="top" title="view" data-id="{{ $program->id }}"><i class="mdi mdi-eye"></i></a>
+                                    <!-- <a class="btn btn-outline-primary btn-sm" id="show-program" type="button" data-toggle="modal" data-placement="top" title="view" data-id="{{ $program->id }}"><i class="mdi mdi-eye"></i></a>
                                      -->
-                                <!-- <a href="javascript:void(0)" class="btn btn-success" id="edit-program" data-toggle="modal" data-id="{{ $program->id }}">Edit </a> -->
-                                <li class="list-inline-item">
-    <a class="btn btn-outline-success btn-sm"
-       id="edit-program"
-       type="button"
-       data-toggle="modal"
-       data-id="{{ $program->id }}"
-       data-placement="top"
-       title="{{ trans('manageProgram.edit_tooltip') }}"
-       href="javascript:void(0)">
-       <i class="mdi mdi-pencil"></i>
-    </a>
-</li>
+                                    <!-- <a href="javascript:void(0)" class="btn btn-success" id="edit-program" data-toggle="modal" data-id="{{ $program->id }}">Edit </a> -->
+                                    <li class="list-inline-item">
+                                        <a class="btn btn-outline-success btn-sm"
+                                            id="edit-program"
+                                            type="button"
+                                            data-toggle="modal"
+                                            data-id="{{ $program->id }}"
+                                            data-placement="top"
+                                            title="{{ trans('manageProgram.edit_tooltip') }}"
+                                            href="javascript:void(0)">
+                                            <i class="mdi mdi-pencil"></i>
+                                        </a>
+                                    </li>
 
-<meta name="csrf-token" content="{{ csrf_token() }}">
+                                    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<li class="list-inline-item">
-    <button class="btn btn-outline-danger btn-sm"
-            id="delete-program"
-            type="submit"
-            data-id="{{ $program->id }}"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="{{ trans('manageProgram.delete_tooltip') }}">
-        <i class="mdi mdi-delete"></i>
-    </button>
-</li>
-                            </form>
-                            <!-- <a id="delete-program" data-id="{{ $program->id }}" class="btn btn-danger delete-user">Delete</a> -->
+                                    <li class="list-inline-item">
+                                        <button class="btn btn-outline-danger btn-sm"
+                                            id="delete-program"
+                                            type="submit"
+                                            data-id="{{ $program->id }}"
+                                            data-toggle="tooltip"
+                                            data-placement="top"
+                                            title="{{ trans('manageProgram.delete_tooltip') }}">
+                                            <i class="mdi mdi-delete"></i>
+                                        </button>
+                                    </li>
+                                </form>
+                                <!-- <a id="delete-program" data-id="{{ $program->id }}" class="btn btn-danger delete-user">Delete</a> -->
 
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
         </div>
     </div>
 </div>
@@ -177,7 +177,9 @@
         $('#new-program').click(function() {
             $('#btn-save').val("create-program");
             $('#program').trigger("reset");
-            $('#programCrudModal').html("Add New program");
+            // เดิม: $('#programCrudModal').html("Add New program");
+            // แก้เป็นเรียกข้อความจากไฟล์แปล manageProgram.php
+            $('#programCrudModal').html("{{ __('manageProgram.add_new_program') }}");
             $('#crud-modal').modal('show');
         });
 
@@ -185,50 +187,54 @@
         $('body').on('click', '#edit-program', function() {
             var program_id = $(this).data('id');
             $.get('programs/' + program_id + '/edit', function(data) {
-                $('#programCrudModal').html("Edit program");
+                // แก้ไขให้ใช้การแปลแทนข้อความเดิม
+                $('#programCrudModal').html("{{ __('manageProgram.edit_program') }}");
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled', false);
                 $('#crud-modal').modal('show');
                 $('#pro_id').val(data.id);
                 $('#program_name_th').val(data.program_name_th);
                 $('#program_name_en').val(data.program_name_en);
-                //$('#degree').val(data.program_name_en);
                 $('#degree').val(data.degree_id);
-            })
+            });
         });
 
 
-    /* Delete program */
-    $('body').on('click', '#delete-program', function(e) {
-        var program_id = $(this).data("id");
-        var token = $("meta[name='csrf-token']").attr("content");
-        e.preventDefault();
+        /* Delete program */
+        $('body').on('click', '#delete-program', function(e) {
+            var program_id = $(this).data("id");
+            var token = $("meta[name='csrf-token']").attr("content");
+            e.preventDefault();
 
-        swal({
-            title: "{{ trans('manageProgram.are_you_sure') }}",
-            text: "{{ trans('manageProgram.cant_recover') }}",
-            type: "warning",
-            buttons: true,
-            dangerMode: true,
-        }).then((willDelete) => {
-            if (willDelete) {
-                swal("{{ trans('manageProgram.delete_success') }}", {
-                    icon: "success",
-                }).then(function() {
-                    location.reload();
-                    $.ajax({
-                        type: "DELETE",
-                        url: "programs/" + program_id,
-                        data: {
-                            "id": program_id,
-                            "_token": token,
-                        },
-                        success: function(data) {
-                            $('#msg').html('program entry deleted successfully');
-                            $("#program_id_" + program_id).remove();
-                        },
-                        error: function(data) {
-                            console.log('Error:', data);
+            // เปลี่ยนการกำหนดปุ่มใน sweetalert เพื่อแปลปุ่ม OK/Cancel
+            swal({
+                title: "{{ trans('manageProgram.are_you_sure') }}",
+                text: "{{ trans('manageProgram.cant_recover') }}",
+                icon: "warning",
+                buttons: {
+                    cancel: "{{ trans('manageProgram.cancel_button') }}", // ปุ่มยกเลิก
+                    confirm: "{{ trans('manageProgram.ok_button') }}" // ปุ่มตกลง
+                },
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    swal("{{ trans('manageProgram.delete_success') }}", {
+                        icon: "success",
+                    }).then(function() {
+                        location.reload();
+                        $.ajax({
+                            type: "DELETE",
+                            url: "programs/" + program_id,
+                            data: {
+                                "id": program_id,
+                                "_token": token,
+                            },
+                            success: function(data) {
+                                $('#msg').html('program entry deleted successfully');
+                                $("#program_id_" + program_id).remove();
+                            },
+                            error: function(data) {
+                                console.log('Error:', data);
                             }
                         });
                     });

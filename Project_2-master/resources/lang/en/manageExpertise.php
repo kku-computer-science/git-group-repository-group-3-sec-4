@@ -29,4 +29,17 @@ return [
     'are_you_sure'    => 'Are you sure?',
     'cant_recover'    => 'You will not be able to recover this imaginary file!',
     'delete_success'  => 'Delete Successfully',
+
+    'ok_button'      => 'OK',
+    'cancel_button'  => 'Cancel',
+
+    'edit_modal_title' => 'Edit Expertise',
+
+    // Validation
+    'expert_name_required' => 'Expert name is required.',
+
+    // Success messages
+    'expertise_created_successfully' => 'Expertise entry created successfully.',
+    'expertise_updated_successfully' => 'Expertise data updated successfully.',
+    'expertise_deleted_successfully' => 'Expertise entry deleted successfully.',
 ];
