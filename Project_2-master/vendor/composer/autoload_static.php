@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit4e9514389e696c02b20de3fa884e4c9d
+class ComposerStaticInit7d8e926c50ffbc00fbf78cbb7cc25861
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -6485,13 +6485,11 @@ class ComposerStaticInit4e9514389e696c02b20de3fa884e4c9d
         'Symfony\\Component\\CssSelector\\Node\\ElementNode' => __DIR__ . '/..' . '/symfony/css-selector/Node/ElementNode.php',
         'Symfony\\Component\\CssSelector\\Node\\FunctionNode' => __DIR__ . '/..' . '/symfony/css-selector/Node/FunctionNode.php',
         'Symfony\\Component\\CssSelector\\Node\\HashNode' => __DIR__ . '/..' . '/symfony/css-selector/Node/HashNode.php',
-        'Symfony\\Component\\CssSelector\\Node\\MatchingNode' => __DIR__ . '/..' . '/symfony/css-selector/Node/MatchingNode.php',
         'Symfony\\Component\\CssSelector\\Node\\NegationNode' => __DIR__ . '/..' . '/symfony/css-selector/Node/NegationNode.php',
         'Symfony\\Component\\CssSelector\\Node\\NodeInterface' => __DIR__ . '/..' . '/symfony/css-selector/Node/NodeInterface.php',
         'Symfony\\Component\\CssSelector\\Node\\PseudoNode' => __DIR__ . '/..' . '/symfony/css-selector/Node/PseudoNode.php',
         'Symfony\\Component\\CssSelector\\Node\\SelectorNode' => __DIR__ . '/..' . '/symfony/css-selector/Node/SelectorNode.php',
         'Symfony\\Component\\CssSelector\\Node\\Specificity' => __DIR__ . '/..' . '/symfony/css-selector/Node/Specificity.php',
-        'Symfony\\Component\\CssSelector\\Node\\SpecificityAdjustmentNode' => __DIR__ . '/..' . '/symfony/css-selector/Node/SpecificityAdjustmentNode.php',
         'Symfony\\Component\\CssSelector\\Parser\\Handler\\CommentHandler' => __DIR__ . '/..' . '/symfony/css-selector/Parser/Handler/CommentHandler.php',
         'Symfony\\Component\\CssSelector\\Parser\\Handler\\HandlerInterface' => __DIR__ . '/..' . '/symfony/css-selector/Parser/Handler/HandlerInterface.php',
         'Symfony\\Component\\CssSelector\\Parser\\Handler\\HashHandler' => __DIR__ . '/..' . '/symfony/css-selector/Parser/Handler/HashHandler.php',
@@ -7263,10 +7261,10 @@ class ComposerStaticInit4e9514389e696c02b20de3fa884e4c9d
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit4e9514389e696c02b20de3fa884e4c9d::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit4e9514389e696c02b20de3fa884e4c9d::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit4e9514389e696c02b20de3fa884e4c9d::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit4e9514389e696c02b20de3fa884e4c9d::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7d8e926c50ffbc00fbf78cbb7cc25861::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7d8e926c50ffbc00fbf78cbb7cc25861::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit7d8e926c50ffbc00fbf78cbb7cc25861::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit7d8e926c50ffbc00fbf78cbb7cc25861::$classMap;
 
         }, null, ClassLoader::class);
     }
