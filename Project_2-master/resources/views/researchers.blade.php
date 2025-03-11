@@ -64,12 +64,26 @@
                                     {{ $r->{'position_'.app()->getLocale()} ?? 'N/A' }}
                                     {{ $r->{'fname_'.app()->getLocale()} ?? 'N/A' }} {{ $r->{'lname_'.app()->getLocale()} ?? 'N/A' }}
                                 </h5>
+                                <h5 class="card-title-2">
+                                    {{ $r->academic_ranks_th ?? 'N/A' }}
+                                </h5>
                             @endif
 
                             <p class="card-text-1">{{ __('reseracher.Expertise') }}</p>
                             <div class="card-expertise">
                                 @foreach($r->expertise->sortBy('expert_name') as $exper)
-                                    <p class="card-text"> {{$exper->expert_name}}</p>
+                                    @php
+                                        $currentLocale = app()->getLocale(); 
+                                    @endphp
+                                    
+                                    @if($currentLocale === 'th')
+                                        <p class="card-text">{{ $exper->expert_name_th }}</p>
+                                    @elseif($currentLocale === 'zh')
+                                        <p class="card-text">{{ $exper->expert_name_cn }}</p>
+                                    @else
+                                        <!-- ค่าเริ่มต้นหรือ locale 'en' -->
+                                        <p class="card-text">{{ $exper->expert_name }}</p>
+                                    @endif
                                 @endforeach
                             </div>
                         </div>

@@ -16,5 +16,6 @@ return [
 'Login' => '登录',
 'Reference (APA)' => '參考文獻（APA）',
 
-
+'Dashboard' => '仪表板',
+'Research Information System, College of Computer Science'=> '计算机科学学院研究信息系统',
 ];

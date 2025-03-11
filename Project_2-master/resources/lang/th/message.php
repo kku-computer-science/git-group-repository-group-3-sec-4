@@ -16,6 +16,6 @@ return [
 'ref' => 'อ้างอิง',
 'Reference (APA)' => 'อ้างอิง (APA)',
 
-
-
+'Dashboard' => 'แผงควบคุม',
+'Research Information System, College of Computer Science'=> 'ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์',
 ];

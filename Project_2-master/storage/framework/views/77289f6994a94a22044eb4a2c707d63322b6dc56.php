@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์</title>
+    <title><?php echo e(trans('message.Research Information System, College of Computer Science')); ?></title>
     <base href="<?php echo e(\URL::to('/')); ?>">
     <link href="img/Newlogo.png" rel="shortcut icon" type="image/x-icon" />
 
@@ -57,11 +57,21 @@
     <!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand logo-image" href="#"><img src="<?php echo e(asset('img/logo2.png')); ?>" alt="alternative"></a>
+            <a class="navbar-brand logo-image" href="#">
+                <?php if(app()->getLocale() == 'en'): ?>
+                <img src="<?php echo e(asset('img/logo2en.png')); ?>" alt="alternative">
+                <?php elseif(app()->getLocale() == 'th'): ?>
+                <img src="<?php echo e(asset('img/logo2th.png')); ?>" alt="alternative">
+                <?php elseif(app()->getLocale() == 'zh'): ?>
+                <img src="<?php echo e(asset('img/logo2cn.png')); ?>" alt="alternative">
+                <?php endif; ?>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
                     <li class="nav-item <?php echo e(request()->is('/') ? 'active' : ''); ?> ">
