@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-    <title>Dashboard</title>
+    <title><?php echo e(trans('message.Dashboard')); ?></title>
     <base href="<?php echo e(\URL::to('/')); ?>">
     <link href="img/Newlogo.png" rel="shortcut icon" type="image/x-icon" />
     <!-- Font Awesome Icons -->
