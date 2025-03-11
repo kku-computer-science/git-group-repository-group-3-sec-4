@@ -46,9 +46,25 @@
                     @foreach ($programs as $i => $program)
                     <tr id="program_id_{{ $program->id }}">
                         <td>{{ $i+1 }}</td>
-                        <td>{{ $program->program_name_th }}</td>
+                        <td>
+                            @if(app()->getLocale() == 'zh')
+                                {{ $program->programs_name_cn ?? $program->program_name_en }}
+                            @elseif(app()->getLocale() == 'th')
+                                {{ $program->program_name_th ?? $program->program_name_en }}
+                            @else
+                                {{ $program->program_name_en }}
+                            @endif
+                        </td>
                         <!-- <td>{{ $program->program_name_en }}</td> -->
-                        <td>{{ $program->degree->degree_name_en}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'zh')
+                                {{ $program->degree->degree_name_cn ?? $program->degree->degree_name_en }}
+                            @elseif(app()->getLocale() == 'th')
+                                {{ $program->degree->degree_name_th ?? $program->degree->degree_name_en }}
+                            @else
+                                {{ $program->degree->degree_name_en }}
+                            @endif
+                        </td>
                         <td>
                             <form action="{{ route('programs.destroy',$program->id) }}" method="POST">
                                 <!-- <a class="btn btn-info" id="show-program" data-toggle="modal" data-id="{{ $program->id }}">Show</a> -->
@@ -57,31 +73,31 @@
                                      -->
                                 <!-- <a href="javascript:void(0)" class="btn btn-success" id="edit-program" data-toggle="modal" data-id="{{ $program->id }}">Edit </a> -->
                                 <li class="list-inline-item">
-    <a class="btn btn-outline-success btn-sm"
-       id="edit-program"
-       type="button"
-       data-toggle="modal"
-       data-id="{{ $program->id }}"
-       data-placement="top"
-       title="{{ trans('manageProgram.edit_tooltip') }}"
-       href="javascript:void(0)">
-       <i class="mdi mdi-pencil"></i>
-    </a>
-</li>
+                                    <a class="btn btn-outline-success btn-sm"
+                                    id="edit-program"
+                                    type="button"
+                                    data-toggle="modal"
+                                    data-id="{{ $program->id }}"
+                                    data-placement="top"
+                                    title="{{ trans('manageProgram.edit_tooltip') }}"
+                                    href="javascript:void(0)">
+                                    <i class="mdi mdi-pencil"></i>
+                                    </a>
+                                </li>
 
-<meta name="csrf-token" content="{{ csrf_token() }}">
+                                <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<li class="list-inline-item">
-    <button class="btn btn-outline-danger btn-sm"
-            id="delete-program"
-            type="submit"
-            data-id="{{ $program->id }}"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="{{ trans('manageProgram.delete_tooltip') }}">
-        <i class="mdi mdi-delete"></i>
-    </button>
-</li>
+                                <li class="list-inline-item">
+                                    <button class="btn btn-outline-danger btn-sm"
+                                            id="delete-program"
+                                            type="submit"
+                                            data-id="{{ $program->id }}"
+                                            data-toggle="tooltip"
+                                            data-placement="top"
+                                            title="{{ trans('manageProgram.delete_tooltip') }}">
+                                        <i class="mdi mdi-delete"></i>
+                                    </button>
+                                </li>
                             </form>
                             <!-- <a id="delete-program" data-id="{{ $program->id }}" class="btn btn-danger delete-user">Delete</a> -->
 
@@ -113,7 +129,15 @@
                                 <div class="col-sm-8">
                                     <select id="degree" class="custom-select my-select" name="degree">
                                         @foreach($degree as $d)
-                                        <option value="{{$d->id}}">{{$d->degree_name_th}}</option>
+                                        <option value="{{ $d->id }}">
+                                            @if(app()->getLocale() == 'zh')
+                                                {{ $d->degree_name_cn ?? $d->degree_name_en }}
+                                            @elseif(app()->getLocale() == 'th')
+                                                {{ $d->degree_name_th ?? $d->degree_name_en }}
+                                            @else
+                                                {{ $d->degree_name_en }}
+                                            @endif
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -123,7 +147,15 @@
                                 <div class="col-sm-8">
                                     <select id="department" class="custom-select my-select" name="department">
                                         @foreach($department as $d)
-                                        <option value="{{$d->id}}">{{$d->department_name_th}}</option>
+                                        <option value="{{ $d->id }}">
+                                            @if(app()->getLocale() == 'zh')
+                                                {{ $d->department_name_cn ?? $d->department_name_en }}
+                                            @elseif(app()->getLocale() == 'th')
+                                                {{ $d->department_name_th ?? $d->department_name_en }}
+                                            @else
+                                                {{ $d->department_name_en }}
+                                            @endif
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>

@@ -27,10 +27,19 @@
                 <div class="form-group">
                     <p class="col-sm-3">{{ __('roles.permission') }} </p>
                     <div class="col-sm-9">
-                        @foreach($permission as $value)
-                        <p>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'name')) }}
-                            {{ $value->name }}</p>
-                        @endforeach
+                    @foreach($permission as $value)
+                        <p>
+                            {{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions), ['class' => 'name']) }}
+                            
+                            @if(app()->getLocale() == 'zh')
+                                {{ $value->name_cn ?? $value->name }}
+                            @elseif(app()->getLocale() == 'th')
+                                {{ $value->name_th ?? $value->name }}
+                            @else
+                                {{ $value->name }}
+                            @endif
+                        </p>
+                    @endforeach
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary mt-5">{{ __('roles.submit') }}</button>

@@ -20,7 +20,15 @@
             </div>
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ __('funds.fund_type') }}</b></p>
-                <p class="card-text col-sm-9">{{ $fund->fund_type }}</p>
+                <p class="card-text col-sm-9">
+                    @if(app()->getLocale() == 'zh')
+                        {{ $fund->fund_type_cn ?? $fund->fund_type_th }}
+                    @elseif(app()->getLocale() == 'en')
+                        {{ $fund->fund_type_en ?? $fund->fund_type_th }}
+                    @else
+                        {{ $fund->fund_type_th }}
+                    @endif
+                </p>
             </div>
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ __('funds.fund_level') }}</b></p>
@@ -32,7 +40,19 @@
             </div>
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ __('funds.added_by') }}</b></p>
-                <p class="card-text col-sm-9">{{ $fund->user->fname_th }} {{ $fund->user->lname_th}}</p>
+                <p class="card-text col-sm-9">
+                    @if(app()->getLocale() == 'zh')
+                        {{ ($fund->user->fname_zh && $fund->user->lname_zh && $fund->user->fname_zh != '-' && $fund->user->lname_zh != '-') 
+                            ? $fund->user->fname_zh . ' ' . $fund->user->lname_zh 
+                            : $fund->user->fname_en . ' ' . $fund->user->lname_en }}
+                    @elseif(app()->getLocale() == 'en')
+                        {{ ($fund->user->fname_en && $fund->user->lname_en) 
+                            ? $fund->user->fname_en . ' ' . $fund->user->lname_en 
+                            : $fund->user->fname_en . ' ' . $fund->user->lname_en }}
+                    @else
+                        {{ $fund->user->fname_th }} {{ $fund->user->lname_th }}
+                    @endif
+                </p>
             </div>
             <div class="pull-right mt-5">
                 <a class="btn btn-primary btn-sm" href="{{ route('funds.index') }}"> {{ __('funds.back') }}</a>

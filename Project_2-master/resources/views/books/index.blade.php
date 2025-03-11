@@ -32,9 +32,31 @@
                         @foreach ($books as $i=>$paper)
                         <tr>
                             <td>{{ $i+1 }}</td>
-                            <td>{{ Str::limit($paper->ac_name,50) }}</td>
-                            <td>{{ date('Y', strtotime($paper->ac_year))+543 }}</td>
-                            <td>{{ Str::limit($paper->ac_sourcetitle,50) }}</td>
+                            <td>
+                                @if(app()->getLocale() == 'th')
+                                    {{ Str::limit($paper->ac_name ?? $paper->ac_name_en, 50) }}
+                                @elseif(app()->getLocale() == 'zh')
+                                    {{ Str::limit($paper->ac_name_zh ?? $paper->ac_name_en, 50) }}
+                                @else
+                                    {{ Str::limit($paper->ac_name_en, 50) }}
+                                @endif
+                            </td>
+                            <td>
+                                @if(app()->getLocale() == 'th')
+                                    {{ date('Y', strtotime($paper->ac_year)) + 543 }}
+                                @else
+                                    {{ date('Y', strtotime($paper->ac_year)) }}
+                                @endif
+                            </td>
+                            <td>
+                                @if(app()->getLocale() == 'zh')
+                                    {{ Str::limit($paper->ac_sourcetitle_cn ?? $paper->ac_sourcetitle_en, 50) }}
+                                @elseif(app()->getLocale() == 'en')
+                                    {{ Str::limit($paper->ac_sourcetitle_en, 50) }}
+                                @else
+                                    {{ Str::limit($paper->ac_sourcetitle ?? $paper->ac_sourcetitle_en, 50) }}
+                                @endif
+                            </td>
                             <td>{{ $paper->ac_page}}</td>
                             <td>
                                 <form action="{{ route('books.destroy', $paper->id) }}" method="POST">

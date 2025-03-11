@@ -73,7 +73,12 @@
                         <label for="exampleInputresponsible_department" class="col-sm-2 ">{{ __('researchProjects.responsible_agency') }}</label>
                         <div class="col-sm-9">
                             <select id='dep' style='width: 200px;' class="custom-select my-select" name="responsible_department">
-                                <option value='' disabled selected>{{ __('researchProjects.Choose_study') }}</option>@foreach($deps as $dep)<option value="{{ $dep->department_name_th }}">{{ $dep->department_name_th }}</option>@endforeach
+                            <option value='' disabled selected>{{ __('researchProjects.Choose_study') }}</option>
+                            @foreach($deps as $dep)
+                                <option value="{{ app()->getLocale() == 'zh' ? $dep->department_name_cn : (app()->getLocale() == 'th' ? $dep->department_name_th : $dep->department_name_en) }}">
+                                    {{ app()->getLocale() == 'zh' ? ($dep->department_name_cn ?? $dep->department_name_en) : (app()->getLocale() == 'th' ? ($dep->department_name_th ?? $dep->department_name_en) : $dep->department_name_en) }}
+                                </option>
+                            @endforeach
                             </select>
                         </div>
                     </div>

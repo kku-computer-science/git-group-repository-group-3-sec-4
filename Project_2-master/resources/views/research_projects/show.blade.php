@@ -52,7 +52,15 @@
                 <p class="card-text col-sm-3"><b>{{ __('researchProjects.head') }}</b></p>
                 @foreach($researchProject->user as $user)
                 @if ( $user->pivot->role == 1)
-                <p class="card-text col-sm-9">{{ $user->position_th }} {{ $user->fname_th }} {{ $user->lname_th }}</p>
+                <p class="card-text col-sm-9">
+                    @if(app()->getLocale() == 'th')
+                        {{ $user->position_th ?? $user->position_en }} {{ $user->fname_th ?? $user->fname_en }} {{ $user->lname_th ?? $user->lname_en }}
+                    @elseif(app()->getLocale() == 'zh')
+                        {{ $user->position_zh ?? $user->position_en }} {{ $user->fname_zh ?? $user->fname_en }} {{ $user->lname_zh ?? $user->lname_en }}
+                    @else
+                        {{ $user->position_en }} {{ $user->fname_en }} {{ $user->lname_en }}
+                    @endif
+                </p>
                 @endif
                 @endforeach
             </div>
@@ -61,14 +69,27 @@
                 <p class="card-text col-sm-3"><b>{{ __('researchProjects.members') }}</b></p>
                 @foreach($researchProject->user as $user)
                 @if ( $user->pivot->role == 2)
-                <p class="card-text col-sm-9">{{ $user->position_th }} {{ $user->fname_th }} {{ $user->lname_th }}
+                <p class="card-text col-sm-9">
+                    @if(app()->getLocale() == 'th')
+                        {{ $user->position_th ?? $user->position_en }} {{ $user->fname_th ?? $user->fname_en }} {{ $user->lname_th ?? $user->lname_en }}
+                    @elseif(app()->getLocale() == 'zh')
+                        {{ $user->position_zh ?? $user->position_en }} {{ $user->fname_zh ?? $user->fname_en }} {{ $user->lname_zh ?? $user->lname_en }}
+                    @else
+                        {{ $user->position_en }} {{ $user->fname_en }} {{ $user->lname_en }}
+                    @endif
+                </p>
                 @if (!$loop->last),@endif
                 @endif
                 @endforeach
                 
                 @foreach($researchProject->outsider as $user)
                 @if ( $user->pivot->role == 2)
-                , {{ $user->title_name }} {{ $user->fname }} {{ $user->lname }}
+                , 
+                {{ 
+                    app()->getLocale() == 'th' ? ($user->title_name_th ?? $user->title_name_en) . ' ' . ($user->fname_th ?? $user->fname_en) . ' ' . ($user->lname_th ?? $user->lname_en) :
+                    (app()->getLocale() == 'zh' ? ($user->title_name_zh ?? $user->title_name_en) . ' ' . ($user->fname_zh ?? $user->fname_en) . ' ' . ($user->lname_zh ?? $user->lname_en) :
+                    ($user->title_name_en . ' ' . $user->fname_en . ' ' . $user->lname_en))
+                }}
                 @if (!$loop->last),@endif
                 @endif
                 @endforeach

@@ -72,8 +72,13 @@
                     <p class="col-sm-3 "><b>{{ __('researchProjects.responsible_agency') }}</b></p>
                     <div class="col-sm-3">
                         <select id='dep' style='width: 200px;' class="custom-select my-select"  name="responsible_department">
-                            <option value=''>{{ __('researchProjects.Choose_study') }}</option>@foreach($deps as $dep)<option value="{{ $dep->department_name_th }}" {{ $dep->department_name_th == $researchProject->responsible_department ? 'selected' : '' }}>{{ $dep->department_name_th }}</option>@endforeach
-                        </select>
+                        <option value="">{{ __('researchProjects.Choose_study') }}</option>
+                        @foreach($deps as $dep)
+                            <option value="{{ $dep->{'department_name_'.(app()->getLocale() == 'zh' ? 'cn' : app()->getLocale())} ?? $dep->department_name_en }}" 
+                                {{ ($dep->{'department_name_'.(app()->getLocale() == 'zh' ? 'cn' : app()->getLocale())} ?? $dep->department_name_en) == $researchProject->responsible_department ? 'selected' : '' }}>
+                                {{ $dep->{'department_name_'.(app()->getLocale() == 'zh' ? 'cn' : app()->getLocale())} ?? $dep->department_name_en }}
+                            </option>
+                        @endforeach
                     </div>
                 </div>
                 
@@ -104,7 +109,13 @@
                                     @if($u->pivot->role == 1)
                                     @foreach($users as $user)
                                     <option value="{{ $user->id }}" @if($u->id == $user->id) selected @endif>
-                                        {{ $user->fname_th }} {{ $user->lname_th }}
+                                        @if(app()->getLocale() == 'th')
+                                            {{ $user->fname_th ?? $user->fname_en }} {{ $user->lname_th ?? $user->lname_en }}
+                                        @elseif(app()->getLocale() == 'zh')
+                                            {{ $user->fname_zh ?? $user->fname_en }} {{ $user->lname_zh ?? $user->lname_en }}
+                                        @else
+                                            {{ $user->fname_en }} {{ $user->lname_en }}
+                                        @endif
                                     </option>
                                     @endforeach
                                     @endif
@@ -165,10 +176,17 @@
                     '<tr>' +
                         '<td>' +
                             '<select id="selUser' + i + '" name="moreFields[' + i + '][userid]" style="width: 200px;">' +
-                                // ใช้ตัวแปร textSelectUser แทน "Select User"
                                 '<option value="">' + textSelectUser + '</option>' +
                                 '@foreach($users as $user)' +
-                                    '<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>' +
+                                    '<option value="{{ $user->id }}">' +
+                                        '@if(app()->getLocale() == "zh")' +
+                                            '{{ $user->fname_zh ?? $user->fname_en }} {{ $user->lname_zh ?? $user->lname_en }}' +
+                                        '@elseif(app()->getLocale() == "th")' +
+                                            '{{ $user->fname_th ?? $user->fname_en }} {{ $user->lname_th ?? $user->lname_en }}' +
+                                        '@else' +
+                                            '{{ $user->fname_en }} {{ $user->lname_en }}' +
+                                        '@endif' +
+                                    '</option>' +
                                 '@endforeach' +
                             '</select>' +
                         '</td>' +
@@ -179,6 +197,7 @@
                         '</td>' +
                     '</tr>'
                 );
+
                 // เซ็ตค่า select ให้ตรงกับ obj.id
                 document.getElementById("selUser" + i).value = obj.id;
                 // ทำให้ select2 แสดงผล
