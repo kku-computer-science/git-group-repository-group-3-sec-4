@@ -20,4 +20,17 @@ return [
     'are_you_sure'         => 'คุณแน่ใจหรือไม่?',
     'if_delete_gone'       => 'ถ้าคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
     'delete_successfully'  => 'ลบสำเร็จ',
+
+    // Validation
+    'name_required' => 'กรุณาระบุชื่อการอนุญาต',
+    'name_unique'   => 'มีชื่อ การอนุญาต นี้อยู่ในระบบแล้ว',
+
+    // Success messages
+    'permission_created_successfully' => 'สร้าง การอนุญาต สำเร็จ',
+    'permission_updated_successfully' => 'อัปเดต การอนุญาต สำเร็จ',
+    'permission_deleted_successfully' => 'ลบ การอนุญาต สำเร็จ',
+
+    'ok_button'      => 'ตกลง',
+    'cancel_button'  => 'ยกเลิก',
+
 ];

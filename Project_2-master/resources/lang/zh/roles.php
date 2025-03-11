@@ -31,4 +31,15 @@ return [
     'are_you_sure'   => '你确定吗？',
     'if_delete_gone' => '如果你删除了它，它将永远消失。',
     'delete_success' => '删除成功',
+
+    'name_required'       => '角色名称是必填的。',
+    'name_unique'         => '角色名称必须唯一。',
+    'permission_required' => '必须选择权限。',
+    
+    'role_created_successfully' => '角色创建成功。',
+    'role_updated_successfully' => '角色更新成功。',
+    'role_deleted_successfully' => '角色删除成功。',
+
+    'ok_button'      => '确定',
+    'cancel_button'  => '取消',
 ];

@@ -182,11 +182,15 @@
             var token = $("meta[name='csrf-token']").attr("content");
             e.preventDefault();
 
+            // เปลี่ยนการกำหนดปุ่มใน sweetalert เพื่อแปลปุ่ม OK/Cancel
             swal({
                 title: "{{ trans('manageExpertise.are_you_sure') }}",
                 text: "{{ trans('manageExpertise.cant_recover') }}",
-                type: "warning",
-                buttons: true,
+                icon: "warning", // เปลี่ยน type -> icon เพื่อให้ใช้งานรูปแบบใหม่
+                buttons: {
+                    cancel: "{{ trans('manageExpertise.cancel_button') }}",  // ปุ่มยกเลิก
+                    confirm: "{{ trans('manageExpertise.ok_button') }}"       // ปุ่มตกลง
+                },
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
@@ -210,9 +214,7 @@
                             }
                         });
                     });
-
                 }
-
             });
         });
     });

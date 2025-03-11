@@ -31,4 +31,18 @@ return [
        'are_you_sure'   => 'Are you sure?',
        'if_delete_gone' => 'If you delete this, it will be gone forever.',
        'delete_success' => 'Delete Successfully',
+
+       //เพิ่ม
+        'name_required'       => 'Role name is required.',
+    'name_unique'         => 'Role name must be unique.',
+    'permission_required' => 'Permission is required.',
+    
+    'role_created_successfully' => 'Role created successfully.',
+    'role_updated_successfully' => 'Role updated successfully.',
+    'role_deleted_successfully' => 'Role deleted successfully.',
+
+    'ok_button'      => 'OK',
+    'cancel_button'  => 'Cancel',
+
+
 ];

@@ -24,5 +24,16 @@ return [
     'are_you_sure'       => 'คุณแน่ใจหรือไม่?',
     'if_delete_gone'     => 'ถ้าคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
     'delete_successfully'=> 'ลบสำเร็จ',
-    'ok_button'          => 'ตกลง',
+
+    // Validation
+    'department_name_th_required'       => 'กรุณาระบุชื่อภาควิชา (ภาษาไทย)',
+
+    // Success Messages
+    'department_created_successfully'   => 'สร้างภาควิชาสำเร็จ',
+    'department_updated_successfully'   => 'อัปเดตภาควิชาสำเร็จ',
+    'department_deleted_successfully'   => 'ลบภาควิชาสำเร็จ',
+
+    'cancel_button'        => 'ยกเลิก',
+    'ok_button'            => 'ตกลง',
+    
 ];
