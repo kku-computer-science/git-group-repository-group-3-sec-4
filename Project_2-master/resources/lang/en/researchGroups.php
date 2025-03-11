@@ -26,4 +26,23 @@ return [
     "group_details" => "Research Group Details",
     "group_information" => "Research Group Information",
 
+    'view_tooltip'   => 'View',
+    'edit_tooltip'   => 'Edit',
+    'delete_tooltip' => 'Delete',
+
+    'are_you_sure'   => 'Are you sure?',
+    'if_delete_gone' => 'If you delete this, it will be gone forever.',
+    'delete_success' => 'Delete Successfully',
+
+    'input_problem'           => 'There were some problems with your input.',
+    'group_name_th_required'  => 'The Thai group name is required.',
+    'group_name_en_required'  => 'The English group name is required.',
+    'head_required'           => 'The group head is required.',
+    'created_successfully'    => 'Research group created successfully.',
+    'updated_successfully'    => 'Research group updated successfully.',
+    'deleted_successfully'    => 'Research group deleted successfully.',
+
+    'ok_button'      => 'OK',
+    'cancel_button'  => 'Cancel',
+
 ];

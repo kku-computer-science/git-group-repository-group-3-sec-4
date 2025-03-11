@@ -59,13 +59,22 @@ class PatentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $this->validate($request, [
-            'ac_name' => 'required',
-            'ac_type' => 'required',
-            'ac_year' => 'required',
-            'ac_refnumber' => 'required',
-        ]);
+{
+    // ตัวอย่างการ validate
+    $request->validate([
+        'ac_name'      => 'required',
+        'ac_type'      => 'required',
+        'ac_year'      => 'required',
+        'ac_refnumber' => 'required',
+        // ถ้ามีฟิลด์ advisor หรือ advisor_id ก็เพิ่มได้
+        // 'advisor_id' => 'required',
+    ], [
+        'ac_name.required'      => __('patents.ac_name_required'),
+        'ac_type.required'      => __('patents.ac_type_required'),
+        'ac_year.required'      => __('patents.ac_year_required'),
+        'ac_refnumber.required' => __('patents.ac_refnumber_required'),
+        // 'advisor_id.required' => __('patents.advisor_required'),
+    ]);
 
         $input = $request->except(['_token']);
         //return $input;
@@ -134,7 +143,8 @@ class PatentController extends Controller
             }
         }
 
-        return redirect()->route('patents.index')->with('success', 'patent created successfully.');
+        return redirect()->route('patents.index')
+    ->with('success', __('patents.created_success'));
     }
 
     /**
@@ -251,7 +261,7 @@ class PatentController extends Controller
         }
 
         return redirect()->route('patents.index')
-            ->with('success', 'Patent updated successfully');
+        ->with('success', __('patents.updated_success1'));
     }
 
     /**
@@ -267,6 +277,6 @@ class PatentController extends Controller
         $patent->delete();
 
         return redirect()->route('patents.index')
-            ->with('success', 'Product deleted successfully');
+        ->with('success', __('patents.Product deleted successfully'));
     }
 }

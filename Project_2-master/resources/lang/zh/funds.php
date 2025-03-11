@@ -65,4 +65,21 @@ return [
     "agency" => "机构",
     "added_by" => "添加者",
     "back" => "返回",
+
+    //แปลปุ่ม//
+    'view_tooltip'   => '查看',
+    'edit_tooltip'   => '编辑',
+    'delete_tooltip' => '删除',
+
+    //แปลลบ//
+    'are_you_sure'    => '你确定吗？',
+    'if_delete_gone'  => '如果你删除了它，它将永远消失。',
+    'delete_success'  => '删除成功',
+
+    'ok' => '确定',
+    'cancel' => '取消',
+
+    'fund_created_successfully' => '基金创建成功！',
+    'fund_updated_successfully' => '基金更新成功！',
+    'fund_deleted_successfully' => '基金删除成功！',
 ];

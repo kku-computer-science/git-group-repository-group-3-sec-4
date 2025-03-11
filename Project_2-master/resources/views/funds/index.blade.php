@@ -42,11 +42,25 @@
                                 @csrf
                                 <form action="{{ route('funds.destroy',$fund->id) }}" method="POST">
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('funds.show',$fund->id) }}"><i class="mdi mdi-eye"></i></a>
+                                        <a class="btn btn-outline-primary btn-sm"
+                                            type="button"
+                                            data-toggle="tooltip"
+                                            data-placement="top"
+                                            title="{{ trans('funds.view_tooltip') }}"
+                                            href="{{ route('funds.show',$fund->id) }}">
+                                            <i class="mdi mdi-eye"></i>
+                                        </a>
                                     </li>
                                     @if(Auth::user()->can('update',$fund))
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('funds.edit',Crypt::encrypt($fund->id)) }}"><i class="mdi mdi-pencil"></i></a>
+                                        <a class="btn btn-outline-success btn-sm"
+                                            type="button"
+                                            data-toggle="tooltip"
+                                            data-placement="top"
+                                            title="{{ trans('funds.edit_tooltip') }}"
+                                            href="{{ route('funds.edit',Crypt::encrypt($fund->id)) }}">
+                                            <i class="mdi mdi-pencil"></i>
+                                        </a>
                                     </li>
                                     @endif
 
@@ -56,11 +70,15 @@
 
                                     <li class="list-inline-item">
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                        <button class="btn btn-outline-danger btn-sm show_confirm"
+                                            type="submit"
+                                            data-toggle="tooltip"
+                                            title="{{ trans('funds.delete_tooltip') }}">
+                                            <i class="mdi mdi-delete"></i>
+                                        </button>
                                     </li>
-
-
-                                    @endcan
+                                    @endif
+                                    <!-- โค้ดอื่น ๆ (เช่น comment หรือส่วนที่ไม่เกี่ยว) ยังคงเดิม -->
                                 </form>
                             </td>
                         </tr>
@@ -100,22 +118,44 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: "{{ trans('funds.are_you_sure') }}",
+                text: "{{ trans('funds.if_delete_gone') }}",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: {
+                        text: "{{ trans('funds.cancel') }}",
+                        value: null,
+                        visible: true,
+                        className: "btn btn-secondary",
+                        closeModal: true,
+                    },
+                    confirm: {
+                        text: "{{ trans('funds.ok') }}",
+                        value: true,
+                        visible: true,
+                        className: "btn btn-danger",
+                        closeModal: true
+                    }
+                },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal({
+                        title: "{{ trans('funds.delete_success') }}",
                         icon: "success",
+                        buttons: {
+                            confirm: {
+                                text: "{{ trans('funds.ok') }}",
+                                className: "btn btn-success",
+                            }
+                        }
                     }).then(function() {
-                        location.reload();
                         form.submit();
                     });
                 }
             });
     });
 </script>
+
 @endsection

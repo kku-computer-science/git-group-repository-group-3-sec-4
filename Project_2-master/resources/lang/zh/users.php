@@ -39,4 +39,40 @@ return [
     'academic_rank' => '学术职称',
     'education' => '教育背景',
     'back' => '返回',
+
+    //roles//
+     
+     'users'           => '用户',
+     'new_user'        => '新增用户',
+     
+ 
+     // ส่วนที่เพิ่ม
+     'role_admin'       => '管理员',
+     'role_headproject' => '项目负责人',
+     'role_staff'       => '工作人员',
+     'role_student'     => '学生',
+     'role_teacher'     => '老师',
+
+     //ปุ่ม//
+     'view_tooltip'   => '查看',
+     'edit_tooltip'   => '编辑',
+     'delete_tooltip' => '删除',
+
+     // SweetAlert
+     'are_you_sure'   => '你确定吗？',
+     'if_delete_gone' => '如果你删除了它，它将永远消失。',
+     'delete_success' => '删除成功',
+
+     //สำหรับ roles//
+     'role_admin'       => '管理员',
+     'role_headproject' => '项目负责人',
+     'role_staff'       => '工作人员',
+     'role_student'     => '学生',
+     'role_teacher'     => '老师',
+
+     'nothing_selected' => '尚未选择',
+
+     'select_cat_error'    => '请选择系别',
+     'select_subcat_error' => '请选择专业',
+
 ];

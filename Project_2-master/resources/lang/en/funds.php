@@ -65,4 +65,23 @@ return [
     "agency" => "Agency",
     "added_by" => "Added by",
     "back" => "Back",
+
+    //แปลปุ่ม//
+    'view_tooltip'   => 'View',
+    'edit_tooltip'   => 'Edit',
+    'delete_tooltip' => 'Delete',
+
+    //แปลข้อความลบ//
+    'are_you_sure'    => 'Are you sure?',
+    'if_delete_gone'  => 'If you delete this, it will be gone forever.',
+    'delete_success'  => 'Delete Successfully',
+
+    'ok' => 'OK',
+    'cancel' => 'Cancel',
+
+    'fund_created_successfully' => 'Fund created successfully!',
+    'fund_updated_successfully' => 'Fund updated successfully!',
+    'fund_deleted_successfully' => 'Fund deleted successfully!',
+
+    
 ];

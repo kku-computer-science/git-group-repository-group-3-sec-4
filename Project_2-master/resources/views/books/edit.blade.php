@@ -8,14 +8,14 @@
 
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>{{ __('books.whoops') }}</strong> {{ __('books.input_problem') }}<br><br>
         <ul>
             @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+                <li>{{ $error }}</li>
             @endforeach
         </ul>
     </div>
-    @endif
+@endif
     <div class="col-md-8 grid-margin stretch-card">
         <div class="card" style="padding: 16px;">
             <div class="card-body">
@@ -49,11 +49,18 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary me-2">Submit</button>
-                    <a class="btn btn-light" href="{{ route('books.index') }}" >Cancel</a>
+                    <!-- เปลี่ยนปุ่มให้ใช้การแปล -->
+                    <button type="submit" class="btn btn-primary me-2">
+                        {{ __('books.submit_button') }}
+                    </button>
+                    <a class="btn btn-light" href="{{ route('books.index') }}">
+                        {{ __('books.cancel_button') }}
+                    </a>
                 </form>
             </div>
         </div>
+    </div>
+</div>
     </div>
 
 </div>

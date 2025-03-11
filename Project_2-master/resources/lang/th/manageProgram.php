@@ -16,4 +16,10 @@ return [
     'action' => 'การดำเนินการ',
     'edit' => 'แก้ไข',
     'delete' => 'ลบ',
+
+    'edit_tooltip'    => 'แก้ไข',
+    'delete_tooltip'  => 'ลบ',
+    'are_you_sure'    => 'คุณแน่ใจหรือไม่?',
+    'cant_recover'    => 'คุณจะไม่สามารถกู้คืนข้อมูลนี้ได้อีก!',
+    'delete_success'  => 'ลบสำเร็จ',
 ];

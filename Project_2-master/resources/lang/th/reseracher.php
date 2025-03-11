@@ -31,4 +31,10 @@ return [
     "of" => "จาก",
     "Previous" => "ก่อนหน้า",
     "Next" => "ถัดไป",
+    //หน้า text/javascript index.blade//
+    'are_you_sure'    => 'คุณแน่ใจหรือไม่?',
+    'if_delete_gone'  => 'หากคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
+    'delete_success'  => 'ลบสำเร็จ',
+
+ 
 ];

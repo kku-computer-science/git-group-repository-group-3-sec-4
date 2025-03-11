@@ -14,9 +14,9 @@
     }
 </style>
 @section('title','Profile')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<!-- เปลี่ยนไปใช้ SweetAlert2 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert@2/dist/sweetalert.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert@2/dist/sweetalert.min.js"></script>
 @section('content')
 <div class="container profile">
     <div class="bg-white shadow rounded-lg d-block d-sm-flex">
@@ -27,16 +27,16 @@
                         <img class="profile-user-img img-fluid img-circle admin_picture" src="{{ Auth::user()->picture }}" alt="User profile picture">
                     </div>
                     <h4 class="text-center p-2">@if(app()->getLocale() == 'zh')
-                            @if(Auth::user()->fname_zh == null || Auth::user()->fname_zh == '-' || Auth::user()->lname_zh == null || Auth::user()->lname_zh == '-')
-                                {{ Auth::user()->position_en }} {{ Auth::user()->fname_en }} {{ Auth::user()->lname_en }}
-                            @else
-                                {{ Auth::user()->position_zh }} {{ Auth::user()->fname_zh }} {{ Auth::user()->lname_zh }}
-                            @endif
-                            @elseif(app()->getLocale() == 'th')
-                                    {{ Auth::user()->position_th }} {{ Auth::user()->fname_th }} {{ Auth::user()->lname_th }}
-                            @else
-                                    {{ Auth::user()->position_en }} {{ Auth::user()->fname_en }} {{ Auth::user()->lname_en }}
-                            @endif
+                        @if(Auth::user()->fname_zh == null || Auth::user()->fname_zh == '-' || Auth::user()->lname_zh == null || Auth::user()->lname_zh == '-')
+                        {{ Auth::user()->position_en }} {{ Auth::user()->fname_en }} {{ Auth::user()->lname_en }}
+                        @else
+                        {{ Auth::user()->position_zh }} {{ Auth::user()->fname_zh }} {{ Auth::user()->lname_zh }}
+                        @endif
+                        @elseif(app()->getLocale() == 'th')
+                        {{ Auth::user()->position_th }} {{ Auth::user()->fname_th }} {{ Auth::user()->lname_th }}
+                        @else
+                        {{ Auth::user()->position_en }} {{ Auth::user()->fname_en }} {{ Auth::user()->lname_en }}
+                        @endif
                     </h4>
                     <input type="file" name="admin_image" id="admin_image" style="opacity: 0;height:1px;display:none">
                     <a href="javascript:void(0)" class="btn btn-primary btn-block btn-sm" id="change_picture_btn"><b>{{ __('profile.change_picture') }}</b></a>
@@ -50,7 +50,7 @@
                 </a>
                 <a class="nav-link " id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
                     <i class="mdi mdi-key-variant"></i>
-                    <span class="menu-title"> {{ __('profile.password') }}   </span>
+                    <span class="menu-title"> {{ __('profile.password') }} </span>
                 </a>
                 @if(Auth::user()->hasRole('teacher'))
                 <a class="nav-link {{old('tab') == 'expertise' ? ' active' : null}}" id="expertise-tab" data-toggle="pill" href="#expertise" role="tab" aria-controls="expertise" aria-selected="false">
@@ -96,9 +96,10 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>{{ __('profile.fname_th') }}<</label>
-                                <input type="text" class="form-control" id="inputfNameTH" placeholder="{{ __('profile.Name') }}" value="{{ Auth::user()->fname_th }}" name="fname_th">
-                                <span class="text-danger error-text name_error"></span>
+                                <label>{{ __('profile.fname_th') }}
+                                    << /label>
+                                        <input type="text" class="form-control" id="inputfNameTH" placeholder="{{ __('profile.Name') }}" value="{{ Auth::user()->fname_th }}" name="fname_th">
+                                        <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -181,14 +182,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>{{ __('profile.New password') }}</label>
-                                <input type="password" class="form-control" id="newpassword" placeholder="{{ __('profile.Enter new password') }}" name="newpassword">
+                                <input type="password" class="form-control" id="newpassword" placeholder="{{ __('profile.Enter new password1') }}" name="newpassword">
                                 <span class="text-danger error-text newpassword_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>{{ __('profile.confirm_new_password') }}</label>
-                                <input type="password" class="form-control" id="cnewpassword" placeholder="{{ __('profile.ReEnter new password') }}" name="cnewpassword">
+                                <input type="password" class="form-control" id="cnewpassword" placeholder="{{ __('profile.ReEnter new password1') }}" name="cnewpassword">
                                 <span class="text-danger error-text cnewpassword_error"></span>
                             </div>
                         </div>
@@ -349,16 +350,34 @@
                         <td>{{ $expert->expert_name }}</td>
                         <td width="180px">
                             <form action="{{ route('experts.destroy',$expert->id) }}" method="POST">
-                                <!-- <a class="btn btn-info" id="show-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Show</a> -->
+                                <!-- ปุ่ม Edit -->
                                 <li class="list-inline-item">
-                                    <button class="btn btn-outline-success btn-sm" href="javascript:void(0)" id="edit-expertise" type="button" data-toggle="modal" data-placement="top" data-id="{{ $expert->id }}" title="Edit"><i class="mdi mdi-pencil"></i></button>
+                                    <button class="btn btn-outline-success btn-sm"
+                                        href="javascript:void(0)"
+                                        id="edit-expertise"
+                                        type="button"
+                                        data-toggle="modal"
+                                        data-placement="top"
+                                        data-id="{{ $expert->id }}"
+                                        title="{{ trans('profile.edit_tooltip') }}">
+                                        <i class="mdi mdi-pencil"></i>
+                                    </button>
                                 </li>
-                                <!-- <a href="javascript:void(0)" class="btn btn-success" id="edit-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Edit </a> -->
+
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
+
+                                <!-- ปุ่ม Delete -->
                                 <li class="list-inline-item">
-                                    <button id="delete-expertise" data-id="{{ $expert->id }}" class="btn btn-outline-danger btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                    <button id="delete-expertise"
+                                        data-id="{{ $expert->id }}"
+                                        class="btn btn-outline-danger btn-sm"
+                                        type="button"
+                                        data-toggle="tooltip"
+                                        data-placement="top"
+                                        title="{{ trans('profile.delete_tooltip') }}">
+                                        <i class="mdi mdi-delete"></i>
+                                    </button>
                                 </li>
-                                <!-- <a id="delete-expertise" data-id="{{ $expert->id }}" class="btn btn-danger delete-user">Delete</a> -->
                             </form>
                         </td>
                     </tr>
@@ -428,60 +447,76 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        // ฟังก์ชันแสดง SweetAlert เพื่อยืนยันการอัปเดตข้อมูล
         showSwal = function(type) {
             swal({
-                    title: "Are you sure update info",
-                    text: "Are you sure to proceed?",
+                    title: "{{ trans('profile.are_you_sure_update_info') }}",
+                    text: "{{ trans('profile.are_you_sure_to_proceed') }}",
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#82ce34",
-                    confirmButtonText: "Update My Info!",
-                    cancelButtonText: "I am not sure!",
+                    confirmButtonText: "{{ trans('profile.update_my_info') }}",
+                    cancelButtonText: "{{ trans('profile.i_am_not_sure') }}",
                     closeOnConfirm: false,
                     closeOnCancel: false
                 },
                 function(isConfirm) {
                     if (isConfirm) {
-                        swal("Update Info", "Your account is updated!", "success");
+                        swal("{{ trans('profile.update_info') }}", "{{ trans('profile.account_updated') }}", "success");
                     } else {
-                        swal("Cancle", "Account is not updated", "error");
+                        swal("{{ trans('profile.cancel') }}", "{{ trans('profile.account_not_updated') }}", "error");
                     }
                 });
         }
 
 
+
         $('#AdminInfoForm').on('submit', function(e) {
-
-            e.preventDefault();
-            $.ajax({
-                url: $(this).attr('action'),
-                method: $(this).attr('method'),
-                data: new FormData(this),
-                processData: false,
-                dataType: 'json',
-                contentType: false,
-
-                beforeSend: function() {
-                    $(document).find('span.error-text').text('');
-                },
-                success: function(data) {
-                    if (data.status == 0) {
-                        $.each(data.error, function(prefix, val) {
-                            $('span.' + prefix +
-                                '_error').text(val[0]);
-                        });
-                    } else {
-                        $('.admin_name').each(function() {
-                            $(this).html($('#AdminInfoForm').find($(
-                                'input[name="name"]')).val());
-                        });
-                        console.log(data.msg);
-                        swal("Update Info", "Your account is updated!", "success");
-                    }
+        e.preventDefault();
+        $.ajax({
+            url: $(this).attr('action'),
+            method: $(this).attr('method'),
+            data: new FormData(this),
+            processData: false,
+            dataType: 'json',
+            contentType: false,
+            beforeSend: function() {
+                $(document).find('span.error-text').text('');
+            },
+            success: function(data) {
+                if (data.status == 0) {
+                    $.each(data.error, function(prefix, val) {
+                        $('span.' + prefix + '_error').text(val[0]);
+                    });
+                } else {
+                    $('.admin_name').each(function() {
+                        $(this).html($('#AdminInfoForm').find($('input[name="name"]')).val());
+                    });
+                    console.log(data.msg);
+                    swal({
+                        title: "{{ trans('profile.update_info1') }}",
+                        text: "{{ trans('profile.account_updated1') }}",
+                        icon: "success",
+                        buttons: {
+                            confirm: "{{ trans('profile.ok') }}"
+                        }
+                    });
                 }
-            });
+            },
+            error: function(xhr, status, error) {
+                swal({
+                    title: "{{ trans('profile.error_occurred') }}",
+                    text: "{{ trans('profile.update_failed') }}",
+                    icon: "error",
+                    buttons: {
+                        confirm: "{{ trans('profile.ok') }}"
+                    }
+                });
+            }
         });
-        // $('#AdminInfoForm').on('submit', function(e) {
+    });
+         // $('#AdminInfoForm').on('submit', function(e) {
 
         //     e.preventDefault();
         //     $.ajax({
@@ -513,7 +548,6 @@
         //     });
         // });
         $('#EdInfoForm').on('submit', function(e) {
-
             e.preventDefault();
             $.ajax({
                 url: $(this).attr('action'),
@@ -522,23 +556,28 @@
                 processData: false,
                 dataType: 'json',
                 contentType: false,
-
                 beforeSend: function() {
                     $(document).find('span.error-text').text('');
                 },
                 success: function(data) {
                     if (data.status == 0) {
                         $.each(data.error, function(prefix, val) {
-                            $('span.' + prefix +
-                                '_error').text(val[0]);
+                            $('span.' + prefix + '_error').text(val[0]);
                         });
                     } else {
                         $('.admin_name').each(function() {
-                            $(this).html($('#EdInfoForm').find($(
-                                'input[name="name"]')).val());
+                            $(this).html($('#EdInfoForm').find($('input[name="name"]')).val());
                         });
-                        console.log(data.msg)
-                        swal("Update Info", "Your account is updated!", "success");
+                        console.log(data.msg);
+                        swal("{{ trans('profile.update_info') }}", "{{ trans('profile.account_updated') }}", "success");swal({
+    title: "{{ trans('profile.update_info1') }}",
+    text: "{{ trans('profile.account_updated1') }}",
+    type: "success",
+    confirmButtonColor: "#82ce34",
+    confirmButtonText: "{{ trans('profile.ok_button') }}", // แก้ปุ่ม OK ตรงนี้
+    showCancelButton: false,
+    closeOnConfirm: true
+});
                     }
                 }
             });
@@ -547,6 +586,7 @@
         $(document).on('click', '#change_picture_btn', function() {
             $('#admin_image').click();
         });
+
         $('#admin_image').ijaboCropTool({
             preview: '.admin_picture',
             setRatio: 2 / 3,
@@ -556,14 +596,13 @@
             processUrl: '{{ route("adminPictureUpdate") }}',
             withCSRF: ['_token', '{{ csrf_token() }}'],
             onSuccess: function(message, element, status) {
-                //swal("Congrats!", message , "success");
-                //alert(message);
-                swal("Update Profile Picture", "Your account is updated!", "success");
+                swal("{{ trans('profile.update_profile_picture') }}", "{{ trans('profile.account_updated') }}", "success");
             },
             onError: function(message, element, status) {
                 alert(message);
             }
         });
+
         $('#changePasswordAdminForm').on('submit', function(e) {
             e.preventDefault();
             $.ajax({
@@ -579,13 +618,11 @@
                 success: function(data) {
                     if (data.status == 0) {
                         $.each(data.error, function(prefix, val) {
-                            $('span.' + prefix +
-                                '_error').text(val[0]);
+                            $('span.' + prefix + '_error').text(val[0]);
                         });
                     } else {
                         $('#changePasswordAdminForm')[0].reset();
-                        //alert(data.msg);
-                        swal("Update Password", "Your account is Password updated!", "success");
+                        swal("{{ trans('profile.update_password') }}", "{{ trans('profile.password_updated') }}", "success");
                     }
                 }
             });
@@ -608,7 +645,9 @@
         $('body').on('click', '#edit-expertise', function() {
             var expert_id = $(this).data('id');
             $.get('experts/' + expert_id + '/edit', function(data) {
-                $('#expertiseCrudModal').html("Edit Expertise");
+
+                $('#expertiseCrudModal').html("{{ trans('profile.edit_modal_title') }}");
+
 
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled', false);
@@ -628,43 +667,38 @@
 
 
         /* Delete expertise */
-        $('body').on('click', '#delete-expertise', function() {
-            var expert_id = $(this).data("id");
+        $('body').on('click', '#delete-expertise', function(e) {
+            e.preventDefault();
+            var expertId = $(this).data("id"); // ใช้ expertId แทน expert_id
             var token = $("meta[name='csrf-token']").attr("content");
 
-
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
+                title: "{{ trans('profile.are_you_sure') }}",
+                text: "{{ trans('profile.if_delete_gone') }}",
                 type: "warning",
                 buttons: true,
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ trans('profile.delete_success') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();
                         $.ajax({
                             type: "DELETE",
-                            url: "experts/" + expert_id,
+                            url: "experts/" + expertId,
                             data: {
-                                "id": expert_id,
+                                "id": expertId,
                                 "_token": token,
                             },
-
                             success: function() {
-                                $("#expert_id_" + expert_id).remove();
-                                //swal("Done!", "It was succesfully deleted!", "success");
-
-                                // $('#v-pills-tab.a.active').removeClass("active");
-                                // $(this).addClass("active");
+                                $("#expert_id_" + expertId).remove();
                             },
                             error: function(xhr, ajaxOptions, thrownError) {
-                                swal("Error deleting!", "Please try again", "error");
+                                swal("{{ trans('profile.error_deleting') }}", "{{ trans('profile.try_again') }}", "error");
                             }
                         });
-                        
+
                     });
 
                 }

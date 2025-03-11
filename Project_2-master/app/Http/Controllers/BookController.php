@@ -65,22 +65,29 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
+        // เพิ่ม custom messages และเรียก __('books.xxx')
         $this->validate($request, [
             'ac_name' => 'required',
-            //'ac_sourcetitle' => 'required',
             'ac_year' => 'required',
+        ], [
+            'ac_name.required' => __('books.ac_name_required'),
+            'ac_year.required' => __('books.ac_year_required'),
         ]);
-
+    
         $input = $request->except(['_token']);
         $input['ac_type'] = 'book';
+    
         $acw = Academicwork::create($input);
-        //$acw->source()->attach(4);
-        $id = auth()->user()->id;
-        $user = User::find($id);
+        $id  = auth()->user()->id;
+        $user= User::find($id);
         $user->academicworks()->attach($acw);
-        return redirect()->route('books.index')->with('success', 'book created successfully.');
+    
+        // เรียกข้อความ success จากไฟล์ books.php
+        return redirect()->route('books.index')
+                         ->with('success', __('books.created_successfully'));
     }
 
     /**
@@ -116,25 +123,26 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //return $id;
-        $book = Academicwork::find($id);
-        //return $book;
-        $this->validate($request, [
-            'ac_name' => 'required',
-            //'ac_sourcetitle' => 'required',
-            'ac_year' => 'required',
-        ]);
+{
+    $book = Academicwork::find($id);
 
-        $input = $request->except(['_token']);
-        $input['ac_type'] = 'book';
+    // เพิ่ม custom messages
+    $this->validate($request, [
+        'ac_name' => 'required',
+        'ac_year' => 'required',
+    ], [
+        'ac_name.required' => __('books.ac_name_required'),
+        'ac_year.required' => __('books.ac_year_required'),
+    ]);
 
-        $book->update($input);
-    
-        return redirect()->route('books.index')
-                        ->with('success','Book updated successfully');
-    }
+    $input = $request->except(['_token']);
+    $input['ac_type'] = 'book';
+    $book->update($input);
 
+    // เรียกข้อความ success จากไฟล์ books.php
+    return redirect()->route('books.index')
+                     ->with('success', __('books.updated_successfully'));
+}
     /**
      * Remove the specified resource from storage.
      *
@@ -142,12 +150,12 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $book = Academicwork::find($id);
-        $this->authorize('delete', $book);
-        $book->delete();
+{
+    $book = Academicwork::find($id);
+    $this->authorize('delete', $book);
+    $book->delete();
 
-        return redirect()->route('books.index')
-            ->with('success', 'Product deleted successfully');
-    }
+    return redirect()->route('books.index')
+                     ->with('success', __('books.deleted_successfully'));
+}
 }

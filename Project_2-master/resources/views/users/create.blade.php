@@ -55,12 +55,30 @@
                             {!! Form::password('password_confirmation', array('placeholder' => __('users.confirm_password'),'class' =>'form-control')) !!}
                         </div>
                     </div>
+
                     <div class="form-group col-sm-8">
                         <p><b>{{ __('users.role') }}</b></p>
                         <div class="col-sm-8">
-                            {!! Form::select('roles[]', $roles,[],  array('class' => 'selectpicker','multiple')) !!}
+                            @php
+                            // สร้างอาเรย์ใหม่สำหรับ roles ที่แปลภาษา
+                            $localizedRoles = [];
+                            foreach ($roles as $k => $v) {
+                            // สมมติ $roles = ['admin' => 'admin', 'headproject' => 'headproject', ...]
+                            // $k = 'admin', $v = 'admin'
+                            // ให้ key = 'admin' เหมือนเดิม, แต่ value = trans('users.role_admin') (ถ้า $v == 'admin')
+                            $localizedRoles[$k] = trans('users.role_'.$v);
+                            }
+                            @endphp
+
+                            {!! Form::select('roles[]', $localizedRoles, [], [
+                            'class' => 'selectpicker',
+                            'multiple',
+                            'data-none-selected-text' => trans('users.nothing_selected')
+                            ]) !!}
+
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">
@@ -96,14 +114,37 @@
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 
 <script>
+    // ส่วนนี้คือโค้ดเดิมที่ใช้ดึงข้อมูล sub_cat
     $('#cat').on('change', function(e) {
         var cat_id = e.target.value;
         $.get('/ajax-get-subcat?cat_id=' + cat_id, function(data) {
             $('#subcat').empty();
             $.each(data, function(index, areaObj) {
-                $('#subcat').append('<option value="' + areaObj.id + '">' + areaObj.degree.title_en +' in '+ areaObj.program_name_en + '</option>');
+                $('#subcat').append('<option value="' + areaObj.id + '">' + areaObj.degree.title_en + ' in ' + areaObj.program_name_en + '</option>');
             });
         });
+    });
+
+    // เพิ่มโค้ดด้านล่างเพื่อ override HTML5 Validation message
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1) สำหรับ select id="cat"
+        var catElem = document.getElementById('cat');
+        catElem.oninvalid = function(e) {
+            e.target.setCustomValidity("{{ trans('users.select_cat_error') }}");
+        };
+        catElem.oninput = function(e) {
+            e.target.setCustomValidity('');
+        };
+
+        // 2) สำหรับ select id="subcat"
+        var subcatElem = document.getElementById('subcat');
+        subcatElem.oninvalid = function(e) {
+            e.target.setCustomValidity("{{ trans('users.select_subcat_error') }}");
+        };
+        subcatElem.oninput = function(e) {
+            e.target.setCustomValidity('');
+        };
     });
 </script>
 

@@ -57,22 +57,35 @@
 
                         <td>
                             <form action="{{ route('experts.destroy',$expert->id) }}" method="POST">
-                                <!-- <a class="btn btn-info" id="show-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Show</a> -->
+                                <!-- ปุ่ม Edit -->
                                 <li class="list-inline-item">
-                                    <!-- <a class="btn btn-success btn-sm rounded-0" href="javascript:void(0)" id="edit-expertise" type="button" data-toggle="modal" data-placement="top" data-id="{{ $expert->id }}" title="Edit"><i class="fa fa-edit"></i></a> -->
-                                    <a class="btn btn-outline-success btn-sm" id="edit-expertise" type="button" data-toggle="modal" data-id="{{ $expert->id }}" data-placement="top" title="Edit" href="javascript:void(0)"><i class="mdi mdi-pencil"></i></a>
-
+                                    <a class="btn btn-outline-success btn-sm"
+                                        id="edit-expertise"
+                                        type="button"
+                                        data-toggle="modal"
+                                        data-id="{{ $expert->id }}"
+                                        data-placement="top"
+                                        title="{{ trans('manageExpertise.edit_tooltip') }}"
+                                        href="javascript:void(0)">
+                                        <i class="mdi mdi-pencil"></i>
+                                    </a>
                                 </li>
 
-                                <!-- <a href="javascript:void(0)" class="btn btn-success" id="edit-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Edit </a> -->
                                 @csrf
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
+
+                                <!-- ปุ่ม Delete -->
                                 <li class="list-inline-item">
-                                    <button class="btn btn-outline-danger btn-sm show_confirm" id="delete-expertise" type="submit" data-id="{{ $expert->id }}" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
-
+                                    <button class="btn btn-outline-danger btn-sm show_confirm"
+                                        id="delete-expertise"
+                                        type="submit"
+                                        data-id="{{ $expert->id }}"
+                                        data-toggle="tooltip"
+                                        data-placement="top"
+                                        title="{{ trans('manageExpertise.delete_tooltip') }}">
+                                        <i class="mdi mdi-delete"></i>
+                                    </button>
                                 </li>
-                                <!-- <a id="delete-expertise" data-id="{{ $expert->id }}" class="btn btn-danger delete-user">Delete</a> -->
-
                             </form>
                         </td>
                     </tr>
@@ -152,7 +165,7 @@
         $('body').on('click', '#edit-expertise', function() {
             var expert_id = $(this).data('id');
             $.get('experts/' + expert_id + '/edit', function(data) {
-                $('#expertiseCrudModal').html("Edit Expertise");
+                $('#expertiseCrudModal').html("{{ trans('manageExpertise.edit_modal_title') }}");
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled', false);
                 $('#crud-modal').modal('show');
@@ -166,19 +179,18 @@
         /* Delete expertise */
         $('body').on('click', '#delete-expertise', function(e) {
             var expert_id = $(this).data("id");
-            
             var token = $("meta[name='csrf-token']").attr("content");
             e.preventDefault();
-            //confirm("Are You sure want to delete !");
+
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
+                title: "{{ trans('manageExpertise.are_you_sure') }}",
+                text: "{{ trans('manageExpertise.cant_recover') }}",
                 type: "warning",
                 buttons: true,
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ trans('manageExpertise.delete_success') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();
@@ -190,7 +202,7 @@
                                 "_token": token,
                             },
                             success: function(data) {
-                                $('#msg').html('program entry deleted successfully');
+                                $('#msg').html('Expertise entry deleted successfully');
                                 $("#expert_id_" + expert_id).remove();
                             },
                             error: function(data) {
@@ -201,7 +213,7 @@
 
                 }
 
-                });
+            });
         });
     });
 </script>

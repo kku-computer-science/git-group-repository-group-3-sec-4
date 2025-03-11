@@ -57,12 +57,31 @@
                                      -->
                                 <!-- <a href="javascript:void(0)" class="btn btn-success" id="edit-program" data-toggle="modal" data-id="{{ $program->id }}">Edit </a> -->
                                 <li class="list-inline-item">
-                                    <a class="btn btn-outline-success btn-sm" id="edit-program" type="button" data-toggle="modal" data-id="{{ $program->id }}" data-placement="top" title="Edit" href="javascript:void(0)"><i class="mdi mdi-pencil"></i></a>
-                                </li>
-                                <meta name="csrf-token" content="{{ csrf_token() }}">
-                                <li class="list-inline-item">
-                                    <button class="btn btn-outline-danger btn-sm " id="delete-program" type="submit" data-id="{{ $program->id }}" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
-                                </li>
+    <a class="btn btn-outline-success btn-sm"
+       id="edit-program"
+       type="button"
+       data-toggle="modal"
+       data-id="{{ $program->id }}"
+       data-placement="top"
+       title="{{ trans('manageProgram.edit_tooltip') }}"
+       href="javascript:void(0)">
+       <i class="mdi mdi-pencil"></i>
+    </a>
+</li>
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+<li class="list-inline-item">
+    <button class="btn btn-outline-danger btn-sm"
+            id="delete-program"
+            type="submit"
+            data-id="{{ $program->id }}"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="{{ trans('manageProgram.delete_tooltip') }}">
+        <i class="mdi mdi-delete"></i>
+    </button>
+</li>
                             </form>
                             <!-- <a id="delete-program" data-id="{{ $program->id }}" class="btn btn-danger delete-user">Delete</a> -->
 
@@ -179,38 +198,37 @@
         });
 
 
-        /* Delete program */
-        $('body').on('click', '#delete-program', function(e) {
-            var program_id = $(this).data("id");
+    /* Delete program */
+    $('body').on('click', '#delete-program', function(e) {
+        var program_id = $(this).data("id");
+        var token = $("meta[name='csrf-token']").attr("content");
+        e.preventDefault();
 
-            var token = $("meta[name='csrf-token']").attr("content");
-            e.preventDefault();
-            //confirm("Are You sure want to delete !");
-            swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
-                type: "warning",
-                buttons: true,
-                dangerMode: true,
-            }).then((willDelete) => {
-                if (willDelete) {
-                    swal("Delete Successfully", {
-                        icon: "success",
-                    }).then(function() {
-                        location.reload();
-                        $.ajax({
-                            type: "DELETE",
-                            url: "programs/" + program_id,
-                            data: {
-                                "id": program_id,
-                                "_token": token,
-                            },
-                            success: function(data) {
-                                $('#msg').html('program entry deleted successfully');
-                                $("#program_id_" + program_id).remove();
-                            },
-                            error: function(data) {
-                                console.log('Error:', data);
+        swal({
+            title: "{{ trans('manageProgram.are_you_sure') }}",
+            text: "{{ trans('manageProgram.cant_recover') }}",
+            type: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                swal("{{ trans('manageProgram.delete_success') }}", {
+                    icon: "success",
+                }).then(function() {
+                    location.reload();
+                    $.ajax({
+                        type: "DELETE",
+                        url: "programs/" + program_id,
+                        data: {
+                            "id": program_id,
+                            "_token": token,
+                        },
+                        success: function(data) {
+                            $('#msg').html('program entry deleted successfully');
+                            $("#program_id_" + program_id).remove();
+                        },
+                        error: function(data) {
+                            console.log('Error:', data);
                             }
                         });
                     });

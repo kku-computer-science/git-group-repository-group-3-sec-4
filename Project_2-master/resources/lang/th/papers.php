@@ -39,4 +39,44 @@ return [
     "url" => "URL",
     "back" => "ย้อนกลับ",
 
+    //ปุ่ม//
+    'view_tooltip'   => 'ดูรายละเอียด',
+    'edit_tooltip'   => 'แก้ไข',
+
+    //แปลtext/javascript//
+    'are_you_sure'   => 'คุณแน่ใจหรือไม่?',
+    'if_delete_gone' => 'หากคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
+    'delete_success' => 'ลบสำเร็จ',
+
+ 'paper_name_required'        => 'กรุณากรอกชื่อผลงานวิจัย',
+    'paper_name_unique'          => 'ชื่อผลงานวิจัยนี้มีอยู่แล้ว',
+    'paper_type_required'        => 'กรุณาเลือกประเภทผลงาน',
+    'paper_sourcetitle_required' => 'กรุณากรอกชื่อแหล่งที่มา',
+    'paper_yearpub_required'     => 'กรุณากรอกปีที่ตีพิมพ์',
+    'paper_volume_required'      => 'กรุณากรอกฉบับที่',
+    'paper_doi_required'         => 'กรุณากรอก DOI',
+    'updated_successfully'       => 'อัปเดตผลงานวิจัยเรียบร้อยแล้ว',
+    'created_successfully'       => 'เพิ่มผลงานวิจัยเรียบร้อยแล้ว',
+    'page_not_found'             => 'ไม่พบหน้า',
+    'whoops'                     => 'โอ๊ย!',
+    'input_problem'              => 'มีปัญหาในการกรอกข้อมูล',
+
+    // ส่วนแสดงผลการทำงานสำเร็จ
+    'created_successfully'        => 'สร้างบทความสำเร็จ',
+    'updated_successfully'        => 'แก้ไขบทความสำเร็จ',
+
+    // ส่วนที่ใช้ใน Blade สำหรับ error
+    'whoops'                      => 'ข้อผิดพลาด!',
+    'input_problem'               => 'มีบางอย่างผิดพลาดกับข้อมูลที่คุณกรอก',
+
+    // อื่น ๆ (เช่น ปุ่ม, tooltip)
+    'ok'                          => 'ตกลง',
+    'cancel'                      => 'ยกเลิก',
+
+    'paper_issue_required'    => 'ฟิลด์ฉบับที่จำเป็นต้องมี.',
+    'paper_citation_required' => 'ฟิลด์การอ้างอิงจำเป็นต้องมี.',
+    'paper_page_required'     => 'ฟิลด์จำนวนหน้าจำเป็นต้องมี.',
+
+
+
 ];

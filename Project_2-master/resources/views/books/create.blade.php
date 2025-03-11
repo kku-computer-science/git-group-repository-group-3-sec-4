@@ -18,55 +18,54 @@
 
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>{{ __('books.whoops') }}</strong> {{ __('books.input_problem') }}<br><br>
         <ul>
             @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+                <li>{{ $error }}</li>
             @endforeach
         </ul>
     </div>
-    @endif
+@endif
     <!-- <a class="btn btn-primary" href="{{ route('books.index') }}"> Back </a> -->
 
     <div class="col-md-8 grid-margin stretch-card">
         <div class="card" style="padding: 16px;">
             <div class="card-body">
-                <h4 class="card-title">เพิ่มหนังสือ</h4>
-                <p class="card-description">กรอกข้อมูลรายละเอียดหนังสือ</p>
+                <h4 class="card-title">{{ trans('books.Add a book') }}</h4>
+                <p class="card-description">{{ trans('books.Fill in the book details') }}</p>
                 <form class="forms-sample" action="{{ route('books.store') }}" method="POST">
                     @csrf
-                    
 
                     <div class="form-group row">
-                        <label for="exampleInputac_name" class="col-sm-3 col-form-label">ชื่อหนังสือ</label>
+                        <label for="exampleInputac_name" class="col-sm-3 col-form-label">{{ trans('books.Book title') }}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="ac_name" class="form-control" placeholder="name">
+                            <input type="text" name="ac_name" class="form-control" placeholder="{{ trans('books.Book title') }}">
                         </div>
                     </div>
-                    
+
                     <div class="form-group row">
-                        <label for="exampleInputac_sourcetitle" class="col-sm-3 col-form-label">สถานที่ตีพิมพ์</label>
+                        <label for="exampleInputac_sourcetitle" class="col-sm-3 col-form-label">{{ trans('books.Place of publication') }}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="ac_sourcetitle" class="form-control" placeholder="สถานที่ตีพิมพ์">
+                            <input type="text" name="ac_sourcetitle" class="form-control" placeholder="{{ trans('books.Place of publication') }}">
                         </div>
                     </div>
+
                     <div class="form-group row">
-                        <label for="exampleInputac_year" class="col-sm-3 col-form-label">ปี (ค.ศ.)</label>
+                        <label for="exampleInputac_year" class="col-sm-3 col-form-label">{{ trans('books.Year (A.D.)') }}</label>
                         <div class="col-sm-9">
-                            <input type="date" name="ac_year" class="form-control" placeholder="ปี (พ.ศ.)">
+                            <input type="date" name="ac_year" class="form-control" placeholder="{{ trans('books.Year (A.D.)') }}">
                         </div>
                     </div>
-                    
+
                     <div class="form-group row">
-                        <label for="exampleInputac_page" class="col-sm-3 col-form-label">จำนวนหน้า (Page)</label>
+                        <label for="exampleInputac_page" class="col-sm-3 col-form-label">{{ trans('books.Number of pages (Page)') }}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="ac_page" class="form-control" placeholder="จำนวนหน้า (Page)">
+                            <input type="text" name="ac_page" class="form-control" placeholder="{{ trans('books.Number of pages (Page)') }}">
                         </div>
                     </div>
-                    
-                    
-                    <button type="submit" name="submit" id="submit" class="btn btn-primary me-2">Submit</button>
-                    <a class="btn btn-light" href="{{ route('books.index')}}">Cancel</a>
+
+                    <button type="submit" name="submit" id="submit" class="btn btn-primary me-2">{{ trans('books.Submit') }}</button>
+                    <a class="btn btn-light" href="{{ route('books.index')}}">{{ trans('books.Cancel') }}</a>
                 </form>
             </div>
         </div>

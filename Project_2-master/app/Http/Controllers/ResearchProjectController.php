@@ -73,11 +73,11 @@ class ResearchProjectController extends Controller
             ],
 
             [
-                'project_name.required' => 'ต้องใส่ข้อมูล ชื่อโครงการวิจัย',
-                'budget.required' => 'ต้องใส่ข้อมูล งบประมาณ',
-                'project_year.required' => 'ต้องใส่ข้อมูล ปีที่ปีที่ยื่นขอ',
-                'fund.required' => 'ต้องใส่ข้อมูล ทุนวิจัย',
-                'head.required' => 'ต้องใส่ข้อมูล ผู้รับผิดชอบโครงการ',
+          'project_name.required' => __('researchProjects.must_enter_project_name'),
+    'budget.required' => __('researchProjects.must_enter_budget'),
+    'project_year.required' => __('researchProjects.must_enter_submission_year'),
+    'fund.required' => __('researchProjects.must_enter_funding'),
+    'head.required' => __('researchProjects.must_enter_responsible_person'),
             ]
         );
         //return $request->fund; 
@@ -139,7 +139,7 @@ class ResearchProjectController extends Controller
         //$user = User::find(auth()->user()->id);
         //$user->researchProject()->attach(2);
 
-        return redirect()->route('researchProjects.index')->with('success', 'research projects created successfully.');
+        return redirect()->route('researchProjects.index')->with('success', __('researchProjects.project_created_successfully'));
     }
 
 
@@ -195,11 +195,11 @@ class ResearchProjectController extends Controller
                 'head' => 'required'
             ],
             [
-                'project_name.required' => 'ต้องใส่ข้อมูล ชื่อโครงการวิจัย',
-                'budget.required' => 'ต้องใส่ข้อมูล งบประมาณ',
-                'project_year.required' => 'ต้องใส่ข้อมูล ปีที่ปีที่ยื่นขอ',
-                'fund.required' => 'ต้องใส่ข้อมูล ทุนวิจัย',
-                'head.required' => 'ต้องใส่ข้อมูล ผู้รับผิดชอบโครงการ',
+              'project_name.required' => __('researchProjects.must_enter_project_name'),
+    'budget.required' => __('researchProjects.must_enter_budget'),
+    'project_year.required' => __('researchProjects.must_enter_submission_year'),
+    'fund.required' => __('researchProjects.must_enter_funding'),
+    'head.required' => __('researchProjects.must_enter_responsible_person'),
 
             ]
         );
@@ -252,8 +252,7 @@ class ResearchProjectController extends Controller
                 //$x++;
             }
         }
-        return redirect()->route('researchProjects.index')
-            ->with('success', 'Research Project updated successfully');
+        return redirect()->route('researchProjects.index')->with('success', __('researchProjects.project_updated_successfully'));
     }
 
     /**
@@ -267,7 +266,6 @@ class ResearchProjectController extends Controller
 
         $this->authorize('delete', $researchProject);
         $researchProject->delete();
-        return redirect()->route('researchProjects.index')
-            ->with('success', 'Research Project deleted successfully');
+        return redirect()->route('researchProjects.index')->with('success', __('researchProjects.project_deleted_successfully'));
     }
 }

@@ -19,4 +19,15 @@ return [
     'of' => '的',
     'previous' => '上一页',
     'next' => '下一页',
+    'edit_modal_title' => '编辑专业领域',
+
+
+            // Tooltip ปุ่ม
+        'edit_tooltip'    => '编辑',
+        'delete_tooltip'  => '删除',
+    
+        // SweetAlert
+        'are_you_sure'    => '你确定吗？',
+        'cant_recover'    => '删除后将无法恢复！',
+        'delete_success'  => '删除成功',
 ];

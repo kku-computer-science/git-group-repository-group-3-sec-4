@@ -19,4 +19,15 @@ return [
     'of' => 'จากทั้งหมด',
     'previous' => 'ก่อนหน้า',
     'next' => 'ถัดไป',
+    'edit_modal_title' => 'แก้ไขความเชี่ยวชาญ',
+
+
+     // Tooltip ปุ่ม
+     'edit_tooltip'    => 'แก้ไข',
+     'delete_tooltip'  => 'ลบ',
+ 
+     // SweetAlert
+     'are_you_sure'    => 'คุณแน่ใจหรือไม่?',
+     'cant_recover'    => 'คุณจะไม่สามารถกู้คืนข้อมูลนี้ได้อีก!',
+     'delete_success'  => 'ลบสำเร็จ',
 ];

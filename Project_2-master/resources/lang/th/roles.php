@@ -15,4 +15,21 @@ return [
     'back' => 'ย้อนกลับ',
     'role_details' => 'ข้อมูลรายละเอียด',
     'permissions' => 'สิทธิ์การเข้าถึง',
+
+     // แปลชื่อ role
+     'admin'        => 'ผู้ดูแลระบบ',
+     'headproject'  => 'หัวหน้าโครงการ',
+     'staff'        => 'เจ้าหน้าที่',
+     'student'      => 'นักศึกษา',
+     'teacher'      => 'อาจารย์',
+
+      // Tooltip ปุ่ม
+    'view_tooltip'   => 'ดูรายละเอียด',
+    'edit_tooltip'   => 'แก้ไข',
+    'delete_tooltip' => 'ลบ',
+
+      // SweetAlert
+      'are_you_sure'   => 'คุณแน่ใจหรือไม่?',
+      'if_delete_gone' => 'หากคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
+      'delete_success' => 'ลบสำเร็จ',
 ];

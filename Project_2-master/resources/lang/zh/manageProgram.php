@@ -16,4 +16,10 @@ return [
     'action' => '操作',
     'edit' => '编辑',
     'delete' => '删除',
+
+    'edit_tooltip'    => '编辑',
+    'delete_tooltip'  => '删除',
+    'are_you_sure'    => '你确定吗？',
+    'cant_recover'    => '删除后将无法恢复！',
+    'delete_success'  => '删除成功',
 ];

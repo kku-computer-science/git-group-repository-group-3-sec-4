@@ -25,4 +25,24 @@ return [
     "edit_group" => "แก้ไขกลุ่มวิจัย",
     "group_details" => "รายละเอียดกลุ่มวิจัย",
     "group_information" => "ข้อมูลรายละเอียดกลุ่มวิจัย",
+
+    'view_tooltip'   => 'ดูรายละเอียด',
+    'edit_tooltip'   => 'แก้ไข',
+    'delete_tooltip' => 'ลบ',
+
+    'are_you_sure'   => 'คุณแน่ใจหรือไม่?',
+    'if_delete_gone' => 'หากคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
+    'delete_success' => 'ลบสำเร็จ',
+
+    'input_problem'           => 'มีปัญหาบางอย่างกับข้อมูลที่คุณป้อน',
+    'group_name_th_required'  => 'ต้องระบุชื่อกลุ่ม (ไทย) ด้วย',
+    'group_name_en_required'  => 'ต้องระบุชื่อกลุ่ม (อังกฤษ) ด้วย',
+    'head_required'           => 'ต้องระบุหัวหน้ากลุ่มด้วย',
+    'created_successfully'    => 'สร้างกลุ่มวิจัยเรียบร้อยแล้ว',
+    'updated_successfully'    => 'แก้ไขกลุ่มวิจัยเรียบร้อยแล้ว',
+    'deleted_successfully'    => 'ลบกลุ่มวิจัยเรียบร้อยแล้ว',
+
+     // **ข้อความใหม่สำหรับปุ่ม OK, Cancel**
+     'ok_button'      => 'ตกลง',
+     'cancel_button'  => 'ยกเลิก',
 ];

@@ -12,4 +12,12 @@ return [
     'edit_permission' => 'แก้ไขสิทธิ์การเข้าถึง',
     'permission' => 'สิทธิ์การเข้าถึง',
     'back' => 'กลับ',
+
+    'view_tooltip'   => 'ดูรายละเอียด',
+    'edit_tooltip'   => 'แก้ไข',
+    'delete_tooltip' => 'ลบ',
+
+    'are_you_sure'         => 'คุณแน่ใจหรือไม่?',
+    'if_delete_gone'       => 'ถ้าคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
+    'delete_successfully'  => 'ลบสำเร็จ',
 ];

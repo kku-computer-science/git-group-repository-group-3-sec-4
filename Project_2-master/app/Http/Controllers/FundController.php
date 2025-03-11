@@ -80,11 +80,13 @@ class FundController extends Controller
         //$fund['fund_type'] = $fund_type;
         //return $fund ;
         $input=$request->all();
-        if($request->fund_type == 'ทุนภายนอก'){
-            $input['fund_level']=null;
+        if ($request->fund_type == 'ทุนภายนอก') {
+            $input['fund_level'] = null;
         }
+
         $user->fund()->Create($input);
-        return redirect()->route('funds.index')->with('success','fund created successfully.');
+
+        return redirect()->route('funds.index')->with('success', __('funds.fund_created_successfully'));
     }
      
     /**
@@ -128,12 +130,13 @@ class FundController extends Controller
         // ]);
     //return $request->all();
         $input=$request->all();
-        if($request->fund_type == 'ทุนภายนอก'){
-            $input['fund_level']=null;
+        if ($request->fund_type == 'ทุนภายนอก') {
+            $input['fund_level'] = null;
         }
+
         $fund->update($input);
-        return redirect()->route('funds.index')
-                        ->with('success','Fund updated successfully');
+
+        return redirect()->route('funds.index')->with('success', __('funds.fund_updated_successfully'));
     }
     
     /**
@@ -146,7 +149,6 @@ class FundController extends Controller
     {
         $fund->delete();
     
-        return redirect()->route('funds.index')
-                        ->with('success','Fund deleted successfully');
+        return redirect()->route('funds.index')->with('success', __('funds.fund_deleted_successfully'));
     }
 }

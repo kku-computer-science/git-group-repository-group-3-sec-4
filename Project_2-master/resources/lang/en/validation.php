@@ -121,6 +121,11 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
+    'budget_required' => 'The budget field is required.',
+'budget_numeric' => 'The budget must be a number.',
+'budget_min' => 'The budget must be greater than 0.',
+
+    'project_name.required' => 'hello',
 
     /*
     |--------------------------------------------------------------------------
@@ -150,6 +155,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+    'email' => 'Email',
+    'password' => 'Password',
+    'username' => 'Username',
+],
 
 ];

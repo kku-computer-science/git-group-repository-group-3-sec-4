@@ -46,24 +46,24 @@
                                 <td>
                                     <form action="{{ route('patents.destroy',$paper->id) }}" method="POST">
 
-                                        <!-- <a class="btn btn-info" href="{{ route('patents.show',$paper->id) }}">Show</a> -->
+                                        <!-- แก้ไขตรงนี้ <a class="btn btn-info" href="{{ route('patents.show',$paper->id) }}">Show</a> -->
                                         <li class="list-inline-item">
-                                            <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('patents.show',$paper->id) }}"><i class="mdi mdi-eye"></i></a>
+                                            <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ __('patents.view_tooltip') }}" href="{{ route('patents.show',$paper->id) }}"><i class="mdi mdi-eye"></i></a>
                                         </li>
                                         <!-- <a class="btn btn-primary" href="{{ route('patents.edit',$paper->id) }}">Edit</a> -->
                                         @if(Auth::user()->can('update',$paper))
                                         <li class="list-inline-item">
-                                            <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('patents.edit',$paper->id) }}"><i class="mdi mdi-pencil"></i></a>
+                                            <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ __('patents.edit_tooltip') }}" href="{{ route('patents.edit',$paper->id) }}"><i class="mdi mdi-pencil"></i></a>
                                         </li>
                                         @endif
                                         @if(Auth::user()->can('delete',$paper))
                                         @csrf
                                         @method('DELETE')
                                         <li class="list-inline-item">
-                                            <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                            <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="{{ __('patents.delete_tooltip') }}"><i class="mdi mdi-delete"></i></button>
                                         </li>
                                         @endif
-                                        <!-- <button type="submit" class="btn btn-danger">Delete</button> -->
+                                        <!-- จนถึงตรงนี้<button type="submit" class="btn btn-danger">Delete</button> -->
                                     </form>
                                 </td>
                             </tr>
@@ -81,7 +81,7 @@
 <script src = "https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer ></script>
 <script>
     $(document).ready(function() {
-        if (!$.fn.DataTable.isDataTable('#example1')) { // ตรวจสอบว่า DataTable ถูกใช้งานไปแล้วหรือยัง
+        if (!$.fn.DataTable.isDataTable('#example1')) { 
             var table1 = $('#example1').DataTable({
                 responsive: true,
                 language: {
@@ -100,18 +100,33 @@
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var form = $(this).closest("form");
-        var name = $(this).data("name");
         event.preventDefault();
+
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: "{{ trans('patents.are_you_sure') }}",
+                text: "{{ trans('patents.if_delete_gone') }}",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: {
+                        text: "{{ trans('patents.cancel') }}",
+                        value: null,
+                        visible: true,
+                        className: "",
+                        closeModal: true,
+                    },
+                    confirm: {
+                        text: "{{ trans('patents.ok') }}",
+                        value: true,
+                        visible: true,
+                        className: "btn-danger",
+                        closeModal: true
+                    }
+                },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ trans('patents.delete_success') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();
