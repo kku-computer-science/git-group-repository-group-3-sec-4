@@ -15,6 +15,9 @@ return [
 'ref' => 'Reference',
 'Login'=> 'LOGIN',
 'Reference (APA)' => 'Reference (APA)',
+
+'Dashboard' => 'Dashboard',
+'Research Information System, College of Computer Science'=> 'Research Information System, College of Computer Science',
 ];
 
 
