@@ -33,23 +33,33 @@
                         @foreach ($researchProjects as $i=>$researchProject)
                         <tr>
                             <td>{{ $i+1 }}</td>
-                            <td>{{ $researchProject->project_year }}</td>
+                            <td>{{ app()->getLocale() == 'th' ? $researchProject->project_year + 543 : $researchProject->project_year }}</td>
                             {{-- <td>{{ $researchProject->project_name }}</td> --}}
                             <td>{{ Str::limit($researchProject->project_name,70) }}</td>
                             <td>
                                 @foreach($researchProject->user as $user)
-                                @if ( $user->pivot->role == 1)
-                                {{ $user->fname_en}}
-                                @endif
-
+                                    @if ($user->pivot->role == 1)
+                                        @if(app()->getLocale() == 'th')
+                                            {{ $user->fname_th ?? $user->fname_en }} {{ $user->lname_th ?? $user->lname_en }}
+                                        @elseif(app()->getLocale() == 'zh')
+                                            {{ $user->fname_zh ?? $user->fname_en }} {{ $user->lname_zh ?? $user->lname_en }}
+                                        @else
+                                            {{ $user->fname_en }} {{ $user->lname_en }}
+                                        @endif
+                                    @endif
                                 @endforeach
                             </td>
                             <td>
                                 @foreach($researchProject->user as $user)
-                                @if ( $user->pivot->role == 2)
-                                {{ $user->fname_en}}
-                                @endif
-
+                                    @if ($user->pivot->role == 2)
+                                        @if(app()->getLocale() == 'th')
+                                            {{ $user->fname_th ?? $user->fname_en }} {{ $user->lname_th ?? $user->lname_en }}
+                                        @elseif(app()->getLocale() == 'zh')
+                                            {{ $user->fname_zh ?? $user->fname_en }} {{ $user->lname_zh ?? $user->lname_en }}
+                                        @else
+                                            {{ $user->fname_en }} {{ $user->lname_en }}
+                                        @endif
+                                    @endif
                                 @endforeach
                             </td>
                             <td>

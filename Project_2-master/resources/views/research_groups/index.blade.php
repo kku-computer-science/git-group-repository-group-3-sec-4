@@ -31,24 +31,31 @@
                     @foreach ($researchGroups as $i=>$researchGroup)
                     <tr>
                         <td>{{ $i+1 }}</td>
-                        <td>{{ Str::limit($researchGroup->group_name_th,50) }}</td>
+                        <td>
+                            {{ Str::limit(
+                                app()->getLocale() == 'zh' ? ($researchGroup->group_name_cn ?? $researchGroup->group_name_en) :
+                                (app()->getLocale() == 'th' ? ($researchGroup->group_name_th ?? $researchGroup->group_name_en) :
+                                $researchGroup->group_name_en), 50) }}
+                        </td>
+
                         <td>
                             @foreach($researchGroup->user as $user)
-                            @if ( $user->pivot->role == 1)
-
-                            {{ $user->fname_th}}
-
-                            @endif
-
+                                @if ($user->pivot->role == 1)
+                                    {{ app()->getLocale() == 'zh' ? ($user->fname_zh ?? $user->fname_en) :
+                                    (app()->getLocale() == 'th' ? ($user->fname_th ?? $user->fname_en) : 
+                                    $user->fname_en) }}
+                                @endif
                             @endforeach
                         </td>
+
                         <td>
                             @foreach($researchGroup->user as $user)
-                            @if ( $user->pivot->role == 2)
-                            {{ $user->fname_th}}
-                            @if (!$loop->last),@endif
-                            @endif
-
+                                @if ($user->pivot->role == 2)
+                                    {{ app()->getLocale() == 'zh' ? ($user->fname_zh ?? $user->fname_en) :
+                                    (app()->getLocale() == 'th' ? ($user->fname_th ?? $user->fname_en) :
+                                    $user->fname_en) }}
+                                    @if (!$loop->last), @endif
+                                @endif
                             @endforeach
                         </td>
                         <td>

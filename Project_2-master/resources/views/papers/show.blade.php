@@ -24,17 +24,33 @@
 
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>{{ __('papers.paper_type') }}</b></p>
-                <p class="card-text col-sm-9">{{ $paper->paper_type }}</p>
+                <p class="card-text col-sm-9">
+                    @if(app()->getLocale() == 'zh')
+                        {{ $paper->paper_type_cn ?? $paper->paper_type }}
+                    @elseif(app()->getLocale() == 'th')
+                        {{ $paper->paper_type_th ?? $paper->paper_type }}
+                    @else
+                        {{ $paper->paper_type }}
+                    @endif
+                </p>
             </div>
 
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>{{ __('papers.paper_subtype') }}</b></p>
-                <p class="card-text col-sm-9">{{ $paper->paper_subtype }}</p>
+                <p class="card-text col-sm-9">
+                    @if(app()->getLocale() == 'zh')
+                        {{ $paper->paper_subtype_cn ?? $paper->paper_subtype }}
+                    @elseif(app()->getLocale() == 'th')
+                        {{ $paper->paper_subtype_th ?? $paper->paper_subtype }}
+                    @else
+                        {{ $paper->paper_subtype }}
+                    @endif
+                </p>
             </div>
 
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>{{ __('papers.publication') }}</b></p>
-                <p class="card-text col-sm-9">{{ $paper->publication }}</p>
+                <p class="card-text col-sm-9">@if(app()->getLocale() == 'th'){{ $paper->paper_yearpub + 543 }} @else{{ $paper->paper_yearpub }} @endif</p>
             </div>
 
             <div class="row mt-2">
@@ -82,7 +98,7 @@
 
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>{{ __('papers.year_published') }}</b></p>
-                <p class="card-text col-sm-9">{{ $paper->paper_yearpub }}</p>
+                <p class="card-text col-sm-9">@if(app()->getLocale() == 'th'){{ $paper->paper_yearpub + 543 }} @else{{ $paper->paper_yearpub }} @endif</p>
             </div>
 
             <div class="row mt-2">

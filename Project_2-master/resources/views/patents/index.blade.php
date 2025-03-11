@@ -33,12 +33,37 @@
                             @foreach ($patents as $i=>$paper)
                             <tr>
                                 <td>{{ $i+1 }}</td>
-                                <td>{{ Str::limit($paper->ac_name,50) }}</td>
-                                <td>{{ $paper->ac_type}}</td>
-                                <td>{{ $paper->ac_year}}</td>
-                                <td>{{ $paper->ac_refnumber,50 }}</td>
+                                <td>
+                                    @if(app()->getLocale() == 'zh')
+                                        {{ Str::limit($paper->ac_name_cn ?? $paper->ac_name_en, 50) }}
+                                    @elseif(app()->getLocale() == 'en')
+                                        {{ Str::limit($paper->ac_name_en, 50) }}
+                                    @else
+                                        {{ Str::limit($paper->ac_name_th ?? $paper->ac_name_en, 50) }}
+                                    @endif
+                                </td>
+
+                                <td>
+                                    @if(app()->getLocale() == 'zh')
+                                        {{ $paper->ac_type_cn ?? $paper->ac_type_en }}
+                                    @elseif(app()->getLocale() == 'en')
+                                        {{ $paper->ac_type_en }}
+                                    @else
+                                        {{ $paper->ac_type_th ?? $paper->ac_type_en }}
+                                    @endif
+                                </td>
+                                <td>
+                                    {{ date('Y', strtotime($paper->ac_year)) }}
+                                </td>
+                                <td>{{ $paper->ac_refnumber}}</td>
                                 <td>@foreach($paper->user as $a)
-                                    {{ $a->fname_th }} {{ $a->lname_th }}
+                                    @if(app()->getLocale() == 'zh')
+                                        {{ $a->fname_cn ?? $a->fname_en }} {{ $a->lname_cn ?? $a->lname_en }}
+                                    @elseif(app()->getLocale() == 'en')
+                                        {{ $a->fname_en }} {{ $a->lname_en }}
+                                    @else
+                                        {{ $a->fname_th ?? $a->fname_en }} {{ $a->lname_th ?? $a->lname_en }}
+                                    @endif
                                     @if (!$loop->last),@endif
                                     @endforeach
 

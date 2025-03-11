@@ -36,8 +36,16 @@
                             <tr>
                                 <td>{{ $i+1 }}</td>
                                 <td>{{ Str::limit($paper->paper_name,50) }}</td>
-                                <td>{{ Str::limit($paper->paper_type,50) }}</td>
-                                <td>{{ $paper->paper_yearpub }}</td>
+                                <td>
+                                    @if(app()->getLocale() == 'th')
+                                        {{ Str::limit($paper->paper_type_th ?? $paper->paper_type, 50) }}
+                                    @elseif(app()->getLocale() == 'zh')
+                                        {{ Str::limit($paper->paper_type_cn ?? $paper->paper_type, 50) }}
+                                    @else
+                                        {{ Str::limit($paper->paper_type, 50) }}
+                                    @endif
+                                </td>
+                                <td>@if(app()->getLocale() == 'th'){{ $paper->paper_yearpub + 543 }} @else{{ $paper->paper_yearpub }} @endif</td>
                                 <!-- <td>@foreach($paper->teacher->take(1) as $teacher)
                                     {{ $teacher->fname_en }} {{ $teacher->lname_en }},
                                     @endforeach
@@ -51,25 +59,25 @@
                                 <!-- <td>{{ Str::limit($paper->paper_sourcetitle,50) }}</td> -->
 
                                 <td>
-    <form action="{{ route('papers.destroy',$paper->id) }}" method="POST">
+                                    <form action="{{ route('papers.destroy',$paper->id) }}" method="POST">
 
-        <li class="list-inline-item">
-            <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ __('papers.view_tooltip') }}" href="{{ route('papers.show',$paper->id) }}"><i class="mdi mdi-eye"></i></a>
-        </li>
-        @if(Auth::user()->can('update',$paper))
-        <li class="list-inline-item">
-            <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ __('papers.edit_tooltip') }}" href="{{ route('papers.edit',Crypt::encrypt($paper->id)) }}"><i class="mdi mdi-pencil"></i></a>
-        </li>
-        @endif
-        <!-- @csrf
-        @method('DELETE')
-        <li class="list-inline-item">
-         <button class="btn btn-outline-danger btn-sm show_confirm" type="submit"
-                data-toggle="tooltip" data-placement="top" title="{{ __('papers.delete_tooltip') }}"><i class="mdi mdi-delete"></i></button>
-        </li> -->
-        <!-- <button type="submit" class="btn btn-danger">Delete</button> -->
-    </form>
-</td>
+                                        <li class="list-inline-item">
+                                            <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ __('papers.view_tooltip') }}" href="{{ route('papers.show',$paper->id) }}"><i class="mdi mdi-eye"></i></a>
+                                        </li>
+                                        @if(Auth::user()->can('update',$paper))
+                                        <li class="list-inline-item">
+                                            <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ __('papers.edit_tooltip') }}" href="{{ route('papers.edit',Crypt::encrypt($paper->id)) }}"><i class="mdi mdi-pencil"></i></a>
+                                        </li>
+                                        @endif
+                                        <!-- @csrf
+                                        @method('DELETE')
+                                        <li class="list-inline-item">
+                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit"
+                                                data-toggle="tooltip" data-placement="top" title="{{ __('papers.delete_tooltip') }}"><i class="mdi mdi-delete"></i></button>
+                                        </li> -->
+                                        <!-- <button type="submit" class="btn btn-danger">Delete</button> -->
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                     <tbody>
