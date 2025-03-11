@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2025-02-27T08:16:58.914919" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Funds" source="D:\GitHub\git-group-repository-group-3-sec-4\Project_2-master\test1\test_funds.robot">
+<test id="s1-t1" name="Test Admin Login And Logout" line="40">
+<kw name="Open Browser To Login Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-27T08:16:59.178009" level="INFO">Opening browser 'chrome' to base url 'https://csweb0367.cpkkuhost.com/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-27T08:16:59.178009" elapsed="3.964365"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-27T08:17:03.142374" elapsed="0.038377"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_HEADER}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-27T08:17:03.181755" elapsed="0.020860"/>
+</kw>
+<status status="PASS" start="2025-02-27T08:16:59.176648" elapsed="4.025967"/>
+</kw>
+<kw name="Login As Admin">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-02-27T08:17:13.571904" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-62.png"&gt;&lt;img src="selenium-screenshot-62.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-27T08:17:13.571904" level="FAIL">Element 'xpath=//button[contains(text(), 'เข้าสู่ระบบ')] | //a[contains(@class, 'btn-solid-sm') and contains(text(), 'เข้าสู่ระบบ')]' not visible after 10 seconds.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-02-27T08:17:03.206093" elapsed="10.365811">Element 'xpath=//button[contains(text(), 'เข้าสู่ระบบ')] | //a[contains(@class, 'btn-solid-sm') and contains(text(), 'เข้าสู่ระบบ')]' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DASHBOARD_HEADER}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
+</kw>
+<arg>admin@gmail.com</arg>
+<arg>12345678</arg>
+<status status="FAIL" start="2025-02-27T08:17:03.206093" elapsed="10.365811">Element 'xpath=//button[contains(text(), 'เข้าสู่ระบบ')] | //a[contains(@class, 'btn-solid-sm') and contains(text(), 'เข้าสู่ระบบ')]' not visible after 10 seconds.</status>
+</kw>
+<kw name="Logout">
+<status status="NOT RUN" start="2025-02-27T08:17:13.571904" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-27T08:17:13.571904" elapsed="2.255743"/>
+</kw>
+<status status="FAIL" start="2025-02-27T08:16:59.176648" elapsed="16.650999">Element 'xpath=//button[contains(text(), 'เข้าสู่ระบบ')] | //a[contains(@class, 'btn-solid-sm') and contains(text(), 'เข้าสู่ระบบ')]' not visible after 10 seconds.</status>
+</test>
+<status status="FAIL" start="2025-02-27T08:16:58.921853" elapsed="16.909391"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test Funds">Test Funds</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

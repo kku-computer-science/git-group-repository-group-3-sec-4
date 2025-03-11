@@ -15,18 +15,18 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">โครงการวิจัย</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchProjects.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> ADD</a>
+            <h4 class="card-title">{{ __('researchProjects.research_project') }}</h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchProjects.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> {{ __('researchProjects.add') }}</a>
             <!-- <div class="table-responsive"> -->
                 <table id="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Year</th>
-                            <th>Project name</th>
-                            <th>Head</th>
-                            <th>Member</th>
-                            <th width="auto">Action</th>
+                            <th>{{ __('researchProjects.no') }}</th>
+                            <th>{{ __('researchProjects.year') }}</th>
+                            <th>{{ __('researchProjects.project_name') }}</th>
+                            <th>{{ __('researchProjects.head') }}</th>
+                            <th>{{ __('researchProjects.member') }}</th>
+                            <th width="auto">{{ __('researchProjects.action') }}</th>
                         </tr>
                         <thead>
                         <tbody>
@@ -105,9 +105,20 @@
 <script src = "https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer ></script>
 <script>
     $(document).ready(function() {
-        var table1 = $('#example1').DataTable({
-            responsive: true,
-        });
+        if (!$.fn.DataTable.isDataTable('#example1')) { // ตรวจสอบว่า DataTable ถูกใช้งานไปแล้วหรือยัง
+            var table1 = $('#example1').DataTable({
+                responsive: true,
+                language: {
+                    search: "{{ __('reseracher.Search') }}",
+                    lengthMenu: "{{ __('reseracher.Show') }} _MENU_ {{ __('reseracher.entries') }}",
+                    info: "{{ __('reseracher.Showing') }} _START_ {{ __('reseracher.to') }} _END_ {{ __('reseracher.of') }} _TOTAL_ {{ __('reseracher.entries') }}",
+                    paginate: {
+                        previous: "{{ __('reseracher.Previous') }}",
+                        next: "{{ __('reseracher.Next') }}",
+                    }
+                }
+            });
+        }
     });
 </script>
 <script type="text/javascript">

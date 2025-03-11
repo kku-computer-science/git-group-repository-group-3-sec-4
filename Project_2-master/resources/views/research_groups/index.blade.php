@@ -12,18 +12,18 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">กลุ่มวิจัย</h4>
+            <h4 class="card-title">{{ __('researchGroups.research_group') }}</h4>
             <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchGroups.create') }}"><i
-                    class="mdi mdi-plus btn-icon-prepend"></i> ADD</a>
+                    class="mdi mdi-plus btn-icon-prepend"></i> {{ __('researchGroups.add') }}</a>
             <!-- <div class="table-responsive"> -->
                 <table id ="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Group name (ไทย)</th>
-                            <th>Head</th>
-                            <th>Member</th>
-                            <th width="280px">Action</th>
+                            <th>{{ __('researchGroups.no') }}</th>
+                            <th>{{ __('researchGroups.group_name') }}</th>
+                            <th>{{ __('researchGroups.head') }}</th>
+                            <th>{{ __('researchGroups.member') }}</th>
+                            <th width="280px">{{ __('researchGroups.action') }}</th>
                         </tr>
                     </thead>
                     
@@ -91,9 +91,20 @@
 <script src = "https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer ></script>
 <script>
     $(document).ready(function() {
-        var table1 = $('#example1').DataTable({
-            responsive: true,
-        });
+        if (!$.fn.DataTable.isDataTable('#example1')) { // ตรวจสอบว่า DataTable ถูกใช้งานไปแล้วหรือยัง
+            var table1 = $('#example1').DataTable({
+                responsive: true,
+                language: {
+                    search: "{{ __('reseracher.Search') }}",
+                    lengthMenu: "{{ __('reseracher.Show') }} _MENU_ {{ __('reseracher.entries') }}",
+                    info: "{{ __('reseracher.Showing') }} _START_ {{ __('reseracher.to') }} _END_ {{ __('reseracher.of') }} _TOTAL_ {{ __('reseracher.entries') }}",
+                    paginate: {
+                        previous: "{{ __('reseracher.Previous') }}",
+                        next: "{{ __('reseracher.Next') }}",
+                    }
+                }
+            });
+        }
     });
 </script>
 <script type="text/javascript">

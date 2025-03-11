@@ -57,11 +57,17 @@
                         <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->
                         <!-- <h6 class="card-text1">College of Computing</h6>
                     <h6 class="card-text1">Khon Kaen University</h6> -->
-                        <h6 class="card-text1">E-mail: {{$res->email}}</h6>
-                        <h6 class="card-title">{{ trans('message.education') }}</h6>
-                        @foreach( $res->education as $edu)
-                        <h6 class="card-text2 col-sm-10"> {{$edu->year}} {{$edu->qua_name}} {{$edu->uname}}</h6>
-                        @endforeach
+
+                    <h6 class="card-text1">{{ trans('books.email') }}: {{$res->email}}</h6>
+
+                    <h6 class="card-title">{{ trans('message.education') }}</h6>
+                    @foreach($res->education as $edu)
+                        <h6 class="card-text2 col-sm-10">
+                            {{$edu->year}}
+                            {{ $edu->{'qua_name_' . (app()->getLocale() == 'zh' ? 'cn' : (app()->getLocale() == 'en' ? 'en' : ''))} ?? $edu->qua_name }} 
+                            {{ $edu->{'uname_' . (app()->getLocale() == 'zh' ? 'cn' : (app()->getLocale() == 'en' ? 'en' : ''))} ?? $edu->uname }}
+                        </h6>
+                    @endforeach
                         <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             {{ trans('message.expertise') }}
@@ -76,7 +82,7 @@
             </div>
 
             <div class="col-md-4">
-                <h6 class="title-pub">{{ trans('message.publications2') }}</h6>
+                <h6 class="title-pub">{{ trans('books.publications') }}</h6>
                 <div class="col-xs-12 text-center bt">
                     <div class="clearfix"></div>
                     <div class="row text-center">
@@ -142,60 +148,90 @@
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="tci-tab" data-bs-toggle="tab" data-bs-target="#tci" type="button" role="tab" aria-controls="tci" aria-selected="false">TCI</button>
         </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">หนังสือ</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">ผลงานวิชาการด้านอื่นๆ</button>
-        </li>
+
+       <li class="nav-item" role="presentation">
+    <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">
+        {{ trans('books.book') }}
+    </button>
+</li>
+       <li class="nav-item" role="presentation">
+    <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">
+        {{ trans('books.patent') }}
+    </button>
+</li>
+
     </ul>
     <br>
     <div class="tab-content" id="myTabContent">
 
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="tab-content" style="padding-bottom: 20px;">
-                <a class="btn btn-success" href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">Export To Excel</a>
+                <a class="btn btn-success" href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">{{ trans('books.export_excel') }}</a>
             </div>
             <table id="example1" class="table table-striped" style="width:100%">
                 <thead>
                     <!-- <tr>
                         <th><a href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">#Export</a></td>
                     </tr> -->
-                    <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th>Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th>Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
-                        <th>Source</th>
-                    </tr>
-                </thead>
+                    
+
+            
+    <tr>
+        <th>{{ trans('books.no') }}</th>
+        <th>{{ trans('books.year') }}</th>
+        <th>{{ trans('books.paper_name') }}</th>
+        <th>{{ trans('books.author') }}</th>
+        <th>{{ trans('books.document_type') }}</th>
+        <th>{{ trans('books.page') }}</th>
+        <th>{{ trans('books.journal_transactions') }}</th>
+        <th>{{ trans('books.citations') }}</th>
+        <th>{{ trans('books.doi') }}</th>
+        <th>{{ trans('books.source') }}</th>
+    </tr>
+</thead>
 
                 <tbody>
                     @foreach ($papers as $n => $paper)
                     <tr>
                         <td> {{$n+1}}</td>
-                        <td>{{ $paper->paper_yearpub }}</td>
+                        <td>{{ app()->getLocale() == 'th' ? $paper->paper_yearpub + 543 : $paper->paper_yearpub }}</td>
                         <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
                         <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a>
+                                    @if(app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname }} {{ $author->author_lname_th ?? $author->author_lname }}
+                                    @else
+                                        {{ $author->fname_en ?? $author->author_fname }} {{ $author->lname_en ?? $author->author_lname }}
+                                    @endif
+                                </a>
                             </span>
                             @endforeach
                             @foreach ($paper->teacher as $author)
-                            <span >
-                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                            <span>
+                                <a href="{{ route('detail', Crypt::encrypt($author->id))}}">
+                                    <teacher>
+                                        @if(app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }} {{ $author->lname_th ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }} {{ $author->lname_en }}
+                                        @endif
+                                    </teacher>
+                                </a>
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->paper_type}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                                {{ $paper->paper_type_th }}
+                            @elseif(app()->getLocale() == 'zh')
+                                {{ $paper->paper_type_cn }}
+                            @else
+                                {{ $paper->paper_type }}
+                            @endif
+                        </td>
                         <td style="width:100%;">{{$paper->paper_page}}</td>
                         <td>{{$paper->paper_sourcetitle}}</td>
                         <td>{{$paper->paper_citation}}</td>
@@ -220,38 +256,59 @@
             <table id="example2" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                        <th>{{ trans('books.no') }}</th>
+                        <th>{{ trans('books.year') }}</th>
+                        <th>{{ trans('books.paper_name') }}</th>
+                        <th>{{ trans('books.author') }}</th>
+                        <th>{{ trans('books.document_type') }}</th>
+                        <th>{{ trans('books.page') }}</th>
+                        <th>{{ trans('books.journal_transactions') }}</th>
+                        <th>{{ trans('books.citations') }}</th>
+                        <th>{{ trans('books.doi') }}</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($papers_scopus as $n => $paper)
                     <tr>
                         <td> {{$n+1}}</td>
-                        <td>{{ $paper->paper_yearpub }}</td>
+                        <td>{{ app()->getLocale() == 'th' ? $paper->paper_yearpub + 543 : $paper->paper_yearpub }}</td>
                         <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
                         <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a>
+                                    @if(app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname }} {{ $author->author_lname_th ?? $author->author_lname }}
+                                    @else
+                                        {{ $author->fname_en ?? $author->author_fname }} {{ $author->lname_en ?? $author->author_lname }}
+                                    @endif
+                                </a>
                             </span>
                             @endforeach
                             @foreach ($paper->teacher as $author)
                             <span>
-                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                <a href="{{ route('detail', Crypt::encrypt($author->id))}}">
+                                    <teacher>
+                                        @if(app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }} {{ $author->lname_th ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }} {{ $author->lname_en }}
+                                        @endif
+                                    </teacher>
+                                </a>
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->paper_type}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                                {{ $paper->paper_type_th }}
+                            @elseif(app()->getLocale() == 'zh')
+                                {{ $paper->paper_type_cn }}
+                            @else
+                                {{ $paper->paper_type }}
+                            @endif
+                        </td>
                         <td style="width:100%;">{{$paper->paper_page}}</td>
                         <td>{{$paper->paper_sourcetitle}}</td>
                         <td>{{$paper->paper_citation}}</td>
@@ -271,15 +328,15 @@
             <table id="example3" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                        <th>{{ trans('books.no') }}</th>
+                        <th>{{ trans('books.year') }}</th>
+                        <th>{{ trans('books.paper_name') }}</th>
+                        <th>{{ trans('books.author') }}</th>
+                        <th>{{ trans('books.document_type') }}</th>
+                        <th>{{ trans('books.page') }}</th>
+                        <th>{{ trans('books.journal_transactions') }}</th>
+                        <th>{{ trans('books.citations') }}</th>
+                        <th>{{ trans('books.doi') }}</th>
                     </tr>
                 </thead>
 
@@ -287,23 +344,44 @@
                     @foreach ($papers_wos as $n => $paper)
                     <tr>
                         <td> {{$n+1}}</td>
-                        <td>{{ $paper->paper_yearpub }}</td>
+                        <td>{{ app()->getLocale() == 'th' ? $paper->paper_yearpub + 543 : $paper->paper_yearpub }}</td>
                         <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
                         <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a>
+                                    @if(app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname }} {{ $author->author_lname_th ?? $author->author_lname }}
+                                    @else
+                                        {{ $author->fname_en ?? $author->author_fname }} {{ $author->lname_en ?? $author->author_lname }}
+                                    @endif
+                                </a>
                             </span>
                             @endforeach
                             @foreach ($paper->teacher as $author)
                             <span>
-                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                <a href="{{ route('detail', Crypt::encrypt($author->id))}}">
+                                    <teacher>
+                                        @if(app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }} {{ $author->lname_th ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }} {{ $author->lname_en }}
+                                        @endif
+                                    </teacher>
+                                </a>
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->paper_type}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                                {{ $paper->paper_type_th }}
+                            @elseif(app()->getLocale() == 'zh')
+                                {{ $paper->paper_type_cn }}
+                            @else
+                                {{ $paper->paper_type }}
+                            @endif
+                        </td>
                         <td style="width:100%;">{{$paper->paper_page}}</td>
                         <td>{{$paper->paper_sourcetitle}}</td>
                         <td>{{$paper->paper_citation}}</td>
@@ -323,15 +401,15 @@
             <table id="example4" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                        <th>{{ trans('books.no') }}</th>
+                        <th>{{ trans('books.year') }}</th>
+                        <th>{{ trans('books.paper_name') }}</th>
+                        <th>{{ trans('books.author') }}</th>
+                        <th>{{ trans('books.document_type') }}</th>
+                        <th>{{ trans('books.page') }}</th>
+                        <th>{{ trans('books.journal_transactions') }}</th>
+                        <th>{{ trans('books.citations') }}</th>
+                        <th>{{ trans('books.doi') }}</th>
                     </tr>
                 </thead>
 
@@ -339,23 +417,44 @@
                     @foreach ($papers_tci as $n => $paper)
                     <tr>
                         <td> {{$n+1}}</td>
-                        <td>{{ $paper->paper_yearpub }}</td>
+                        <td>{{ app()->getLocale() == 'th' ? $paper->paper_yearpub + 543 : $paper->paper_yearpub }}</td>
                         <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
                         <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <a>
+                                    @if(app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname }} {{ $author->author_lname_th ?? $author->author_lname }}
+                                    @else
+                                        {{ $author->fname_en ?? $author->author_fname }} {{ $author->lname_en ?? $author->author_lname }}
+                                    @endif
+                                </a>
                             </span>
                             @endforeach
                             @foreach ($paper->teacher as $author)
                             <span>
-                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                <a href="{{ route('detail', Crypt::encrypt($author->id))}}">
+                                    <teacher>
+                                        @if(app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }} {{ $author->lname_th ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }} {{ $author->lname_en }}
+                                        @endif
+                                    </teacher>
+                                </a>
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->paper_type}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                                {{ $paper->paper_type_th }}
+                            @elseif(app()->getLocale() == 'zh')
+                                {{ $paper->paper_type_cn }}
+                            @else
+                                {{ $paper->paper_type }}
+                            @endif
+                        </td>
                         <td style="width:100%;">{{$paper->paper_page}}</td>
                         <td>{{$paper->paper_sourcetitle}}</td>
                         <td>{{$paper->paper_citation}}</td>
@@ -371,12 +470,12 @@
             <table id="example5" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Year</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">สถานที่พิมพ์</th>
-                        <th scope="col">Page</th>
+                        <th>{{ trans('books.Number') }}</th>
+                        <th>{{ trans('books.year') }}</th>
+                        <th>{{ trans('books.Name') }}</th>
+                        <th>{{ trans('books.author') }}</th>
+                        <th>{{ trans('books.Place of printing') }}</th>
+                        <th>{{ trans('books.page') }}</th>
 
                     </tr>
                 </thead>
@@ -385,22 +484,58 @@
                     @foreach ($book_chapter as $n => $paper)
                     <tr>
                         <td>{{$n+1}}</td>
-                        <td style="width:80px">{{ date('Y', strtotime($paper->ac_year))+543 }}</td>
-                        <td>{{$paper->ac_name}}</td>
+                        <td style="width:80px">
+                            @if(app()->getLocale() == 'th')
+                                {{ date('Y', strtotime($paper->ac_year)) + 543 }}
+                            @else
+                                {{ date('Y', strtotime($paper->ac_year)) }}
+                            @endif
+                        </td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                                {{ $paper->ac_name ?? $paper->ac_name_en }}
+                            @elseif(app()->getLocale() == 'zh')
+                                {{ $paper->ac_name_cn ?? $paper->ac_name_en }}
+                            @else
+                                {{ $paper->ac_name_en ?? $paper->ac_name }}
+                            @endif
+                        </td>
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
-
+                                <a>
+                                    @if(app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname }} {{ $author->author_lname_th ?? $author->author_lname }}
+                                    @else
+                                        {{ $author->fname_en ?? $author->author_fname }} {{ $author->lname_en ?? $author->author_lname }}
+                                    @endif
+                                </a>
                             </span>
                             @endforeach
+
                             @foreach ($paper->user as $author)
                             <span>
-                                <a> {{$author -> fname_en}} {{$author -> lname_en}}</a>
+                                <a href="{{ route('detail', Crypt::encrypt($author->id))}}">
+                                    <teacher>
+                                        @if(app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }} {{ $author->lname_th ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }} {{ $author->lname_en }}
+                                        @endif
+                                    </teacher>
+                                </a>
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->ac_sourcetitle}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                                {{ $paper->ac_sourcetitle ?? $paper->ac_sourcetitle_en }}
+                            @elseif(app()->getLocale() == 'zh')
+                                {{ $paper->ac_sourcetitle_cn ?? $paper->ac_sourcetitle_en }}
+                            @else
+                                {{ $paper->ac_sourcetitle_en ?? $paper->ac_sourcetitle }}
+                            @endif
+                        </td>
                         <td>{{ $paper->ac_page }}</td>
 
                     </tr>
@@ -413,12 +548,12 @@
             <table id="example6" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">ประเภท</th>
-                        <th scope="col">หมายเลขทะเบียน</th>
-                        <th scope="col">วันที่จดทะเบียน</th>
+                        <th>{{ trans('books.Number') }}</th>
+                        <th>{{ trans('books.Name') }}</th>
+                        <th>{{ trans('books.author') }}</th>
+                        <th>{{ trans('books.Type') }}</th>
+                        <th>{{ trans('books.Registration number') }}</th>
+                        <th>{{ trans('books.Registration date') }}</th>
 
                     </tr>
                 </thead>
@@ -427,23 +562,51 @@
                     @foreach ($patent as $n => $paper)
                     <tr>
                         <td>{{$n+1}}</td>
-                        <td>{{$paper->ac_name}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                                {{ $paper->ac_name ?? $paper->ac_name_en }}
+                            @elseif(app()->getLocale() == 'zh')
+                                {{ $paper->ac_name_cn ?? $paper->ac_name_en }}
+                            @else
+                                {{ $paper->ac_name_en ?? $paper->ac_name }}
+                            @endif
+                        </td>
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
-
+                                <a>
+                                    @if(app()->getLocale() == 'th')
+                                        {{ $author->author_fname_th ?? $author->author_fname }} {{ $author->author_lname_th ?? $author->author_lname }}
+                                    @else
+                                        {{$author->author_fname }} {{$author->author_lname }}
+                                    @endif
+                                </a>
                             </span>
                             @endforeach
+
                             @foreach ($paper->user as $author)
                             <span>
-                                <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
-
+                                <a href="{{ route('detail', Crypt::encrypt($author->id))}}">
+                                    <teacher>
+                                        @if(app()->getLocale() == 'th')
+                                            {{ $author->fname_th ?? $author->fname_en }} {{ $author->lname_th ?? $author->lname_en }}
+                                        @else
+                                            {{ $author->fname_en }} {{ $author->lname_en }}
+                                        @endif
+                                    </teacher>
+                                </a>
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->ac_type}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                                {{ $paper->ac_type_th ?? $paper->ac_type }}
+                            @elseif(app()->getLocale() == 'zh')
+                                {{ $paper->ac_type_cn ?? $paper->ac_type }}
+                            @else
+                                {{ $paper->ac_type ?? $paper->ac_type }}
+                            @endif
+                        </td>
                         <td>{{$paper->ac_refnumber }}</td>
                         <td>{{$paper->ac_year}}</td>
 
@@ -465,48 +628,46 @@
 
 <script>
     $(document).ready(function() {
+        function initializeDataTable(tableId) {
+            if (!$.fn.DataTable.isDataTable(tableId)) { // ตรวจสอบว่า DataTable ถูกใช้งานไปแล้วหรือยัง
+                $(tableId).DataTable({
+                    responsive: true,
+                    language: {
+                        search: "{{ __('reseracher.Search') }}",
+                        lengthMenu: "{{ __('reseracher.Show') }} _MENU_ {{ __('reseracher.entries') }}",
+                        info: "{{ __('reseracher.Showing') }} _START_ {{ __('reseracher.to') }} _END_ {{ __('reseracher.of') }} _TOTAL_ {{ __('reseracher.entries') }}",
+                        paginate: {
+                            previous: "{{ __('reseracher.Previous') }}",
+                            next: "{{ __('reseracher.Next') }}"
+                        }
+                    }
+                });
+            }
+        }
 
-        var table1 = $('#example1').DataTable({
-            responsive: true,
+        // กำหนดตารางที่ต้องใช้ DataTable
+        var tables = ['#example1', '#example2', '#example3', '#example4', '#example5', '#example6'];
+        
+        // เรียกใช้ฟังก์ชันสำหรับทุกตารางที่กำหนด
+        tables.forEach(function(tableId) {
+            initializeDataTable(tableId);
         });
 
-        var table2 = $('#example2').DataTable({
-            responsive: true,
-        });
-        var table3 = $('#example3').DataTable({
-            responsive: true,
-        });
-        var table4 = $('#example4').DataTable({
-            responsive: true,
-        });
-        var table5 = $('#example5').DataTable({
-            responsive: true,
-        });
-        var table6 = $('#example6').DataTable({
-            responsive: true,
-        });
-
-
+        // ปรับขนาดตารางเมื่อเปลี่ยนแท็บ
         $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function(event) {
             var tabID = $(event.target).attr('data-bs-target');
-            if (tabID === '#scopus') {
-                table2.columns.adjust().draw()
-            }
-            if (tabID === '#wos') {
-                table3.columns.adjust().draw()
-            }
-            if (tabID === '#tci') {
-                table4.columns.adjust().draw()
-            }
-            if (tabID === '#book') {
-                table5.columns.adjust().draw()
-            }
-            if (tabID === '#patent') {
-                table6.columns.adjust().draw()
-            }
+            var tableMap = {
+                '#scopus': '#example2',
+                '#wos': '#example3',
+                '#tci': '#example4',
+                '#book': '#example5',
+                '#patent': '#example6'
+            };
 
+            if (tableMap[tabID] && $.fn.DataTable.isDataTable(tableMap[tabID])) {
+                $(tableMap[tabID]).DataTable().columns.adjust().draw();
+            }
         });
-
     });
 </script>
 
@@ -606,6 +767,7 @@
         const response = await fetch('https://api.elsevier.com/content/search/author?query=authlast(' + res.lname_en +
             ')%20and%20authfirst(' + res.fname_en +
             ')%20&apiKey=6ab3c2a01c29f0e36b00c8fa1d013f83&httpAccept=application%2Fjson');
+            
         //var a = got["search-results"];
         const got = await response.json();
         aid = got["search-results"]["entry"][0]['dc:identifier'];

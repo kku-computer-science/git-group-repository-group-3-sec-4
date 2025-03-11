@@ -57,11 +57,21 @@
     <!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand logo-image" href="#"><img src="{{asset('img/logo2.png')}}" alt="alternative"></a>
+            <a class="navbar-brand logo-image" href="#">
+                @if(app()->getLocale() == 'en')
+                <img src="{{asset('img/logo2en.png')}}" alt="alternative">
+                @elseif (app()->getLocale() == 'th')
+                <img src="{{asset('img/logo2th.png')}}" alt="alternative">
+                @elseif (app()->getLocale() == 'zh')
+                <img src="{{asset('img/logo2cn.png')}}" alt="alternative">
+                @endif
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
                     <li class="nav-item {{ request()->is('/') ? 'active' : ''}} ">
@@ -75,9 +85,17 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($dn as $department)
-                            <li><a class="dropdown-item" href="{{ route('researchers',['id'=>$department->id])}}">
-                                    {{$department->program_name_en}}</a>
-                            </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('researchers',['id'=>$department->id])}}">
+                                        @if(App::getLocale() == 'th')
+                                            {{$department->program_name_th}}
+                                        @elseif(App::getLocale() == 'zh')
+                                            {{$department->programs_name_cn}}
+                                        @else
+                                            {{$department->program_name_en}}
+                                        @endif
+                                    </a>
+                                </li>
                             @endforeach
                         </ul>
                     </li>
@@ -119,7 +137,7 @@
                 </span>
                 @else
                 <span class="nav-item">
-                    <a class="btn-solid-sm" href="/login" target="_blank">Login</a>
+                    <a class="btn-solid-sm" href="/login" target="_blank">{{ __('message.Login') }}</a>
                 </span>
                 @endauth
                 @endif

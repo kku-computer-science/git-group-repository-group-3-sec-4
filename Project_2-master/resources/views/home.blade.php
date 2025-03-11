@@ -41,25 +41,40 @@
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                 aria-label="Slide 3"></button> -->
-            </div>
+
+                </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('img/Banner1.png')}}" class="d-block w-100" alt="...">
+                    @if(app()->getLocale() == 'en')
+                    <img src="{{asset('img/banner1_en.png')}}" class="d-block w-100" alt="...">
+                    @elseif (app()->getLocale() == 'th')
+                    <img src="{{asset('img/banner1_th.png')}}" class="d-block w-100" alt="...">
+                    @elseif (app()->getLocale() == 'zh')
+                    <img src="{{asset('img/banner1_cn.png')}}" class="d-block w-100" alt="...">
+                    @endif
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('img/Banner2.png')}}" class="d-block w-100" alt="...">
+                    @if(app()->getLocale() == 'en')
+                    <img src="{{asset('img/banner2en.png')}}" class="d-block w-100" alt="...">
+                    @elseif (app()->getLocale() == 'th')
+                    <img src="{{asset('img/banner2th.png')}}" class="d-block w-100" alt="...">
+                    @elseif (app()->getLocale() == 'zh')
+                    <img src="{{asset('img/banner2cn.png')}}" class="d-block w-100" alt="...">
+                    @endif
                 </div>
+
                 <!-- <div class="carousel-item">
                 <img src="..." class="d-block w-100" alt="...">
             </div> -->
             </div>
+
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+                <span class="visually-hidden">{{ trans('message.Previous') }}</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+                <span class="visually-hidden">{{ trans('message.Previous') }}</span>
             </button>
         </div>
     </div>
@@ -113,14 +128,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Reference (APA)</h5>
+                <h5 class="modal-title">{{ __('message.Reference (APA)') }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="name">
                     <!-- <p>Modal body text goes here.</p> -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                 </div>
             </div>
@@ -140,7 +155,7 @@
                         @if (!$loop->last)
                         {{$n}}
                         @else
-                        Before {{$n}}
+                        {{ trans('message.Before') }} {{$n}}
                         @endif
 
                     </button>
@@ -161,8 +176,10 @@
                                     <!-- <a href="{{ route('bibtex',['id'=>$p['id']])}}">
                                         [อ้างอิง]
                                     </a> -->
-                                    <button style="padding: 0;"class="btn btn-link open_modal" value="{{$p['id']}}">[อ้างอิง]</button>
-                                </p>
+
+                                    <button style="padding: 0;"class="btn btn-link open_modal" value="{{$p['id']}}">{{ __('message.ref') }}</button>
+
+                                    </p>
                             </div>
                         </div>
                         @endforeach
@@ -193,6 +210,20 @@
     });
 </script>
 <script>
+    var year = <?php echo $year; ?>;
+    let currentLocale = '{{ app()->getLocale() }}';
+
+    if (currentLocale === 'th') {
+        year = year.map(y => typeof y === "number" ? y + 543 : y); // Add 543 for Thai year
+
+
+
+    } else {
+        // For English or other languages, leave the year as is
+        year = year.map(y => typeof y === "number" ? y : y);
+    }
+
+
     var year = <?php echo $year; ?>;
     var paper_tci = <?php echo $paper_tci; ?>;
     var paper_scopus = <?php echo $paper_scopus; ?>;
@@ -260,7 +291,8 @@
                 },
                 scaleLabel: {
                     display: true,
-                    labelString: 'Number',
+                    labelString: currentLocale === 'th' ? 'จำนวนบทความ' : currentLocale === 'zh' ?
+                        '文章数量' : 'Number',
 
                 },
                 ticks: {
@@ -271,14 +303,18 @@
             xAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: 'Year'
+                    labelString: currentLocale === 'th' ? 'ปี' : currentLocale === 'zh' ?
+                        '年' : 'Year'
                 }
             }]
         },
 
         title: {
+
             display: true,
-            text: 'Report the total number of articles ( 5 years : cumulative)',
+            text: currentLocale === 'th' ?
+                'รายงานจำนวนบทความทั้งหมด (สะสมตลอด 5 ปี)' : currentLocale === 'zh' ?
+                '报告总文章数 (5年累计)' : 'Report the total number of articles (5 years : cumulative)',
             fontSize: 20
         }
 
@@ -300,26 +336,49 @@
     let sumsco = paper_scopus;
     let sumwos = paper_wos;
     (function($) {
-        
+
         let sum = paper_wos + paper_tci + paper_scopus;
+        let currentLocale = '{{ app()->getLocale() }}';
         //console.log(sum);
         //$("#scopus").append('data-to="100"');
+
+        // ดึงค่าจาก data-label ที่ได้จาก Blade (ซึ่งรองรับหลายภาษา)
+let summaryText = document.getElementById("all").getAttribute("data-label");
+let scopusText = document.getElementById("scopus").getAttribute("data-label");
+let wosText = document.getElementById("wos").getAttribute("data-label");
+let tciText = document.getElementById("tci").getAttribute("data-label");
+
         document.getElementById("all").innerHTML += `
-                <i class="count-icon fa fa-book fa-2x"></i>
-                <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
-                <p class="count-text ">SUMMARY</p>`
-        document.getElementById("scopus").innerHTML += `
-                <i class="count-icon fa fa-book fa-2x"></i>
-                <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
-                <p class="count-text ">SCOPUS</p>`
-        document.getElementById("wos").innerHTML += `
-                <i class="count-icon fa fa-book fa-2x"></i>
-                <h2 class="timer count-title count-number" data-to="${sumwos}" data-speed="1500"></h2>
-                <p class="count-text ">WOS</p>`
-        document.getElementById("tci").innerHTML += `
-                <i class="count-icon fa fa-book fa-2x"></i>
-                <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
-                <p class="count-text ">TCI</p>`
+    <div>
+        <i class="count-icon fa fa-book fa-2x"></i>
+        <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
+        <p class="count-text">SUMMARY</p>
+    </div>
+`;
+
+document.getElementById("scopus").innerHTML += `
+    <div>
+        <i class="count-icon fa fa-book fa-2x"></i>
+        <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
+        <p class="count-text">SCOPUS</p>
+    </div>
+`;
+
+document.getElementById("wos").innerHTML += `
+    <div>
+        <i class="count-icon fa fa-book fa-2x"></i>
+        <h2 class="timer count-title count-number" data-to="${sumwos}" data-speed="1500"></h2>
+        <p class="count-text">WOS</p>
+    </div>
+`;
+
+document.getElementById("tci").innerHTML += `
+    <div>
+        <i class="count-icon fa fa-book fa-2x"></i>
+        <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
+        <p class="count-text">TCI</p>
+    </div>
+`;
         //document.getElementById("scopus").appendChild('data-to="100"');
         $.fn.countTo = function(options) {
             options = options || {};
@@ -418,6 +477,7 @@
             $this.countTo(options);
         }
     });
+</script>
 </script>
 <script>
     $(document).on('click', '.open_modal', function() {

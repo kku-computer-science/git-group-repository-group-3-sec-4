@@ -10,6 +10,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileuserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SystemLogController;
 
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +39,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
+use App\Http\Controllers\TestTranslateController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,15 +68,15 @@ use App\Http\Controllers\TcicallController;
 // });
 
 
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/logs', [SystemLogController::class, 'index'])->name('logs.index');
-});
-
 Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
     Auth::routes();
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/system-log', [SystemLogController::class, 'index'])->name('log.index');
+    Route::get('/admin/system-log/login', [SystemLogController::class, 'logLogin'])->name('log.login');
+    Route::get('/admin/system-log/error', [SystemLogController::class, 'logError'])->name('log.error');
+});
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -101,6 +103,7 @@ Route::get('bib/{id}', [BibtexController::class, 'getbib'])->name('bibtex');
 
 Route::get('/callscopus/{id}', [App\Http\Controllers\ScopuscallController::class, 'create'])->name('callscopus');
 //Route::get('/showscopus', [App\Http\Controllers\ScopuscallController::class, 'index'])->name('showscopus');
+Route::get('/test-translate', [TestTranslateController::class, 'index']); 
 
 Route::group(['middleware' => ['isAdmin', 'auth', 'PreventBackHistory']], function () {
     //Route::post('change-profile-picture',[ProfileuserController::class,'updatePicture'])->name('adminPictureUpdate');
@@ -168,3 +171,4 @@ Route::get('files/{file}', [FileUpload::class, 'download'])->name('download');*/
 //Route::post('programs', [DropdownController::class, 'getPrograms']);
 //Route::get('tests', [TestController::class, 'index'])->name('tests.index');
 //Route::get('users/create/{id}',[UserController::class, 'getCategory']);
+

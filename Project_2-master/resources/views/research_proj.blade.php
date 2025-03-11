@@ -2,130 +2,80 @@
 @section('content')
 
 <div class="container refund">
-    <p>โครงการบริการวิชาการ/ โครงการวิจัย</p>
+    <p>{{ __('reseracher.Project_Service') }}</p>
 
     <div class="table-refund table-responsive">
         <table id="example1" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th style="font-weight: bold;">ลำดับ</th>
-                    <th class="col-md-1" style="font-weight: bold;">ปี</th>
-                    <th class="col-md-4" style="font-weight: bold;">ชื่อโครงการ </th>
-                    <!-- <th>ระยะเวลาโครงการ</th>
-                    <th>ผู้รับผิดชอบโครงการ</th>
-                    <th>ประเภททุนวิจัย</th>
-                    <th>หน่วยงานที่สนันสนุนทุน</th>
-                    <th>งบประมาณที่ได้รับจัดสรร</th> -->
-                    <th class="col-md-4" style="font-weight: bold;">รายละเอียด</th>
-                    <th class="col-md-2" style="font-weight: bold;">ผู้รับผิดชอบโครงการ</th>
-                    <!-- <th class="col-md-5">หน่วยงานที่รับผิดชอบ</th> -->
-                    <th class="col-md-1" style="font-weight: bold;">สถานะ</th>
+                    <th style="font-weight: bold;">{{ __('reseracher.No') }}</th>
+                    <th class="col-md-1" style="font-weight: bold;">{{ __('reseracher.Year') }}</th>
+                    <th class="col-md-4" style="font-weight: bold;">{{ __('reseracher.Project_Name') }}</th>
+                    <th class="col-md-4" style="font-weight: bold;">{{ __('reseracher.Details') }}</th>
+                    <th class="col-md-2" style="font-weight: bold;">{{ __('reseracher.Responsible_Person') }}</th>
+                    <th class="col-md-1" style="font-weight: bold;">{{ __('reseracher.Status') }}</th>
                 </tr>
             </thead>
 
-            
             <tbody>
                 @foreach($resp as $i => $re)
                 <tr>
                     <td style="vertical-align: top;text-align: left;">{{$i+1}}</td>
-                    <td style="vertical-align: top;text-align: left;">{{($re->project_year)+543}}</td>
                     <td style="vertical-align: top;text-align: left;">
-                        {{$re->project_name}}
-
+                        {{ app()->getLocale() == 'th' ? $re->project_year + 543 : $re->project_year }}
+                    </td>
+                    <td style="vertical-align: top;text-align: left;">
+                        {{ $re->{'project_name_'.app()->getLocale()} ?? $re->project_name }}
                     </td>
                     <td>
                         <div style="padding-bottom: 10px">
-
-                            @if ($re->project_start != null)
-                            <span style="font-weight: bold;">
-                                ระยะเวลาโครงการ
-                            </span>
+                            <span style="font-weight: bold;">{{ __('reseracher.Project_Duration') }}</span>
                             <span style="padding-left: 10px;">
-                                {{\Carbon\Carbon::parse($re->project_start)->thaidate('j F Y') }} ถึง {{\Carbon\Carbon::parse($re->project_end)->thaidate('j F Y') }}
+                                @if ($re->project_start != null)
+                                    {{\Carbon\Carbon::parse($re->project_start)->translatedFormat('j F Y') }} 
+                                    {{ __('reseracher.To') }} 
+                                    {{\Carbon\Carbon::parse($re->project_end)->translatedFormat('j F Y') }}
+                                @endif
                             </span>
-                            @else
-                            <span style="font-weight: bold;">
-                                ระยะเวลาโครงการ
-                            </span>
-                            <span>
-
-                            </span>
-                            @endif
                         </div>
 
+                        <div style="padding-bottom: 10px;">
+                            <span style="font-weight: bold;">{{ __('reseracher.Funding_Type') }}</span>
+                            <span style="padding-left: 10px;">{{ $re->fund->{'fund_type_' . (app()->getLocale() == 'zh' ? 'cn' : app()->getLocale())} ?? $re->fund->fund_type }}</span>
+                        </div>
+                        <div style="padding-bottom: 10px;">
+                            <span style="font-weight: bold;">{{ __('reseracher.Support_Agency') }}</span>
+                            <span style="padding-left: 10px;">{{ $re->fund->{'support_resource_' . (app()->getLocale() == 'zh' ? 'cn' : app()->getLocale())} ?? $re->fund->support_resource }}</span>
+                        </div>
+                        <div style="padding-bottom: 10px;">
+                            <span style="font-weight: bold;">{{ __('reseracher.Responsible_Department') }}</span>
+                            <span style="padding-left: 10px;">
+                                {{ $re->{'responsible_department_' . (app()->getLocale() == 'zh' ? 'cn' : app()->getLocale())} ?? $re->responsible_department_en }}
+                            </span>
+                        </div>
+                        <div style="padding-bottom: 10px;">
+                            <span style="font-weight: bold;">{{ __('reseracher.Budget_Allocated') }}</span>
+                            <span style="padding-left: 10px;">{{ number_format($re->budget) }} {{ __('reseracher.Currency') }}</span>
+                        </div>
+                    </td>
 
-                        <!-- @if ($re->project_start != null)
-                    <td>{{\Carbon\Carbon::parse($re->project_start)->thaidate('j F Y') }}<br>ถึง {{\Carbon\Carbon::parse($re->project_end)->thaidate('j F Y') }}</td>
-                    @else
-                    <td></td>
-                    @endif -->
-
-                        <!-- <td>@foreach($re->user as $user)
-                        {{$user->position }}{{$user->fname_th}} {{$user->lname_th}}<br>
+                    <td style="vertical-align: top;text-align: left;">
+                        @foreach($re->user as $user)
+                            {{ $user->{'position_'.app()->getLocale()} ?? $user->position_en }} 
+                            {{ $user->{'fname_'.app()->getLocale()} ?? $user->fname_en }} 
+                            {{ $user->{'lname_'.app()->getLocale()} ?? $user->lname_en }}
+                            <br>
                         @endforeach
-                    </td> -->
-                        <!-- <td>
-                        @if(is_null($re->fund))
+                    </td>
+                    <td style="vertical-align: top;text-align: left;">
+                        @if($re->status == 1)
+                        <h6><label class="badge badge-success">{{ __('reseracher.Requested') }}</label></h6>
+                        @elseif($re->status == 2)
+                        <h6><label class="badge bg-warning text-dark">{{ __('reseracher.In_Process') }}</label></h6>
                         @else
-                        {{$re->fund->fund_type}}
+                        <h6><label class="badge bg-dark">{{ __('reseracher.Closed_Project') }}</label></h6>
                         @endif
-                    </td> -->
-                        <!-- <td>@if(is_null($re->fund))
-                        @else
-                        {{$re->fund->support_resource}}
-                        @endif
-                    </td> -->
-                        <!-- <td>{{$re->budget}}</td> -->
-                        <div style="padding-bottom: 10px;">
-                            <span style="font-weight: bold;">ประเภททุนวิจัย</span>
-                            <span style="padding-left: 10px;"> @if(is_null($re->fund))
-                                @else
-                                {{$re->fund->fund_type}}
-                                @endif</span>
-                        </div>
-                        <div style="padding-bottom: 10px;">
-                            <span style="font-weight: bold;">หน่วยงานที่สนันสนุนทุน</span>
-                            <span style="padding-left: 10px;"> @if(is_null($re->fund))
-                                @else
-                                {{$re->fund->support_resource}}
-                                @endif</span>
-                        </div>
-                        <div style="padding-bottom: 10px;">
-                            <span style="font-weight: bold;">หน่วยงานที่รับผิดชอบ</span>
-                            <span style="padding-left: 10px;">
-                                {{$re->responsible_department}}
-                            </span>
-                        </div>
-                        <div style="padding-bottom: 10px;">
-
-                            <span style="font-weight: bold;">งบประมาณที่ได้รับจัดสรร</span>
-                            <span style="padding-left: 10px;"> {{number_format($re->budget)}} บาท</span>
-                        </div>
                     </td>
-
-                    <td style="vertical-align: top;text-align: left;">
-                        <div style="padding-bottom: 10px;">
-                            <span>@foreach($re->user as $user)
-                                {{$user->position_th }} {{$user->fname_th}} {{$user->lname_th}}<br>
-                                @endforeach</span>
-                        </div>
-                    </td>
-                    @if($re->status == 1)
-                    <td style="vertical-align: top;text-align: left;">
-                        <h6><label class="badge badge-success">ยื่นขอ</label></h6>
-                    </td>
-                    @elseif($re->status == 2)
-                    <td style="vertical-align: top;text-align: left;">
-                        <h6><label class="badge bg-warning text-dark">ดำเนินการ</label></h6>
-                    </td>
-                    @else
-                    <td style="vertical-align: top;text-align: left;">
-                        <h6><label class="badge bg-dark">ปิดโครงการ</label>
-                            <h6>
-                    </td>
-                    @endif
-                    <!-- <td></td>
-                    <td></td> -->
                 </tr>
                 @endforeach
             </tbody>
@@ -133,6 +83,7 @@
     </div>
 
 </div>
+
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.js"></script>
@@ -141,10 +92,20 @@
 
 <script>
     $(document).ready(function() {
-
-        var table1 = $('#example1').DataTable({
-            responsive: true,
-        });
+        if (!$.fn.DataTable.isDataTable('#example1')) { // ตรวจสอบว่า DataTable ถูกใช้งานไปแล้วหรือยัง
+            var table1 = $('#example1').DataTable({
+                responsive: true,
+                language: {
+                    search: "{{ __('reseracher.Search') }}",
+                    lengthMenu: "{{ __('reseracher.Show') }} _MENU_ {{ __('reseracher.entries') }}",
+                    info: "{{ __('reseracher.Showing') }} _START_ {{ __('reseracher.to') }} _END_ {{ __('reseracher.of') }} _TOTAL_ {{ __('reseracher.entries') }}",
+                    paginate: {
+                        previous: "{{ __('reseracher.Previous') }}",
+                        next: "{{ __('reseracher.Next') }}",
+                    }
+                }
+            });
+        }
     });
 </script>
 @stop
