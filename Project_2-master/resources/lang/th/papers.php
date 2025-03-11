@@ -73,7 +73,9 @@ return [
     'ok'                          => 'ตกลง',
     'cancel'                      => 'ยกเลิก',
 
-    
+    'paper_issue_required'    => 'ฟิลด์ฉบับที่จำเป็นต้องมี.',
+    'paper_citation_required' => 'ฟิลด์การอ้างอิงจำเป็นต้องมี.',
+    'paper_page_required'     => 'ฟิลด์จำนวนหน้าจำเป็นต้องมี.',
 
 
 

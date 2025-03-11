@@ -74,6 +74,10 @@ return [
     'whoops'                     => 'Whoops!',
     'input_problem'              => 'There were some problems with your input.',
 
+    'paper_issue_required'    => 'The paper issue field is required.',
+    'paper_citation_required' => 'The paper citation field is required.',
+    'paper_page_required'     => 'The paper page field is required.',
+
     
 
     

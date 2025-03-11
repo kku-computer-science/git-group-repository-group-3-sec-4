@@ -100,18 +100,33 @@
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var form = $(this).closest("form");
-        var name = $(this).data("name");
         event.preventDefault();
+
         swal({
-                title: "{{ trans('reseracher.are_you_sure') }}",
-                text: "{{ trans('reseracher.if_delete_gone') }}",
+                title: "{{ trans('patents.are_you_sure') }}",
+                text: "{{ trans('patents.if_delete_gone') }}",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: {
+                        text: "{{ trans('patents.cancel') }}",
+                        value: null,
+                        visible: true,
+                        className: "",
+                        closeModal: true,
+                    },
+                    confirm: {
+                        text: "{{ trans('patents.ok') }}",
+                        value: true,
+                        visible: true,
+                        className: "btn-danger",
+                        closeModal: true
+                    }
+                },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ trans('reseracher.delete_success') }}", {
+                    swal("{{ trans('patents.delete_success') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

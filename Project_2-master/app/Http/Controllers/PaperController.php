@@ -235,6 +235,10 @@ class PaperController extends Controller
             'paper_type.required'        => __('papers.paper_type_required'),
             'paper_sourcetitle.required' => __('papers.paper_sourcetitle_required'),
             'paper_volume.required'      => __('papers.paper_volume_required'),
+            // **Add these three lines** for the missing fields:
+        'paper_issue.required'        => __('papers.paper_issue_required'),
+        'paper_citation.required'     => __('papers.paper_citation_required'),
+        'paper_page.required'         => __('papers.paper_page_required'),
             // ... Additional keys can be added here...
         ]);
         $input = $request->except(['_token']);

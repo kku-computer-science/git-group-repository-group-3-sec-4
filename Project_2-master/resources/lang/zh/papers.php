@@ -74,6 +74,10 @@ return [
     'ok'                          => '确定',
     'cancel'                      => '取消',
 
+    'paper_issue_required'    => '论文期刊字段是必填的。',
+    'paper_citation_required' => '论文引用字段是必填的。',
+    'paper_page_required'     => '论文页数字段是必填的。',
+
     
 
 ];
