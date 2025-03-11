@@ -14,16 +14,16 @@
     }
 </style>
 <div class="container">
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>{{ __('researchProjects.whoops') }}</strong> {{ __('researchProjects.input_problem') }}<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+@if ($errors->any())
+<div class="alert alert-danger">
+    <strong>{{ trans('researchProjects.whoops') }}</strong> {{ trans('researchProjects.input_problem') }}<br><br>
+    <ul>
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+@endforeach
+    </ul>
+</div>
+@endif
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card" style="padding: 16px;">
             <div class="card-body">
@@ -80,7 +80,7 @@
                     <div class="form-group row mt-2">
                         <label for="exampleInputfund_details" class="col-sm-2 ">{{ __('researchProjects.project_details') }}</label>
                         <div class="col-sm-9">
-                        <textarea type="text" name="note" class="form-control form-control-lg" style="height:150px" placeholder="{{ trans('researchProjects.researchProject.note') }}" value="{{ old('note') }}"></textarea>
+                            <textarea type="text" name="note" class="form-control form-control-lg" style="height:150px" placeholder="{{ trans('researchProjects.researchProject.note') }}" value="{{ old('note') }}"></textarea>
                         </div>
                     </div>
                     <div class="form-group row mt-2">
@@ -109,7 +109,9 @@
                         <label for="exampleInputfund_details" class="col-sm-2 ">{{ __('researchProjects.person') }}</label>
                         <div class="col-sm-9">
                             <select id='head0' style='width: 200px;' name="head">
-                                <option value=''>{{ __('researchProjects.Select User') }}</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                                <option value=''>{{ __('researchProjects.select_user_option') }}</option>
+                                @foreach($users as $user)
+                                <option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -161,12 +163,12 @@
                                         <th>{{ __('researchProjects.fname') }}</th>
                                         <th>{{ __('researchProjects.lname') }}</th>
                                         <!-- <th>Email Id</th> -->
-                                            <!-- <button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="mdi mdi-plus"></i></button> -->
+                                        <!-- <button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="mdi mdi-plus"></i></button> -->
                                         <th><a href="javascript:void(0);" style="font-size:18px;" id="addMore2" title="Add More Person"><i class="mdi mdi-plus"></i></span></a></th>
                                     <tr>
                                         <td><input type="text" name="title_name[]" class="form-control" placeholder="{{ __('researchProjects.position_prefix') }}"></td>
-                                        <td><input type="text" name="fname[]" class="form-control" placeholder="{{ __('researchProjects.fname') }}" ></td>
-                                        <td><input type="text" name="lname[]" class="form-control" placeholder="{{ __('researchProjects.lname') }}" ></td>
+                                        <td><input type="text" name="fname[]" class="form-control" placeholder="{{ __('researchProjects.fname') }}"></td>
+                                        <td><input type="text" name="lname[]" class="form-control" placeholder="{{ __('researchProjects.lname') }}"></td>
                                         <!-- <td><input type="text" name="emailid[]" class="form-control"></td> -->
                                         <td><a href='javascript:void(0);' class='remove'><span><i class="mdi mdi-minus"></span></a></td>
                                     </tr>
@@ -283,7 +285,8 @@
                 if (trIndex > 1) {
                     $(this).closest("tr").remove();
                 } else {
-                    alert("Sorry!! Can't remove first row!");
+                    alert("{{ __('researchProjects.cannot_remove_first_row') }}");
+
                 }
             });
         });

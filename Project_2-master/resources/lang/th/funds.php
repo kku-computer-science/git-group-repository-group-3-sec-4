@@ -75,4 +75,12 @@ return [
     'are_you_sure'    => 'คุณแน่ใจหรือไม่?',
     'if_delete_gone'  => 'หากคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
     'delete_success'  => 'ลบสำเร็จ',
+
+    'ok' => 'ตกลง',
+    'cancel' => 'ยกเลิก',
+
+    'fund_created_successfully' => 'เพิ่มทุนสำเร็จ!',
+    'fund_updated_successfully' => 'อัปเดตทุนสำเร็จ!',
+    'fund_deleted_successfully' => 'ลบทุนสำเร็จ!',
+    
     ];

@@ -141,15 +141,36 @@
                 title: "{{ trans('researchProjects.are_you_sure') }}",
                 text: "{{ trans('researchProjects.if_delete_gone') }}",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: {
+                        text: "{{ __('researchProjects.cancel') }}",
+                        value: null,
+                        visible: true,
+                        className: "btn btn-secondary",
+                        closeModal: true,
+                    },
+                    confirm: {
+                        text: "{{ __('researchProjects.ok') }}",
+                        value: true,
+                        visible: true,
+                        className: "btn btn-danger",
+                        closeModal: true
+                    }
+                },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ trans('researchProjects.delete_success') }}", {
+                    swal({
+                        title: "{{ trans('researchProjects.delete_success') }}",
                         icon: "success",
+                        buttons: {
+                            confirm: {
+                                text: "{{ __('researchProjects.ok') }}",
+                                className: "btn btn-success",
+                            }
+                        }
                     }).then(function() {
-                        location.reload();
                         form.submit();
                     });
                 }

@@ -76,5 +76,12 @@ return [
     'if_delete_gone'  => 'If you delete this, it will be gone forever.',
     'delete_success'  => 'Delete Successfully',
 
+    'ok' => 'OK',
+    'cancel' => 'Cancel',
+
+    'fund_created_successfully' => 'Fund created successfully!',
+    'fund_updated_successfully' => 'Fund updated successfully!',
+    'fund_deleted_successfully' => 'Fund deleted successfully!',
+
     
 ];

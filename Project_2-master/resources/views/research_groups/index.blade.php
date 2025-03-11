@@ -124,25 +124,46 @@
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var form = $(this).closest("form");
-        var name = $(this).data("name");
         event.preventDefault();
+
         swal({
-                title: "{{ trans('researchGroups.are_you_sure') }}",
-                text: "{{ trans('researchGroups.if_delete_gone') }}",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("{{ trans('researchGroups.delete_success') }}", {
-                        icon: "success",
-                    }).then(function() {
-                        location.reload();
-                        form.submit();
-                    });
+            title: "{{ trans('researchGroups.are_you_sure') }}",
+            text: "{{ trans('researchGroups.if_delete_gone') }}",
+            icon: "warning",
+            /* จากเดิม buttons: true, แก้เป็นแบบ object เพื่อใส่ text ที่จะแปล */
+            buttons: {
+                cancel: {
+                    text: "{{ trans('researchGroups.cancel_button') }}", // ปุ่มยกเลิก
+                    value: null,
+                    visible: true,
+                    className: "btn btn-secondary",
+                    closeModal: true,
+                },
+                confirm: {
+                    text: "{{ trans('researchGroups.ok_button') }}",    // ปุ่มตกลง
+                    value: true,
+                    visible: true,
+                    className: "btn btn-danger",
+                    closeModal: true
                 }
-            });
+            },
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("{{ trans('researchGroups.delete_success') }}", {
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            text: "{{ trans('researchGroups.ok_button') }}",
+                            className: "btn btn-success",
+                        }
+                    }
+                }).then(function() {
+                    form.submit();
+                });
+            }
+        });
     });
 </script>
 @stop

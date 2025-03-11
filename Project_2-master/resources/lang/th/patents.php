@@ -49,4 +49,6 @@ return [
     'view_tooltip'    => 'ดูรายละเอียด',
     'edit_tooltip'    => 'แก้ไข',
     'delete_tooltip'  => 'ลบ',
+
+    
 ];

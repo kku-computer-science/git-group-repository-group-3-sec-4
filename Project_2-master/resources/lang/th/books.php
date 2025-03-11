@@ -126,5 +126,25 @@ return [
     'delete_success'  => 'ลบสำเร็จ',
 
     "publications2" => "ผลงานตีพิมพ์",
+
+    // ส่วนข้อความ Error Validate
+    'ac_name_required' => 'กรุณากรอกชื่อหนังสือ',
+    'ac_year_required' => 'กรุณากรอกปีพิมพ์',
+
+    // ส่วน Whoops! There were some problems...
+    'whoops'        => 'ข้อผิดพลาด!',
+    'input_problem' => 'มีบางอย่างผิดพลาดกับข้อมูลที่คุณกรอก',
+
+    // ส่วนข้อความ success
+    'created_successfully' => 'เพิ่มหนังสือเรียบร้อยแล้ว',
+    'updated_successfully' => 'แก้ไขข้อมูลหนังสือเรียบร้อยแล้ว',
+    'deleted_successfully' => 'ลบข้อมูลหนังสือเรียบร้อยแล้ว',
+
+    'ok' => 'ตกลง',
+    'cancel' => 'ยกเลิก',
+
+    // ปุ่ม
+    'submit_button' => 'ยืนยัน',
+    'cancel_button' => 'ยกเลิก',
  
 ];

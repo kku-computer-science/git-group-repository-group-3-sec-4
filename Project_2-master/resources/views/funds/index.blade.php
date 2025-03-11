@@ -121,19 +121,41 @@
                 title: "{{ trans('funds.are_you_sure') }}",
                 text: "{{ trans('funds.if_delete_gone') }}",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: {
+                        text: "{{ trans('funds.cancel') }}",
+                        value: null,
+                        visible: true,
+                        className: "btn btn-secondary",
+                        closeModal: true,
+                    },
+                    confirm: {
+                        text: "{{ trans('funds.ok') }}",
+                        value: true,
+                        visible: true,
+                        className: "btn btn-danger",
+                        closeModal: true
+                    }
+                },
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ trans('funds.delete_success') }}", {
+                    swal({
+                        title: "{{ trans('funds.delete_success') }}",
                         icon: "success",
+                        buttons: {
+                            confirm: {
+                                text: "{{ trans('funds.ok') }}",
+                                className: "btn btn-success",
+                            }
+                        }
                     }).then(function() {
-                        location.reload();
                         form.submit();
                     });
                 }
             });
     });
 </script>
+
 @endsection

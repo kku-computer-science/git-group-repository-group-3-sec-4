@@ -71,4 +71,28 @@ return [
      'if_delete_gone'  => '如果你删除了它，它将永远消失。',
      'delete_success'  => '删除成功',
 
+     'delete_success' => '删除成功！',
+     'whoops' => '哎呀！',
+     'error_occurred' => '您的输入存在一些问题。',
+     'cancel' => '取消',
+     'ok' => '确定',
+
+     'cannot_remove_first_row' => '无法删除第一行!',
+     'input_problem' => '您的输入有一些问题。',
+     'must_enter_project_name' => '必须输入研究项目名称。',
+    'must_enter_project_name' => '必须输入研究项目名称。',
+    'must_enter_budget' => '必须输入预算。',
+    'must_enter_submission_year' => '必须输入申请年份。',
+    'must_enter_funding' => '必须输入研究资金。',
+    'must_enter_responsible_person' => '必须输入项目负责人。',
+
+    'project_created_successfully' => '研究项目创建成功。',
+    'project_updated_successfully' => '研究项目更新成功。',
+    'project_deleted_successfully' => '研究项目删除成功。',
+
+    'cancel' => '取消',
+'ok' => '确定',
+
+
+
 ];

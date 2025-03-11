@@ -105,7 +105,22 @@
                 title: "{{ trans('books.are_you_sure') }}",
                 text: "{{ trans('books.if_delete_gone') }}",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: {
+                        text: "{{ trans('books.cancel') }}",
+                        value: null,
+                        visible: true,
+                        className: "",
+                        closeModal: true,
+                    },
+                    confirm: {
+                        text: "{{ trans('books.ok') }}",
+                        value: true,
+                        visible: true,
+                        className: "",
+                        closeModal: false,
+                    }
+                },
                 dangerMode: true,
             })
             .then((willDelete) => {

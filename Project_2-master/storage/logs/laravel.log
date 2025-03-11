@@ -11007,3 +11007,18 @@
 "} 
 [2025-03-11 00:34:46] local.INFO: User Login:  (admin@gmail.com) from IP: 127.0.0.1  
 [2025-03-11 01:24:43] local.INFO: User Login:  (chakso@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-11 15:00:04] local.INFO: User Login:  (chakso@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-11 15:32:16] local.INFO: User Login:  (chakso@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-11 20:00:34] local.INFO: User Login:  (chakso@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-11 20:46:14] local.INFO: User Login:  (admin@gmail.com) from IP: 127.0.0.1  
+[2025-03-11 20:48:29] local.INFO: User Login:  (chakso@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-11 21:02:08] local.INFO: User Login:  (admin@gmail.com) from IP: 127.0.0.1  
+[2025-03-11 21:02:44] local.INFO: User Login:  (chakso@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-11 21:45:45] local.INFO: User Login:  (admin@gmail.com) from IP: 127.0.0.1  
+[2025-03-11 21:54:52] local.INFO: User Login:  (chakso@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-11 21:57:10] local.ERROR: Maximum execution time of 60 seconds exceeded {"userId":3,"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Maximum execution time of 60 seconds exceeded at D:\\GitHub\\git-group-repository-group-3-sec-4\\Project_2-master\\vendor\\guzzlehttp\\guzzle\\src\\Handler\\CurlFactory.php:693)
+[stacktrace]
+#0 {main}
+"} 
+[2025-03-11 22:21:22] local.INFO: User Login:  (admin@gmail.com) from IP: 127.0.0.1  
+[2025-03-11 22:23:17] local.INFO: User Login:  (chakso@kku.ac.th) from IP: 127.0.0.1  

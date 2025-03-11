@@ -126,6 +126,25 @@ return [
 
     "publications2" => "Published works",
 
+    // ส่วนข้อความ Error Validate
+    'ac_name_required' => 'Please fill out the book name.',
+    'ac_year_required' => 'Please fill out the publication year.',
+
+    // ส่วน Whoops! There were some problems...
+    'whoops'        => 'Whoops!',
+    'input_problem' => 'There were some problems with your input.',
+
+    // ส่วนข้อความ success
+    'created_successfully' => 'Book created successfully.',
+    'updated_successfully' => 'Book updated successfully.',
+    'deleted_successfully' => 'Book deleted successfully.',
+
+    'ok' => 'OK',
+    'cancel' => 'Cancel',
+
+     // Buttons
+     'submit_button' => 'Submit',
+     'cancel_button' => 'Cancel',
 
 
 ];

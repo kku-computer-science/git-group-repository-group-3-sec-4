@@ -48,4 +48,32 @@ return [
     'if_delete_gone' => '如果你删除了它，它将永远消失。',
     'delete_success' => '删除成功',
 
+    // 部分验证消息
+'paper_name_required'        => '请填写论文名称',
+    'paper_name_unique'          => '论文名称必须唯一',
+    'paper_type_required'        => '请填写论文类型',
+    'paper_sourcetitle_required' => '请填写论文来源标题',
+    'paper_yearpub_required'     => '请填写出版年份',
+    'paper_volume_required'      => '请填写论文卷号',
+    'paper_doi_required'         => '请填写论文DOI',
+    'updated_successfully'       => '论文更新成功',
+    'created_successfully'       => '论文创建成功',
+    'page_not_found'             => '页面未找到',
+    'whoops'                     => '哎呀!',
+    'input_problem'              => '您的输入存在问题',
+
+    // 操作成功提示
+    'created_successfully'        => '论文创建成功。',
+    'updated_successfully'        => '论文更新成功。',
+
+    // Blade 页面显示错误
+    'whoops'                      => '哎呀！',
+    'input_problem'               => '提交的信息有误，请检查输入。',
+
+    // 其他 (按钮/提示等)
+    'ok'                          => '确定',
+    'cancel'                      => '取消',
+
+    
+
 ];

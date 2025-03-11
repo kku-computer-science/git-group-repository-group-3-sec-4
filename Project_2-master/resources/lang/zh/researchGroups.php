@@ -33,4 +33,17 @@ return [
     'are_you_sure'   => '你确定吗？',
     'if_delete_gone' => '如果你删除了它，它将永远消失。',
     'delete_success' => '删除成功',
+
+    'input_problem'           => '您的输入存在一些问题。',
+    'group_name_th_required'  => '必须填写泰语组名。',
+    'group_name_en_required'  => '必须填写英文组名。',
+    'head_required'           => '必须指定组长。',
+    'created_successfully'    => '研究小组创建成功。',
+    'updated_successfully'    => '研究小组更新成功。',
+    'deleted_successfully'    => '研究小组删除成功。',
+
+    'ok_button'      => '確定',
+    'cancel_button'  => '取消',
+
+
 ];

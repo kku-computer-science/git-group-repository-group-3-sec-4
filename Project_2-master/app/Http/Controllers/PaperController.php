@@ -15,6 +15,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
+
 class PaperController extends Controller
 {
     /**
@@ -32,13 +33,12 @@ class PaperController extends Controller
         $papers = $user->paper()->get();
         return response()->json($papers);*/
         if (auth()->user()->hasRole('admin') or auth()->user()->hasRole('staff')) {
-            $papers = Paper::with('teacher', 'author')->orderBy('paper_yearpub', 'desc')-> get();
+            $papers = Paper::with('teacher', 'author')->orderBy('paper_yearpub', 'desc')->get();
         } else {
             $papers = Paper::with('teacher', 'author')->whereHas('teacher', function ($query) use ($id) {
                 $query->where('users.id', '=', $id);
-            })->orderBy('paper_yearpub', 'desc')-> get();
+            })->orderBy('paper_yearpub', 'desc')->get();
         }
-
         // $papers = Paper::with('teacher','author')->whereHas('teacher', function($query) use($id) {
         //     $query->where('users.id', '=', $id);
         //  })->paginate(10);
@@ -67,18 +67,28 @@ class PaperController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'paper_name' => 'required|unique:papers,paper_name',
-            'paper_type' => 'required',
-            'paper_sourcetitle' => 'required',
-            // 'paper_url' => 'required',
-            'paper_yearpub' => 'required',
-            'paper_volume' => 'required',
-            //'paper_issue' => 'required',
-            //'paper_citation' => 'required',
-            //'paper_page' => 'required',
-            'paper_doi' => 'required',
-        ]);
+        // เรียกใช้ __() เพื่อดึงข้อความจากไฟล์ภาษา papers.php
+        $this->validate(
+            $request,
+            [
+                'paper_name'        => 'required|unique:papers,paper_name',
+                'paper_type'        => 'required',
+                'paper_sourcetitle' => 'required',
+                'paper_yearpub'     => 'required',
+                'paper_volume'      => 'required',
+                'paper_doi'         => 'required',
+            ],
+            [
+                // custom message ที่อ้างอิง key จาก papers.php
+                'paper_name.required'        => __('papers.paper_name_required'),
+                'paper_name.unique'          => __('papers.paper_name_unique'),
+                'paper_type.required'        => __('papers.paper_type_required'),
+                'paper_sourcetitle.required' => __('papers.paper_sourcetitle_required'),
+                'paper_yearpub.required'     => __('papers.paper_yearpub_required'),
+                'paper_volume.required'      => __('papers.paper_volume_required'),
+                'paper_doi.required'         => __('papers.paper_doi_required'),
+            ]
+        );
         $input = $request->except(['_token']);
 
         $key = $input['keyword'];
@@ -86,7 +96,6 @@ class PaperController extends Controller
         //$result['$'] = $v;
         $myNewArray = [];
         foreach ($key as $val) {
-
             $a['$'] = $val;
             array_push($myNewArray, $a);
         }
@@ -155,13 +164,13 @@ class PaperController extends Controller
         }
 
         return redirect()->route('papers.index')
-            ->with('success', 'papers created successfully.');
+                     ->with('success', __('papers.created_successfully'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Paper  $paper
      * @return \Illuminate\Http\Response
      */
     public function show(Paper $paper)
@@ -181,7 +190,7 @@ class PaperController extends Controller
     public function edit($id)
     {
         try {
-            $id =  decrypt($id);
+            $id = decrypt($id);
             //return abort(404, "page not found");
             $paper = Paper::find($id);
             //$paper['keyword'] = json_decode($paper['keyword'],true);
@@ -197,9 +206,8 @@ class PaperController extends Controller
             $paperSource = $paper->source->pluck('source_name', 'source_name')->all();
             $users = User::role(['teacher', 'student'])->get();
             return view('papers.edit', compact('paper', 'users', 'paperSource', 'sources'));
-
-        } catch (DecryptException   $e) {
-            return abort(404, "page not found");
+        } catch (DecryptException $e) {
+            return abort(404, __('papers.page_not_found'));
         }
     }
 
@@ -207,22 +215,27 @@ class PaperController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Paper  $paper
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Paper $paper)
     {
         $this->validate($request, [
             //'paper_name' => 'required|unique:papers,paper_name',
-            'paper_type' => 'required',
+            'paper_type'        => 'required',
             'paper_sourcetitle' => 'required',
             // 'paper_url' => 'required',
             //'paper_yearpub' => 'required',
-            'paper_volume' => 'required',
-            'paper_issue' => 'required',
-            'paper_citation' => 'required',
-            'paper_page' => 'required',
+            'paper_volume'      => 'required',
+            'paper_issue'       => 'required',
+            'paper_citation'    => 'required',
+            'paper_page'        => 'required',
             // 'paper_doi' => 'required',
+        ], [
+            'paper_type.required'        => __('papers.paper_type_required'),
+            'paper_sourcetitle.required' => __('papers.paper_sourcetitle_required'),
+            'paper_volume.required'      => __('papers.paper_volume_required'),
+            // ... Additional keys can be added here...
         ]);
         $input = $request->except(['_token']);
         $key = $input['keyword'];
@@ -233,7 +246,7 @@ class PaperController extends Controller
             array_push($myNewArray, $a);
         }
         $input['keyword'] = $myNewArray;
-//return $input;
+        //return $input;
         $paper->update($input);
 
         $paper->author()->detach();
@@ -268,44 +281,26 @@ class PaperController extends Controller
 
         $paper->author()->detach();
         $x = 1;
-
-        if (isset($input['fname'][0]) and (!empty($input['fname'][0]))) {
-            // $length = count($request->input('fname'));
+        if (isset($input['fname'][0]) && !empty($input['fname'][0])) {
             foreach ($request->input('fname') as $key => $value) {
                 $data['fname'] = $input['fname'][$key];
                 $data['lname'] = $input['lname'][$key];
                 if (Author::where([['author_fname', '=', $data['fname']], ['author_lname', '=', $data['lname']]])->first() == null) {
-
                     $author = new Author;
                     $author->author_fname = $data['fname'];
                     $author->author_lname = $data['lname'];
                     $author->save();
-                    // if ($x === 1) {
-                    //     $paper->author()->attach($author, ['author_type' => 1]);
-                    // } else if ($x === $length) {
-                    //     $paper->author()->attach($author, ['author_type' => 3]);
-                    // } else {
-                    //     $paper->author()->attach($author, ['author_type' => 2]);
-                    // }
                     $paper->author()->attach($author, ['author_type' => $request->pos2[$key]]);
                 } else {
                     $author = Author::where([['author_fname', '=', $data['fname']], ['author_lname', '=', $data['lname']]])->first();
                     $authorid = $author->id;
-                    // if ($x === 1) {
-                    //     $paper->author()->attach($authorid, ['author_type' => 1]);
-                    // } else if ($x === $length) {
-                    //     $paper->author()->attach($authorid, ['author_type' => 3]);
-                    // } else {
-                    //     $paper->author()->attach($authorid, ['author_type' => 2]);
-                    // }
                     $paper->author()->attach($authorid, ['author_type' => $request->pos2[$key]]);
                 }
                 $x++;
             }
         }
         return redirect()->route('papers.index')
-            ->with('success', 'papers updated successfully');
-        //$paper->author()->detach();
+            ->with('success', __('papers.updated_successfully'));
     }
 
     /**
@@ -316,15 +311,13 @@ class PaperController extends Controller
      */
     public function destroy($id)
     {
-        
+        // Not implemented in this example.
     }
 
     public function export(Request $request)
     {
         //$export = new ExportPaper($this->getDataForExport());
-
         return Excel::download(new ExportUser, 'papers.xlsx');
         //return Excel::download(new ExportPaper, 'papers.xlsx');
-
     }
 }

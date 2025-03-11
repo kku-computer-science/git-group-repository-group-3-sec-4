@@ -124,4 +124,24 @@ return [
      'delete_success'  => '删除成功',
 
      "publications2" => "已發表作品",
+
+     // ส่วนข้อความ Error Validate
+    'ac_name_required' => '请填写书名',
+    'ac_year_required' => '请填写出版年份',
+
+    // ส่วน Whoops! There were some problems...
+    'whoops'        => '哎呀!',
+    'input_problem' => '您的输入有一些问题',
+
+    // ส่วนข้อความ success
+    'created_successfully' => '成功创建书籍',
+    'updated_successfully' => '成功更新书籍',
+    'deleted_successfully' => '成功删除书籍',
+
+    'ok' => '确定',
+    'cancel' => '取消',
+
+      // Buttons
+      'submit_button' => '提交',
+      'cancel_button' => '取消',
 ];

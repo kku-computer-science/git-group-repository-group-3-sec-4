@@ -113,11 +113,13 @@ return [
     'update' => '更新',
 
     'confirm_delete' => '您确定要删除吗？',
-    'delete_warning' => '此操作无法撤销！',
-    'delete_success' => '数据已成功删除！',
-    'delete_error' => '删除时发生错误！',
-    'cancel' => '取消',
-    'ok' => '确定',
+'delete_warning' => '此操作无法撤销！',
+'delete_success' => '数据删除成功！',
+'delete_error' => '删除时发生错误！',
+'cancel' => '取消',
+'ok' => '确定',
+
+
 
 
 

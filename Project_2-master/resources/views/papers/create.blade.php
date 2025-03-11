@@ -28,16 +28,16 @@
 </style>
 
 <div class="container">
-    @if ($errors->any())
+@if ($errors->any())
     <div class="alert alert-danger">
         <strong>{{ __('papers.whoops') }}</strong> {{ __('papers.input_problem') }}<br><br>
         <ul>
             @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+                <li>{{ $error }}</li>
             @endforeach
         </ul>
     </div>
-    @endif
+@endif
 
     <div class="col-md-10 grid-margin stretch-card">
         <div class="card" style="padding: 16px;">

@@ -73,4 +73,27 @@ return [
     'if_delete_gone'  => 'หากคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
     'delete_success'  => 'ลบสำเร็จ',
 
+    'delete_success' => 'ลบข้อมูลเรียบร้อยแล้ว!',
+    'whoops' => 'เกิดข้อผิดพลาด!',
+    'error_occurred' => 'มีปัญหาบางอย่างเกี่ยวกับข้อมูลที่คุณป้อน',
+    'cancel' => 'ยกเลิก',
+    'ok' => 'ตกลง',
+
+    'cannot_remove_first_row' => 'ไม่สามารถลบแถวแรกได้!',
+    'input_problem' => 'มีปัญหาบางอย่างกับข้อมูลของคุณ',
+    'must_enter_project_name' => 'ต้องใส่ข้อมูล ชื่อโครงการวิจัย',
+    'must_enter_budget' => 'ต้องใส่ข้อมูล งบประมาณ',
+    'must_enter_submission_year' => 'ต้องใส่ข้อมูล ปีที่ปีที่ยื่นขอ',
+    'must_enter_funding' => 'ต้องใส่ข้อมูล ทุนวิจัย',
+    'must_enter_responsible_person' => 'ต้องใส่ข้อมูล ผู้รับผิดชอบโครงการ',
+
+    'project_created_successfully' => 'สร้างโครงการวิจัยสำเร็จ',
+    'project_updated_successfully' => 'อัปเดตโครงการวิจัยสำเร็จ',
+    'project_deleted_successfully' => 'ลบโครงการวิจัยสำเร็จ',
+
+    //ปุ่ม//
+    'cancel' => 'ยกเลิก',
+'ok' => 'ตกลง',
+
+
 ];

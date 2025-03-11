@@ -18,14 +18,14 @@
 
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>{{ __('books.whoops') }}</strong> {{ __('books.input_problem') }}<br><br>
         <ul>
             @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+                <li>{{ $error }}</li>
             @endforeach
         </ul>
     </div>
-    @endif
+@endif
     <!-- <a class="btn btn-primary" href="{{ route('books.index') }}"> Back </a> -->
 
     <div class="col-md-8 grid-margin stretch-card">
