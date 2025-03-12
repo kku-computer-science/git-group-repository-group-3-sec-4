@@ -216,209 +216,209 @@ Verify Page Contains Multiple Texts
 
 *** Test Cases ***
 
-# Test Teacher Update User Profile
-#     Open Browser To Login Page
-#     Login As Teacher    chitsutha@kku.ac.th    123456789
-#     Go To User Profile    
-#     Click Element    ${ACCOUNT_TAB}
-#     Sleep    2s
-#     Click Element    ${ACCOUNT_TAB}  
-#     Sleep    2s
-#     Change Language    ${LANG_TO_ENGLISH}
-#     Click Element    ${ACCOUNT_TAB}
-#     Sleep    2s
-#     Click Element    ${ACCOUNT_TAB}  
-#     Sleep    2s
-#     Verify Page Contains Multiple Texts    @{EXPECTED_Account_EN}
-#     Execute JavaScript    window.scrollTo(0,1000)
-#     Sleep    2s
-#     Scroll Up
-#     Sleep    2s
-#     Logout
+Test Teacher Update User Profile
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789
+    Go To User Profile    
+    Click Element    ${ACCOUNT_TAB}
+    Sleep    2s
+    Click Element    ${ACCOUNT_TAB}  
+    Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH}
+    Click Element    ${ACCOUNT_TAB}
+    Sleep    2s
+    Click Element    ${ACCOUNT_TAB}  
+    Sleep    2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_Account_EN}
+    Execute JavaScript    window.scrollTo(0,1000)
+    Sleep    2s
+    Scroll Up
+    Sleep    2s
+    Logout
 
-# Test Teacher Add Expertise
-#     Open Browser To Login Page
-#     Login As Teacher    chitsutha@kku.ac.th    123456789
-#     Go To User Profile    
-#     Click Element    ${EXPERTISE_TAB} 
-#     Sleep    2s
-#     Click Element    ${EXPERTISE_TAB}   
-#     Sleep    2s
-#     Change Language    ${LANG_TO_ENGLISH}
-#     Click Element    ${EXPERTISE_TAB} 
-#     Sleep    2s
-#     Click Element    ${EXPERTISE_TAB}   
-#     Sleep    2s
-#     Execute JavaScript    window.scrollTo(0,1000)    
-#     Sleep    2s
-#     Scroll Up
-#     Sleep    2s
-#     Verify Page Contains Multiple Texts    @{EXPECTED_EXPECTED_EN}   
-#     Logout
+Test Teacher Add Expertise
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789
+    Go To User Profile    
+    Click Element    ${EXPERTISE_TAB} 
+    Sleep    2s
+    Click Element    ${EXPERTISE_TAB}   
+    Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH}
+    Click Element    ${EXPERTISE_TAB} 
+    Sleep    2s
+    Click Element    ${EXPERTISE_TAB}   
+    Sleep    2s
+    Execute JavaScript    window.scrollTo(0,1000)    
+    Sleep    2s
+    Scroll Up
+    Sleep    2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_EXPECTED_EN}   
+    Logout
 
-# Test Teacher Navigate to Password Tab
-#     Open Browser To Login Page
-#     Login As Teacher    chitsutha@kku.ac.th    123456789
-#     Go To User Profile    
-#     Click Element    ${PASSWORD_TAB} 
-#     Sleep    2s
-#     Click Element    ${PASSWORD_TAB}   
-#     Sleep    2s
-#     Change Language    ${LANG_TO_ENGLISH}
-#     Click Element    ${PASSWORD_TAB} 
-#     Sleep    2s
-#     Click Element    ${PASSWORD_TAB}   
-#     Sleep    2s
-#     Verify Page Contains Multiple Texts    @{EXPECTED_Password_EN} 
-#     Sleep    2s
-#     Logout
+Test Teacher Navigate to Password Tab
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789
+    Go To User Profile    
+    Click Element    ${PASSWORD_TAB} 
+    Sleep    2s
+    Click Element    ${PASSWORD_TAB}   
+    Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH}
+    Click Element    ${PASSWORD_TAB} 
+    Sleep    2s
+    Click Element    ${PASSWORD_TAB}   
+    Sleep    2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_Password_EN} 
+    Sleep    2s
+    Logout
 
-# Test Teacher Navigate to Education Tab
-#     Open Browser To Login Page
-#     Login As Teacher    chitsutha@kku.ac.th    123456789
-#     Go To User Profile    
-#     Click Element    ${EDUCATION_TAB} 
-#     Sleep    2s
-#     Click Element    ${EDUCATION_TAB}    
-#     Sleep    2s
-#     Change Language    ${LANG_TO_ENGLISH}
-#     Click Element    ${EDUCATION_TAB} 
-#     Sleep    2s
-#     Click Element    ${EDUCATION_TAB}    
-#     Sleep    2s
-#     Verify Page Contains Multiple Texts    @{EXPECTED_EDUCATION_EN}  
-#     Sleep    2s
-#     Logout
+Test Teacher Navigate to Education Tab
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789
+    Go To User Profile    
+    Click Element    ${EDUCATION_TAB} 
+    Sleep    2s
+    Click Element    ${EDUCATION_TAB}    
+    Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH}
+    Click Element    ${EDUCATION_TAB} 
+    Sleep    2s
+    Click Element    ${EDUCATION_TAB}    
+    Sleep    2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_EDUCATION_EN}  
+    Sleep    2s
+    Logout
 
 
-# Test Management Fund
-#     Open Browser To Login Page
-#     Login As Teacher    chitsutha@kku.ac.th    123456789
-#     Go To User Profile    
-#     Click Element    ${FUND_TAB} 
-#     Sleep    2s
-#     # Click Element    ${FUND_TAB}     
-#     # Sleep    2s
-#     Change Language    ${LANG_TO_ENGLISH}
-#     # Click Element    ${FUND_TAB}  
-#     # Sleep    2s
-#     # Click Element    ${FUND_TAB}    
-#     # Sleep    2s
-#     Verify Page Contains Multiple Texts    @{EXPECTED_FUND_EN}  
-#     Sleep    2s
-#     Logout
+Test Management Fund
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789
+    Go To User Profile    
+    Click Element    ${FUND_TAB} 
+    Sleep    2s
+    # Click Element    ${FUND_TAB}     
+    # Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH}
+    # Click Element    ${FUND_TAB}  
+    # Sleep    2s
+    # Click Element    ${FUND_TAB}    
+    # Sleep    2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_FUND_EN}  
+    Sleep    2s
+    Logout
 
-# Test Teacher Add Fund
-#     Open Browser To Login Page
-#     Login As Teacher    chitsutha@kku.ac.th    123456789
-#     Click Element    ${FUND_TAB}  
-#     Sleep    2s
-#     Change Language    ${LANG_TO_ENGLISH}
-#     Click Element    ${FUND_TAB}  
-#     Sleep    2s
-#     Click Element    ${FUND_ADD}
-#     Sleep    2s
-#     Verify Page Contains Multiple Texts    @{EXPECTED_FUND_ADD_EN}   
-#     Logout
+Test Teacher Add Fund
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789
+    Click Element    ${FUND_TAB}  
+    Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH}
+    Click Element    ${FUND_TAB}  
+    Sleep    2s
+    Click Element    ${FUND_ADD}
+    Sleep    2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_FUND_ADD_EN}   
+    Logout
 
-# Test Research Project
-#     Open Browser To Login Page
-#     Login As Teacher    chitsutha@kku.ac.th    123456789   
-#     Click Element    ${RESPRO_TAB}     
-#     Sleep    2s
-#     Change Language    ${LANG_TO_ENGLISH}
-#     Verify Page Contains Multiple Texts    @{EXPECTED_RESPRO_EN}  
-#     Sleep    2s
-#     Logout
+Test Research Project
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789   
+    Click Element    ${RESPRO_TAB}     
+    Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH}
+    Verify Page Contains Multiple Texts    @{EXPECTED_RESPRO_EN}  
+    Sleep    2s
+    Logout
 
-# Test Teacher Add ResearchProject
-#     Open Browser To Login Page
-#     Login As Teacher    chitsutha@kku.ac.th    123456789
-#     Click Element    ${RESPRO_TAB}  
-#     Sleep    2s
-#     Change Language    ${LANG_TO_ENGLISH}
-#     #Click Element     ${RESPRO_TAB}  
-#     Sleep    2s
-#     Click Element    ${RESPRO_ADD}
-#     Sleep    2s
-#     Execute JavaScript    window.scrollTo(0,1000)    
-#     Sleep    2s
-#     Scroll Up
-#     Sleep    2s
-#     Verify Page Contains Multiple Texts    @{EXPECTED_RESPRO_ADD_EN}   
-#     Logout
+Test Teacher Add ResearchProject
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789
+    Click Element    ${RESPRO_TAB}  
+    Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH}
+    #Click Element     ${RESPRO_TAB}  
+    Sleep    2s
+    Click Element    ${RESPRO_ADD}
+    Sleep    2s
+    Execute JavaScript    window.scrollTo(0,1000)    
+    Sleep    2s
+    Scroll Up
+    Sleep    2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_RESPRO_ADD_EN}   
+    Logout
 
-# Test Teacher View ResearchProject
-#     Open Browser To Login Page
-#     Login As Teacher    chitsutha@kku.ac.th    123456789
-#     Click Element    ${RESPRO_TAB}  
-#     Sleep    2s
-#     Change Language    ${LANG_TO_ENGLISH}
-#     #Click Element     ${RESPRO_TAB}  
-#     Sleep    2s
-#     Click Element    ${RESPRO_VIEW}
-#     Sleep    2s
-#     Execute JavaScript    window.scrollTo(0,1000)    
-#     Sleep    2s
-#     Scroll Up
-#     Sleep    2s
-#     Verify Page Contains Multiple Texts    @{EXPECTED_RESPRO_VIEW_EN} 
-#     Logout  
+Test Teacher View ResearchProject
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789
+    Click Element    ${RESPRO_TAB}  
+    Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH}
+    #Click Element     ${RESPRO_TAB}  
+    Sleep    2s
+    Click Element    ${RESPRO_VIEW}
+    Sleep    2s
+    Execute JavaScript    window.scrollTo(0,1000)    
+    Sleep    2s
+    Scroll Up
+    Sleep    2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_RESPRO_VIEW_EN} 
+    Logout  
 
-# Test Research Group
-#     Open Browser To Login Page
-#     Login As Teacher    chitsutha@kku.ac.th    123456789   
-#     Click Element    ${RESG_TAB}     
-#     Sleep    2s
-#     Change Language    ${LANG_TO_ENGLISH}
-#     Verify Page Contains Multiple Texts    @{EXPECTED_RESG_EN}  
-#     Sleep    2s
-#     Logout
+Test Research Group
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789   
+    Click Element    ${RESG_TAB}     
+    Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH}
+    Verify Page Contains Multiple Texts    @{EXPECTED_RESG_EN}  
+    Sleep    2s
+    Logout
 
-# Test Teacher Add Research Group
-#     Open Browser To Login Page
-#     Login As Teacher    chitsutha@kku.ac.th    123456789
-#     Click Element    ${RESG_TAB}  
-#     Sleep    2s
-#     Change Language    ${LANG_TO_ENGLISH}
-#     Sleep    2s
-#     Click Element    ${RESG_ADD}
-#     Sleep    2s
-#     Execute JavaScript    window.scrollTo(0,1000)    
-#     Sleep    2s
-#     Scroll Up
-#     Sleep    2s
-#     Verify Page Contains Multiple Texts    @{EXPECTED_RESG_ADD_EN}   
-#     Logout
+Test Teacher Add Research Group
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789
+    Click Element    ${RESG_TAB}  
+    Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
+    Click Element    ${RESG_ADD}
+    Sleep    2s
+    Execute JavaScript    window.scrollTo(0,1000)    
+    Sleep    2s
+    Scroll Up
+    Sleep    2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_RESG_ADD_EN}   
+    Logout
 
-# Test Teacher View Research Group
-#     Open Browser To Login Page
-#     Login As Teacher    chitsutha@kku.ac.th    123456789
-#     Click Element    ${RESG_TAB}  
-#     Sleep    2s
-#     Change Language    ${LANG_TO_ENGLISH} 
-#     Sleep    2s
-#     Click Element    ${RESG_VIEW}
-#     Sleep    2s
-#     Execute JavaScript    window.scrollTo(0,1000)    
-#     Sleep    2s
-#     Scroll Up
-#     Sleep    2s
-#     Verify Page Contains Multiple Texts   @{EXPECTED_RESG_VIEW_EN}
-#     Logout 
+Test Teacher View Research Group
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789
+    Click Element    ${RESG_TAB}  
+    Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH} 
+    Sleep    2s
+    Click Element    ${RESG_VIEW}
+    Sleep    2s
+    Execute JavaScript    window.scrollTo(0,1000)    
+    Sleep    2s
+    Scroll Up
+    Sleep    2s
+    Verify Page Contains Multiple Texts   @{EXPECTED_RESG_VIEW_EN}
+    Logout 
  
-# Test Manage Publications paper
-#     Open Browser To Login Page
-#     Login As Teacher    chitsutha@kku.ac.th    123456789   
+Test Manage Publications paper
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789   
     
-#     Change Language    ${LANG_TO_ENGLISH}
-#     Click Element    ${MAPU_TAB}     
-#     Sleep    2s
-#     Click Element    ${PAPER_TAB}
-#     Sleep    2s
-#     Verify Page Contains Multiple Texts    @{EXPECTED_MAPU_EN}
-#     Sleep    2s
-#     Logout
+    Change Language    ${LANG_TO_ENGLISH}
+    Click Element    ${MAPU_TAB}     
+    Sleep    2s
+    Click Element    ${PAPER_TAB}
+    Sleep    2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_MAPU_EN}
+    Sleep    2s
+    Logout
 
 Test Manage Publications book
     Open Browser To Login Page
