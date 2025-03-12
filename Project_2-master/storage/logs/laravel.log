@@ -11492,3 +11492,25 @@
 [2025-03-12 01:14:28] local.INFO: User Login:  (admin@gmail.com) from IP: 127.0.0.1  
 [2025-03-12 01:47:50] local.INFO: User Login:  (admin@gmail.com) from IP: 127.0.0.1  
 [2025-03-12 01:48:08] local.INFO: User Login:  (admin@gmail.com) from IP: 127.0.0.1  
+[2025-03-12 19:49:40] local.ERROR: There are no commands defined in the "generate" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"generate\" namespace. at C:\\Users\\tt_pe\\Documents\\GitHub\\Proj_SE\\git-group-repository-group-3-sec-4\\Project_2-master\\vendor\\symfony\\console\\Application.php:650)
+[stacktrace]
+#0 C:\\Users\\tt_pe\\Documents\\GitHub\\Proj_SE\\git-group-repository-group-3-sec-4\\Project_2-master\\vendor\\symfony\\console\\Application.php(701): Symfony\\Component\\Console\\Application->findNamespace('generate')
+#1 C:\\Users\\tt_pe\\Documents\\GitHub\\Proj_SE\\git-group-repository-group-3-sec-4\\Project_2-master\\vendor\\symfony\\console\\Application.php(259): Symfony\\Component\\Console\\Application->find('generate:key')
+#2 C:\\Users\\tt_pe\\Documents\\GitHub\\Proj_SE\\git-group-repository-group-3-sec-4\\Project_2-master\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\tt_pe\\Documents\\GitHub\\Proj_SE\\git-group-repository-group-3-sec-4\\Project_2-master\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(94): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\tt_pe\\Documents\\GitHub\\Proj_SE\\git-group-repository-group-3-sec-4\\Project_2-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 C:\\Users\\tt_pe\\Documents\\GitHub\\Proj_SE\\git-group-repository-group-3-sec-4\\Project_2-master\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 {main}
+"} 
+[2025-03-12 19:55:08] local.INFO: User Login:  (admin@gmail.com) from IP: 127.0.0.1  
+[2025-03-12 20:14:02] local.INFO: User Login:  (chitsutha@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-12 20:16:24] local.INFO: User Login:  (chitsutha@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-12 20:20:58] local.INFO: User Login:  (admin@gmail.com) from IP: 127.0.0.1  
+[2025-03-12 20:23:00] local.INFO: User Login:  (chitsutha@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-12 20:24:04] local.INFO: User Login:  (chitsutha@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-12 20:27:07] local.INFO: User Login:  (chitsutha@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-12 20:29:17] local.INFO: User Login:  (chitsutha@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-12 20:29:59] local.INFO: User Login:  (chitsutha@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-12 20:30:42] local.INFO: User Login:  (chitsutha@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-12 20:31:38] local.INFO: User Login:  (chitsutha@kku.ac.th) from IP: 127.0.0.1  
+[2025-03-12 20:32:12] local.INFO: User Login:  (chitsutha@kku.ac.th) from IP: 127.0.0.1  
