@@ -13,15 +13,31 @@
                 <p class="card-description">{{ __('roles.role_details') }}</p>
                 <div class="row">
                     <p class="card-text col-sm-3"><b>{{ __('roles.name') }} </b></p>
-                    <p class="card-text col-sm-9">{{ $role->name }}</p>
+                    <p class="card-text col-sm-9">
+                    @if(app()->getLocale() == 'zh')
+                            {{ $role->name_cn ?? $role->name }}
+                        @elseif(app()->getLocale() == 'th')
+                            {{ $role->name_th ?? $role->name }}
+                        @else
+                            {{ $role->name }}
+                        @endif
+                    </p>
                 </div>
                 <div class="row mt-3">
                     <p class="card-text col-sm-3"><b>{{ __('roles.permissions') }} </b></p>
                     @if(!empty($rolePermissions))
                     <p class="card-text col-sm-9" style="line-height: 1.85rem;">
-                        @foreach($rolePermissions as $permission)
-                            <label class="badge badge-success"> {{ $permission->name }} </label>
-                        @endforeach
+                    @foreach($rolePermissions as $permission)
+                        <label class="badge badge-success">
+                            @if(app()->getLocale() == 'zh')
+                                {{ $permission->name_cn ?? $permission->name_en }}
+                            @elseif(app()->getLocale() == 'th')
+                                {{ $permission->name_th ?? $permission->name_en }}
+                            @else
+                                {{ $permission->name_en }}
+                            @endif
+                        </label>
+                    @endforeach
                     </p>
                     @endif
                 </div>

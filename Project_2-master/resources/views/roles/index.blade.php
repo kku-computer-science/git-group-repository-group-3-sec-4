@@ -83,22 +83,25 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: "{{ trans('roles.are_you_sure') }}",
-                text: "{{ trans('roles.if_delete_gone') }}",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("{{ trans('roles.delete_success') }}", {
-                        icon: "success",
-                    }).then(function() {
-                        location.reload();
-                        form.submit();
-                    });
-                }
-            });
+            title: "{{ trans('roles.are_you_sure') }}",
+            text: "{{ trans('roles.if_delete_gone') }}",
+            icon: "warning",
+            buttons: {
+                cancel: "{{ trans('roles.cancel_button') }}",   // ปุ่มยกเลิก
+                confirm: "{{ trans('roles.ok_button') }}"       // ปุ่มตกลง
+            },
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("{{ trans('roles.delete_success') }}", {
+                    icon: "success",
+                }).then(function() {
+                    location.reload();
+                    form.submit();
+                });
+            }
+        });
     });
 </script>
 @endsection

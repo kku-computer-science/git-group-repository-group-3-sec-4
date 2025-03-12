@@ -51,9 +51,25 @@
                     <tr id="expert_id_{{ $expert->id }}">
                         <td>{{ $i+1 }}</td>
                         @if(Auth::user()->hasRole('admin'))
-                        <td>{{ $expert->user->fname_en }} {{ $expert->user->lname_en }}</td>
+                        <td>
+                            @if(app()->getLocale() == 'zh')
+                                {{ $expert->user->fname_cn ?? $expert->user->fname_en }} {{ $expert->user->lname_cn ?? $expert->user->lname_en }}
+                            @elseif(app()->getLocale() == 'th')
+                                {{ $expert->user->fname_th ?? $expert->user->fname_en }} {{ $expert->user->lname_th ?? $expert->user->lname_en }}
+                            @else
+                                {{ $expert->user->fname_en }} {{ $expert->user->lname_en }}
+                            @endif
+                        </td>
                         @endif
-                        <td>{{ $expert->expert_name }}</td>
+                        <td>
+                            @if(app()->getLocale() == 'zh')
+                                {{ $expert->expert_name_cn ?? $expert->expert_name }}
+                            @elseif(app()->getLocale() == 'th')
+                                {{ $expert->expert_name_th ?? $expert->expert_name }}
+                            @else
+                                {{ $expert->expert_name }}
+                            @endif
+                        </td>
 
                         <td>
                             <form action="{{ route('experts.destroy',$expert->id) }}" method="POST">
@@ -182,11 +198,15 @@
             var token = $("meta[name='csrf-token']").attr("content");
             e.preventDefault();
 
+            // เปลี่ยนการกำหนดปุ่มใน sweetalert เพื่อแปลปุ่ม OK/Cancel
             swal({
                 title: "{{ trans('manageExpertise.are_you_sure') }}",
                 text: "{{ trans('manageExpertise.cant_recover') }}",
-                type: "warning",
-                buttons: true,
+                icon: "warning", // เปลี่ยน type -> icon เพื่อให้ใช้งานรูปแบบใหม่
+                buttons: {
+                    cancel: "{{ trans('manageExpertise.cancel_button') }}",  // ปุ่มยกเลิก
+                    confirm: "{{ trans('manageExpertise.ok_button') }}"       // ปุ่มตกลง
+                },
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
@@ -210,9 +230,7 @@
                             }
                         });
                     });
-
                 }
-
             });
         });
     });

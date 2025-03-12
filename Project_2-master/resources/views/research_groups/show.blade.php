@@ -15,7 +15,7 @@
                 <p class="card-text col-sm-9">{{ $researchGroup->group_name_en }}</p>
             </div>
             <div class="row mt-2">
-                <p class="card-text col-sm-3"><b>{{ __('researchGroups.group_desc_th') }}</b></p>
+                <p class="card-text col-sm-3"><b>{{ __(key: 'researchGroups.group_desc_th') }}</b></p>
                 <p class="card-text col-sm-9">{{ $researchGroup->group_desc_th }}</p>
             </div>
             <div class="row mt-2">
@@ -30,23 +30,47 @@
                 <p class="card-text col-sm-3"><b>{{ __('researchGroups.group_detail_en') }}</b></p>
                 <p class="card-text col-sm-9">{{ $researchGroup->group_detail_en }}</p>
             </div>
+            <!-- Group Head -->
             <div class="row mt-3">
                 <p class="card-text col-sm-3"><b>{{ __('researchGroups.group_head') }}</b></p>
                 <p class="card-text col-sm-9">
                     @foreach($researchGroup->user as $user)
-                    @if ( $user->pivot->role == 1)
-                    {{$user->position_th}} {{ $user->fname_th}} {{ $user->lname_th}}
-                    @endif
+                        @if ($user->pivot->role == 1)
+                            @if(app()->getLocale() == 'zh')
+                                {{ $user->position_zh ?? $user->position_en ?? $user->position_th }}
+                                {{ $user->fname_zh ?? $user->fname_en ?? $user->fname_th }}
+                                {{ $user->lname_zh ?? $user->lname_en ?? $user->lname_th }}
+                            @elseif(app()->getLocale() == 'en')
+                                {{ $user->position_en ?? $user->position_th }}
+                                {{ $user->fname_en ?? $user->fname_th }}
+                                {{ $user->lname_en ?? $user->lname_th }}
+                            @else
+                                {{ $user->position_th }} {{ $user->fname_th }} {{ $user->lname_th }}
+                            @endif
+                        @endif
                     @endforeach
                 </p>
             </div>
+
+            <!-- Group Members -->
             <div class="row mt-1">
                 <p class="card-text col-sm-3"><b>{{ __('researchGroups.group_members') }}</b></p>
                 <p class="card-text col-sm-9">
                     @foreach($researchGroup->user as $user)
-                    @if ( $user->pivot->role == 2)
-                    {{$user->position_th}} {{ $user->fname_th}} {{ $user->lname_th}},
-                    @endif
+                        @if ($user->pivot->role == 2)
+                            @if(app()->getLocale() == 'zh')
+                                {{ $user->position_zh ?? $user->position_en ?? $user->position_th }}
+                                {{ $user->fname_zh ?? $user->fname_en ?? $user->fname_th }}
+                                {{ $user->lname_zh ?? $user->lname_en ?? $user->lname_th }}
+                            @elseif(app()->getLocale() == 'en')
+                                {{ $user->position_en ?? $user->position_th }}
+                                {{ $user->fname_en ?? $user->fname_th }}
+                                {{ $user->lname_en ?? $user->lname_th }}
+                            @else
+                                {{ $user->position_th }} {{ $user->fname_th }} {{ $user->lname_th }}
+                            @endif
+                            @if (!$loop->last), @endif
+                        @endif
                     @endforeach
                 </p>
             </div>

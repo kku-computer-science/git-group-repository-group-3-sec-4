@@ -121,7 +121,15 @@
                         <tr>
                             <td>{{ $key++ }}</td>
                             <td>{{ $user->fname_en }} {{ $user->lname_en }}</td>
-                            <td>{{ Str::limit($user->program->program_name_en,20) }}</td>
+                            <td>
+                                @if(app()->getLocale() == 'zh')
+                                    {{ Str::limit($user->program->programs_name_cn ?? $user->program->program_name_en, 20) }}
+                                @elseif(app()->getLocale() == 'en')
+                                    {{ Str::limit($user->program->program_name_en, 20) }}
+                                @else
+                                    {{ Str::limit($user->program->program_name_th ?? $user->program->program_name_en, 20) }}
+                                @endif
+                            </td>
                             <td>{{ $user->email }}</td>
                             <td>
                                 @if(!empty($user->getRoleNames()))
@@ -206,22 +214,25 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: "{{ trans('users.are_you_sure') }}",
-                text: "{{ trans('users.if_delete_gone') }}",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("{{ trans('users.delete_success') }}", {
-                        icon: "success",
-                    }).then(function() {
-                        location.reload();
-                        form.submit();
-                    });
-                }
-            });
+            title: "{{ trans('users.are_you_sure') }}",
+            text: "{{ trans('users.if_delete_gone') }}",
+            icon: "warning",
+            buttons: {
+                cancel: "{{ trans('users.cancel_button') }}",   // ปุ่มยกเลิก
+                confirm: "{{ trans('users.ok_button') }}"       // ปุ่มตกลง
+            },
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("{{ trans('users.delete_success') }}", {
+                    icon: "success",
+                }).then(function() {
+                    location.reload();
+                    form.submit();
+                });
+            }
+        });
     });
 </script>
 @endsection

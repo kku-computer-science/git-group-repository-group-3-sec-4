@@ -32,4 +32,16 @@ return [
       'are_you_sure'   => 'คุณแน่ใจหรือไม่?',
       'if_delete_gone' => 'หากคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
       'delete_success' => 'ลบสำเร็จ',
+
+      //เพิ่ม
+      'name_required'       => 'ต้องระบุชื่อบทบาท',
+    'name_unique'         => 'ชื่อบทบาทนี้มีอยู่แล้ว',
+    'permission_required' => 'ต้องระบุการอนุญาต',
+    
+    'role_created_successfully' => 'สร้างบทบาทสำเร็จ',
+    'role_updated_successfully' => 'อัปเดตบทบาทสำเร็จ',
+    'role_deleted_successfully' => 'ลบบทบาทสำเร็จ',
+
+    'ok_button'      => 'ตกลง',
+    'cancel_button'  => 'ยกเลิก',
 ];

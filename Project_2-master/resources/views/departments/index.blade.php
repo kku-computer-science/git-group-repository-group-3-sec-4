@@ -28,7 +28,15 @@
                         @foreach ($data as $key => $department)
                         <tr>
                             <td>{{ $department->id }}</td>
-                            <td>{{ $department->department_name_th }}</td>
+                            <<td>
+                                @if(app()->getLocale() == 'zh')
+                                    {{ $department->department_name_cn ?? $department->department_name_en }}
+                                @elseif(app()->getLocale() == 'th')
+                                    {{ $department->department_name_th ?? $department->department_name_en }}
+                                @else
+                                    {{ $department->department_name_en }}
+                                @endif
+                            </td>
                             <td>
                                 <form action="{{ route('departments.destroy', $department->id) }}" method="POST">
                                     <li class="list-inline-item">
@@ -80,13 +88,28 @@
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var form = $(this).closest("form");
-        var name = $(this).data("name");
         event.preventDefault();
+
         swal({
                 title: "{{ trans('department.are_you_sure') }}",
                 text: "{{ trans('department.if_delete_gone') }}",
                 icon: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: {
+                        text: "{{ trans('department.cancel_button') }}",
+                        value: null,
+                        visible: true,
+                        className: "",
+                        closeModal: true,
+                    },
+                    confirm: {
+                        text: "{{ trans('department.ok_button') }}",
+                        value: true,
+                        visible: true,
+                        className: "btn-danger",
+                        closeModal: true
+                    }
+                },
                 dangerMode: true,
             })
             .then((willDelete) => {
@@ -94,7 +117,7 @@
                     swal({
                         title: "{{ trans('department.delete_successfully') }}",
                         icon: "success",
-                        confirmButtonText: "{{ trans('department.ok_button') }}"
+                        button: "{{ trans('department.ok_button') }}"
                     }).then(function() {
                         location.reload();
                         form.submit();

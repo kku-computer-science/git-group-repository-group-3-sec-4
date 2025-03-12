@@ -31,7 +31,15 @@
                         @foreach ($data as $key => $permission)
                         <tr>
                             <td>{{ $permission->id }}</td>
-                            <td>{{ $permission->name }}</td>
+                            <td>
+                                @if(app()->getLocale() == 'zh')
+                                    {{ $permission->name_cn ?? $permission->name }}
+                                @elseif(app()->getLocale() == 'th')
+                                    {{ $permission->name_th ?? $permission->name }}
+                                @else
+                                    {{ $permission->name }}
+                                @endif
+                            </td>
                             <td>
                                 <form action="{{ route('permissions.destroy', $permission->id) }}" method="POST">
                                     <li class="list-inline-item">
@@ -112,22 +120,25 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: "{{ trans('permissions.are_you_sure') }}",
-                text: "{{ trans('permissions.if_delete_gone') }}",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("{{ trans('permissions.delete_successfully') }}", {
-                        icon: "success",
-                    }).then(function() {
-                        location.reload();
-                        form.submit();
-                    });
-                }
-            });
+            title: "{{ trans('permissions.are_you_sure') }}",
+            text: "{{ trans('permissions.if_delete_gone') }}",
+            icon: "warning",
+            buttons: {
+                cancel: "{{ trans('permissions.cancel_button') }}",   // ปุ่มยกเลิก
+                confirm: "{{ trans('permissions.ok_button') }}"       // ปุ่มตกลง
+            },
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("{{ trans('permissions.delete_successfully') }}", {
+                    icon: "success",
+                }).then(function() {
+                    location.reload();
+                    form.submit();
+                });
+            }
+        });
     });
 </script>
 @endsection

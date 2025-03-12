@@ -75,4 +75,29 @@ return [
      'select_cat_error'    => '请选择系别',
      'select_subcat_error' => '请选择专业',
 
+     //
+     'fname_en_required' => '必须提供英文名',
+    'lname_en_required' => '必须提供英文姓',
+    'fname_th_required' => '必须提供泰文名字',
+    'lname_th_required' => '必须提供泰文姓',
+    'email_required'    => '必须提供电子邮件',
+    'email_email'       => '电子邮件格式无效',
+    'email_unique'      => '电子邮件已被占用',
+    'password_required' => '必须提供密码',
+    'password_confirmed'=> '密码确认不匹配',
+    'roles_required'    => '至少需要一个角色',
+    'sub_cat_required'  => '必须选择课程',
+    'user_created_successfully' => '用户创建成功',
+    'user_updated_successfully' => '用户更新成功',
+    'user_deleted_successfully' => '用户删除成功',
+    'upload_picture_failed'     => '上传新图片失败，出现错误',
+    'update_picture_failed'     => '更新数据库中的图片失败，出现错误',
+    'profile_picture_updated_successfully' => '您的个人资料图片更新成功',
+
+    'are_you_sure'  => '你确定吗？',
+    'if_delete_gone' => '如果您删除它，将无法恢复。',
+    'delete_success' => '删除成功！',
+    'ok_button'      => '确定',
+    'cancel_button'  => '取消', 
+
 ];

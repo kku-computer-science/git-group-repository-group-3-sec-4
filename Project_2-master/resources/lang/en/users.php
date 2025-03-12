@@ -75,6 +75,32 @@ return [
     'select_cat_error'    => 'Please select a department',
     'select_subcat_error' => 'Please select a program',
 
+    //แปลeeror //
+    'fname_en_required' => 'The English first name is required.',
+    'lname_en_required' => 'The English last name is required.',
+    'fname_th_required' => 'The Thai first name is required.',
+    'lname_th_required' => 'The Thai last name is required.',
+    'email_required'    => 'Email is required.',
+    'email_email'       => 'Email must be a valid email address.',
+    'email_unique'      => 'Email has already been taken.',
+    'password_required' => 'Password is required.',
+    'password_confirmed'=> 'Password confirmation does not match.',
+    'roles_required'    => 'At least one role is required.',
+    'sub_cat_required'  => 'Program selection is required.',
+    'user_created_successfully' => 'User created successfully.',
+    'user_updated_successfully' => 'User updated successfully.',
+    'user_deleted_successfully' => 'User deleted successfully.',
+    'upload_picture_failed'     => 'Something went wrong, upload new picture failed.',
+    'update_picture_failed'     => 'Something went wrong, updating picture in db failed.',
+    'profile_picture_updated_successfully' => 'Your profile picture has been updated successfully',
+
+    //ปุ่ม ok
+    'are_you_sure'  => 'Are you sure?',
+    'if_delete_gone' => 'If you delete this, it will be gone forever.',
+    'delete_success' => 'Deleted successfully!',
+    'ok_button'      => 'OK',
+    'cancel_button'  => 'Cancel',
+
 
    
 ];

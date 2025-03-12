@@ -18,7 +18,13 @@
             <div class="card-body">
                 <div class="lead">
                     <strong>{{ __('permissions.name') }}:</strong>
-                    {{ $permission->name }}
+                    @if(app()->getLocale() == 'zh')
+                                {{ $permission->name_cn ?? $permission->name }}
+                            @elseif(app()->getLocale() == 'th')
+                                {{ $permission->name_th ?? $permission->name }}
+                            @else
+                                {{ $permission->name }}
+                            @endif
                 </div>
             </div>
         </div>

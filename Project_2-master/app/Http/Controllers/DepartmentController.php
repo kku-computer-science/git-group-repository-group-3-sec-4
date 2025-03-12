@@ -49,16 +49,21 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
+        // เพิ่มข้อความแปล (validate)
         $this->validate($request, [
             'department_name_th' => 'required',
             'department_name_th' => 'required',
+        ], [
+            'department_name_th.required' => __('department.department_name_th_required'),
         ]);
+
         $input = $request->except(['_token']);
     
         Department::create($input);
     
+        // เปลี่ยนข้อความ success เป็นฟังก์ชันแปล
         return redirect()->route('departments.index')
-            ->with('success','departments created successfully.');
+            ->with('success', __('department.department_created_successfully'));
     }
 
     /**
@@ -94,9 +99,13 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, Department $department)
     {
+        // *หมายเหตุ* โค้ดเดิมไม่มี validate ใน update 
+        // หากต้องการเพิ่มการ validate ก็ทำได้เช่นกัน
         $department->update($request->all());
+
+        // เปลี่ยนข้อความ success เป็นฟังก์ชันแปล
         return redirect()->route('departments.index')
-                        ->with('success','Department updated successfully');
+                        ->with('success', __('department.department_updated_successfully'));
     }
 
     /**
@@ -108,7 +117,9 @@ class DepartmentController extends Controller
     public function destroy(Department $department)
     {
         $department->delete();
+
+        // เปลี่ยนข้อความ success เป็นฟังก์ชันแปล
         return redirect()->route('departments.index')
-                        ->with('success','Department delete successfully');
+                        ->with('success', __('department.department_deleted_successfully'));
     }
 }

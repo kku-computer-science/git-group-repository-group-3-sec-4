@@ -52,12 +52,17 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
+        // เพิ่ม Custom Messages เพื่อรองรับการแปลจาก manageProgram.php
         $r = $request->validate([
             'program_name_th' => 'required',
             'program_name_en' => 'required',
-            'degree' => 'required',
-            'department' => 'required',
-
+            'degree'          => 'required',
+            'department'      => 'required',
+        ], [
+            'program_name_th.required' => __('manageProgram.program_name_th_required'),
+            'program_name_en.required' => __('manageProgram.program_name_en_required'),
+            'degree.required'          => __('manageProgram.degree_required'),
+            'department.required'      => __('manageProgram.department_required'),
         ]);
 
         $proId = $request->pro_id;
@@ -82,7 +87,6 @@ class ProgramController extends Controller
             // $pro2 = $pro2->department()->save($department);
             // $pro2 = $pro2->degree()->save($degree);
 
-
             //$pro2->degree()->associate($degree)->save();
             //$pro2->department()->associate($department)->save();
             //return $pro;
@@ -93,19 +97,21 @@ class ProgramController extends Controller
             $pro = $pro->degree()->associate($degree);
             $pro = $pro->department()->associate($department);
             $pro->save();
-            $pro::updateOrCreate(['id' => $proId], ['program_name_en' => $request->program_name_en, 'program_name_th' => $request->program_name_th]);
-        
-            
+            $pro::updateOrCreate(['id' => $proId], [
+                'program_name_en' => $request->program_name_en,
+                'program_name_th' => $request->program_name_th
+            ]);
         }
-        
+
         //$pro->save();
         //$pro2::updateOrCreate(['id' => $proId], ['program_name_en' => $request->program_name_en, 'program_name_th' => $request->program_name_th]);
-        
 
+        // เปลี่ยนข้อความ success เป็นฟังก์ชันแปล
         if (empty($request->pro_id))
-            $msg = 'Program entry created successfully.';
+            $msg = __('manageProgram.program_created_successfully');
         else
-            $msg = 'Program data is updated successfully';
+            $msg = __('manageProgram.program_updated_successfully');
+
         return redirect()->route('programs.index')->with('success', $msg);
     }
 
@@ -142,6 +148,7 @@ class ProgramController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // ไม่มีการใช้งานในตัวอย่างนี้
     }
 
     /**

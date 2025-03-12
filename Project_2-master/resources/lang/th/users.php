@@ -74,4 +74,29 @@ return [
 
     'select_cat_error'    => 'กรุณาเลือกภาควิชา',
     'select_subcat_error' => 'กรุณาเลือกสาขา',
+
+    //
+    'fname_en_required' => 'ต้องระบุชื่อภาษาอังกฤษ',
+    'lname_en_required' => 'ต้องระบุนามสกุลภาษาอังกฤษ',
+    'fname_th_required' => 'ต้องระบุชื่อภาษาไทย',
+    'lname_th_required' => 'ต้องระบุนามสกุลภาษาไทย',
+    'email_required'    => 'ต้องระบุอีเมล์',
+    'email_email'       => 'อีเมล์ต้องอยู่ในรูปแบบที่ถูกต้อง',
+    'email_unique'      => 'อีเมล์นี้ถูกใช้ไปแล้ว',
+    'password_required' => 'ต้องระบุรหัสผ่าน',
+    'password_confirmed'=> 'ยืนยันรหัสผ่านไม่ตรงกัน',
+    'roles_required'    => 'ต้องเลือกอย่างน้อยหนึ่งบทบาท',
+    'sub_cat_required'  => 'ต้องเลือกโปรแกรม',
+    'user_created_successfully' => 'สร้างผู้ใช้สำเร็จ',
+    'user_updated_successfully' => 'อัปเดตผู้ใช้สำเร็จ',
+    'user_deleted_successfully' => 'ลบผู้ใช้สำเร็จ',
+    'upload_picture_failed'     => 'มีบางอย่างผิดพลาด การอัปโหลดรูปใหม่ล้มเหลว',
+    'update_picture_failed'     => 'มีบางอย่างผิดพลาด การอัปเดตรูปในฐานข้อมูลล้มเหลว',
+    'profile_picture_updated_successfully' => 'รูปโปรไฟล์ของคุณถูกอัปเดตเรียบร้อยแล้ว',
+
+    'are_you_sure'  => 'คุณแน่ใจหรือไม่?',
+    'if_delete_gone' => 'หากคุณลบสิ่งนี้ มันจะหายไปตลอดกาล',
+    'delete_success' => 'ลบสำเร็จ!',
+    'ok_button'      => 'ตกลง',
+    'cancel_button'  => 'ยกเลิก',
 ];

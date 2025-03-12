@@ -24,5 +24,17 @@ return [
     'are_you_sure'       => 'Are you sure?',
     'if_delete_gone'     => 'If you delete this, it will be gone forever.',
     'delete_successfully'=> 'Delete Successfully',
-    'ok_button'          => 'OK',
+    
+    // Validation
+    'department_name_th_required'       => 'The department name (TH) is required.',
+
+    // Success Messages
+    'department_created_successfully'   => 'Department created successfully.',
+    'department_updated_successfully'   => 'Department updated successfully.',
+    'department_deleted_successfully'   => 'Department deleted successfully.',
+
+    'cancel_button'        => 'Cancel',
+    'ok_button'            => 'OK',
+
+
 ];

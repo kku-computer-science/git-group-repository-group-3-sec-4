@@ -47,43 +47,50 @@ class ExpertiseController extends Controller
      */
     public function store(Request $request)
     {
+        // เพิ่ม Custom Messages เพื่อรองรับการแปลจาก manageExpertise.php
         $r = $request->validate([
             'expert_name' => 'required',
-
+        ], [
+            'expert_name.required' => __('manageExpertise.expert_name_required'),
         ]);
+
         $exp = Expertise::find($request->exp_id);
         //return $exp;
         $exp_id = $request->exp_id;
         //dd($custId);
+
         if (auth()->user()->hasRole('admin')) {
+            // กรณีเป็นแอดมิน ให้ update ข้อมูลได้ตรงๆ
             $exp->update($request->all());
         } else {
+            // กรณีเป็น user ทั่วไป จะใช้วิธี updateOrCreate ผ่านความสัมพันธ์
             $user = User::find(Auth::user()->id);
-            $user->expertise()->updateOrCreate(['id' => $exp_id], ['expert_name' => $request->expert_name]);
+            $user->expertise()->updateOrCreate(
+                ['id' => $exp_id],
+                ['expert_name' => $request->expert_name]
+            );
         }
 
-        if (empty($request->exp_id))
-            $msg = 'Expertise entry created successfully.';
-        else
-            $msg = 'Expertise data is updated successfully';
+        // แก้ไขข้อความ success ให้เรียกใช้ฟังก์ชันแปล
+        if (empty($request->exp_id)) {
+            $msg = __('manageExpertise.expertise_created_successfully');
+        } else {
+            $msg = __('manageExpertise.expertise_updated_successfully');
+        }
 
         if (auth()->user()->hasRole('admin')) {
             return redirect()->route('experts.index')->with('success', $msg);
         } else {
-            //return response()->json(['status'=>1,'msg'=>'Your expertise info has been update successfuly.']);
-            //return redirect()->back() ->with('alert', 'Updated!');
+            // กรณี user ทั่วไป จะไม่ redirect ไปหน้า index
             return back()->withInput(['tab' => 'expertise']);
-            //return response()->json(['status'=>1,'msg'=>'Your expertise info has been update successfuly.']);
         }
-
-        //return redirect()->route('experts.index')->with('success',$msg);
     }
 
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Expertise  $expertise
      * @return \Illuminate\Http\Response
      */
     public function show(Expertise $expertise)
@@ -129,7 +136,11 @@ class ExpertiseController extends Controller
     {
         //dd($id);
         $exp = Expertise::where('id', $id)->delete();
-        $msg = 'Expertise entry created successfully.';
+
+        // เดิมเป็น "Expertise entry created successfully." ซึ่งผิดบริบท
+        // แก้เป็นข้อความ "deleted successfully" และเรียกฟังก์ชันแปล
+        $msg = __('manageExpertise.expertise_deleted_successfully');
+
         if (auth()->user()->hasRole('admin')) {
             return redirect()->route('experts.index')->with('success', $msg);
         } else {
