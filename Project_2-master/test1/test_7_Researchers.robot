@@ -6,7 +6,7 @@ Test Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}           Chrome
-${HOME_URL}          http://127.0.0.1:8000/
+${HOME_URL}          https://csweb0367.cpkkuhost.com/
 ${WAIT_TIME}         3s
 
 # Locators for menu and dropdown

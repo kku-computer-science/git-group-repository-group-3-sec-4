@@ -6,8 +6,8 @@ Test Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}       Chrome
-${HOME_URL}      http://127.0.0.1:8000/
-${REPORT_URL}    http://127.0.0.1:8000/reports
+${HOME_URL}      https://csweb0367.cpkkuhost.com/
+${REPORT_URL}    https://csweb0367.cpkkuhost.com/reports
 ${WAIT_TIME}     5s
 
 # ✅ Locators สำหรับ Dropdown และตัวเลือกภาษา

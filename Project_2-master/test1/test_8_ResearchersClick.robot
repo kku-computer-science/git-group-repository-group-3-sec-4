@@ -6,7 +6,7 @@ Test Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}       Chrome
-${URL}           http://127.0.0.1:8000/researchers/1
+${URL}           https://csweb0367.cpkkuhost.com/researchers/1
 ${WAIT_TIME}     5s
 
 # ✅ Locators สำหรับ Dropdown และตัวเลือกภาษา

@@ -10,8 +10,8 @@ Library  OperatingSystem
 
 *** Variables ***
 ${BROWSER}       Chrome
-#${URL}           https://csweb0367.cpkkuhost.com/
-${URL}           http://localhost:8000
+${URL}           https://csweb0367.cpkkuhost.com/
+#${URL}           http://localhost:8000
 ${WAIT_TIME}     5s
 
 # ✅ อัปเดต XPath ตาม HTML ที่ให้มา
