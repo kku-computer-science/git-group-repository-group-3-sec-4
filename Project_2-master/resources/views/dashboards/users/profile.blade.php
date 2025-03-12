@@ -347,7 +347,15 @@
                     </tr>
                     @foreach (Auth::user()->expertise as $expert)
                     <tr id="expert_id_{{ $expert->id }}">
-                        <td>{{ $expert->expert_name }}</td>
+                        <td>
+                            @if(app()->getLocale() == 'zh' && !empty($expert->expert_name_cn))
+                                {{ $expert->expert_name_cn }}
+                            @elseif(app()->getLocale() == 'th' && !empty($expert->expert_name_th))
+                                {{ $expert->expert_name_th }}
+                            @else
+                                {{ $expert->expert_name }}
+                            @endif
+                        </td>
                         <td width="180px">
                             <form action="{{ route('experts.destroy',$expert->id) }}" method="POST">
                                 <!-- ปุ่ม Edit -->
