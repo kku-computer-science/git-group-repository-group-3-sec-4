@@ -1,420 +1,531 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2025-03-12T04:32:10.899740" rpa="false" schemaversion="5">
-<suite id="s1" name="Testdashboard" source="D:\GitHub\git-group-repository-group-3-sec-4\Project_2-master\test1\testdashboard.robot">
-<test id="s1-t1" name="Test Dashboard Load Successfully" line="52">
-<kw name="Open Browser To Dashboard">
+<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2025-03-12T05:14:49.947236" rpa="false" schemaversion="5">
+<suite id="s1" name="Test1 Das" source="D:\GitHub\git-group-repository-group-3-sec-4\Project_2-master\test1\test1_das.robot">
+<test id="s1-t1" name="Test Admin Dashboard Load" line="82">
+<kw name="Login As Admin">
+<kw name="Open Browser To Login Page">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:32:11.330876" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000'.</msg>
+<msg time="2025-03-12T05:14:50.216613" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
 <arg>${LOGIN_URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-12T04:32:11.330876" elapsed="8.583233"/>
+<status status="PASS" start="2025-03-12T05:14:50.216613" elapsed="1.962640"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-12T04:32:19.914109" elapsed="0.056114"/>
+<status status="PASS" start="2025-03-12T05:14:52.179253" elapsed="0.030245"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:32:30.211267" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-63.png"&gt;&lt;img src="selenium-screenshot-63.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-03-12T04:32:30.211267" level="FAIL">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T05:14:52.211895" elapsed="0.015596"/>
+</kw>
+<status status="PASS" start="2025-03-12T05:14:50.216613" elapsed="2.010878"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:14:52.227491" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@id='username']'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${ADMIN_USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:14:52.227491" elapsed="0.078279"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:14:52.306778" level="INFO">Typing text '12345678' into text field 'xpath=//input[@id='password']'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${ADMIN_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:14:52.306778" elapsed="0.084256"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:14:52.391034" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Log In')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:14:52.391034" elapsed="1.521745"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:04.053281" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-78.png"&gt;&lt;img src="selenium-screenshot-78.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-03-12T05:15:04.053281" level="FAIL">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</msg>
 <arg>${DASHBOARD_HEADER}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-03-12T04:32:19.970223" elapsed="10.304948">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:14:53.912779" elapsed="10.140502">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </kw>
-<status status="FAIL" start="2025-03-12T04:32:11.330876" elapsed="18.954166">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:14:50.216613" elapsed="13.836668">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${DASHBOARD_HEADER}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-03-12T04:32:30.285042" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-03-12T05:15:04.053281" elapsed="0.000000"/>
 </kw>
 <kw name="Logout">
-<status status="NOT RUN" start="2025-03-12T04:32:30.285042" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-03-12T05:15:04.053281" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-12T04:32:30.285042" elapsed="2.564556"/>
+<status status="PASS" start="2025-03-12T05:15:04.053281" elapsed="2.294801"/>
 </kw>
-<status status="FAIL" start="2025-03-12T04:32:11.330876" elapsed="21.518722">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:14:50.216613" elapsed="16.131469">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </test>
-<test id="s1-t2" name="Test Change Language To English" line="57">
-<kw name="Open Browser To Dashboard">
+<test id="s1-t2" name="Test Admin Manage Users" line="87">
+<kw name="Login As Admin">
+<kw name="Open Browser To Login Page">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:32:32.849598" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000'.</msg>
+<msg time="2025-03-12T05:15:06.351664" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
 <arg>${LOGIN_URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-12T04:32:32.849598" elapsed="11.761215"/>
+<status status="PASS" start="2025-03-12T05:15:06.348082" elapsed="1.949764"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-12T04:32:44.610813" elapsed="0.075148"/>
+<status status="PASS" start="2025-03-12T05:15:08.297846" elapsed="0.037967"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:32:55.099269" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-64.png"&gt;&lt;img src="selenium-screenshot-64.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-03-12T04:32:55.099269" level="FAIL">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T05:15:08.335813" elapsed="0.029768"/>
+</kw>
+<status status="PASS" start="2025-03-12T05:15:06.348082" elapsed="2.017499"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:08.365581" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@id='username']'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${ADMIN_USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:15:08.365581" elapsed="0.084147"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:08.449728" level="INFO">Typing text '12345678' into text field 'xpath=//input[@id='password']'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${ADMIN_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:15:08.449728" elapsed="0.064368"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:08.514096" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Log In')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:15:08.514096" elapsed="2.052810"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:20.735010" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-79.png"&gt;&lt;img src="selenium-screenshot-79.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-03-12T05:15:20.735010" level="FAIL">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</msg>
 <arg>${DASHBOARD_HEADER}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-03-12T04:32:44.685961" elapsed="10.607472">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:15:10.568160" elapsed="10.166850">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </kw>
-<status status="FAIL" start="2025-03-12T04:32:32.849598" elapsed="22.443835">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
-</kw>
-<kw name="Change Language To English">
-<status status="NOT RUN" start="2025-03-12T04:32:55.295474" elapsed="0.000000"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-03-12T04:32:55.298431" elapsed="0.000998"/>
-</kw>
-<kw name="Logout">
-<status status="NOT RUN" start="2025-03-12T04:32:55.300698" elapsed="0.000000"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-12T04:32:55.301707" elapsed="36.389664"/>
-</kw>
-<status status="FAIL" start="2025-03-12T04:32:32.849598" elapsed="58.841773">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
-</test>
-<test id="s1-t3" name="Test Change Language To Chinese" line="63">
-<kw name="Open Browser To Dashboard">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:33:31.693516" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000'.</msg>
-<arg>${LOGIN_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-12T04:33:31.693176" elapsed="3.835820"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-12T04:33:35.528996" elapsed="0.070505"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:33:45.971549" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-65.png"&gt;&lt;img src="selenium-screenshot-65.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-03-12T04:33:45.971549" level="FAIL">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</msg>
-<arg>${DASHBOARD_HEADER}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-03-12T04:33:35.599501" elapsed="10.372048">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
-</kw>
-<status status="FAIL" start="2025-03-12T04:33:31.693176" elapsed="14.278373">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
-</kw>
-<kw name="Change Language To Chinese">
-<status status="NOT RUN" start="2025-03-12T04:33:45.971549" elapsed="0.000000"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-03-12T04:33:45.971549" elapsed="0.000000"/>
-</kw>
-<kw name="Logout">
-<status status="NOT RUN" start="2025-03-12T04:33:45.971549" elapsed="0.000000"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-12T04:33:45.971549" elapsed="2.195086"/>
-</kw>
-<status status="FAIL" start="2025-03-12T04:33:31.692443" elapsed="16.474192">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
-</test>
-<test id="s1-t4" name="Test Navigate To Profile" line="69">
-<kw name="Open Browser To Dashboard">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:33:48.166635" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000'.</msg>
-<arg>${LOGIN_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-12T04:33:48.166635" elapsed="3.790109"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-12T04:33:51.956744" elapsed="0.040631"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:34:02.359685" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-66.png"&gt;&lt;img src="selenium-screenshot-66.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-03-12T04:34:02.359685" level="FAIL">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</msg>
-<arg>${DASHBOARD_HEADER}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-03-12T04:33:51.997375" elapsed="10.362310">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
-</kw>
-<status status="FAIL" start="2025-03-12T04:33:48.166635" elapsed="14.193050">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:15:06.348082" elapsed="14.386928">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </kw>
 <kw name="Go To Menu">
-<arg>${PROFILE_MENU}</arg>
-<status status="NOT RUN" start="2025-03-12T04:34:02.359685" elapsed="0.000000"/>
+<arg>${ADMIN_MANAGE_USERS}</arg>
+<status status="NOT RUN" start="2025-03-12T05:15:20.739733" elapsed="0.000000"/>
 </kw>
 <kw name="Logout">
-<status status="NOT RUN" start="2025-03-12T04:34:02.359685" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-03-12T05:15:20.739733" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-12T04:34:02.372876" elapsed="2.209645"/>
+<status status="PASS" start="2025-03-12T05:15:20.739733" elapsed="2.267412"/>
 </kw>
-<status status="FAIL" start="2025-03-12T04:33:48.166635" elapsed="16.415886">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:15:06.348082" elapsed="16.659063">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </test>
-<test id="s1-t5" name="Test Navigate To Fund Management" line="74">
-<kw name="Open Browser To Dashboard">
+<test id="s1-t3" name="Test Admin Manage Roles" line="92">
+<kw name="Login As Admin">
+<kw name="Open Browser To Login Page">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:34:04.582521" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000'.</msg>
+<msg time="2025-03-12T05:15:23.007145" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
 <arg>${LOGIN_URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-12T04:34:04.582521" elapsed="2.909476"/>
+<status status="PASS" start="2025-03-12T05:15:23.007145" elapsed="1.982296"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-12T04:34:07.491997" elapsed="0.052320"/>
+<status status="PASS" start="2025-03-12T05:15:24.989441" elapsed="0.027977"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:34:17.919658" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-67.png"&gt;&lt;img src="selenium-screenshot-67.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-03-12T04:34:17.919658" level="FAIL">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T05:15:25.017418" elapsed="0.023737"/>
+</kw>
+<status status="PASS" start="2025-03-12T05:15:23.007145" elapsed="2.034010"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:25.041155" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@id='username']'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${ADMIN_USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:15:25.041155" elapsed="0.081868"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:25.123023" level="INFO">Typing text '12345678' into text field 'xpath=//input[@id='password']'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${ADMIN_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:15:25.123023" elapsed="0.060131"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:25.183154" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Log In')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:15:25.183154" elapsed="1.955195"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:37.257782" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-80.png"&gt;&lt;img src="selenium-screenshot-80.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-03-12T05:15:37.257782" level="FAIL">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</msg>
 <arg>${DASHBOARD_HEADER}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-03-12T04:34:07.545318" elapsed="10.374340">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:15:27.138349" elapsed="10.119433">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </kw>
-<status status="FAIL" start="2025-03-12T04:34:04.582521" elapsed="13.337137">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:15:23.007145" elapsed="14.250637">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </kw>
 <kw name="Go To Menu">
-<arg>${FUND_MANAGEMENT}</arg>
-<status status="NOT RUN" start="2025-03-12T04:34:17.920658" elapsed="0.000000"/>
+<arg>${ADMIN_MANAGE_ROLES}</arg>
+<status status="NOT RUN" start="2025-03-12T05:15:37.257782" elapsed="0.000000"/>
 </kw>
 <kw name="Logout">
-<status status="NOT RUN" start="2025-03-12T04:34:17.920658" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-03-12T05:15:37.257782" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-12T04:34:17.922317" elapsed="2.199787"/>
+<status status="PASS" start="2025-03-12T05:15:37.257782" elapsed="2.342541"/>
 </kw>
-<status status="FAIL" start="2025-03-12T04:34:04.582521" elapsed="15.539583">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:15:23.007145" elapsed="16.593178">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </test>
-<test id="s1-t6" name="Test Navigate To Research Projects" line="79">
-<kw name="Open Browser To Dashboard">
+<test id="s1-t4" name="Test Admin Manage Permissions" line="97">
+<kw name="Login As Admin">
+<kw name="Open Browser To Login Page">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:34:20.122104" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000'.</msg>
+<msg time="2025-03-12T05:15:39.600323" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
 <arg>${LOGIN_URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-12T04:34:20.122104" elapsed="2.969366"/>
+<status status="PASS" start="2025-03-12T05:15:39.600323" elapsed="1.935803"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-12T04:34:23.091470" elapsed="0.042491"/>
+<status status="PASS" start="2025-03-12T05:15:41.548434" elapsed="0.040204"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:34:33.557113" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-68.png"&gt;&lt;img src="selenium-screenshot-68.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-03-12T04:34:33.557113" level="FAIL">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T05:15:41.588638" elapsed="0.020784"/>
+</kw>
+<status status="PASS" start="2025-03-12T05:15:39.600323" elapsed="2.009099"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:41.609422" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@id='username']'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${ADMIN_USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:15:41.609422" elapsed="0.085056"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:41.694478" level="INFO">Typing text '12345678' into text field 'xpath=//input[@id='password']'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${ADMIN_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:15:41.694478" elapsed="0.070617"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:41.765095" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Log In')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:15:41.765095" elapsed="1.908890"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:53.972334" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-81.png"&gt;&lt;img src="selenium-screenshot-81.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-03-12T05:15:53.972334" level="FAIL">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</msg>
 <arg>${DASHBOARD_HEADER}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-03-12T04:34:23.133961" elapsed="10.423152">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:15:43.673985" elapsed="10.298349">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </kw>
-<status status="FAIL" start="2025-03-12T04:34:20.122104" elapsed="13.435009">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:15:39.600323" elapsed="14.372011">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </kw>
 <kw name="Go To Menu">
-<arg>${RESEARCH_PROJECTS}</arg>
-<status status="NOT RUN" start="2025-03-12T04:34:33.558118" elapsed="0.000000"/>
+<arg>${ADMIN_MANAGE_PERMISSIONS}</arg>
+<status status="NOT RUN" start="2025-03-12T05:15:53.974349" elapsed="0.000000"/>
 </kw>
 <kw name="Logout">
-<status status="NOT RUN" start="2025-03-12T04:34:33.558118" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-03-12T05:15:53.974349" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-12T04:34:33.558873" elapsed="2.200254"/>
+<status status="PASS" start="2025-03-12T05:15:53.974349" elapsed="2.299855"/>
 </kw>
-<status status="FAIL" start="2025-03-12T04:34:20.122104" elapsed="15.638324">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:15:39.600323" elapsed="16.673881">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </test>
-<test id="s1-t7" name="Test Navigate To Research Groups" line="84">
-<kw name="Open Browser To Dashboard">
+<test id="s1-t5" name="Test Admin Manage Departments" line="102">
+<kw name="Login As Admin">
+<kw name="Open Browser To Login Page">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:34:35.763528" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000'.</msg>
+<msg time="2025-03-12T05:15:56.274204" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
 <arg>${LOGIN_URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-12T04:34:35.762521" elapsed="2.598062"/>
+<status status="PASS" start="2025-03-12T05:15:56.274204" elapsed="1.997623"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-12T04:34:38.362596" elapsed="0.057416"/>
+<status status="PASS" start="2025-03-12T05:15:58.271827" elapsed="0.023608"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:34:48.854167" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-69.png"&gt;&lt;img src="selenium-screenshot-69.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-03-12T04:34:48.854167" level="FAIL">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T05:15:58.295435" elapsed="0.029680"/>
+</kw>
+<status status="PASS" start="2025-03-12T05:15:56.274204" elapsed="2.050911"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:58.326218" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@id='username']'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${ADMIN_USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:15:58.325115" elapsed="0.083503"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:58.408618" level="INFO">Typing text '12345678' into text field 'xpath=//input[@id='password']'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${ADMIN_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:15:58.408618" elapsed="0.070705"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:15:58.480520" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Log In')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:15:58.479323" elapsed="1.964591"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:10.712749" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-82.png"&gt;&lt;img src="selenium-screenshot-82.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-03-12T05:16:10.712749" level="FAIL">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</msg>
 <arg>${DASHBOARD_HEADER}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-03-12T04:34:38.420012" elapsed="10.435156">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:16:00.443914" elapsed="10.275172">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </kw>
-<status status="FAIL" start="2025-03-12T04:34:35.762521" elapsed="13.092647">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:15:56.274204" elapsed="14.444882">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </kw>
 <kw name="Go To Menu">
-<arg>${RESEARCH_GROUPS}</arg>
-<status status="NOT RUN" start="2025-03-12T04:34:48.855168" elapsed="0.000000"/>
+<arg>${ADMIN_MANAGE_DEPARTMENTS}</arg>
+<status status="NOT RUN" start="2025-03-12T05:16:10.719086" elapsed="0.000000"/>
 </kw>
 <kw name="Logout">
-<status status="NOT RUN" start="2025-03-12T04:34:48.856174" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-03-12T05:16:10.719086" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-12T04:34:48.856174" elapsed="2.274050"/>
+<status status="PASS" start="2025-03-12T05:16:10.719086" elapsed="2.256812"/>
 </kw>
-<status status="FAIL" start="2025-03-12T04:34:35.761485" elapsed="15.369729">Element 'xpath=//h1[contains(text(), 'ระบบการจัดการสารสนเทศการวิจัย')]' not visible after 10 seconds.</status>
+<status status="FAIL" start="2025-03-12T05:15:56.274204" elapsed="16.701694">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </test>
-<test id="s1-t8" name="Test Navigate To Manage Publications" line="89">
-<kw name="Open Browser To Dashboard">
+<test id="s1-t6" name="Test Teacher Dashboard Load" line="108">
+<kw name="Login As Teacher">
+<kw name="Open Browser To Login Page">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:34:51.131934" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000'.</msg>
+<msg time="2025-03-12T05:16:12.978226" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
 <arg>${LOGIN_URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-12T04:34:51.131934" elapsed="2.208506"/>
+<status status="PASS" start="2025-03-12T05:16:12.978226" elapsed="2.034225"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-12T04:34:53.340440" elapsed="0.540133"/>
+<status status="PASS" start="2025-03-12T05:16:15.012451" elapsed="0.033520"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-03-12T04:34:55.448992" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=133.0.6943.143)
-Stacktrace:
-	GetHandleVerifier [0x00007FF7BC8C6F15+28773]
-	(No symbol) [0x00007FF7BC832600]
-	(No symbol) [0x00007FF7BC6C8FAA]
-	(No symbol) [0x00007FF7BC6A1573]
-	(No symbol) [0x00007FF7BC74EE3E]
-	(No symbol) [0x00007FF7BC76EFE2]
-	(No symbol) [0x00007FF7BC747023]
-	(No symbol) [0x00007FF7BC70FF5E]
-	(No symbol) [0x00007FF7BC7111E3]
-	GetHandleVerifier [0x00007FF7BCC1425D+3490733]
-	GetHandleVerifier [0x00007FF7BCC2BA43+3586963]
-	GetHandleVerifier [0x00007FF7BCC2147D+3544525]
-	GetHandleVerifier [0x00007FF7BC98C9DA+838442]
-	(No symbol) [0x00007FF7BC83D04F]
-	(No symbol) [0x00007FF7BC839614]
-	(No symbol) [0x00007FF7BC8397B6]
-	(No symbol) [0x00007FF7BC828CE9]
-	BaseThreadInitThunk [0x00007FFF9C52E8D7+23]
-	RtlUserThreadStart [0x00007FFF9E75BF2C+44]
-</msg>
-<msg time="2025-03-12T04:34:55.451989" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=133.0.6943.143)
-Stacktrace:
-	GetHandleVerifier [0x00007FF7BC8C6F15+28773]
-	(No symbol) [0x00007FF7BC832600]
-	(No symbol) [0x00007FF7BC6C8FAA]
-	(No symbol) [0x00007FF7BC6A1573]
-	(No symbol) [0x00007FF7BC74EE3E]
-	(No symbol) [0x00007FF7BC76EFE2]
-	(No symbol) [0x00007FF7BC747023]
-	(No symbol) [0x00007FF7BC70FF5E]
-	(No symbol) [0x00007FF7BC7111E3]
-	GetHandleVerifier [0x00007FF7BCC1425D+3490733]
-	GetHandleVerifier [0x00007FF7BCC2BA43+3586963]
-	GetHandleVerifier [0x00007FF7BCC2147D+3544525]
-	GetHandleVerifier [0x00007FF7BC98C9DA+838442]
-	(No symbol) [0x00007FF7BC83D04F]
-	(No symbol) [0x00007FF7BC839614]
-	(No symbol) [0x00007FF7BC8397B6]
-	(No symbol) [0x00007FF7BC828CE9]
-	BaseThreadInitThunk [0x00007FFF9C52E8D7+23]
-	RtlUserThreadStart [0x00007FFF9E75BF2C+44]
-</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T05:16:15.045971" elapsed="0.022162"/>
+</kw>
+<status status="PASS" start="2025-03-12T05:16:12.978226" elapsed="2.089907"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:15.068133" level="INFO">Typing text 'chakso@kku.ac.th' into text field 'xpath=//input[@id='username']'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${TEACHER_USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:16:15.068133" elapsed="0.099310"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:15.168987" level="INFO">Typing text '123456789' into text field 'xpath=//input[@id='password']'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${TEACHER_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:16:15.167443" elapsed="0.082155"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:15.249598" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Log In')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:16:15.249598" elapsed="1.852127"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:27.302433" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-83.png"&gt;&lt;img src="selenium-screenshot-83.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-03-12T05:16:27.302433" level="FAIL">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</msg>
 <arg>${DASHBOARD_HEADER}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-03-12T04:34:53.880573" elapsed="1.657813">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=133.0.6943.143)
-Stacktrace:
-	GetHandleVerifier [0x00007FF7BC8C6F15+28773]
-	(No symbol) [0x00007FF7BC832600]
-	(No symbol) [0x00007FF7BC6C8FAA]
-	(No symbol) [0x00007FF7BC6A1573]
-	(No symbol) [0x00007FF7BC74EE3E]
-	(No symbol) [0x00007FF7BC76EFE2]
-	(No symbol) [0x00007FF7BC747023]
-	(No symbol) [0x00007FF7BC70FF5E]
-	(No symbol) [0x00007FF7BC7111E3]
-	GetHandleVerifier [0x00007FF7BCC1425D+3490733]
-	GetHandleVerifier [0x00007FF7BCC2BA43+3586963]
-	GetHandleVerifier [0x00007FF7BCC2147D+3544525]
-	GetHandleVerifier [0x00007FF7BC98C9DA+838442]
-	(No symbol) [0x00007FF7BC83D04F]
-	(No symbol) [0x00007FF7BC839614]
-	(No symbol) [0x00007FF7BC8397B6]
-	(No symbol) [0x00007FF7BC828CE9]
-	BaseThreadInitThunk [0x00007FFF9C52E8D7+23]
-	RtlUserThreadStart [0x00007FFF9E75BF2C+44]
-</status>
+<status status="FAIL" start="2025-03-12T05:16:17.101725" elapsed="10.216310">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </kw>
-<status status="FAIL" start="2025-03-12T04:34:51.131934" elapsed="4.406452">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=133.0.6943.143)
-Stacktrace:
-	GetHandleVerifier [0x00007FF7BC8C6F15+28773]
-	(No symbol) [0x00007FF7BC832600]
-	(No symbol) [0x00007FF7BC6C8FAA]
-	(No symbol) [0x00007FF7BC6A1573]
-	(No symbol) [0x00007FF7BC74EE3E]
-	(No symbol) [0x00007FF7BC76EFE2]
-	(No symbol) [0x00007FF7BC747023]
-	(No symbol) [0x00007FF7BC70FF5E]
-	(No symbol) [0x00007FF7BC7111E3]
-	GetHandleVerifier [0x00007FF7BCC1425D+3490733]
-	GetHandleVerifier [0x00007FF7BCC2BA43+3586963]
-	GetHandleVerifier [0x00007FF7BCC2147D+3544525]
-	GetHandleVerifier [0x00007FF7BC98C9DA+838442]
-	(No symbol) [0x00007FF7BC83D04F]
-	(No symbol) [0x00007FF7BC839614]
-	(No symbol) [0x00007FF7BC8397B6]
-	(No symbol) [0x00007FF7BC828CE9]
-	BaseThreadInitThunk [0x00007FFF9C52E8D7+23]
-	RtlUserThreadStart [0x00007FFF9E75BF2C+44]
-</status>
+<status status="FAIL" start="2025-03-12T05:16:12.978226" elapsed="14.339809">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </kw>
-<kw name="Go To Menu">
-<arg>${MANAGE_PUBLICATIONS}</arg>
-<status status="NOT RUN" start="2025-03-12T04:34:55.539371" elapsed="0.000000"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DASHBOARD_HEADER}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-03-12T05:16:27.318035" elapsed="0.000000"/>
 </kw>
 <kw name="Logout">
-<status status="NOT RUN" start="2025-03-12T04:34:55.539371" elapsed="0.000951"/>
+<status status="NOT RUN" start="2025-03-12T05:16:27.318035" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-12T04:34:55.540322" elapsed="2.053821"/>
+<status status="PASS" start="2025-03-12T05:16:27.318035" elapsed="2.296906"/>
 </kw>
-<status status="FAIL" start="2025-03-12T04:34:51.131934" elapsed="6.462209">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=133.0.6943.143)
-Stacktrace:
-	GetHandleVerifier [0x00007FF7BC8C6F15+28773]
-	(No symbol) [0x00007FF7BC832600]
-	(No symbol) [0x00007FF7BC6C8FAA]
-	(No symbol) [0x00007FF7BC6A1573]
-	(No symbol) [0x00007FF7BC74EE3E]
-	(No symbol) [0x00007FF7BC76EFE2]
-	(No symbol) [0x00007FF7BC747023]
-	(No symbol) [0x00007FF7BC70FF5E]
-	(No symbol) [0x00007FF7BC7111E3]
-	GetHandleVerifier [0x00007FF7BCC1425D+3490733]
-	GetHandleVerifier [0x00007FF7BCC2BA43+3586963]
-	GetHandleVerifier [0x00007FF7BCC2147D+3544525]
-	GetHandleVerifier [0x00007FF7BC98C9DA+838442]
-	(No symbol) [0x00007FF7BC83D04F]
-	(No symbol) [0x00007FF7BC839614]
-	(No symbol) [0x00007FF7BC8397B6]
-	(No symbol) [0x00007FF7BC828CE9]
-	BaseThreadInitThunk [0x00007FFF9C52E8D7+23]
-	RtlUserThreadStart [0x00007FFF9E75BF2C+44]
-</status>
+<status status="FAIL" start="2025-03-12T05:16:12.975898" elapsed="16.639043">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
 </test>
-<status status="FAIL" start="2025-03-12T04:32:10.900526" elapsed="166.699719"/>
+<test id="s1-t7" name="Test Teacher Manage Courses" line="113">
+<kw name="Login As Teacher">
+<kw name="Open Browser To Login Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:29.622528" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-12T05:16:29.614941" elapsed="2.033882"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-12T05:16:31.648823" elapsed="0.045097"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T05:16:31.693920" elapsed="0.025566"/>
+</kw>
+<status status="PASS" start="2025-03-12T05:16:29.614941" elapsed="2.104545"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:31.721536" level="INFO">Typing text 'chakso@kku.ac.th' into text field 'xpath=//input[@id='username']'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${TEACHER_USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:16:31.721536" elapsed="0.078344"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:31.801009" level="INFO">Typing text '123456789' into text field 'xpath=//input[@id='password']'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${TEACHER_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:16:31.799880" elapsed="0.073284"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:31.881670" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Log In')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:16:31.873164" elapsed="1.803865"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:43.963678" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-84.png"&gt;&lt;img src="selenium-screenshot-84.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-03-12T05:16:43.963678" level="FAIL">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</msg>
+<arg>${DASHBOARD_HEADER}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-03-12T05:16:33.677029" elapsed="10.286649">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2025-03-12T05:16:29.614941" elapsed="14.348737">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
+</kw>
+<kw name="Go To Menu">
+<arg>${TEACHER_MANAGE_COURSES}</arg>
+<status status="NOT RUN" start="2025-03-12T05:16:43.963678" elapsed="0.000000"/>
+</kw>
+<kw name="Logout">
+<status status="NOT RUN" start="2025-03-12T05:16:43.971806" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-12T05:16:43.971806" elapsed="2.325376"/>
+</kw>
+<status status="FAIL" start="2025-03-12T05:16:29.614941" elapsed="16.683459">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t8" name="Test Teacher Manage Students" line="118">
+<kw name="Login As Teacher">
+<kw name="Open Browser To Login Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:46.298400" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-12T05:16:46.298400" elapsed="2.007953"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-12T05:16:48.316321" elapsed="0.043589"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T05:16:48.359910" elapsed="0.012126"/>
+</kw>
+<status status="PASS" start="2025-03-12T05:16:46.298400" elapsed="2.073636"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:48.372036" level="INFO">Typing text 'chakso@kku.ac.th' into text field 'xpath=//input[@id='username']'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${TEACHER_USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:16:48.372036" elapsed="0.109029"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:48.481065" level="INFO">Typing text '123456789' into text field 'xpath=//input[@id='password']'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${TEACHER_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:16:48.481065" elapsed="0.082771"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:16:48.563836" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Log In')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T05:16:48.563836" elapsed="1.901058"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-03-12T05:17:00.648435" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-85.png"&gt;&lt;img src="selenium-screenshot-85.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-03-12T05:17:00.648435" level="FAIL">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</msg>
+<arg>${DASHBOARD_HEADER}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-03-12T05:16:50.464894" elapsed="10.183541">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2025-03-12T05:16:46.298400" elapsed="14.350035">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
+</kw>
+<kw name="Go To Menu">
+<arg>${TEACHER_MANAGE_STUDENTS}</arg>
+<status status="NOT RUN" start="2025-03-12T05:17:00.656944" elapsed="0.000000"/>
+</kw>
+<kw name="Logout">
+<status status="NOT RUN" start="2025-03-12T05:17:00.656944" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-12T05:17:00.656944" elapsed="2.341725"/>
+</kw>
+<status status="FAIL" start="2025-03-12T05:16:46.298400" elapsed="16.700269">Element 'xpath=//h1[contains(text(), "ระบบการจัดการสารสนเทศการวิจัย")]' not visible after 10 seconds.</status>
+</test>
+<status status="FAIL" start="2025-03-12T05:14:49.949763" elapsed="133.048906"/>
 </suite>
 <statistics>
 <total>
@@ -423,33 +534,12 @@ Stacktrace:
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="8" skip="0" id="s1" name="Testdashboard">Testdashboard</stat>
+<stat pass="0" fail="8" skip="0" id="s1" name="Test1 Das">Test1 Das</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-03-12T04:34:55.448992" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=133.0.6943.143)
-Stacktrace:
-	GetHandleVerifier [0x00007FF7BC8C6F15+28773]
-	(No symbol) [0x00007FF7BC832600]
-	(No symbol) [0x00007FF7BC6C8FAA]
-	(No symbol) [0x00007FF7BC6A1573]
-	(No symbol) [0x00007FF7BC74EE3E]
-	(No symbol) [0x00007FF7BC76EFE2]
-	(No symbol) [0x00007FF7BC747023]
-	(No symbol) [0x00007FF7BC70FF5E]
-	(No symbol) [0x00007FF7BC7111E3]
-	GetHandleVerifier [0x00007FF7BCC1425D+3490733]
-	GetHandleVerifier [0x00007FF7BCC2BA43+3586963]
-	GetHandleVerifier [0x00007FF7BCC2147D+3544525]
-	GetHandleVerifier [0x00007FF7BC98C9DA+838442]
-	(No symbol) [0x00007FF7BC83D04F]
-	(No symbol) [0x00007FF7BC839614]
-	(No symbol) [0x00007FF7BC8397B6]
-	(No symbol) [0x00007FF7BC828CE9]
-	BaseThreadInitThunk [0x00007FFF9C52E8D7+23]
-	RtlUserThreadStart [0x00007FFF9E75BF2C+44]
-</msg>
+<msg time="2025-03-12T05:14:49.949763" level="ERROR">Error in file 'D:\GitHub\git-group-repository-group-3-sec-4\Project_2-master\test1\test1_das.robot' on line 28: Setting variable '${ADMIN_MANAGE_PERMISSIONS} xpath=//span[contains(text(), "สิทธิ์การใช้งาน")]' failed: Invalid variable name '${ADMIN_MANAGE_PERMISSIONS} xpath=//span[contains(text(), "สิทธิ์การใช้งาน")]'.</msg>
+<msg time="2025-03-12T05:14:49.949763" level="ERROR">Error in file 'D:\GitHub\git-group-repository-group-3-sec-4\Project_2-master\test1\test1_das.robot' on line 29: Setting variable '${ADMIN_MANAGE_DEPARTMENTS} xpath=//span[contains(text(), "แผนก")]' failed: Invalid variable name '${ADMIN_MANAGE_DEPARTMENTS} xpath=//span[contains(text(), "แผนก")]'.</msg>
+<msg time="2025-03-12T05:14:49.949763" level="ERROR">Error in file 'D:\GitHub\git-group-repository-group-3-sec-4\Project_2-master\test1\test1_das.robot' on line 33: Setting variable '${TEACHER_MANAGE_STUDENTS} xpath=//span[contains(text(), "จัดการนักศึกษา")]' failed: Invalid variable name '${TEACHER_MANAGE_STUDENTS} xpath=//span[contains(text(), "จัดการนักศึกษา")]'.</msg>
 </errors>
 </robot>
