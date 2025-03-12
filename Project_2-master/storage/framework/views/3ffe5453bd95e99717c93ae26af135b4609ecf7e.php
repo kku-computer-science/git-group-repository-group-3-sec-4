@@ -1,0 +1,60 @@
+
+<style>
+    .name {
+        font-size: 20px;
+    }
+</style>
+<?php $__env->startSection('content'); ?>
+<div class="container card-4 mt-5">
+    <div class="card">
+        <?php $__currentLoopData = $resgd; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div class="row g-0">
+            <div class="col-md-4">
+                <div class="card-body">
+                    <img src="<?php echo e(asset('img/'.$rg->group_image)); ?>" alt="...">
+                    <h1 class="card-text-1"><?php echo e(trans('books.laboratory_supervisor')); ?></h1>
+                    
+                    <h2 class="card-text-2">
+                        <?php $__currentLoopData = $rg->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $r): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($r->hasRole('teacher')): ?>
+                        <?php if(app()->getLocale() == 'en' && $r->academic_ranks_en == 'Lecturer' && $r->doctoral_degree == 'Ph.D.'): ?>
+                             <?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?>, Ph.D.
+                        <?php elseif(app()->getLocale() == 'en' && $r->academic_ranks_en == 'Lecturer'): ?>
+                            <?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?>
+
+                        <?php elseif(app()->getLocale() == 'en' && $r->doctoral_degree == 'Ph.D.'): ?>
+                            <?php echo e(str_replace('Dr.', ' ', $r->{'position_'.app()->getLocale()})); ?> <?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?>, Ph.D.
+                        <?php else: ?>                            
+                            <?php echo e($r->{'position_'.app()->getLocale()}); ?> <?php echo e($r->{'fname_'.app()->getLocale()}); ?> <?php echo e($r->{'lname_'.app()->getLocale()}); ?>
+
+                        <?php endif; ?>
+                        <br>
+                        <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </h2>
+
+                    <h1 class="card-text-1"><?php echo e(trans('books.student')); ?></h1>
+                    <h2 class="card-text-2">
+                        <?php $__currentLoopData = $rg->user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($user->hasRole('student')): ?>
+                        <?php echo e($user->{'position_'.app()->getLocale()}); ?> <?php echo e($user->{'fname_'.app()->getLocale()}); ?> <?php echo e($user->{'lname_'.app()->getLocale()}); ?>
+
+                        <br>
+                        <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </h2>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo e($rg->{'group_name_'.app()->getLocale()}); ?></h5>
+                    <h3 class="card-text"><?php echo e($rg->{'group_detail_'.app()->getLocale()}); ?></h3>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\GitHub\git-group-repository-group-3-sec-4\Project_2-master\resources\views/researchgroupdetail.blade.php ENDPATH**/ ?>
