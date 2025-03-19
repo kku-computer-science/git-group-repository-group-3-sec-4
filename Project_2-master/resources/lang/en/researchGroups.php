@@ -1,0 +1,48 @@
+<?php
+return [
+    'research_group' => 'Research group',
+    'add' => 'ADD',
+    'no' => 'No.',
+    'group_name' => 'group name(Thai language)',
+    'head' => 'Head',
+    'member' => 'Member',
+    'action' => 'Action',
+    "whoops" => "Whoops!",
+    "input_problem" => "There were some problems with your input.",
+    "create_group" => "Create Research Group",
+    "enter_details" => "Enter research group details",
+    "group_name_th" => "Research Group Name (Thai)",
+    "group_name_en" => "Research Group Name (English)",
+    "group_desc_th" => "Research Group Description (Thai)",
+    "group_desc_en" => "Research Group Description (English)",
+    "group_detail_th" => "Research Group Details (Thai)",
+    "group_detail_en" => "Research Group Details (English)",
+    "image" => "Image",
+    "group_head" => "Research Group Head",
+    "group_members" => "Research Group Members",
+    "submit" => "Submit",
+    "back" => "Back",
+    "edit_group" => "Edit Research Group",  
+    "group_details" => "Research Group Details",
+    "group_information" => "Research Group Information",
+
+    'view_tooltip'   => 'View',
+    'edit_tooltip'   => 'Edit',
+    'delete_tooltip' => 'Delete',
+
+    'are_you_sure'   => 'Are you sure?',
+    'if_delete_gone' => 'If you delete this, it will be gone forever.',
+    'delete_success' => 'Delete Successfully',
+
+    'input_problem'           => 'There were some problems with your input.',
+    'group_name_th_required'  => 'The Thai group name is required.',
+    'group_name_en_required'  => 'The English group name is required.',
+    'head_required'           => 'The group head is required.',
+    'created_successfully'    => 'Research group created successfully.',
+    'updated_successfully'    => 'Research group updated successfully.',
+    'deleted_successfully'    => 'Research group deleted successfully.',
+
+    'ok_button'      => 'OK',
+    'cancel_button'  => 'Cancel',
+
+];
